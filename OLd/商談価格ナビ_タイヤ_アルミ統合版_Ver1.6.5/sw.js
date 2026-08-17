@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-6-5-estimate-accordion";
+const CACHE_NAME = "integrated-price-navi-ver1-6-5-labor-ceil10";
 const APP_SHELL = [
   "./",
   "./index.html",

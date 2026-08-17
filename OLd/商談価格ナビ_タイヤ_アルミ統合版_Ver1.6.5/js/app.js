@@ -1075,7 +1075,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="css/app.css?v=20260817-v165-estimate-accordion">
+  <link rel="stylesheet" href="css/app.css?v=20260817-v165-labor-ceil10">
   <style>
     @page { size: A4 portrait; margin: 0; }
     * { box-sizing: border-box; }
@@ -1800,7 +1800,7 @@
     const category = laborCategoryForInch(inch);
     const hasSet = Boolean(state.selectedTire && state.selectedWheel);
     const rate = hasSet ? Math.max(0, Math.min(100, number(state.settings.setDiscountRate))) / 100 : 0;
-    const mount = Math.round(number(category.mount) * (1 - rate));
+    const mount = ceilTo(number(category.mount) * (1 - rate), 10);
     const balance = number(category.balance);
     const disposal = number(category.disposal);
     const valve = number(category.valve);
@@ -1822,6 +1822,12 @@
 
   function laborCategoryForInch(inch) {
     return state.settings.laborCategories.find(category => inch >= category.min && inch <= category.max) || state.settings.laborCategories[0];
+  }
+
+  function ceilTo(value, unit) {
+    const n = number(value);
+    const step = number(unit) || 1;
+    return Math.ceil(n / step) * step;
   }
 
   function currentEstimateParts() {
