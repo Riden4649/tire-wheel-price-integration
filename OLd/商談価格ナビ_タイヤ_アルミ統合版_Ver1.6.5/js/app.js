@@ -389,8 +389,8 @@
       const products = [];
       const rateLabels = [];
       const brandRates = [];
-      workbook.SheetNames.forEach(sheetName => {
-        if (isSkipSheet(sheetName)) return;
+      const importSheetNames = wheelSheetNamesForImport(workbook, wheelType);
+      importSheetNames.forEach(sheetName => {
         const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: false });
         rateLabels.push(...extractRateLabels(rows));
         brandRates.push(...extractBrandRateLabels(rows));
@@ -636,7 +636,7 @@
         salePrice,
         sourceType: wheelType,
         sourceLabel: label,
-        id: stableId([wheelType, item.productCode, maker, brandName, patternName, item.sizeText, item.insetText, item.color, item.holes, item.pcd, item.wholesalePrice, salePrice])
+        id: stableId([wheelType, item.productCode, maker, brandName, patternName, item.sizeText, item.insetText, item.color, item.holes, item.pcd])
       };
     }
     const maker = item.maker || "その他";
@@ -651,7 +651,7 @@
       insetText: item.insetText || wheelInsetText(insetFromText(item.sizeText)),
       sourceType: wheelType,
       sourceLabel: label,
-      id: stableId([wheelType, item.productCode, maker, brandName, patternName, item.sizeText, item.insetText, item.color, item.holes, item.pcd, item.wholesalePrice, item.salePrice])
+      id: stableId([wheelType, item.productCode, maker, brandName, patternName, item.sizeText, item.insetText, item.color, item.holes, item.pcd])
     };
   }
 
@@ -2017,7 +2017,7 @@
   function dedupe(items) {
     const seen = new Set();
     return items.filter(item => {
-      const key = stableId([item.productCode, item.maker, item.patternName, item.sizeText, item.color, item.wholesalePrice, item.salePrice]);
+      const key = wheelProductIdentity(item);
       if (seen.has(key)) return false;
       seen.add(key);
       return true;
@@ -2026,6 +2026,24 @@
 
   function isSkipSheet(name) {
     return /連絡文書|説明|案内|注意|表紙|印刷用/i.test(text(name));
+  }
+
+  function wheelSheetNamesForImport(workbook, wheelType) {
+    const sheetNames = (workbook.SheetNames || []).filter(name => !isSkipSheet(name));
+    if (wheelType !== "other") return sheetNames;
+    const currentSheetNames = sheetNames.filter(isCurrentOtherWheelSheet);
+    return currentSheetNames.length ? currentSheetNames : sheetNames;
+  }
+
+  function isCurrentOtherWheelSheet(name) {
+    const normalized = norm(name);
+    return /(?:2026|26|Ｒ8|R8|令和8)/i.test(normalized);
+  }
+
+  function wheelProductIdentity(item) {
+    const code = text(item.productCode);
+    if (code) return stableId(["code", code]);
+    return stableId([item.maker, item.brandName, item.patternName, item.sizeText, item.insetText, item.color, item.holes, item.pcd]);
   }
 
   function inferMaker(pattern, brand, sheetName) {

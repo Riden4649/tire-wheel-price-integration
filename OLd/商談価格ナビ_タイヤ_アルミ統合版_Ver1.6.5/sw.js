@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-6-5-pwa-status";
+const CACHE_NAME = "integrated-price-navi-ver1-6-5-wheel-dedupe";
 const APP_SHELL = [
   "./",
   "./index.html",
