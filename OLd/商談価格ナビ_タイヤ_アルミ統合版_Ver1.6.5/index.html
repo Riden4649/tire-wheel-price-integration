@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-  <link rel="stylesheet" href="css/app.css?v=20260817-v165-wheel-dedupe">
+  <link rel="stylesheet" href="css/app.css?v=20260817-v165-estimate-accordion">
 </head>
 <body>
   <header class="topbar">
@@ -40,11 +40,11 @@
           <label><input type="checkbox" id="useWinterTire" checked>冬タイヤ</label>
         </div>
         <div class="choice-panel" id="tireChoicePanel">
-          <section data-search-panel="tire" data-search-item="category"><h2>区分</h2><div class="choice-row" id="tireCategoryChips"></div></section>
-          <section data-search-panel="tire" data-search-item="brand"><h2>ブランド</h2><div class="choice-row" id="tireBrandChips"></div></section>
-          <section data-search-panel="tire" data-search-item="product"><h2>商品</h2><div class="choice-row" id="tireProductChips"></div></section>
-          <section data-search-panel="tire" data-search-item="inch"><h2>インチ</h2><div class="choice-row" id="tireInchChips"></div></section>
-          <section data-search-panel="tire" data-search-item="size"><h2>サイズ</h2><div class="choice-row" id="tireSizeChips"></div></section>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="category" open><summary><span>区分</span><b></b></summary><div class="choice-row" id="tireCategoryChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="brand"><summary><span>ブランド</span><b></b></summary><div class="choice-row" id="tireBrandChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="product"><summary><span>商品</span><b></b></summary><div class="choice-row" id="tireProductChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="inch"><summary><span>インチ</span><b></b></summary><div class="choice-row" id="tireInchChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="size"><summary><span>サイズ</span><b></b></summary><div class="choice-row" id="tireSizeChips"></div></details>
         </div>
         <div class="filter-grid assist-grid">
           <label>商品名で絞り込み<input id="tireProduct" type="search" placeholder="例：REGNO"></label>
@@ -69,12 +69,12 @@
           <label><input type="checkbox" id="useOtherWheel" checked>社外アルミ</label>
         </div>
         <div class="choice-panel" id="wheelChoicePanel">
-          <section data-search-panel="wheel" data-search-item="maker"><h2>メーカー</h2><div class="choice-row" id="wheelMakerChips"></div></section>
-          <section data-search-panel="wheel" data-search-item="brand"><h2>ブランド</h2><div class="choice-row" id="wheelBrandChips"></div></section>
-          <section data-search-panel="wheel" data-search-item="pattern"><h2>パターン</h2><div class="choice-row" id="wheelPatternChips"></div></section>
-          <section data-search-panel="wheel" data-search-item="inch"><h2>インチ</h2><div class="choice-row" id="wheelInchChips"></div></section>
-          <section data-search-panel="wheel" data-search-item="pcd"><h2>PCD</h2><div class="choice-row" id="wheelPcdChips"></div></section>
-          <section data-search-panel="wheel" data-search-item="size"><h2>サイズ</h2><div class="choice-row" id="wheelSizeChips"></div></section>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="maker" open><summary><span>メーカー</span><b></b></summary><div class="choice-row" id="wheelMakerChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="brand"><summary><span>ブランド</span><b></b></summary><div class="choice-row" id="wheelBrandChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="pattern"><summary><span>パターン</span><b></b></summary><div class="choice-row" id="wheelPatternChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="inch"><summary><span>インチ</span><b></b></summary><div class="choice-row" id="wheelInchChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="pcd"><summary><span>PCD</span><b></b></summary><div class="choice-row" id="wheelPcdChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="size"><summary><span>サイズ</span><b></b></summary><div class="choice-row" id="wheelSizeChips"></div></details>
         </div>
         <div class="filter-grid assist-grid">
           <label>メーカーで絞り込み<input id="wheelMaker" type="search" placeholder="例：BS"></label>
@@ -96,16 +96,16 @@
         <div class="action-row"><button class="primary" id="printEstimate">印刷</button><button class="secondary" id="clearEstimate">選択をクリア</button></div>
       </div>
       <p class="message estimate-warning" id="inchWarning" hidden></p>
-      <div class="estimate-layout">
-        <section class="summary-card">
+      <div class="estimate-layout estimate-control-layout">
+        <section class="summary-card estimate-legacy-summary">
           <h2>選択中の商品</h2>
           <dl id="estimateItems"></dl>
         </section>
-        <section class="summary-card">
-          <h2>費用内訳</h2>
+        <section class="summary-card estimate-cost-card">
+          <h2>費用調整</h2>
           <dl id="estimateCosts"></dl>
         </section>
-        <section class="total-card">
+        <section class="total-card estimate-legacy-total">
           <span>合計金額</span>
           <strong id="grandTotal">0円</strong>
           <small id="totalBreakdown">タイヤ・アルミ・工賃を選択すると合計します。</small>
@@ -263,11 +263,11 @@
 
   <dialog id="imageDialog"><button id="closeImageDialog" class="dialog-close">×</button><img id="dialogImage" alt=""></dialog>
 
-  <script src="vendor/jszip.min.js?v=20260817-v165-wheel-dedupe"></script>
-  <script src="vendor/sheetjs-bridge.js?v=20260817-v165-wheel-dedupe"></script>
-  <script src="js/brand-config.js?v=20260817-v165-wheel-dedupe"></script>
-  <script src="js/workbook.js?v=20260817-v165-wheel-dedupe"></script>
-  <script src="js/pricing.js?v=20260817-v165-wheel-dedupe"></script>
-  <script src="js/app.js?v=20260817-v165-wheel-dedupe"></script>
+  <script src="vendor/jszip.min.js?v=20260817-v165-estimate-accordion"></script>
+  <script src="vendor/sheetjs-bridge.js?v=20260817-v165-estimate-accordion"></script>
+  <script src="js/brand-config.js?v=20260817-v165-estimate-accordion"></script>
+  <script src="js/workbook.js?v=20260817-v165-estimate-accordion"></script>
+  <script src="js/pricing.js?v=20260817-v165-estimate-accordion"></script>
+  <script src="js/app.js?v=20260817-v165-estimate-accordion"></script>
 </body>
 </html>

@@ -746,6 +746,7 @@
     }
     if (button.dataset.filter === "size") els.tireSize.value = value;
     renderTires();
+    openNextSearchStep("tire", button.dataset.filter);
   }
 
   function tireCard(item) {
@@ -857,6 +858,7 @@
     }
     if (button.dataset.filter === "size") els.wheelSize.value = value;
     renderWheels();
+    openNextSearchStep("wheel", button.dataset.filter);
   }
 
   function wheelCard(item) {
@@ -1073,7 +1075,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="css/app.css?v=20260707-v163-print">
+  <link rel="stylesheet" href="css/app.css?v=20260817-v165-estimate-accordion">
   <style>
     @page { size: A4 portrait; margin: 0; }
     * { box-sizing: border-box; }
@@ -1749,6 +1751,17 @@
       const section = panel.querySelector(`[data-search-panel="${type}"][data-search-item="${key}"]`);
       if (section) panel.appendChild(section);
     });
+  }
+
+  function openNextSearchStep(type, currentKey) {
+    const panel = type === "tire" ? els.tireChoicePanel : els.wheelChoicePanel;
+    if (!panel || !currentKey) return;
+    const order = normalizedSearchOrder(type);
+    const currentIndex = order.indexOf(currentKey);
+    const nextKey = order[currentIndex + 1];
+    if (!nextKey) return;
+    const next = panel.querySelector(`[data-search-panel="${type}"][data-search-item="${nextKey}"]`);
+    if (next?.tagName === "DETAILS") next.open = true;
   }
 
   function normalizedSearchOrder(type) {

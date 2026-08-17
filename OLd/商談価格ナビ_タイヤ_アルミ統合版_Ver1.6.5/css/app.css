@@ -212,18 +212,56 @@ h2 { font-size: 18px; }
   opacity: 0;
   pointer-events: none;
 }
-.choice-panel section {
+.choice-accordion {
   display: grid;
   gap: 8px;
-  padding: 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: linear-gradient(180deg, #fff, var(--soft));
+  overflow: hidden;
 }
-.choice-panel h2 {
-  margin: 0;
+.choice-accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 12px;
   color: var(--green);
   font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  list-style: none;
+}
+.choice-accordion summary::-webkit-details-marker { display: none; }
+.choice-accordion summary b {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  flex: 0 0 auto;
+}
+.choice-accordion summary b::before,
+.choice-accordion summary b::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 10px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--green);
+  transform: translate(-50%, -50%);
+}
+.choice-accordion summary b::after { transform: translate(-50%, -50%) rotate(90deg); }
+.choice-accordion[open] summary {
+  border-bottom: 1px solid var(--line);
+  background: #eef7f2;
+}
+.choice-accordion[open] summary b::after { display: none; }
+.choice-accordion .choice-row {
+  padding: 12px;
 }
 .choice-row {
   display: flex;
@@ -663,6 +701,38 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 .print-note strong { color: #1f5143; }
 .print-note p { margin: 10px 0 0; color: #74837d; line-height: 1.7; }
 .print-footer-message { margin: 22px 0 0; color: #74837d; font-size: 13px; }
+#tab-estimate.active {
+  display: flex;
+  flex-direction: column;
+}
+#tab-estimate.active .section-head { order: 0; }
+#tab-estimate.active .estimate-warning { order: 1; }
+#tab-estimate.active #printSheet {
+  order: 2;
+  display: block;
+  width: min(100%, 1100px);
+  margin: 14px auto 0;
+}
+.estimate-control-layout {
+  order: 3;
+  grid-template-columns: 1fr;
+  width: min(100%, 1100px);
+  margin: 14px auto 0;
+}
+.estimate-legacy-summary,
+.estimate-legacy-total {
+  display: none;
+}
+.estimate-cost-card {
+  background: #fff;
+}
+.estimate-cost-card h2::after {
+  content: "（チェックで含める／金額変更は即時反映）";
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
 .print-preview-screen {
   position: fixed;
   inset: 0;
@@ -786,6 +856,12 @@ dialog img { max-width: 100%; max-height: 80vh; object-fit: contain; }
   .tabs { grid-template-columns: repeat(2, 1fr); top: 68px; }
   .section-head, .estimate-layout, .settings-grid { grid-template-columns: 1fr; display: grid; align-items: stretch; }
   .result-grid, .image-list, .summary-strip { grid-template-columns: 1fr; }
+  .print-product-grid { grid-template-columns: 1fr; }
+  .print-sheet { padding: 18px 14px; }
+  .print-heading strong { font-size: 34px; }
+  .print-product-box h3 { font-size: 24px; }
+  .print-total { align-items: flex-start; flex-direction: column; }
+  .print-total strong { font-size: 40px; }
   .filter-grid, .cost-grid, .labor-category-grid, .labor-category-fields, .print-option-grid, .search-order-settings { grid-template-columns: 1fr; }
   .estimate-cost-value { grid-template-columns: 1fr; justify-content: stretch; }
   .estimate-cost-value strong { min-width: 0; }
