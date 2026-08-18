@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-6-6-labor-ceil10";
+const CACHE_NAME = "integrated-price-navi-ver1-6-6-set-icon";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -11,10 +11,10 @@ const APP_SHELL = [
   "./vendor/sheetjs-bridge.js",
   "./data/wheel_image_master.json",
   "./manifest.json",
-  "./icons/favicon-32.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/apple-touch-icon.png"
+  "./icons/favicon-32-v166-set.png",
+  "./icons/icon-192-v166-set.png",
+  "./icons/icon-512-v166-set.png",
+  "./icons/apple-touch-icon-v166-set.png"
 ];
 const OFFLINE_URL = "./index.html";
 
