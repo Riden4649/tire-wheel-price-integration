@@ -7,15 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="商談価格ナビ">
   <meta name="format-detection" content="telephone=no">
-  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.7.1</title>
+  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.7.2</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon-v166-set.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32-v166-set.png">
-  <link rel="stylesheet" href="css/app-v170.css?v=20260831-v170-vehicle">
+  <link rel="stylesheet" href="css/app-v172.css?v=20260831-v172-vehicle-search">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.7.1</small></div>
+    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.7.2</small></div>
     <div class="status-pill" id="saveStatus">READY</div>
   </header>
 
@@ -73,6 +73,11 @@
           <button type="button" class="search-mode-button" data-wheel-search-mode="wheel">ホイールから探す</button>
         </div>
         <div class="choice-panel vehicle-choice-panel" id="vehicleChoicePanel">
+          <div class="vehicle-model-search">
+            <label for="vehicleModelSearch">車種名検索</label>
+            <div><input type="search" id="vehicleModelSearch" placeholder="例：シビック、やりす、CX9" autocomplete="off" inputmode="search"><button type="button" id="clearVehicleModelSearch">クリア</button></div>
+            <small id="vehicleModelSearchStatus">ひらがな・カタカナ・英数字で検索できます</small>
+          </div>
           <details class="choice-accordion" data-vehicle-step="maker" open><summary><span>メーカー</span><b></b></summary><div class="choice-row" id="vehicleMakerChips"></div></details>
           <details class="choice-accordion" data-vehicle-step="model"><summary><span>車種</span><b></b></summary><div class="choice-row" id="vehicleModelChips"></div></details>
           <details class="choice-accordion" data-vehicle-step="generation"><summary><span>型式 / 世代</span><b></b></summary><div class="choice-row" id="vehicleGenerationChips"></div></details>
@@ -283,6 +288,6 @@
   <script src="js/workbook.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/pricing.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/vehicle-fitment-v170.js?v=20260831-v170-vehicle"></script>
-  <script src="js/app-v171.js?v=20260831-v171-bs-import"></script>
+  <script src="js/app-v172.js?v=20260831-v172-vehicle-search"></script>
 </body>
 </html>

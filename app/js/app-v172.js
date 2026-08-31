@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.7.1";
+  const APP_VERSION = "Ver1.7.2";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -48,6 +48,7 @@
     vehicles: [],
     vehicleLoadError: "",
     wheelSearchMode: "vehicle",
+    vehicleQuery: "",
     vehicleSelection: { maker: "", model: "", vehicleId: "", year: "", tire: "" },
     tireInch: "",
     tireCategory: "",
@@ -104,6 +105,9 @@
     wheelChoicePanel: $("#wheelChoicePanel"),
     wheelResults: $("#wheelResults"),
     vehicleChoicePanel: $("#vehicleChoicePanel"),
+    vehicleModelSearch: $("#vehicleModelSearch"),
+    clearVehicleModelSearch: $("#clearVehicleModelSearch"),
+    vehicleModelSearchStatus: $("#vehicleModelSearchStatus"),
     vehicleMakerChips: $("#vehicleMakerChips"),
     vehicleModelChips: $("#vehicleModelChips"),
     vehicleGenerationChips: $("#vehicleGenerationChips"),
@@ -319,6 +323,12 @@
     els.wheelResults.addEventListener("click", handleWheelResultClick);
     $$('[data-wheel-search-mode]').forEach(button => button.addEventListener("click", () => setWheelSearchMode(button.dataset.wheelSearchMode)));
     els.vehicleChoicePanel.addEventListener("click", handleVehicleChipClick);
+    els.vehicleModelSearch.addEventListener("input", handleVehicleModelSearch);
+    els.clearVehicleModelSearch.addEventListener("click", () => {
+      els.vehicleModelSearch.value = "";
+      handleVehicleModelSearch({ target: els.vehicleModelSearch });
+      els.vehicleModelSearch.focus();
+    });
     els.closeImageDialog.addEventListener("click", () => els.imageDialog.close());
   }
 
@@ -843,15 +853,41 @@
     return `<button type="button" class="choice-chip${active ? " active" : ""}" data-vehicle-filter="${escapeHtml(step)}" data-value="${escapeHtml(value)}">${escapeHtml(label)}</button>`;
   }
 
+  function normalizeVehicleQuery(value) {
+    return String(value || "")
+      .normalize("NFKC")
+      .toLowerCase()
+      .replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0) - 0x60))
+      .replace(/[\s\-‐‑‒–—―・_/]/g, "");
+  }
+
+  function vehicleMatchesQuery(vehicle, query) {
+    if (!query) return true;
+    return [vehicle.model, ...vehicleModelAliases(vehicle.model), vehicle.generation]
+      .some(value => normalizeVehicleQuery(value).includes(query));
+  }
+
+  function handleVehicleModelSearch(event) {
+    state.vehicleQuery = event.target.value || "";
+    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", tire: "" };
+    renderVehicleChips();
+    renderWheels();
+  }
+
   function renderVehicleChips() {
     const selection = state.vehicleSelection;
-    const byMaker = state.vehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
+    const query = normalizeVehicleQuery(state.vehicleQuery);
+    const matchingVehicles = state.vehicles.filter(vehicle => vehicleMatchesQuery(vehicle, query));
+    const byMaker = matchingVehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
     const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle.model).includes(selection.model));
     const vehicle = currentVehicle();
-    const makers = [...new Set(state.vehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
+    const makers = [...new Set(matchingVehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
     const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item.model)))].sort((a, b) => a.localeCompare(b, "ja"));
     els.vehicleMakerChips.innerHTML = makers.map(value => vehicleChip("maker", value, displayVehicleMaker(value), selection.maker === value)).join("");
     els.vehicleModelChips.innerHTML = models.map(value => vehicleChip("model", value, value, selection.model === value)).join("");
+    els.vehicleModelSearchStatus.textContent = query
+      ? `${matchingVehicles.length}世代・${models.length || [...new Set(matchingVehicles.flatMap(item => vehicleModelAliases(item.model)))].length}車種が該当`
+      : "ひらがな・カタカナ・英数字で検索できます";
     els.vehicleGenerationChips.innerHTML = byModel.map(item => vehicleChip("generation", item.vehicle_id, item.generation, selection.vehicleId === item.vehicle_id)).join("");
     const years = vehicle ? window.VehicleFitment.years(vehicle) : [];
     els.vehicleYearChips.innerHTML = years.map(value => vehicleChip("year", String(value), `${value}年`, selection.year === String(value))).join("");
