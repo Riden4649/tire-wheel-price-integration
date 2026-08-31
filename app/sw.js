@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-7-2-vehicle-search-124";
+const CACHE_NAME = "integrated-price-navi-ver1-7-2-new-tire-icon";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -13,10 +13,10 @@ const APP_SHELL = [
   "./data/wheel_image_master.json",
   "./data/vehicles_2012_2026.json",
   "./manifest.json",
-  "./icons/favicon-32-v166-set.png",
-  "./icons/icon-192-v166-set.png",
-  "./icons/icon-512-v166-set.png",
-  "./icons/apple-touch-icon-v166-set.png"
+  "./icons/favicon-32-v172-tire.png",
+  "./icons/icon-192-v172-tire.png",
+  "./icons/icon-512-v172-tire.png",
+  "./icons/apple-touch-icon-v172-tire.png"
 ];
 const OFFLINE_URL = "./index.html";
 
