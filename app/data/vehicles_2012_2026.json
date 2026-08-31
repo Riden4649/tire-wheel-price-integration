@@ -16,7 +16,7 @@
       "A"
     ]
   },
-  "record_count": 123,
+  "record_count": 124,
   "vehicles": [
     {
       "vehicle_id": "TOY_AQUA_NHP10",
@@ -1979,6 +1979,23 @@
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/mazda/",
       "sources": [{"source_type":"manufacturer_official","source_name":"MAZDA","source_url":"https://www2.mazda.co.jp/carlife/owner/manual/cx-80/kl/ekya/contents/70071500.html","verified_at":"2026-08-31"}]
+    },
+    {
+      "vehicle_id": "MAZ_CX9_TC",
+      "maker": "マツダ",
+      "model": "CX-9",
+      "generation": "TC系（海外仕様）",
+      "year_from": "2016-02",
+      "year_to": "2023-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 67.1,
+      "fastener": "M12×P1.5",
+      "oem_inch": "18/20",
+      "oem_tire": "255/60R18;255/50R20",
+      "confidence": "B",
+      "weds_url": "https://search.weds.co.jp/maker/mazda/",
+      "sources": [{"source_type":"manufacturer_official","source_name":"Mazda USA","source_url":"https://www.mazdausa.com/static/manuals/2023/cx-9/contents/10020109.html","verified_at":"2026-08-31"}]
     },
     {
       "vehicle_id": "SUB_BRZ_ZD8",

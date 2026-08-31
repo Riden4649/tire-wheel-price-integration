@@ -317,6 +317,19 @@ h2 { font-size: 18px; }
   background: #eef7f2;
 }
 .choice-accordion[open] summary b::after { display: none; }
+.vehicle-model-search {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f7faf8;
+}
+.vehicle-model-search > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.vehicle-model-search input { min-height: 46px; font-size: 16px; background: #fff; }
+.vehicle-model-search button { min-height: 46px; padding: 0 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-weight: 900; }
+.vehicle-model-search small { color: var(--muted); font-weight: 800; }
 .choice-accordion .choice-row {
   padding: 12px;
 }
