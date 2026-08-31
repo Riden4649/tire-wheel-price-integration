@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2f6b57">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="商談価格ナビ">
+  <meta name="format-detection" content="telephone=no">
+  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.7.0</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon-v166-set.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32-v166-set.png">
+  <link rel="stylesheet" href="css/app-v170.css?v=20260831-v170-vehicle">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.7.0</small></div>
+    <div class="status-pill" id="saveStatus">READY</div>
+  </header>
+
+  <nav class="tabs" aria-label="メイン画面">
+    <button class="tab active" data-tab="tire">タイヤ</button>
+    <button class="tab" data-tab="wheel">アルミホイール</button>
+    <button class="tab" data-tab="estimate">セット見積</button>
+    <button class="tab" data-tab="settings">管理</button>
+  </nav>
+
+  <main class="shell">
+    <section class="panel active" id="tab-tire">
+      <div class="section-head">
+        <div><p class="kicker">TIRE</p><h1>タイヤ単体価格</h1></div>
+      </div>
+      <p class="message source-status" id="tireStatus">タイヤ価格表を読み込んでください。</p>
+      <details class="search-box" id="tireSearchDetails">
+        <summary><strong>検索条件</strong><span id="tireSearchSummary">未指定</span></summary>
+        <div class="source-filter">
+          <span>タイヤ価格表</span>
+          <label><input type="checkbox" id="useSummerTire" checked>夏タイヤ</label>
+          <label><input type="checkbox" id="useWinterTire" checked>冬タイヤ</label>
+        </div>
+        <div class="choice-panel" id="tireChoicePanel">
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="category" open><summary><span>区分</span><b></b></summary><div class="choice-row" id="tireCategoryChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="brand"><summary><span>ブランド</span><b></b></summary><div class="choice-row" id="tireBrandChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="product"><summary><span>商品</span><b></b></summary><div class="choice-row" id="tireProductChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="inch"><summary><span>インチ</span><b></b></summary><div class="choice-row" id="tireInchChips"></div></details>
+          <details class="choice-accordion" data-search-panel="tire" data-search-item="size"><summary><span>サイズ</span><b></b></summary><div class="choice-row" id="tireSizeChips"></div></details>
+        </div>
+        <div class="filter-grid assist-grid">
+          <label>商品名で絞り込み<input id="tireProduct" type="search" placeholder="例：REGNO"></label>
+          <label>サイズで絞り込み<input id="tireSize" type="search" placeholder="例：195/65R15"></label>
+          <label>表示件数<select id="tireLimit"><option>30</option><option>60</option><option>120</option></select></label>
+          <label class="hidden-field">ブランド<select id="tireBrand"><option value="">すべて</option></select></label>
+        </div>
+      </details>
+      <div class="result-grid tire-results" id="tireResults"></div>
+    </section>
+
+    <section class="panel" id="tab-wheel">
+      <div class="section-head">
+        <div><p class="kicker">ALUMINUM WHEEL</p><h1>アルミホイール単体価格</h1></div>
+      </div>
+      <p class="message source-status" id="wheelStatus">アルミ価格表を読み込んでください。</p>
+      <details class="search-box" id="wheelSearchDetails">
+        <summary><strong>検索条件</strong><span id="wheelSearchSummary">未指定</span></summary>
+        <div class="source-filter">
+          <span>アルミ価格表</span>
+          <label><input type="checkbox" id="useBsWheel" checked>BSアルミ</label>
+          <label><input type="checkbox" id="useOtherWheel" checked>社外アルミ</label>
+        </div>
+        <div class="search-mode-switch" role="group" aria-label="アルミホイールの検索方法">
+          <button type="button" class="search-mode-button active" data-wheel-search-mode="vehicle">🚗 車から選ぶ</button>
+          <button type="button" class="search-mode-button" data-wheel-search-mode="wheel">ホイールから探す</button>
+        </div>
+        <div class="choice-panel vehicle-choice-panel" id="vehicleChoicePanel">
+          <details class="choice-accordion" data-vehicle-step="maker" open><summary><span>メーカー</span><b></b></summary><div class="choice-row" id="vehicleMakerChips"></div></details>
+          <details class="choice-accordion" data-vehicle-step="model"><summary><span>車種</span><b></b></summary><div class="choice-row" id="vehicleModelChips"></div></details>
+          <details class="choice-accordion" data-vehicle-step="generation"><summary><span>型式 / 世代</span><b></b></summary><div class="choice-row" id="vehicleGenerationChips"></div></details>
+          <details class="choice-accordion" data-vehicle-step="year"><summary><span>年式</span><b></b></summary><div class="choice-row" id="vehicleYearChips"></div></details>
+          <details class="choice-accordion" data-vehicle-step="tire"><summary><span>純正タイヤサイズ</span><b></b></summary><div class="choice-row" id="vehicleTireChips"></div></details>
+          <div class="vehicle-summary" id="vehicleSummary" hidden></div>
+          <p class="fitment-disclaimer">候補判定は装着保証ではありません。販売時に、該当ホイールメーカーの最新公式適合情報で最終確認してください。</p>
+        </div>
+        <div class="choice-panel" id="wheelChoicePanel" hidden>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="maker" open><summary><span>メーカー</span><b></b></summary><div class="choice-row" id="wheelMakerChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="brand"><summary><span>ブランド</span><b></b></summary><div class="choice-row" id="wheelBrandChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="pattern"><summary><span>パターン</span><b></b></summary><div class="choice-row" id="wheelPatternChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="inch"><summary><span>インチ</span><b></b></summary><div class="choice-row" id="wheelInchChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="pcd"><summary><span>PCD</span><b></b></summary><div class="choice-row" id="wheelPcdChips"></div></details>
+          <details class="choice-accordion" data-search-panel="wheel" data-search-item="size"><summary><span>サイズ</span><b></b></summary><div class="choice-row" id="wheelSizeChips"></div></details>
+        </div>
+        <div class="filter-grid assist-grid" id="wheelAssistGrid" hidden>
+          <label>メーカーで絞り込み<input id="wheelMaker" type="search" placeholder="例：BS"></label>
+          <label>ブランドで絞り込み<input id="wheelBrand" type="search" placeholder="例：TOPRUN"></label>
+          <label>パターンで絞り込み<input id="wheelPattern" type="search" placeholder="例：M7 / AR12"></label>
+          <label>インチで絞り込み<input id="wheelInch" type="search" placeholder="例：15 / 16"></label>
+          <label>PCDで絞り込み<input id="wheelPcd" type="search" placeholder="例：4/100 / 5/114.3"></label>
+          <label>サイズで絞り込み<input id="wheelSize" type="search" placeholder="例：15 / 15X55"></label>
+          <label class="hidden-field">カラー<input id="wheelColor" type="search"></label>
+          <label>表示件数<select id="wheelLimit"><option>30</option><option>60</option><option>120</option></select></label>
+        </div>
+      </details>
+      <div class="fitment-counts" id="fitmentCounts" hidden></div>
+      <div class="result-grid wheel-results" id="wheelResults"></div>
+    </section>
+
+    <section class="panel" id="tab-estimate">
+      <div class="section-head">
+        <div><p class="kicker">SET ESTIMATE</p><h1>セット見積</h1></div>
+        <div class="action-row"><button class="primary" id="printEstimate">印刷</button><button class="secondary" id="clearEstimate">選択をクリア</button></div>
+      </div>
+      <p class="message estimate-warning" id="inchWarning" hidden></p>
+      <div class="estimate-layout estimate-control-layout">
+        <section class="summary-card estimate-legacy-summary">
+          <h2>選択中の商品</h2>
+          <dl id="estimateItems"></dl>
+        </section>
+        <section class="summary-card estimate-cost-card">
+          <h2>費用調整</h2>
+          <dl id="estimateCosts"></dl>
+        </section>
+        <section class="total-card estimate-legacy-total">
+          <span>合計金額</span>
+          <strong id="grandTotal">0円</strong>
+          <small id="totalBreakdown">タイヤ・アルミ・工賃を選択すると合計します。</small>
+        </section>
+      </div>
+      <section class="print-sheet" id="printSheet" aria-label="印刷用見積">
+        <div class="print-header">
+          <div class="print-heading">
+            <span>ESTIMATE</span>
+            <strong>お見積書</strong>
+            <small id="printDate">作成日：----</small>
+          </div>
+          <address class="print-shop">
+            <strong id="printShopName">タイヤ館 箕輪</strong>
+            <span id="printShopAddress">長野県上伊那郡箕輪町大字三日町964-1</span>
+            <span id="printShopTel">TEL 0265-98-9111</span>
+          </address>
+        </div>
+        <div class="print-rule"></div>
+        <div class="print-product-grid">
+          <section class="print-product-box">
+            <span>タイヤ</span>
+            <h3 id="printTireTitle">未選択</h3>
+            <dl id="printTireItems"></dl>
+          </section>
+          <section class="print-product-box">
+            <span>アルミ</span>
+            <h3 id="printWheelTitle">未選択</h3>
+            <dl id="printWheelItems"></dl>
+          </section>
+        </div>
+        <table class="print-detail-table">
+          <thead><tr><th>内容</th><th>単価</th><th>数量</th><th>金額</th></tr></thead>
+          <tbody id="printDetailItems"></tbody>
+        </table>
+        <div class="print-total"><span>税込合計金額</span><strong id="printGrandTotal">0円</strong></div>
+        <section class="print-note">
+          <strong>備考</strong>
+          <p id="printNoteText">表示価格は税込です。有効期限・在庫状況は店頭にてご確認ください。</p>
+        </section>
+        <p class="print-footer-message">安心・快適なカーライフのために、最適なタイヤ選びをお手伝いいたします。</p>
+      </section>
+    </section>
+
+    <section class="panel" id="tab-settings">
+      <div class="section-head"><div><p class="kicker">ADMIN</p><h1>管理・設定</h1></div></div>
+      <div class="settings-grid">
+        <details class="settings-accordion" open>
+          <summary><span>基本設定</span><b></b></summary>
+          <div class="settings-accordion-body">
+          <div class="import-card" data-source-card="summerTire">
+            <div class="import-card-head"><strong>夏タイヤ価格表</strong><span class="source-badge-inline" id="summerTireSourceBadge">⚪ 未読込</span></div>
+            <p class="import-detail" data-source-detail="summerTire">ファイル未選択</p>
+            <div class="action-row"><label class="file-button">読み込み<input id="summerTireFileSetting" type="file" accept=".xlsm,.xlsx"></label><button class="secondary" type="button" id="clearSummerTire">クリア</button></div>
+          </div>
+          <div class="import-card" data-source-card="winterTire">
+            <div class="import-card-head"><strong>冬タイヤ価格表</strong><span class="source-badge-inline" id="winterTireSourceBadge">⚪ 未読込</span></div>
+            <p class="import-detail" data-source-detail="winterTire">ファイル未選択</p>
+            <div class="action-row"><label class="file-button">読み込み<input id="winterTireFileSetting" type="file" accept=".xlsm,.xlsx"></label><button class="secondary" type="button" id="clearWinterTire">クリア</button></div>
+          </div>
+          <div class="import-card" data-source-card="bsWheel">
+            <div class="import-card-head"><strong>BSアルミ価格表</strong><span class="source-badge-inline" id="bsWheelSourceBadge">⚪ 未読込</span></div>
+            <p class="import-detail" data-source-detail="bsWheel">ファイル未選択</p>
+            <div class="action-row"><label class="file-button">読み込み<input id="bsWheelFileSetting" type="file" accept=".xls,.xlsx,.xlsm"></label><button class="secondary" type="button" id="clearBsWheel">クリア</button></div>
+          </div>
+          <div class="import-card" data-source-card="otherWheel">
+            <div class="import-card-head"><strong>社外アルミ価格表</strong><span class="source-badge-inline" id="otherWheelSourceBadge">⚪ 未読込</span></div>
+            <p class="import-detail" data-source-detail="otherWheel">ファイル未選択</p>
+            <div class="action-row"><label class="file-button">読み込み<input id="otherWheelFileSetting" type="file" accept=".xls,.xlsx,.xlsm"></label><button class="secondary" type="button" id="clearOtherWheel">クリア</button></div>
+          </div>
+          <div class="cost-grid">
+            <label>店名<input id="shopName" type="text"></label>
+            <label>電話番号<input id="shopTel" type="text"></label>
+            <label class="wide-input">住所<input id="shopAddress" type="text"></label>
+            <label class="wide-input">見積書 備考<input id="quoteNote" type="text"></label>
+          </div>
+          </div>
+        </details>
+        <details class="settings-accordion">
+          <summary><span>価格設定</span><b></b></summary>
+          <div class="settings-accordion-body">
+          <div class="cost-grid">
+            <label>税率（%）<input id="taxRate" type="number" min="0" step="0.1"></label>
+            <label>端数処理<select id="rounding"><option value="ceil100">100円切上げ</option><option value="round100">100円四捨五入</option><option value="none">なし</option></select></label>
+            <label>タイヤ加算額<input id="tireAddition" type="number" min="0" step="100"></label>
+            <label>標準掛率<input id="defaultRate" type="number" min="0.01" step="0.01"></label>
+            <label>アルミ掛率<input id="wheelMarkup" type="number" min="0" step="0.01"></label>
+            <label>アルミ計算方法<select id="wheelPricingMode"><option value="divide">仕切価格 ÷ 掛率</option><option value="multiply">仕切価格 × 掛率</option><option value="direct">販売価格をそのまま使用</option></select></label>
+            <label>その他費用<input data-default-cost="other" type="number" min="0"></label>
+          </div>
+          <h3 class="settings-mini-title">アルミブランド別値引き率</h3>
+          <div class="cost-grid compact-grid" id="wheelBrandDiscountGrid"></div>
+          <div class="admin-note-box">
+            <strong>アルミ価格計算</strong>
+            <span>仕切り欄表示：<b id="bsRateLabels">未読込</b></span>
+            <span>ブランド別仕切り：<b id="bsBrandRateLabels">未読込</b></span>
+            <span>アルミ販売価格計算：<b id="wheelRatePreview">仕切価格 ÷ 0.90</b></span>
+          </div>
+          </div>
+        </details>
+        <details class="settings-accordion">
+          <summary><span>工賃設定</span><b></b></summary>
+          <div class="settings-accordion-body">
+          <div class="cost-grid compact-grid">
+            <label>セット品 工賃割引率（%）<input id="setDiscountRate" type="number" min="0" max="100" step="1"></label>
+          </div>
+          <div class="labor-category-grid" id="laborCategoryGrid"></div>
+          </div>
+        </details>
+        <details class="settings-accordion">
+          <summary><span>表示設定</span><b></b></summary>
+          <div class="settings-accordion-body">
+          <div class="cost-grid compact-grid">
+            <label>アルミ画像表示<select id="wheelImageDisplay"><option value="off">OFF</option><option value="on">ON</option></select></label>
+            <label>画像管理表示<select id="imageManagerDisplay"><option value="off">OFF</option><option value="on">ON</option></select></label>
+          </div>
+          <h3 class="settings-mini-title">検索項目の並び順設定</h3>
+          <div class="search-order-settings" id="searchOrderSettings"></div>
+          <div class="print-option-grid" id="printOptionGrid"></div>
+          <div class="action-row"><button class="secondary" id="resetData">データ初期化</button><button class="secondary" id="refreshCache">キャッシュ更新</button></div>
+          </div>
+        </details>
+        <details class="settings-accordion admin-wide" id="imageManagerSection">
+          <summary><span>画像管理</span><b></b></summary>
+          <div class="settings-accordion-body">
+          <div class="section-subhead">
+            <div><p class="kicker">WHEEL IMAGE DB</p><h2>画像管理</h2></div>
+            <div class="action-row">
+              <label class="secondary file-inline">画像DB読込（設定）<input id="imageDbFileSetting" type="file" accept=".json,application/json"></label>
+              <label class="secondary file-inline">画像DB読込<input id="imageDbFile" type="file" accept=".json,application/json"></label>
+              <button class="primary" id="exportImageDb">画像DBを書き出す</button>
+            </div>
+          </div>
+          <div class="summary-strip">
+            <div><span>登録済み画像数</span><strong id="registeredImageCount">0</strong></div>
+            <div><span>未登録画像数</span><strong id="missingImageCount">0</strong></div>
+            <div><span>パターン数</span><strong id="patternCount">0</strong></div>
+          </div>
+          <p class="message">画像は選択後に推奨ファイル名でダウンロードできます。ダウンロードした画像を <b>wheel_images</b> フォルダへ、JSONを <b>data</b> フォルダへ入れてください。</p>
+          <p class="subtle">画像フォルダ：アプリ内の <b>wheel_images</b> に画像ファイルを入れてください。</p>
+          <div class="image-list" id="imageList"></div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <div class="print-preview-screen" id="printPreviewScreen" hidden>
+    <div class="print-preview-actions">
+      <button class="primary" id="printPreviewRun">印刷</button>
+      <button class="secondary" id="printPreviewClose">戻る</button>
+    </div>
+    <div class="print-preview-paper" id="printPreviewPaper"></div>
+  </div>
+
+  <dialog id="imageDialog"><button id="closeImageDialog" class="dialog-close">×</button><img id="dialogImage" alt=""></dialog>
+
+  <script src="vendor/jszip.min.js?v=20260817-v166-labor-ceil10"></script>
+  <script src="vendor/sheetjs-bridge.js?v=20260817-v166-labor-ceil10"></script>
+  <script src="js/brand-config.js?v=20260817-v166-labor-ceil10"></script>
+  <script src="js/workbook.js?v=20260817-v166-labor-ceil10"></script>
+  <script src="js/pricing.js?v=20260817-v166-labor-ceil10"></script>
+  <script src="js/vehicle-fitment-v170.js?v=20260831-v170-vehicle"></script>
+  <script src="js/app.js?v=20260831-v170-vehicle"></script>
+</body>
+</html>
