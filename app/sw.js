@@ -1,9 +1,9 @@
-const CACHE_NAME = "integrated-price-navi-ver1-7-0-vehicle-search";
+const CACHE_NAME = "integrated-price-navi-ver1-7-1-bs-import-vehicle123";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/app-v170.css",
-  "./js/app.js",
+  "./js/app-v171.js",
   "./js/vehicle-fitment-v170.js",
   "./js/brand-config.js",
   "./js/workbook.js",
