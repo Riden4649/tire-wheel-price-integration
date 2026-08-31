@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.7.0";
+  const APP_VERSION = "Ver1.7.1";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -479,12 +479,15 @@
     const priceCol = col("チェーン店");
     if ([brandCol, patternCol, codeCol, priceCol].some(index => index < 0)) return [];
     const out = [];
+    let activeBrandName = "";
     for (let rowIndex = headerIndex + 1; rowIndex < rows.length; rowIndex++) {
       const row = rows[rowIndex] || [];
-      const brandName = cleanPattern(row[brandCol]);
+      const rowBrandName = cleanPattern(row[brandCol]);
       const sizeText = cleanPattern(row[patternCol]);
       const productCode = text(row[codeCol]);
       const price = firstPrice(row[priceCol]);
+      if (rowBrandName) activeBrandName = rowBrandName;
+      const brandName = rowBrandName || activeBrandName;
       if (!brandName || !looksWheelSize(sizeText) || !productCode || !price) continue;
       out.push({
         ...parseFitment(sizeText),
@@ -822,6 +825,20 @@
     return maker === "SUBARU" ? "スバル" : maker;
   }
 
+  function vehicleModelAliases(model) {
+    const known = {
+      "ノア/ヴォクシー": ["ノア", "ヴォクシー"],
+      "ノア/ヴォクシー/エスクァイア": ["ノア", "ヴォクシー", "エスクァイア"],
+      "アルファード/ヴェルファイア": ["アルファード", "ヴェルファイア"],
+      "カローラ/ツーリング/スポーツ": ["カローラ", "カローラツーリング", "カローラスポーツ"],
+      "カローラ/フィールダー/アクシオ": ["カローラ", "カローラフィールダー", "カローラアクシオ"],
+      "デミオ/MAZDA2": ["デミオ", "MAZDA2"],
+      "eKワゴン/eKクロス": ["eKワゴン", "eKクロス"],
+      "eKワゴン/eKカスタム": ["eKワゴン", "eKカスタム"]
+    };
+    return known[model] || [model];
+  }
+
   function vehicleChip(step, value, label, active) {
     return `<button type="button" class="choice-chip${active ? " active" : ""}" data-vehicle-filter="${escapeHtml(step)}" data-value="${escapeHtml(value)}">${escapeHtml(label)}</button>`;
   }
@@ -829,10 +846,10 @@
   function renderVehicleChips() {
     const selection = state.vehicleSelection;
     const byMaker = state.vehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
-    const byModel = byMaker.filter(vehicle => !selection.model || vehicle.model === selection.model);
+    const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle.model).includes(selection.model));
     const vehicle = currentVehicle();
     const makers = [...new Set(state.vehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
-    const models = [...new Set(byMaker.map(item => item.model))].sort((a, b) => a.localeCompare(b, "ja"));
+    const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item.model)))].sort((a, b) => a.localeCompare(b, "ja"));
     els.vehicleMakerChips.innerHTML = makers.map(value => vehicleChip("maker", value, displayVehicleMaker(value), selection.maker === value)).join("");
     els.vehicleModelChips.innerHTML = models.map(value => vehicleChip("model", value, value, selection.model === value)).join("");
     els.vehicleGenerationChips.innerHTML = byModel.map(item => vehicleChip("generation", item.vehicle_id, item.generation, selection.vehicleId === item.vehicle_id)).join("");
@@ -2253,7 +2270,8 @@
     const holesText = normalized.match(/(\d)\s*(?:H|穴)/);
     const pcdText = normalized.match(/(?:PCD)?\s*(100|110|112|114\.3|114|120|139\.7|139)\b/);
     const holes = slash?.[1] || spaced?.[1] || holesText?.[1] || "";
-    const pcd = slash?.[2] || spaced?.[2] || pcdText?.[1] || "";
+    const rawPcd = slash?.[2] || spaced?.[2] || pcdText?.[1] || "";
+    const pcd = rawPcd === "114" ? "114.3" : rawPcd === "139" ? "139.7" : rawPcd;
     const label = [holes && `${holes}穴`, pcd && `PCD ${pcd}`].filter(Boolean).join(" / ");
     return { holes, pcd, label, holesPcdText: label };
   }
