@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "vehicle_source_registry",
+  "policy": {
+    "manufacturer_official": {"weight": 100, "auto_confirm_single_source": true},
+    "wheel_manufacturer_official": {"weight": 90, "auto_confirm_single_source": false},
+    "trusted_secondary": {"weight": 70, "auto_confirm_single_source": false},
+    "aggregator": {"weight": 50, "auto_confirm_single_source": false},
+    "unknown": {"weight": 0, "auto_confirm_single_source": false}
+  },
+  "rules": {
+    "non_official_auto_confirm": "two_or_more_independent_sources_same_value",
+    "conflict": "human_review_required",
+    "no_source": "keep_missing",
+    "field_precision": {
+      "hub_bore": "truncate_fraction_for_shop_display_and_master_normalization",
+      "pcd": "preserve_semantically_required_decimal_such_as_114.3",
+      "thread_pitch": "always_preserve_decimal",
+      "wheel_torque_nm": "preserve_integer_or_official_range"
+    }
+  },
+  "domains": [
+    {"domain": "toyota.jp", "source_type": "manufacturer_official"},
+    {"domain": "manual.toyota.jp", "source_type": "manufacturer_official"},
+    {"domain": "lexus.jp", "source_type": "manufacturer_official"},
+    {"domain": "manual.lexus.jp", "source_type": "manufacturer_official"},
+    {"domain": "honda.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "nissan.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "mazda.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "subaru.jp", "source_type": "manufacturer_official"},
+    {"domain": "suzuki.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "daihatsu.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "mitsubishi-motors.co.jp", "source_type": "manufacturer_official"},
+    {"domain": "weds.co.jp", "source_type": "wheel_manufacturer_official"},
+    {"domain": "work-wheels.co.jp", "source_type": "wheel_manufacturer_official"},
+    {"domain": "mid-wheels.com", "source_type": "wheel_manufacturer_official"},
+    {"domain": "hotstuff-cp.co.jp", "source_type": "wheel_manufacturer_official"},
+    {"domain": "bridgestone.co.jp", "source_type": "wheel_manufacturer_official"},
+    {"domain": "wheel-size.com", "source_type": "aggregator"}
+  ]
+}

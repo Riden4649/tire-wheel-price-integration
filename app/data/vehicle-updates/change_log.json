@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "vehicle_change_log",
+  "description": "本番マスターへ反映した変更の履歴。old/new、理由、出典、反映日時を保持する。",
+  "records": []
+}

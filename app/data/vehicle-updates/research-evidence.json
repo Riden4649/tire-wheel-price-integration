@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "vehicle_research_evidence",
+  "description": "ChatGPT、GitHub Actions外部収集、人間調査から得た証拠を同じ形式で投入する受け口。値はここでは本番確定しない。",
+  "records": []
+}
