@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.7.2";
+  const APP_VERSION = "Ver1.7.4";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -105,8 +105,11 @@
     wheelChoicePanel: $("#wheelChoicePanel"),
     wheelResults: $("#wheelResults"),
     vehicleChoicePanel: $("#vehicleChoicePanel"),
+    sharedVehicleSearch: $("#sharedVehicleSearch"),
+    sharedVehicleSummary: $("#sharedVehicleSummary"),
     vehicleModelSearch: $("#vehicleModelSearch"),
     clearVehicleModelSearch: $("#clearVehicleModelSearch"),
+    clearVehicleSelection: $("#clearVehicleSelection"),
     vehicleModelSearchStatus: $("#vehicleModelSearchStatus"),
     vehicleMakerChips: $("#vehicleMakerChips"),
     vehicleModelChips: $("#vehicleModelChips"),
@@ -115,7 +118,6 @@
     vehicleTireChips: $("#vehicleTireChips"),
     vehicleSummary: $("#vehicleSummary"),
     wheelAssistGrid: $("#wheelAssistGrid"),
-    fitmentCounts: $("#fitmentCounts"),
     estimateItems: $("#estimateItems"),
     estimateCosts: $("#estimateCosts"),
     grandTotal: $("#grandTotal"),
@@ -329,12 +331,14 @@
       handleVehicleModelSearch({ target: els.vehicleModelSearch });
       els.vehicleModelSearch.focus();
     });
+    els.clearVehicleSelection.addEventListener("click", clearVehicleSelection);
     els.closeImageDialog.addEventListener("click", () => els.imageDialog.close());
   }
 
   function switchTab(tab) {
     $$(".tab").forEach(button => button.classList.toggle("active", button.dataset.tab === tab));
     $$(".panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${tab}`));
+    els.sharedVehicleSearch.hidden = !["tire", "wheel"].includes(tab);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
@@ -409,7 +413,7 @@
     saveSourceMeta(sourceKey, { status: "loading", fileName: file.name, count: 0, message: "Excelを解析しています。" });
     setMessage(els.wheelStatus, `${file.name} を解析しています。`);
     try {
-      const workbook = window.XLSX.read(await file.arrayBuffer(), { type: "array", cellDates: false, cellText: false, dense: false });
+      const workbook = window.XLSX.read(await file.arrayBuffer(), { type: "array", cellDates: false, dense: false });
       const label = wheelType === "other" ? "社外アルミ" : "BSアルミ";
       const workbookInfo = { fileName: file.name, loadedAt: new Date().toISOString(), sheetCount: workbook.SheetNames?.length || 0 };
       const products = [];
@@ -417,7 +421,7 @@
       const brandRates = [];
       const importSheetNames = wheelSheetNamesForImport(workbook, wheelType);
       importSheetNames.forEach(sheetName => {
-        const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: false });
+        const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: true });
         rateLabels.push(...extractRateLabels(rows));
         brandRates.push(...extractBrandRateLabels(rows));
         products.push(...parseWheelRows(rows, { fileName: file.name, sheetName }));
@@ -478,7 +482,7 @@
       return labels.some(label => label.includes("ブランド名")) &&
         labels.some(label => label.includes("パターン等")) &&
         labels.some(label => label.includes("商品コード")) &&
-        labels.some(label => label.includes("チェーン店"));
+        labels.some(label => label.includes("チェーン店") || label.startsWith("仕切"));
     });
     if (headerIndex < 0) return [];
     const header = rows[headerIndex] || [];
@@ -486,7 +490,10 @@
     const brandCol = col("ブランド名");
     const patternCol = col("パターン等");
     const codeCol = col("商品コード");
-    const priceCol = col("チェーン店");
+    const priceCol = header.findIndex(cell => {
+      const label = normalizeHeader(cell);
+      return label.includes("チェーン店") || label.startsWith("仕切");
+    });
     if ([brandCol, patternCol, codeCol, priceCol].some(index => index < 0)) return [];
     const out = [];
     let activeBrandName = "";
@@ -603,7 +610,7 @@
       dealerCost: ["販社仕切", "販社仕切価格", "仕切価格"],
       chainStorePrice: ["チェーン店", "チェーン店価格", "BTS"],
       salePrice: ["直営店価格", "販売価格", "売価案", "売価"],
-      wholesalePrice: ["①卸価格", "卸価格1", "卸価格①", "卸価格"],
+      wholesalePrice: ["①卸価格", "卸価格1", "卸価格①", "卸価格", "仕切り", "仕切価格", "仕切り価格"],
       wholesalePrice2: ["②卸価格", "卸価格2", "卸価格②"]
     };
   }
@@ -701,7 +708,11 @@
     const tireInch = state.tireInch;
     const tireCategory = state.tireCategory;
     const limit = number(els.tireLimit.value) || 30;
+    const selectedVehicle = currentVehicle();
+    const selectedOemTire = state.vehicleSelection.tire;
     const filtered = state.tireProducts
+      .filter(isPricedTire)
+      .filter(item => !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
       .filter(item => !brand || item.brand === brand)
       .filter(item => !tireCategory || (item.productCategory || "normal") === tireCategory)
       .filter(item => !product || norm(`${item.subbrand} ${item.code}`).includes(product))
@@ -710,12 +721,12 @@
       .sort(compareTireSalePrice)
       .slice(0, limit);
     renderTireChips();
-    els.tireSearchSummary.textContent = summaryText([sourceSummary([els.useSummerTire.checked && "夏", els.useWinterTire.checked && "冬"], "タイヤ"), tireCategoryLabel(tireCategory), tireBrandDisplayName(brand), els.tireProduct.value, tireInch && `${tireInch}インチ`, els.tireSize.value]);
+    els.tireSearchSummary.textContent = summaryText([selectedVehicle && vehicleSearchSummary(selectedVehicle), sourceSummary([els.useSummerTire.checked && "夏", els.useWinterTire.checked && "冬"], "タイヤ"), tireCategoryLabel(tireCategory), tireBrandDisplayName(brand), els.tireProduct.value, tireInch && `${tireInch}インチ`, els.tireSize.value]);
     if (!state.tireProducts.length) {
       els.tireResults.innerHTML = emptyCard("管理タブでタイヤ価格表を読み込んでください。");
       return;
     }
-    els.tireResults.innerHTML = filtered.map(item => tireCard(item)).join("") || emptyCard("条件に合うタイヤがありません。");
+    els.tireResults.innerHTML = filtered.map(item => tireCard(item)).join("") || emptyCard(selectedVehicle && selectedOemTire ? `純正サイズ ${selectedOemTire} の価格登録済みタイヤがありません。` : "条件に合う価格登録済みタイヤがありません。");
     els.tireResults.querySelectorAll("[data-tire-id]").forEach(button => button.addEventListener("click", () => {
       const tire = state.tireProducts.find(item => item.id === button.dataset.tireId);
       if (!tire) return;
@@ -733,7 +744,11 @@
     const inch = state.tireInch;
     const size = norm(els.tireSize.value);
     const tireCategory = state.tireCategory;
-    const categoryFiltered = state.tireProducts.filter(item => !tireCategory || (item.productCategory || "normal") === tireCategory);
+    const selectedVehicle = currentVehicle();
+    const selectedOemTire = state.vehicleSelection.tire;
+    const categoryFiltered = state.tireProducts.filter(isPricedTire)
+      .filter(item => !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
+      .filter(item => !tireCategory || (item.productCategory || "normal") === tireCategory);
     const brands = [...new Set(categoryFiltered.map(item => item.brand).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja"));
     const brandFiltered = categoryFiltered.filter(item => !brand || item.brand === brand);
     const productFiltered = brandFiltered.filter(item => !product || norm(`${item.subbrand} ${item.code}`).includes(product));
@@ -805,6 +820,7 @@
       const payload = await response.json();
       state.vehicles = window.VehicleFitment.normalizeDataset(payload);
       renderVehicleChips();
+      renderTires();
       renderWheels();
     } catch (error) {
       console.error(error);
@@ -816,7 +832,6 @@
   function setWheelSearchMode(mode) {
     state.wheelSearchMode = mode === "wheel" ? "wheel" : "vehicle";
     $$('[data-wheel-search-mode]').forEach(button => button.classList.toggle("active", button.dataset.wheelSearchMode === state.wheelSearchMode));
-    els.vehicleChoicePanel.hidden = state.wheelSearchMode !== "vehicle";
     els.wheelChoicePanel.hidden = state.wheelSearchMode !== "wheel";
     els.wheelAssistGrid.hidden = state.wheelSearchMode !== "wheel";
     renderWheels();
@@ -870,7 +885,18 @@
   function handleVehicleModelSearch(event) {
     state.vehicleQuery = event.target.value || "";
     state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", tire: "" };
+    $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === "maker"; });
     renderVehicleChips();
+    renderTires();
+    renderWheels();
+  }
+
+  function clearVehicleSelection() {
+    state.vehicleQuery = "";
+    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", tire: "" };
+    els.vehicleModelSearch.value = "";
+    renderVehicleChips();
+    renderTires();
     renderWheels();
   }
 
@@ -900,6 +926,8 @@
       els.vehicleSummary.hidden = true;
       els.vehicleSummary.innerHTML = "";
     }
+    els.sharedVehicleSummary.textContent = vehicleSearchSummary(vehicle);
+    els.clearVehicleSelection.hidden = !selection.maker && !state.vehicleQuery;
   }
 
   function handleVehicleChipClick(event) {
@@ -918,6 +946,7 @@
     if (next) {
       $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === next; });
     }
+    renderTires();
     renderWheels();
   }
 
@@ -932,6 +961,7 @@
     const limit = number(els.wheelLimit.value) || 30;
     const selectedVehicle = currentVehicle();
     const baseFiltered = state.wheelProducts
+      .filter(isPricedWheel)
       .filter(item => !maker || norm(item.maker).includes(maker))
       .filter(item => !brand || norm(item.brandName).includes(brand))
       .filter(item => !pattern || norm(item.patternName).includes(pattern))
@@ -943,7 +973,7 @@
       ? window.VehicleFitment.evaluate(selectedVehicle, item, state.vehicleSelection.tire)
       : null }));
     const visible = assessed
-      .filter(entry => !entry.fitment || entry.fitment.status !== "excluded")
+      .filter(entry => !entry.fitment || (hasMinimumWheelFitment(entry.item) && entry.fitment.status !== "excluded"))
       .sort((a, b) => compareWheelSalePrice(a.item, b.item))
       .slice(0, limit);
     if (state.wheelSearchMode === "wheel") renderWheelChips();
@@ -955,21 +985,10 @@
       return;
     }
     if (state.wheelSearchMode === "vehicle" && !selectedVehicle) {
-      els.fitmentCounts.hidden = true;
       els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || "メーカーから順に車両を選択してください。");
       return;
     }
-    if (state.wheelSearchMode === "vehicle") {
-      const counts = assessed.reduce((result, entry) => {
-        result[entry.fitment.status] += 1;
-        return result;
-      }, { candidate: 0, review: 0, excluded: 0 });
-      els.fitmentCounts.hidden = false;
-      els.fitmentCounts.innerHTML = `<strong>判定結果</strong><span class="fitment-candidate">○ 候補 ${counts.candidate}</span><span class="fitment-review">△ 要確認 ${counts.review}</span><span class="fitment-excluded">× 除外 ${counts.excluded}</span>`;
-    } else {
-      els.fitmentCounts.hidden = true;
-    }
-    els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item, entry.fitment)).join("") || emptyCard("基本適合条件を満たすアルミホイールがありません。");
+    els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item)).join("") || emptyCard("基本条件を満たす価格登録済みアルミホイールがありません。");
   }
 
   function renderWheelChips() {
@@ -980,12 +999,13 @@
     const inch = norm(els.wheelInch.value).replace(/インチ/g, "");
     const size = norm(els.wheelSize.value);
     const pcd = norm(els.wheelPcd.value);
-    const makerFiltered = state.wheelProducts.filter(item => !maker || norm(item.maker).includes(maker));
+    const pricedWheels = state.wheelProducts.filter(isPricedWheel);
+    const makerFiltered = pricedWheels.filter(item => !maker || norm(item.maker).includes(maker));
     const brandFiltered = makerFiltered.filter(item => !brand || norm(item.brandName).includes(brand));
     const patternFiltered = brandFiltered.filter(item => !pattern || norm(item.patternName).includes(pattern));
     const inchFiltered = patternFiltered.filter(item => !inch || String(wheelInch(item.sizeText)) === inch);
     const pcdFiltered = inchFiltered.filter(item => !pcd || norm(wheelFitmentKey(item)).includes(pcd));
-    const makers = [...new Set(state.wheelProducts.map(item => item.maker).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja")).slice(0, 24);
+    const makers = [...new Set(pricedWheels.map(item => item.maker).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja")).slice(0, 24);
     const brands = [...new Set(makerFiltered.map(item => item.brandName).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja")).slice(0, 36);
     const patterns = [...new Set(brandFiltered.map(item => item.patternName).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja")).slice(0, 40);
     const inches = PRIMARY_WHEEL_INCHES;
@@ -1041,7 +1061,7 @@
     openNextSearchStep("wheel", button.dataset.filter);
   }
 
-  function wheelCard(item, fitment = null) {
+  function wheelCard(item) {
     const image = findImage(item.fullPatternName || [item.brandName, item.patternName].filter(Boolean).join(" ") || item.patternName);
     const selected = state.selectedWheel?.id === item.id;
     const salePrice = wheelSalePrice(item);
@@ -1049,15 +1069,11 @@
     const imageHtml = image?.src
       ? `<button data-preview-src="${escapeHtml(image.src)}" data-preview-alt="${escapeHtml(item.fullPatternName || item.patternName)}"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(item.fullPatternName || item.patternName)}" onerror="this.closest('.wheel-image').textContent='画像なし'"></button>`
       : "画像なし";
-    const fitmentBadge = fitment ? `<span class="fitment-badge ${fitment.status === "candidate" ? "fitment-candidate" : "fitment-review"}">${escapeHtml(fitment.label)}</span>` : "";
-    const fitmentNote = fitment?.reasons?.length ? `<p class="fitment-note">${escapeHtml(fitment.reasons.join("・"))}</p>` : "";
     return `<article class="card">
       <span class="source-badge">${escapeHtml(item.sourceLabel || "アルミ")}</span>
-      ${fitmentBadge}
       ${showImage ? `<div class="wheel-image">${imageHtml}</div>` : ""}
       <h3>${escapeHtml([item.brandName, item.patternName].filter(Boolean).join(" "))}</h3>
       <p class="card-meta">${escapeHtml(item.maker || "—")}<br>${escapeHtml(wheelDisplayDetails(item))}<br>商品コード：${escapeHtml(wheelProductCode(item))}</p>
-      ${fitmentNote}
       <div class="price-row">
         <div><span>販売価格</span><strong>${priceText(salePrice)}</strong></div>
         <div><span>4本合計</span><strong>${salePrice ? yen(salePrice * 4) : "—"}</strong></div>
@@ -1626,7 +1642,7 @@
     try {
       const workbook = window.XLSX.read(arrayBuffer, { type: "array", dense: false });
       return (workbook.SheetNames || []).some(sheetName => {
-        const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: false });
+        const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: true });
         return Boolean(findWheelHeader(rows)) || parseBsWinterWholesaleRows(rows, { sheetName }).length > 0;
       });
     } catch {
@@ -1725,6 +1741,22 @@
     return window.PriceEngine.calculate(number(item.cost), item.brand, settings);
   }
 
+  function canonicalTireSize(value) {
+    const normalized = String(value || "").normalize("NFKC").toUpperCase().replace(/[\s　]/g, "");
+    const match = normalized.match(/(\d{3}\/\d{2,3}(?:\.5)?(?:R|ZR)\d{2}(?:\.5)?)/);
+    return match ? match[1].replace("ZR", "R") : "";
+  }
+
+  function sameTireSize(left, right) {
+    const a = canonicalTireSize(left);
+    const b = canonicalTireSize(right);
+    return Boolean(a && b && a === b);
+  }
+
+  function isPricedTire(item) {
+    return number(item?.cost) > 0 && tireSalePrice(item) > 0 && Boolean(canonicalTireSize(tireDisplaySize(item)));
+  }
+
   function compareTireSalePrice(a, b) {
     return compareSalePrice(tireSalePrice(a), tireSalePrice(b))
       || tireBrandDisplayName(a.brand).localeCompare(tireBrandDisplayName(b.brand), "ja")
@@ -1744,6 +1776,15 @@
     if (!base) return 0;
     if (mode === "multiply") return roundPrice(base * rate);
     return roundPrice(base / rate);
+  }
+
+  function isPricedWheel(item) {
+    const rawPrice = firstPrice(item?.wholesalePrice, item?.dealerCost, item?.basePrice, item?.directSalePrice, item?.salePrice);
+    return rawPrice > 0 && wheelSalePrice(item) > 0 && looksWheelSize(item?.sizeText);
+  }
+
+  function hasMinimumWheelFitment(item) {
+    return number(item?.pcd) > 0 && number(item?.holes) > 0 && wheelInch(item?.sizeText) > 0;
   }
 
   function compareWheelSalePrice(a, b) {
