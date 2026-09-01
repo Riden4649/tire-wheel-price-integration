@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "dataset": "shared_vehicle_master",
-  "version": "2026-09-01.1",
-  "updated_at": "2026-09-01T17:45:00+09:00",
+  "version": "2026-09-01.2",
+  "updated_at": "2026-09-01T18:00:00+09:00",
   "description": "タイヤナビ・アルミ価格ナビ・セット検索で共通利用する車両マスターの入口。GitHubを正本とし、各アプリはローカルキャッシュを保持してオフライン利用する。",
   "source_of_truth": "github",
   "repository": "Riden4649/tire-wheel-price-integration",
@@ -27,6 +27,12 @@
       "record_count": 152,
       "fitment_authority": true
     },
+    "service_specs": {
+      "path": "app/data/vehicle_service_specs.json",
+      "role": "ホイールナット／ボルト締付トルクなど作業時の参考情報。メーカー公式資料を優先し、未確認値は推測しない",
+      "record_count": 7,
+      "fitment_authority": false
+    },
     "online_candidates": {
       "path": "app/data/vehicle-updates/online-master.json",
       "role": "オンライン収集した人間確認前の候補。確認前は本番適合判定に使用しない",
@@ -42,6 +48,7 @@
     "search_key": "search_id",
     "fitment_priority": "fitment_master",
     "search_priority": "search_master",
+    "service_priority": "manufacturer_official",
     "unverified_display": "車種は登録済み／適合情報は要確認",
     "delete_policy": "原則削除せず、終了年月や無効フラグで履歴を保持"
   },
@@ -53,7 +60,8 @@
       "year_from",
       "year_to",
       "oem_inch",
-      "oem_tire"
+      "oem_tire",
+      "wheel_torque_nm"
     ],
     "wheel_navi": [
       "maker",
@@ -65,6 +73,9 @@
       "holes",
       "hub_bore",
       "fastener",
+      "wheel_torque_nm",
+      "wheel_torque_nm_min",
+      "wheel_torque_nm_max",
       "rim_width_min",
       "rim_width_max",
       "offset_min",
