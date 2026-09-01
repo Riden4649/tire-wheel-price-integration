@@ -99,6 +99,10 @@
     normalized.rim_width_max = number(record.rim_width_max);
     normalized.offset_min = number(record.offset_min);
     normalized.offset_max = number(record.offset_max);
+    normalized.wheel_torque_nm = number(record.wheel_torque_nm);
+    normalized.wheel_torque_nm_min = number(record.wheel_torque_nm_min);
+    normalized.wheel_torque_nm_max = number(record.wheel_torque_nm_max);
+    normalized.torque_source = text(record.torque_source);
     normalized.tpms = text(record.tpms || "unknown");
     normalized.front_rear_staggered = Boolean(record.front_rear_staggered || normalized.variants.some(item => item.front_tires.length && item.rear_tires.length));
     return normalized;
@@ -283,3 +287,72 @@
     evaluate
   };
 });
+
+(function () {
+  "use strict";
+  let serviceSpecs = [];
+
+  function normalizeMaker(value) {
+    return String(value || "").replace(/^TOYOTA$/i, "トヨタ").replace(/^HONDA$/i, "ホンダ").trim();
+  }
+
+  function selectedVehicleFromSummary(summary) {
+    const strong = summary.querySelector("strong");
+    const spans = summary.querySelectorAll("span");
+    if (!strong || !spans.length) return null;
+    const head = strong.textContent.trim();
+    const parts = head.split(" / ");
+    const makerModel = parts[0] || "";
+    const generation = parts[1] || "";
+    const makers = ["トヨタ", "レクサス", "日産", "ホンダ", "マツダ", "SUBARU", "スバル", "スズキ", "ダイハツ", "三菱"];
+    const maker = makers.find(value => makerModel.startsWith(value + " ")) || "";
+    const model = maker ? makerModel.slice(maker.length + 1).trim() : makerModel;
+    const yearMatch = spans[0].textContent.match(/(20\d{2})年/);
+    return { maker: normalizeMaker(maker), model, generation, year: yearMatch ? Number(yearMatch[1]) : null };
+  }
+
+  function matchSpec(selected) {
+    if (!selected || !selected.year) return null;
+    return serviceSpecs.find(spec => normalizeMaker(spec.maker) === selected.maker && spec.model === selected.model && selected.year >= Number(spec.year_from || 0) && selected.year <= Number(spec.year_to || 9999)) || null;
+  }
+
+  function renderServiceInfo() {
+    const summary = document.querySelector("#vehicleSummary");
+    if (!summary || summary.hidden) return;
+    const old = summary.querySelector(".vehicle-service-info");
+    if (old) old.remove();
+    const selected = selectedVehicleFromSummary(summary);
+    const spec = matchSpec(selected);
+    const box = document.createElement("div");
+    box.className = "vehicle-service-info";
+    box.style.cssText = "margin-top:6px;padding:6px 8px;border-radius:8px;background:rgba(47,107,87,.08);font-size:12px;line-height:1.45;text-align:right;align-self:flex-end";
+    if (spec) {
+      const torque = spec.torque_label || (spec.wheel_torque_nm != null ? `${spec.wheel_torque_nm} N・m` : "未確認");
+      box.innerHTML = `<strong style=\"font-size:12px\">🔧 ホイール締付 ${torque}</strong><br><span style=\"opacity:.72\">メーカー公式確認済み ${spec.verified_at || ""}</span>`;
+      if (spec.source_url) {
+        box.title = `${spec.source_name || "メーカー公式資料"}\n${spec.source_url}`;
+      }
+    } else {
+      box.innerHTML = `<span style=\"opacity:.62\">🔧 締付トルク：未確認</span>`;
+    }
+    summary.appendChild(box);
+  }
+
+  async function initializeServiceInfo() {
+    try {
+      const response = await fetch("data/vehicle_service_specs.json", { cache: "no-store" });
+      if (response.ok) {
+        const payload = await response.json();
+        serviceSpecs = Array.isArray(payload.records) ? payload.records : [];
+      }
+    } catch (_) {}
+    const summary = document.querySelector("#vehicleSummary");
+    if (!summary) return;
+    const observer = new MutationObserver(() => window.requestAnimationFrame(renderServiceInfo));
+    observer.observe(summary, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden"] });
+    renderServiceInfo();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeServiceInfo, { once: true });
+  else initializeServiceInfo();
+})();
