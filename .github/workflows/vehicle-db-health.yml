@@ -1,0 +1,46 @@
+name: Vehicle DB Health
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'app/data/**'
+      - 'tools/vehicle_db_health.py'
+      - '.github/workflows/vehicle-db-health.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'app/data/**'
+      - 'tools/vehicle_db_health.py'
+  schedule:
+    - cron: '15 22 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run vehicle DB health check
+        run: python tools/vehicle_db_health.py
+
+      - name: Add report to job summary
+        run: cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload health report
+        uses: actions/upload-artifact@v4
+        with:
+          name: vehicle-db-health-report
+          path: |
+            reports/vehicle-db-health.json
+            reports/vehicle-db-health.md
+          retention-days: 30
