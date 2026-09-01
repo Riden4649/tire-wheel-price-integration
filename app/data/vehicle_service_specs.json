@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "vehicle_service_specs",
+  "updated_at": "2026-09-01",
+  "policy": {
+    "purpose": "車種選択時の作業参考情報表示。ホイール締付トルクはメーカー公式資料を優先し、未確認値は推測しない。",
+    "wheel_size_reference": "Wheel-Size.com may be used as an on-screen cross-check only; bulk API data is not persisted into this dataset.",
+    "final_check": "実作業前に対象車両の最新取扱説明書・メーカー整備情報を確認する。"
+  },
+  "records": [
+    {
+      "maker": "トヨタ",
+      "model": "アクア",
+      "year_from": 2021,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA AQUA 取扱説明書",
+      "source_url": "https://manual.toyota.jp/aqua/2404/hev/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "RAV4",
+      "year_from": 2019,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA RAV4 取扱説明書",
+      "source_url": "https://manual.toyota.jp/rav4/2406/hev/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "ヤリス",
+      "year_from": 2020,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA YARIS 取扱説明書",
+      "source_url": "https://manual.toyota.jp/yaris/2207/cv/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "シエンタ",
+      "year_from": 2022,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA SIENTA 取扱説明書",
+      "source_url": "https://manual.toyota.jp/sienta/2207/hev/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "カローラ",
+      "year_from": 2019,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA COROLLA 取扱説明書",
+      "source_url": "https://manual.toyota.jp/corolla/2605/hev/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "アルファード",
+      "year_from": 2023,
+      "year_to": 2026,
+      "wheel_torque_nm": 140,
+      "torque_label": "140 N・m",
+      "source_name": "TOYOTA ALPHARD 取扱説明書",
+      "source_url": "https://manual.toyota.jp/alphard/3082/cv/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "ホンダ",
+      "model": "N-VAN",
+      "year_from": 2026,
+      "year_to": 2026,
+      "wheel_torque_nm_min": 98,
+      "wheel_torque_nm_max": 118,
+      "torque_label": "98～118 N・m",
+      "source_name": "Honda N-VAN 2026 取扱説明書",
+      "source_url": "https://www.honda.co.jp/ownersmanual/webom/jpn/n-van/2026/details/136267090-26731.html",
+      "verified_at": "2026-09-01"
+    }
+  ]
+}
