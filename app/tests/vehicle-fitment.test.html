@@ -29,7 +29,7 @@
         const payload = await response.json();
         const vehicles = VehicleFitment.normalizeVehicleDatabase(payload);
 
-        assert(vehicles.length === payload.record_count && vehicles.length === 144, "車両DBを144件読み込める");
+        assert(vehicles.length === payload.record_count && vehicles.length === 152, "車両DBを152件読み込める");
         assert(VehicleFitment.validateVehicles(payload).valid, "車両DBスキーマとタイヤサイズを検証できる");
         assert(new Set(vehicles.map(v => v.vehicle_id)).size === vehicles.length, "vehicle_idが一意");
         const qaModels = ["N-BOX", "スペーシア", "タント", "セレナ", "ノア", "シエンタ", "CX-5", "フォレスター"];
@@ -66,6 +66,35 @@
         const updated = VehicleFitment.upsertVehicles(vehicles, [{ ...sk, confidence: "A", model: "フォレスター更新テスト" }]);
         assert(updated.length === vehicles.length, "upsertで既存vehicle_idを重複追加しない");
         assert(updated.find(v => v.vehicle_id === sk.vehicle_id)?.model === "フォレスター更新テスト", "upsertで既存車両を更新できる");
+
+        const golden = await (await fetch("vehicle-golden-v190.json")).json();
+        golden.records.forEach(expected => {
+          const actual = vehicles.find(item => item.vehicle_id === expected.vehicle_id);
+          assert(Boolean(actual), `ゴールデン ${expected.vehicle_id} が存在する`);
+          Object.entries(expected).filter(([key]) => key !== "vehicle_id").forEach(([key, value]) => assert(JSON.stringify(actual?.[key]) === JSON.stringify(value), `ゴールデン ${expected.vehicle_id}.${key} が基準値と一致`));
+        });
+        const lexusVehicles = vehicles.filter(v => v.maker === "レクサス");
+        assert(lexusVehicles.length >= 10, "レクサスを10世代以上収録");
+        assert(lexusVehicles.filter(vehicle => vehicle.pcd != null && vehicle.holes != null && vehicle.hub_bore != null && vehicle.oem_inches.length && vehicle.oem_tires.length && vehicle.fastener_type).length >= 9, "レクサス9世代は基本判定データが揃う");
+        assert(lexusVehicles.filter(vehicle => vehicle.pcd == null || vehicle.holes == null || vehicle.hub_bore == null).every(vehicle => vehicle.confidence === "C"), "基本条件未確認のレクサスは信頼度Cで明示する");
+        const nbox = vehicles.find(v => v.vehicle_id === "HON_NBOX_JF3");
+        const hondaTaper = VehicleFitment.evaluateWheel(nbox, { pcd: 100, holes: 4, inch: 14, hub_bore: 56, fastener: "M12×P1.5", seat_type: "taper" });
+        assert(hondaTaper.status === "review" && hondaTaper.reasons.some(reason => reason.includes("テーパーナット")), "Honda球面座と社外テーパー座は専用ナット要確認");
+        const alphard40 = vehicles.find(v => v.vehicle_id === "TOY_ALV_40");
+        assert(VehicleFitment.evaluateWheel(alphard40, { pcd: 120, holes: 5, inch: 18, hub_bore: 60, fastener_type: "nut", thread_diameter: "M14", pitch: 1.5 }).status === "excluded", "ボルト車へナット方式を混在させない");
+        assert(VehicleFitment.evaluateWheel(sk, { ...skWheel, hub_bore: 55 }).status === "excluded", "車両ハブ径未満は除外");
+        const ranged = VehicleFitment.normalizeVehicle({ ...sk, rim_width_min: 7, rim_width_max: 8, offset_min: 40, offset_max: 55 });
+        const rangeReview = VehicleFitment.evaluateWheel(ranged, { ...skWheel, sizeText: "17×8.5J", insetText: "60" });
+        assert(rangeReview.status === "review" && rangeReview.reasons.some(reason => reason.includes("リム幅")), "リム幅・インセット範囲外は要確認");
+        const realWheelQaIds = ["HON_NBOX_JF3", "HON_FREED_GB5", "TOY_PRIUS_60", "TOY_ALV_40", "NIS_XTRAIL_T32", "MAZ_CX5_KF", "SUB_FORESTER_SK", "SUZ_JIMNY_JB64", "LEX_NX_AZ20", "LEX_RX_AL30"];
+        realWheelQaIds.forEach(id => {
+          const vehicle = vehicles.find(item => item.vehicle_id === id);
+          const wheel = { pcd: vehicle.pcd, holes: vehicle.holes, inch: vehicle.oem_inches[0], hub_bore: vehicle.hub_bore, fastener: vehicle.fastener, fastener_type: vehicle.fastener_type, thread_diameter: vehicle.thread_diameter, pitch: vehicle.pitch, seat_type: vehicle.seat_type };
+          assert(VehicleFitment.evaluateWheel(vehicle, wheel).status !== "excluded", `実アルミQA ${id}: 基本条件一致は除外しない`);
+          assert(VehicleFitment.evaluateWheel(vehicle, { ...wheel, pcd: vehicle.pcd === 100 ? 114.3 : 100 }).status === "excluded", `実アルミQA ${id}: PCD違いを除外`);
+          assert(VehicleFitment.evaluateWheel(vehicle, { ...wheel, holes: vehicle.holes === 4 ? 5 : 4 }).status === "excluded", `実アルミQA ${id}: 穴数違いを除外`);
+          assert(VehicleFitment.evaluateWheel(vehicle, { ...wheel, hub_bore: vehicle.hub_bore - 1 }).status === "excluded", `実アルミQA ${id}: ハブ径不足を除外`);
+        });
 
         const variantVehicle = VehicleFitment.normalizeVehicle({ vehicle_id: "QA_VARIANT", maker: "QA", model: "QA", generation: "QA", year_from: "2020-01", year_to: "2022-12", pcd: 100, holes: 4, hub_bore: 54, fastener: "M12×P1.5", oem_inch: "15/17", oem_tire: "195/65R15;215/45R17", variants: [
           { variant_id: "early", label: "前期", year_from: "2020-01", year_to: "2020-12", oem_inch: "15", oem_tire: "195/65R15" },

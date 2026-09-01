@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-8-0-offline-vehicle-master";
+const CACHE_NAME = "integrated-price-navi-ver1-9-0-vehicle-review-fitment";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -13,6 +13,8 @@ const APP_SHELL = [
   "./vendor/sheetjs-bridge.js",
   "./data/wheel_image_master.json",
   "./data/vehicles_2012_2026.json",
+  "./data/vehicle-updates/online-master.json",
+  "./data/vehicle-updates/manifest.json",
   "./manifest.json",
   "./icons/favicon-32-v172-tire.png",
   "./icons/icon-192-v172-tire.png",
@@ -45,6 +47,13 @@ self.addEventListener("fetch", event => {
     return;
   }
   if (url.origin !== location.origin) return;
+  if (url.pathname.includes("/data/vehicle-updates/")) {
+    event.respondWith(fetch(event.request).then(response => {
+      if (response?.status === 200) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      return response;
+    }).catch(() => caches.match(event.request, { ignoreSearch: true })));
+    return;
+  }
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then(cached => {
       if (cached) return cached;

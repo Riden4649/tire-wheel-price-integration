@@ -341,7 +341,19 @@ h2 { font-size: 18px; }
 .missing-vehicle-grid input, .missing-vehicle-grid select { width: 100%; min-height: 42px; }
 .missing-vehicle-list { display: grid; gap: 6px; margin-top: 10px; }
 .missing-vehicle-list > div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 11px; border-radius: 10px; background: var(--surface-2); }
+.missing-vehicle-list > button { width: 100%; min-height: 52px; display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; text-align: left; }
+.missing-vehicle-list em { display: inline-block; margin-left: 6px; padding: 2px 7px; border-radius: 999px; background: #eef5f2; color: var(--primary); font-size: .72rem; font-style: normal; }
 .missing-vehicle-list span { color: var(--muted); font-size: .82rem; text-align: right; }
+.status-stack { display: grid; justify-items: end; gap: 3px; }
+.status-stack > small { color: var(--muted); font-size: 10px; font-weight: 800; line-height: 1; }
+.vehicle-review-editor { border: 2px solid var(--primary); }
+.vehicle-review-grid { grid-template-columns: repeat(3, minmax(160px, 1fr)); margin-top: 12px; }
+.vehicle-candidate-list { display: grid; gap: 7px; margin-top: 10px; }
+.vehicle-candidate-list button { display: grid; gap: 3px; width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; text-align: left; }
+.vehicle-candidate-list span, .vehicle-candidate-list small { color: var(--muted); }
+.vehicle-conflict, .fitment-card-note { margin: 10px 0; padding: 10px 12px; border-left: 4px solid #c78c2b; border-radius: 8px; background: #fff7e5; color: #735016; }
+.fitment-card-note { font-size: .82rem; }
+.wheel-fitment-warning { margin-top: 14px; border-left-color: #c78c2b; background: #fff8ea; }
 .choice-accordion .choice-row {
   padding: 12px;
 }
@@ -936,6 +948,7 @@ dialog img { max-width: 100%; max-height: 80vh; object-fit: contain; }
 }
 @media (max-width: 720px) {
   .missing-vehicle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .vehicle-review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .missing-vehicle-list > div { display: grid; }
   .missing-vehicle-list span { text-align: left; }
   .tabs { grid-template-columns: repeat(2, 1fr); top: 68px; }

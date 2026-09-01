@@ -37,6 +37,21 @@
       .replace(/^M?(\d+)XP?(\d+(?:\.\d+)?)$/, "M$1XP$2");
   }
 
+  function parseFastener(value, source = {}) {
+    const raw = typeof value === "object" && value ? value : source;
+    const label = typeof value === "string" ? value : text(source.fastener);
+    const normalized = normalizeFastener(label);
+    const thread = normalized.match(/M(\d+(?:\.\d+)?)XP(\d+(?:\.\d+)?)/);
+    const seatText = text(raw.seat_type || raw.seat || source.seat_type || source.oem_seat).toLowerCase();
+    const methodText = text(raw.fastener_type || raw.method || source.fastener_type).toLowerCase();
+    return {
+      method: /bolt|ボルト/.test(methodText || label.toLowerCase()) ? "bolt" : /nut|ナット/.test(methodText || label.toLowerCase()) ? "nut" : null,
+      thread_diameter: text(raw.thread_diameter || source.thread_diameter) || (thread ? `M${thread[1]}` : ""),
+      pitch: number(raw.pitch ?? raw.thread_pitch ?? source.pitch ?? source.thread_pitch) ?? (thread ? Number(thread[2]) : null),
+      seat: /球|spherical/.test(seatText || label) ? "spherical" : /テーパ|taper/.test(seatText || label) ? "taper" : /平面|flat/.test(seatText || label) ? "flat" : "unknown"
+    };
+  }
+
   function normalizeVehicle(record) {
     if (!record || typeof record !== "object") return null;
     const vehicleId = text(record.vehicle_id);
@@ -75,11 +90,22 @@
       rear_tires: parseOemTires(variant.rear_tires),
       confidence: text(variant.confidence || record.confidence).toUpperCase()
     }));
+    const fastener = parseFastener(record.fastener_details || record.fastener, record);
+    normalized.fastener_type = fastener.method;
+    normalized.thread_diameter = fastener.thread_diameter;
+    normalized.pitch = fastener.pitch;
+    normalized.seat_type = fastener.seat;
+    normalized.rim_width_min = number(record.rim_width_min);
+    normalized.rim_width_max = number(record.rim_width_max);
+    normalized.offset_min = number(record.offset_min);
+    normalized.offset_max = number(record.offset_max);
+    normalized.tpms = text(record.tpms || "unknown");
+    normalized.front_rear_staggered = Boolean(record.front_rear_staggered || normalized.variants.some(item => item.front_tires.length && item.rear_tires.length));
     return normalized;
   }
 
   function normalizeVehicleDatabase(payload) {
-    const records = Array.isArray(payload) ? payload : (Array.isArray(payload?.vehicles) ? payload.vehicles : []);
+    const records = Array.isArray(payload) ? payload : (Array.isArray(payload?.vehicles) ? payload.vehicles : (Array.isArray(payload?.updates) ? payload.updates : (Array.isArray(payload?.candidates) ? payload.candidates : [])));
     return records.map(normalizeVehicle).filter(Boolean);
   }
 
@@ -122,6 +148,21 @@
     return { valid: errors.length === 0 && vehicles.length > 0, vehicles, errors };
   }
 
+  function validateVehicleForApproval(record) {
+    const result = validateVehicles([record]);
+    const vehicle = result.vehicles[0];
+    const errors = [...result.errors];
+    if (!vehicle) return { valid: false, vehicle: null, errors: ["車種データがありません"] };
+    if (vehicle.pcd == null || vehicle.holes == null || vehicle.hub_bore == null || !vehicle.fastener || !vehicle.oem_inches.length) errors.push(`${vehicle.vehicle_id}: PCD・穴数・ハブ径・取付規格・純正インチは必須です`);
+    const sources = Array.isArray(record.sources) ? record.sources : [];
+    if (!sources.length) errors.push(`${vehicle.vehicle_id}: 情報源が必要です`);
+    sources.forEach((source, index) => {
+      if (!text(source.source_name) || !/^https:\/\//i.test(text(source.source_url))) errors.push(`${vehicle.vehicle_id}: 情報源${index + 1}の名称とHTTPS URLを確認してください`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(text(source.verified_at))) errors.push(`${vehicle.vehicle_id}: 情報源${index + 1}の確認日はYYYY-MM-DDで入力してください`);
+    });
+    return { valid: errors.length === 0, vehicle, errors };
+  }
+
   function years(vehicle) {
     const from = Number(text(vehicle?.year_from).slice(0, 4));
     const to = Number(text(vehicle?.year_to).slice(0, 4));
@@ -131,9 +172,13 @@
 
   function upsertVehicles(current, updates) {
     const map = new Map(normalizeVehicleDatabase(current).map(vehicle => [vehicle.vehicle_id, vehicle]));
-    normalizeVehicleDatabase(updates).forEach(vehicle => {
-      const previous = map.get(vehicle.vehicle_id);
-      map.set(vehicle.vehicle_id, previous ? normalizeVehicle({ ...previous, ...vehicle }) : vehicle);
+    const rawUpdates = Array.isArray(updates) ? updates : (updates?.updates || updates?.vehicles || []);
+    rawUpdates.forEach(update => {
+      const vehicleId = text(update?.vehicle_id);
+      if (!vehicleId) return;
+      const previous = map.get(vehicleId);
+      const vehicle = normalizeVehicle(previous ? { ...previous, ...update, vehicle_id: vehicleId } : update);
+      if (vehicle) map.set(vehicleId, vehicle);
     });
     return [...map.values()];
   }
@@ -153,6 +198,17 @@
     return text(wheel?.fastener ?? wheel?.mountingStandard ?? wheel?.mounting_standard ?? wheel?.boltSpec);
   }
 
+  function wheelRimWidth(wheel) {
+    const direct = number(wheel?.rim_width ?? wheel?.rimWidth);
+    if (direct) return direct;
+    const match = text(wheel?.sizeText || wheel?.size).normalize("NFKC").match(/\d{2}(?:\.\d)?\s*[X×]\s*(\d+(?:\.\d+)?)/i);
+    return match ? Number(match[1]) : null;
+  }
+
+  function wheelOffset(wheel) {
+    return number(wheel?.offset ?? wheel?.inset ?? wheel?.insetText);
+  }
+
   function evaluateWheel(vehicleInput, wheel = {}) {
     const vehicle = normalizeVehicle(vehicleInput);
     if (!vehicle) return { status: "excluded", label: "× 除外", reasons: ["車両データが不正です"], checks: {} };
@@ -162,26 +218,38 @@
       holes: number(wheel.holes),
       inch: wheelInch(wheel),
       hub_bore: wheelHubBore(wheel),
-      fastener: wheelFastener(wheel)
+      fastener: wheelFastener(wheel),
+      rim_width: wheelRimWidth(wheel),
+      offset: wheelOffset(wheel)
     };
+    const vehicleFastener = parseFastener(vehicle.fastener_details || vehicle.fastener, vehicle);
+    const wheelFastenerDetails = parseFastener(wheel.fastener_details || values.fastener, wheel);
     const checks = {
       pcd: values.pcd != null && vehicle.pcd != null ? Math.abs(values.pcd - vehicle.pcd) < 0.01 : null,
       holes: values.holes != null && vehicle.holes != null ? values.holes === vehicle.holes : null,
       inch: values.inch != null && vehicle.oem_inches.length ? vehicle.oem_inches.includes(values.inch) : null,
       hub_bore: values.hub_bore != null && vehicle.hub_bore != null ? values.hub_bore >= vehicle.hub_bore : null,
-      fastener: values.fastener && vehicle.fastener ? normalizeFastener(values.fastener) === normalizeFastener(vehicle.fastener) : null
+      fastener_type: wheelFastenerDetails.method && vehicleFastener.method ? wheelFastenerDetails.method === vehicleFastener.method : (values.fastener && vehicle.fastener && normalizeFastener(values.fastener) === normalizeFastener(vehicle.fastener) ? true : null),
+      thread_diameter: wheelFastenerDetails.thread_diameter && vehicleFastener.thread_diameter ? wheelFastenerDetails.thread_diameter === vehicleFastener.thread_diameter : null,
+      pitch: wheelFastenerDetails.pitch != null && vehicleFastener.pitch != null ? Math.abs(wheelFastenerDetails.pitch - vehicleFastener.pitch) < 0.01 : null
     };
-    const names = { pcd: "PCD", holes: "穴数", inch: "インチ", hub_bore: "ハブ径", fastener: "取付規格" };
+    const names = { pcd: "PCD", holes: "穴数", inch: "インチ", hub_bore: "ハブ径", fastener_type: "ナット/ボルト方式", thread_diameter: "ねじ径", pitch: "ピッチ" };
     const mismatches = Object.keys(checks).filter(key => checks[key] === false);
     const missing = Object.keys(checks).filter(key => checks[key] === null);
+    const cautions = [];
+    if (vehicleFastener.seat !== "unknown" && wheelFastenerDetails.seat !== "unknown" && vehicleFastener.seat !== wheelFastenerDetails.seat) cautions.push(vehicleFastener.seat === "spherical" && wheelFastenerDetails.seat === "taper" ? "社外ホイール用テーパーナットが必要な可能性があります（純正球面ナット流用不可）" : "座面形状が異なるため取付部品を確認してください");
+    if (values.hub_bore != null && vehicle.hub_bore != null && values.hub_bore > vehicle.hub_bore + 0.5) cautions.push("ハブリングの要否を確認してください");
+    if (values.rim_width != null && ((vehicle.rim_width_min != null && values.rim_width < vehicle.rim_width_min) || (vehicle.rim_width_max != null && values.rim_width > vehicle.rim_width_max))) cautions.push("リム幅が確認済み候補範囲外です");
+    if (values.offset != null && ((vehicle.offset_min != null && values.offset < vehicle.offset_min) || (vehicle.offset_max != null && values.offset > vehicle.offset_max))) cautions.push("インセットが確認済み候補範囲外です");
+    if (["C", "D"].includes(vehicle.confidence)) cautions.push(`車両データ信頼度${vehicle.confidence}：未確認項目があります`);
 
     if (mismatches.length) {
-      return { status: "excluded", label: "× 除外", reasons: mismatches.map(key => `${names[key]}が不一致`), checks, values };
+      return { status: "excluded", label: "× 除外", reasons: mismatches.map(key => `${names[key]}が不一致`), checks, values, cautions };
     }
-    if (missing.length) {
-      return { status: "review", label: "△ 要確認", reasons: missing.map(key => `${names[key]}を確認できません`), checks, values };
+    if (missing.length || cautions.length) {
+      return { status: "review", label: "△ 要確認", reasons: [...missing.map(key => `${names[key]}を確認できません`), ...cautions], checks, values, cautions };
     }
-    return { status: "candidate", label: "○ 候補", reasons: ["基本適合条件が一致"], checks, values };
+    return { status: "candidate", label: "○ 基本候補", reasons: ["基本物理条件が一致"], checks, values, cautions };
   }
 
   function evaluate(vehicle, wheel, selectedTire) {
@@ -202,10 +270,14 @@
     tireSizes,
     variants,
     validateVehicles,
+    validateVehicleForApproval,
     years,
     parseOemInches,
     parseOemTires,
     normalizeFastener,
+    parseFastener,
+    wheelRimWidth,
+    wheelOffset,
     wheelInch,
     evaluateWheel,
     evaluate

@@ -2,9 +2,11 @@
   "use strict";
 
   const DB_NAME = "integrated-vehicle-store-v1";
-  const DB_VERSION = 1;
+  const DB_VERSION = 2;
   const FALLBACK_OVERRIDES = "integrated-vehicle-overrides-v1";
   const FALLBACK_MISSING = "integrated-missing-vehicles-v1";
+  const FALLBACK_HISTORY = "integrated-vehicle-history-v1";
+  const FALLBACK_META = "integrated-vehicle-update-meta-v1";
 
   function openDb() {
     if (!root.indexedDB) return Promise.resolve(null);
@@ -14,6 +16,8 @@
         const db = request.result;
         if (!db.objectStoreNames.contains("vehicle_overrides")) db.createObjectStore("vehicle_overrides", { keyPath: "vehicle_id" });
         if (!db.objectStoreNames.contains("missing_vehicles")) db.createObjectStore("missing_vehicles", { keyPath: "key" });
+        if (!db.objectStoreNames.contains("vehicle_history")) db.createObjectStore("vehicle_history", { keyPath: "history_id" });
+        if (!db.objectStoreNames.contains("update_metadata")) db.createObjectStore("update_metadata", { keyPath: "key" });
       };
       request.onsuccess = () => resolve(request.result);
       request.onerror = () => resolve(null);
@@ -48,19 +52,60 @@
     const now = new Date().toISOString();
     const key = missingKey(input);
     const current = (await getAll("missing_vehicles", FALLBACK_MISSING)).find(item => item.key === key);
+    const context = { year: clean(input.year), model_code: clean(input.model_code), grade: clean(input.grade), tire_size: clean(input.tire_size).toUpperCase() };
+    const contexts = [...(current?.search_contexts || [])];
+    if (!contexts.some(item => JSON.stringify(item) === JSON.stringify(context))) contexts.push(context);
     const record = {
+      ...current,
       key,
       maker: clean(input.maker),
       model: clean(input.model),
       year: clean(input.year),
       model_code: clean(input.model_code),
       tire_size: clean(input.tire_size).toUpperCase(),
+      grade: clean(input.grade),
+      memo: clean(input.memo || current?.memo),
       count: Number(current?.count || 0) + 1,
       first_seen: current?.first_seen || now,
       last_seen: now,
-      sync_status: "local_only"
+      sync_status: "local_only",
+      status: current?.status || "unverified",
+      search_contexts: contexts,
+      candidates: current?.candidates || [],
+      selected_candidate_id: current?.selected_candidate_id || ""
     };
     await putAll("missing_vehicles", [record], FALLBACK_MISSING);
+    return record;
+  }
+
+  async function updateMissing(key, changes) {
+    const current = (await getAll("missing_vehicles", FALLBACK_MISSING)).find(item => item.key === key);
+    if (!current) throw new Error("未登録車データが見つかりません。");
+    const record = { ...current, ...changes, key, updated_at: new Date().toISOString() };
+    await putAll("missing_vehicles", [record], FALLBACK_MISSING);
+    return record;
+  }
+
+  async function applyVehicle(record, history) {
+    const db = await openDb();
+    const event = { ...history, history_id: history.history_id || `H-${Date.now()}-${Math.random().toString(36).slice(2, 8)}` };
+    if (!db) {
+      mergeFallback(FALLBACK_OVERRIDES, [record], "vehicle_id");
+      mergeFallback(FALLBACK_HISTORY, [event], "history_id");
+      return event;
+    }
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(["vehicle_overrides", "vehicle_history"], "readwrite");
+      tx.objectStore("vehicle_overrides").put(record);
+      tx.objectStore("vehicle_history").put(event);
+      tx.oncomplete = () => resolve(event);
+      tx.onerror = () => reject(tx.error || new Error("車種DB更新を完了できませんでした。"));
+    });
+  }
+
+  async function setMetadata(key, value) {
+    const record = { key, value, updated_at: new Date().toISOString() };
+    await putAll("update_metadata", [record], FALLBACK_META);
     return record;
   }
 
@@ -79,7 +124,7 @@
   }
 
   function missingKey(input) {
-    return [input.maker, input.model, input.year, input.model_code, input.tire_size].map(normalize).join("|");
+    return [input.maker, input.model, input.model_code].map(normalize).join("|");
   }
 
   function normalize(value) {
@@ -102,6 +147,11 @@
     upsertVehicleOverrides: records => putAll("vehicle_overrides", records, FALLBACK_OVERRIDES),
     listMissing: () => getAll("missing_vehicles", FALLBACK_MISSING),
     recordMissing,
+    updateMissing,
+    applyVehicle,
+    listHistory: () => getAll("vehicle_history", FALLBACK_HISTORY),
+    getMetadata: async key => (await getAll("update_metadata", FALLBACK_META)).find(item => item.key === key)?.value,
+    setMetadata,
     clearMissing,
     missingKey
   });
