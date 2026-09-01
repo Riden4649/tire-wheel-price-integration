@@ -16,7 +16,7 @@
       "A"
     ]
   },
-  "record_count": 124,
+  "record_count": 126,
   "vehicles": [
     {
       "vehicle_id": "TOY_AQUA_NHP10",
@@ -1979,6 +1979,40 @@
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/mazda/",
       "sources": [{"source_type":"manufacturer_official","source_name":"MAZDA","source_url":"https://www2.mazda.co.jp/carlife/owner/manual/cx-80/kl/ekya/contents/70071500.html","verified_at":"2026-08-31"}]
+    },
+    {
+      "vehicle_id": "TOY_BZ4X_XEAM10_YEAM15",
+      "maker": "トヨタ",
+      "model": "bZ4X",
+      "generation": "XEAM10/YEAM15（前期）",
+      "year_from": "2022-04",
+      "year_to": "2025-09",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5",
+      "oem_inch": "18/20",
+      "oem_tire": "235/60R18;235/50R20",
+      "confidence": "B",
+      "weds_url": "https://search.weds.co.jp/maker/toyota/",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://manual.toyota.jp/bz4x/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_BZ4X_XEAM11_XEAM15",
+      "maker": "トヨタ",
+      "model": "bZ4X",
+      "generation": "XEAM11/XEAM15（2025年10月〜）",
+      "year_from": "2025-10",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5",
+      "oem_inch": "18/20",
+      "oem_tire": "235/60R18;235/50R20",
+      "confidence": "B",
+      "weds_url": "https://search.weds.co.jp/maker/toyota/",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/bz4x/001_p_003/pdf/bz4x_spec_202601.pdf","verified_at":"2026-09-01"}]
     },
     {
       "vehicle_id": "MAZ_CX9_TC",

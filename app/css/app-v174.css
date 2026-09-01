@@ -72,6 +72,10 @@ h2 { font-size: 18px; }
 .shell { width: min(1500px, calc(100% - 24px)); margin: 0 auto; padding: 16px 0 34px; }
 .panel { display: none; }
 .panel.active { display: block; }
+.shared-vehicle-search { margin-bottom: 16px; border-width: 2px; border-color: rgba(47,107,87,.38); }
+.shared-vehicle-search > summary { background: #eef7f2; }
+.shared-vehicle-search > summary strong { color: var(--green); }
+.clear-vehicle-selection { width: 100%; min-height: 46px; margin-top: 12px; }
 .section-head {
   display: flex;
   justify-content: space-between;

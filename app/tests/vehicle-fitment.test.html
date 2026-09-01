@@ -29,13 +29,13 @@
         const payload = await response.json();
         const vehicles = VehicleFitment.normalizeVehicleDatabase(payload);
 
-        assert(vehicles.length === 124, "車両DBを124件読み込める");
+        assert(vehicles.length === 126, "車両DBを126件読み込める");
         assert(new Set(vehicles.map(v => v.vehicle_id)).size === vehicles.length, "vehicle_idが一意");
         const qaModels = ["N-BOX", "スペーシア", "タント", "セレナ", "ノア", "シエンタ", "CX-5", "フォレスター"];
         qaModels.forEach(name => {
           assert(vehicles.some(v => v.model.includes(name)), `${name}が存在する`);
         });
-        ["ヤリスクロス", "カローラクロス", "ランドクルーザー300", "ランドクルーザー70", "シビック", "ZR-V", "キックス", "ジムニーシエラ", "CX-60", "CX-80", "CX-9", "BRZ"].forEach(name => {
+        ["ヤリスクロス", "カローラクロス", "ランドクルーザー300", "ランドクルーザー70", "bZ4X", "シビック", "ZR-V", "キックス", "ジムニーシエラ", "CX-60", "CX-80", "CX-9", "BRZ"].forEach(name => {
           const vehicle = vehicles.find(v => v.model === name);
           assert(Boolean(vehicle), `${name}を追加DBから検索できる`);
           const matchingWheel = vehicle && { pcd: vehicle.pcd, holes: vehicle.holes, inch: vehicle.oem_inches[0], hub_bore: vehicle.hub_bore, fastener: vehicle.fastener };
