@@ -16,7 +16,7 @@ try {
   await page.waitForFunction(() => document.querySelector("#vehicleModelSearchStatus")?.textContent.includes("検索できます"));
   await page.locator("#vehicleModelSearch").fill("ベルファイア");
   await page.waitForTimeout(100);
-  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("近い候補"), "表記揺れを候補提示し自動確定しない");
+  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("適合世代") && (await page.locator("#sharedVehicleSummary").textContent()) === "車両未選択", "表記揺れを候補提示し自動確定しない");
   const searchMs = await page.evaluate(() => {
     const input = document.querySelector("#vehicleModelSearch");
     const start = performance.now();
@@ -26,6 +26,17 @@ try {
     return performance.now() - start;
   });
   check(searchMs < 250, `主要10車種の連続検索 ${searchMs.toFixed(1)}ms`);
+  await page.locator("#vehicleModelSearch").fill("ハチロク");
+  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("適合世代"), "補完aliasesを検証済み86へ統合");
+  await page.locator("#vehicleModelSearch").fill("レクサスCT");
+  await page.locator('[data-vehicle-filter="maker"][data-value="レクサス"]').click(); await page.locator('[data-vehicle-filter="model"][data-value="CT"]').click();
+  check(await page.locator("#searchOnlyVehicleNotice").isVisible(), "適合情報なし車種を検索結果で明示");
+  check((await page.locator("#searchOnlyVehicleNotice").textContent()).includes("車種登録済み／適合情報は要確認"), "検索不能と適合未確認を分離");
+  await page.locator('[data-tab="wheel"]').click();
+  check((await page.locator("#wheelResults").textContent()).includes("アルミ適合情報が未検証"), "検索補完データをアルミ判定に使用しない");
+  await page.locator('[data-tab="tire"]').click();
+  check((await page.locator("#tireResults").textContent()).includes("純正タイヤサイズが未検証"), "検索補完データからタイヤサイズを推測しない");
+  await page.locator("#clearVehicleSelection").click();
 
   await page.locator("#vehicleModelSearch").fill("テスト未登録車");
   check(await page.locator("#missingVehiclePanel").isVisible(), "該当なし時だけ未登録フォームを表示");
@@ -56,7 +67,7 @@ try {
   await page.locator("#registerVehicleCandidate").click();
   await page.waitForFunction(() => document.querySelector("#vehicleReviewStatus")?.textContent === "DB登録済み");
   await page.locator('[data-tab="tire"]').click(); await page.locator("#vehicleModelSearch").fill("テスト未登録車");
-  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("1世代"), "登録後すぐ車種検索可能");
+  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("1適合世代"), "登録後すぐ車種検索可能");
 
   await page.locator("#vehicleModelSearch").fill("シビック");
   await page.locator('[data-vehicle-filter="maker"][data-value="ホンダ"]').click();
