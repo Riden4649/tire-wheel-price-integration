@@ -2,5 +2,56 @@
   "schema_version": "1.0.0",
   "dataset": "vehicle_research_evidence",
   "description": "ChatGPT、GitHub Actions外部収集、人間調査から得た証拠を同じ形式で投入する受け口。値はここでは本番確定しない。",
-  "records": []
+  "records": [
+    {
+      "vehicle_id": "TOY_LC250",
+      "field": "wheel_torque_nm",
+      "value": 131,
+      "source_type": "manufacturer_official",
+      "source_name": "TOYOTA LAND CRUISER 250 取扱説明書 2026.04～ メンテナンスデータ",
+      "source_url": "https://manual.toyota.jp/landcruiser250/3065/cv/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01",
+      "note": "ホイールナット締め付けトルク 131 N・m。"
+    },
+    {
+      "vehicle_id": "TOY_BZ4X_XEAM11_XEAM15",
+      "field": "wheel_torque_nm",
+      "value": 103,
+      "source_type": "manufacturer_official",
+      "source_name": "TOYOTA bZ4X 取扱説明書 2025.10～ メンテナンスデータ",
+      "source_url": "https://manual.toyota.jp/bz4x/2510/bev/ja_JP/contents/vhch09se010401.php",
+      "verified_at": "2026-09-01",
+      "note": "ホイールナット締め付けトルク 103 N・m。型式 XEAM11/XEAM15 も同ページで確認。"
+    },
+    {
+      "vehicle_id": "HON_FREED_GT",
+      "field": "wheel_torque_nm",
+      "value": 108,
+      "source_type": "manufacturer_official",
+      "source_name": "Honda FREED サービスデータ FAQ",
+      "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
+      "verified_at": "2026-09-01",
+      "note": "締め付けトルク 108 N・m。"
+    },
+    {
+      "vehicle_id": "HON_FREED_GT",
+      "field": "thread_diameter",
+      "value": "M12",
+      "source_type": "manufacturer_official",
+      "source_name": "Honda FREED サービスデータ FAQ",
+      "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
+      "verified_at": "2026-09-01",
+      "note": "ホイールナットねじ径 M12。"
+    },
+    {
+      "vehicle_id": "HON_FREED_GT",
+      "field": "thread_pitch",
+      "value": 1.5,
+      "source_type": "manufacturer_official",
+      "source_name": "Honda FREED サービスデータ FAQ",
+      "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
+      "verified_at": "2026-09-01",
+      "note": "ホイールナットねじピッチ 1.5 mm。"
+    }
+  ]
 }
