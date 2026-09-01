@@ -1,4 +1,4 @@
-name: Vehicle DB Health
+name: Vehicle DB Growth v1.0
 
 on:
   workflow_dispatch:
@@ -8,6 +8,7 @@ on:
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
+      - 'tools/evaluate_vehicle_evidence.py'
       - '.github/workflows/vehicle-db-health.yml'
   push:
     branches: [main]
@@ -16,6 +17,7 @@ on:
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
+      - 'tools/evaluate_vehicle_evidence.py'
   schedule:
     - cron: '15 22 * * 0'
 
@@ -23,7 +25,7 @@ permissions:
   contents: read
 
 jobs:
-  health-check:
+  grow-and-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,6 +45,9 @@ jobs:
       - name: Build research candidates
         run: python tools/build_research_candidates.py
 
+      - name: Evaluate submitted evidence
+        run: python tools/evaluate_vehicle_evidence.py
+
       - name: Add reports to job summary
         run: |
           cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
@@ -50,11 +55,22 @@ jobs:
           cat reports/missing-data-queue.md >> "$GITHUB_STEP_SUMMARY"
           printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
           cat reports/research-candidates.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('reports/evidence-evaluation.json', encoding='utf-8'))
+          print('# Evidence Evaluation')
+          print()
+          print(f"- Auto-confirm candidates: {d['accepted_count']}")
+          print(f"- Human review: {d['review_count']}")
+          print(f"- Pending evidence: {d['pending_count']}")
+          print(f"- Invalid evidence: {d['invalid_count']}")
+          PY
 
-      - name: Upload DB reports
+      - name: Upload DB growth reports
         uses: actions/upload-artifact@v4
         with:
-          name: vehicle-db-health-report
+          name: vehicle-db-growth-report
           path: |
             reports/vehicle-db-health.json
             reports/vehicle-db-health.md
@@ -62,4 +78,7 @@ jobs:
             reports/missing-data-queue.md
             reports/research-candidates.json
             reports/research-candidates.md
+            reports/evidence-evaluation.json
+            reports/review-queue.json
+            reports/change-plan.json
           retention-days: 30
