@@ -52,6 +52,96 @@
       "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
       "verified_at": "2026-09-01",
       "note": "ホイールナットねじピッチ 1.5 mm。"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング アルファード 10系/FF",
+      "source_url": "https://search.weds.co.jp/maker/toyota/arufuaado-10keiff/kranze-evo-all/?size=21inch",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング アコード CL7-9",
+      "source_url": "https://search.weds.co.jp/brand/leonis/vr/honda/akoodo-cl79-d/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング エリシオン RR1-6",
+      "source_url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/wedssport-tc105x/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング オデッセイ RB1・2",
+      "source_url": "https://search.weds.co.jp/brand/wedssport/sa20r/honda/odessei-rb1-2-d/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_STEPWGN_RG",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング ステップワゴン RG1・3",
+      "source_url": "https://search.weds.co.jp/brand/wedssport/sa20r/honda/suteppuwagon-rg1-3-d/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "field": "pcd",
+      "value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング ストリーム RN6-9",
+      "source_url": "https://search.weds.co.jp/brand/wedssport/sa20r/honda/sutoriimu-rn69-d/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/114.3。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "field": "pcd",
+      "value": 100,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング フィット/フィットアリア GD1-9",
+      "source_url": "https://search.weds.co.jp/brand/leonis/vr/honda/fittofittoaria-gd19-d/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 4/100。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "HON_LEGEND_KB1",
+      "field": "pcd",
+      "value": 120,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング レジェンド KB1",
+      "source_url": "https://search.weds.co.jp/brand/kranze/bertaler/honda/rejiendo-kb1/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/120。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40",
+      "field": "pcd",
+      "value": 120,
+      "source_type": "wheel_manufacturer_official",
+      "source_name": "Weds ホイール装着マッチング LS 40系/FR LS460・LS460L",
+      "source_url": "https://www.stg.search.weds.co.jp/brand/wedssport/tc105x/lexus/ls-40keifrls460-ls460l-vers-versz-fsportnozoku-a/",
+      "verified_at": "2026-09-02",
+      "note": "H/P.C.D 5/120。単一ホイールメーカー公式のためQAでは追加独立ソース待ち。"
     }
   ]
 }
