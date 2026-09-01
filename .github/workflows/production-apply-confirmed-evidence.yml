@@ -1,0 +1,65 @@
+name: Apply Confirmed Vehicle Evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/production-apply-confirmed-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-confirmed-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Pre-apply QA
+        run: python tests/vehicle_db_qa.py
+
+      - name: Apply confirmed evidence
+        run: python tools/apply_confirmed_vehicle_evidence.py
+
+      - name: Validate expected production values
+        run: |
+          python - <<'PY'
+          import json
+          f=json.load(open('app/data/vehicles_2012_2026.json', encoding='utf-8'))
+          s=json.load(open('app/data/vehicle_service_specs.json', encoding='utf-8'))
+          by={r['vehicle_id']:r for r in f['vehicles']}
+          assert by['TOY_LC250']['wheel_torque_nm'] == 131
+          assert by['TOY_BZ4X_XEAM11_XEAM15']['wheel_torque_nm'] == 103
+          assert by['HON_FREED_GT']['wheel_torque_nm'] == 108
+          assert by['HON_FREED_GT']['fastener_details']['thread_diameter'] == 'M12'
+          assert by['HON_FREED_GT']['fastener_details']['thread_pitch'] == 1.5
+          sk={(r['maker'],r['model']):r for r in s['records']}
+          assert sk[('トヨタ','ランドクルーザー250')]['wheel_torque_nm'] == 131
+          assert sk[('トヨタ','bZ4X')]['wheel_torque_nm'] == 103
+          assert sk[('ホンダ','フリード')]['wheel_torque_nm'] == 108
+          print('production value assertions passed')
+          PY
+
+      - name: Rebuild queue and confirm reduction
+        run: python tools/build_missing_data_queue.py
+
+      - name: Commit production master updates
+        run: |
+          if git diff --quiet -- app/data/vehicles_2012_2026.json app/data/vehicle_service_specs.json; then
+            echo 'No production changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/data/vehicles_2012_2026.json app/data/vehicle_service_specs.json
+          git commit -m 'Apply verified vehicle evidence to production masters'
+          git push origin HEAD:main
