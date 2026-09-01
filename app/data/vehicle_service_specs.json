@@ -85,6 +85,39 @@
       "source_name": "Honda N-VAN 2026 取扱説明書",
       "source_url": "https://www.honda.co.jp/ownersmanual/webom/jpn/n-van/2026/details/136267090-26731.html",
       "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "ランドクルーザー250",
+      "year_from": 2024,
+      "year_to": 2026,
+      "wheel_torque_nm": 131,
+      "torque_label": "131 N・m",
+      "source_name": "TOYOTA LAND CRUISER 250 取扱説明書 2026.04～ メンテナンスデータ",
+      "source_url": "https://manual.toyota.jp/landcruiser250/3065/cv/ja_JP/contents/vhch08se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "トヨタ",
+      "model": "bZ4X",
+      "year_from": 2025,
+      "year_to": 2026,
+      "wheel_torque_nm": 103,
+      "torque_label": "103 N・m",
+      "source_name": "TOYOTA bZ4X 取扱説明書 2025.10～ メンテナンスデータ",
+      "source_url": "https://manual.toyota.jp/bz4x/2510/bev/ja_JP/contents/vhch09se010401.php",
+      "verified_at": "2026-09-01"
+    },
+    {
+      "maker": "ホンダ",
+      "model": "フリード",
+      "year_from": 2024,
+      "year_to": 2026,
+      "wheel_torque_nm": 108,
+      "torque_label": "108 N・m",
+      "source_name": "Honda FREED サービスデータ FAQ",
+      "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
+      "verified_at": "2026-09-01"
     }
   ]
 }

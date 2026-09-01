@@ -19,84 +19,673 @@
   "record_count": 152,
   "vehicles": [
     {
-      "vehicle_id":"LEX_LC_Z100","maker":"レクサス","model":"LC","generation":"Z100","model_codes":["URZ100","GWZ100"],"year_from":"2017-03","year_to":"2026-12","pcd":120,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical","wheel_hole_diameter":15.4},"oem_inch":"21","oem_tire":"245/40R21;275/35R21","front_rear_staggered":true,"rim_width_min":8.5,"rim_width_max":9.5,"offset_min":25,"offset_max":25,"confidence":"C","variants":[{"variant_id":"LEX_LC_Z100_21","label":"21インチ前後異径","year_from":"2017-03","year_to":"2026-12","front_tires":"245/40R21","rear_tires":"275/35R21","oem_inch":"21"}],"notes":"前後異径。ねじ径・ピッチは公式公開資料で未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS LC FAQ","source_url":"https://lexus.jp/models/lc/faq/","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_LC_Z100",
+      "maker": "レクサス",
+      "model": "LC",
+      "generation": "Z100",
+      "model_codes": [
+        "URZ100",
+        "GWZ100"
+      ],
+      "year_from": "2017-03",
+      "year_to": "2026-12",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical",
+        "wheel_hole_diameter": 15.4
+      },
+      "oem_inch": "21",
+      "oem_tire": "245/40R21;275/35R21",
+      "front_rear_staggered": true,
+      "rim_width_min": 8.5,
+      "rim_width_max": 9.5,
+      "offset_min": 25,
+      "offset_max": 25,
+      "confidence": "C",
+      "variants": [
+        {
+          "variant_id": "LEX_LC_Z100_21",
+          "label": "21インチ前後異径",
+          "year_from": "2017-03",
+          "year_to": "2026-12",
+          "front_tires": "245/40R21",
+          "rear_tires": "275/35R21",
+          "oem_inch": "21"
+        }
+      ],
+      "notes": "前後異径。ねじ径・ピッチは公式公開資料で未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LC FAQ",
+          "source_url": "https://lexus.jp/models/lc/faq/",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_RZ_E10","maker":"レクサス","model":"RZ","generation":"E10系","year_from":"2023-03","year_to":"2026-12","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical","wheel_hole_diameter":15.4},"oem_inch":"18/20","oem_tire":"235/60R18;255/55R18;235/50R20;255/45R20","front_rear_staggered":true,"rim_width_min":7.5,"rim_width_max":9.5,"offset_min":35,"offset_max":35,"confidence":"C","variants":[{"variant_id":"LEX_RZ_E10_18_STAGGERED","label":"18インチ前後異径","year_from":"2023-03","year_to":"2026-12","front_tires":"235/60R18","rear_tires":"255/55R18","oem_inch":"18"},{"variant_id":"LEX_RZ_E10_20_STAGGERED","label":"20インチ前後異径","year_from":"2023-03","year_to":"2026-12","front_tires":"235/50R20","rear_tires":"255/45R20","oem_inch":"20"},{"variant_id":"LEX_RZ_E10_18_SQUARE","label":"RZ350e 18インチ前後同サイズ","year_from":"2023-03","year_to":"2026-12","oem_tire":"235/60R18","oem_inch":"18"}],"notes":"グレードで前後同サイズ/異径あり。ねじ径・ピッチは公式公開資料で未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS RZ FAQ","source_url":"https://lexus.jp/models/rz/faq/?faqid=80","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_RZ_E10",
+      "maker": "レクサス",
+      "model": "RZ",
+      "generation": "E10系",
+      "year_from": "2023-03",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical",
+        "wheel_hole_diameter": 15.4
+      },
+      "oem_inch": "18/20",
+      "oem_tire": "235/60R18;255/55R18;235/50R20;255/45R20",
+      "front_rear_staggered": true,
+      "rim_width_min": 7.5,
+      "rim_width_max": 9.5,
+      "offset_min": 35,
+      "offset_max": 35,
+      "confidence": "C",
+      "variants": [
+        {
+          "variant_id": "LEX_RZ_E10_18_STAGGERED",
+          "label": "18インチ前後異径",
+          "year_from": "2023-03",
+          "year_to": "2026-12",
+          "front_tires": "235/60R18",
+          "rear_tires": "255/55R18",
+          "oem_inch": "18"
+        },
+        {
+          "variant_id": "LEX_RZ_E10_20_STAGGERED",
+          "label": "20インチ前後異径",
+          "year_from": "2023-03",
+          "year_to": "2026-12",
+          "front_tires": "235/50R20",
+          "rear_tires": "255/45R20",
+          "oem_inch": "20"
+        },
+        {
+          "variant_id": "LEX_RZ_E10_18_SQUARE",
+          "label": "RZ350e 18インチ前後同サイズ",
+          "year_from": "2023-03",
+          "year_to": "2026-12",
+          "oem_tire": "235/60R18",
+          "oem_inch": "18"
+        }
+      ],
+      "notes": "グレードで前後同サイズ/異径あり。ねじ径・ピッチは公式公開資料で未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS RZ FAQ",
+          "source_url": "https://lexus.jp/models/rz/faq/?faqid=80",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_LS_XF50","maker":"レクサス","model":"LS","generation":"XF50","model_codes":["GVF50","GVF55","VXFA50","VXFA55"],"year_from":"2017-10","year_to":"2026-12","pcd":120,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical"},"oem_inch":"19/20","oem_tire":"245/50R19;245/45R20","confidence":"C","notes":"F SPORT等の前後異径は個別確認。ねじ径・ピッチ未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS LS FAQ","source_url":"https://lexus.jp/models/ls/faq/","verified_at":"2026-09-01"},{"source_type":"manufacturer_official","source_name":"LEXUS LS 取扱説明書","source_url":"https://manual.lexus.jp/ls/2310/cv/ja_JP/contents/vhch06se020406.php","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_LS_XF50",
+      "maker": "レクサス",
+      "model": "LS",
+      "generation": "XF50",
+      "model_codes": [
+        "GVF50",
+        "GVF55",
+        "VXFA50",
+        "VXFA55"
+      ],
+      "year_from": "2017-10",
+      "year_to": "2026-12",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical"
+      },
+      "oem_inch": "19/20",
+      "oem_tire": "245/50R19;245/45R20",
+      "confidence": "C",
+      "notes": "F SPORT等の前後異径は個別確認。ねじ径・ピッチ未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LS FAQ",
+          "source_url": "https://lexus.jp/models/ls/faq/",
+          "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LS 取扱説明書",
+          "source_url": "https://manual.lexus.jp/ls/2310/cv/ja_JP/contents/vhch06se020406.php",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_NX_AZ20","maker":"レクサス","model":"NX","generation":"AZ20","model_codes":["AAZH20","AAZH25","AAZH26","AAZA20","AAZA25","TAZA25"],"year_from":"2021-10","year_to":"2026-12","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical"},"oem_inch":"18/20","oem_tire":"235/60R18;235/50R20","confidence":"C","notes":"グレード・動力別確認、ねじ径・ピッチ未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS NX FAQ","source_url":"https://lexus.jp/models/nx/faq/","verified_at":"2026-09-01"},{"source_type":"manufacturer_official","source_name":"LEXUS NX 取扱説明書","source_url":"https://manual.lexus.jp/nx/3026/phev/ja_JP/contents/pbg1665129721464.php","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_NX_AZ20",
+      "maker": "レクサス",
+      "model": "NX",
+      "generation": "AZ20",
+      "model_codes": [
+        "AAZH20",
+        "AAZH25",
+        "AAZH26",
+        "AAZA20",
+        "AAZA25",
+        "TAZA25"
+      ],
+      "year_from": "2021-10",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical"
+      },
+      "oem_inch": "18/20",
+      "oem_tire": "235/60R18;235/50R20",
+      "confidence": "C",
+      "notes": "グレード・動力別確認、ねじ径・ピッチ未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS NX FAQ",
+          "source_url": "https://lexus.jp/models/nx/faq/",
+          "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS NX 取扱説明書",
+          "source_url": "https://manual.lexus.jp/nx/3026/phev/ja_JP/contents/pbg1665129721464.php",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_RX_AL30","maker":"レクサス","model":"RX","generation":"AL30","model_codes":["TALH17","AALH10","AALH15","AALH16","TALA10","TALA15"],"year_from":"2022-11","year_to":"2026-12","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical"},"oem_inch":"21","oem_tire":"235/50R21","confidence":"C","notes":"19インチ仕様・グレード差、ねじ径・ピッチ未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS RX FAQ","source_url":"https://lexus.jp/models/rx/faq/","verified_at":"2026-09-01"},{"source_type":"manufacturer_official","source_name":"LEXUS RX 取扱説明書","source_url":"https://manual.lexus.jp/rx/2211/phev/ja_JP/contents/vhch07se020405.php","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_RX_AL30",
+      "maker": "レクサス",
+      "model": "RX",
+      "generation": "AL30",
+      "model_codes": [
+        "TALH17",
+        "AALH10",
+        "AALH15",
+        "AALH16",
+        "TALA10",
+        "TALA15"
+      ],
+      "year_from": "2022-11",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical"
+      },
+      "oem_inch": "21",
+      "oem_tire": "235/50R21",
+      "confidence": "C",
+      "notes": "19インチ仕様・グレード差、ねじ径・ピッチ未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS RX FAQ",
+          "source_url": "https://lexus.jp/models/rx/faq/",
+          "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS RX 取扱説明書",
+          "source_url": "https://manual.lexus.jp/rx/2211/phev/ja_JP/contents/vhch07se020405.php",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_LBX_MAYH","maker":"レクサス","model":"LBX","generation":"MAYH10/MAYH15","year_from":"2023-12","year_to":"2026-12","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"ボルト締結（ねじ径・ピッチ要確認）","fastener_details":{"method":"bolt","thread_diameter":null,"thread_pitch":null,"seat":"spherical"},"oem_inch":"17/18","oem_tire":"225/60R17;225/55R18","confidence":"C","notes":"ねじ径・ピッチ未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS LBX FAQ","source_url":"https://lexus.jp/models/lbx/faq/","verified_at":"2026-09-01"},{"source_type":"manufacturer_official","source_name":"LEXUS LBX 取扱説明書","source_url":"https://manual.lexus.jp/lbx/3034/cv/ja_JP/contents/vhch06se020405.php","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_LBX_MAYH",
+      "maker": "レクサス",
+      "model": "LBX",
+      "generation": "MAYH10/MAYH15",
+      "year_from": "2023-12",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "spherical"
+      },
+      "oem_inch": "17/18",
+      "oem_tire": "225/60R17;225/55R18",
+      "confidence": "C",
+      "notes": "ねじ径・ピッチ未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LBX FAQ",
+          "source_url": "https://lexus.jp/models/lbx/faq/",
+          "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LBX 取扱説明書",
+          "source_url": "https://manual.lexus.jp/lbx/3034/cv/ja_JP/contents/vhch06se020405.php",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_GX_550_JP","maker":"レクサス","model":"GX","generation":"GX550 国内仕様","year_from":"2025-01","year_to":"2026-12","pcd":139.7,"holes":6,"hub_bore":95,"fastener":"ナット締結（ねじ径・ピッチ・座面要確認）","fastener_details":{"method":"nut","thread_diameter":null,"thread_pitch":null,"seat":"unknown"},"oem_inch":"18/22","oem_tire":"265/65R18;265/50R22","confidence":"C","notes":"型式、ねじ径・ピッチ・座面未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS GX FAQ","source_url":"https://lexus.jp/models/gx/faq/","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_GX_550_JP",
+      "maker": "レクサス",
+      "model": "GX",
+      "generation": "GX550 国内仕様",
+      "year_from": "2025-01",
+      "year_to": "2026-12",
+      "pcd": 139.7,
+      "holes": 6,
+      "hub_bore": 95,
+      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "unknown"
+      },
+      "oem_inch": "18/22",
+      "oem_tire": "265/65R18;265/50R22",
+      "confidence": "C",
+      "notes": "型式、ねじ径・ピッチ・座面未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS GX FAQ",
+          "source_url": "https://lexus.jp/models/gx/faq/",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_LX_300_CURRENT","maker":"レクサス","model":"LX","generation":"300系","year_from":"2022-01","year_to":"2026-12","pcd":139.7,"holes":6,"hub_bore":95,"fastener":"ナット締結（ねじ径・ピッチ・座面要確認）","fastener_details":{"method":"nut","thread_diameter":null,"thread_pitch":null,"seat":"unknown"},"oem_inch":"22","oem_tire":"265/50R22","confidence":"C","notes":"18インチ仕様、型式、ねじ径・ピッチ・座面未確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS LX FAQ","source_url":"https://lexus.jp/models/lx/faq/","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_LX_300_CURRENT",
+      "maker": "レクサス",
+      "model": "LX",
+      "generation": "300系",
+      "year_from": "2022-01",
+      "year_to": "2026-12",
+      "pcd": 139.7,
+      "holes": 6,
+      "hub_bore": 95,
+      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "unknown"
+      },
+      "oem_inch": "22",
+      "oem_tire": "265/50R22",
+      "confidence": "C",
+      "notes": "18インチ仕様、型式、ねじ径・ピッチ・座面未確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS LX FAQ",
+          "source_url": "https://lexus.jp/models/lx/faq/",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id":"LEX_UX_AA10","maker":"レクサス","model":"UX","generation":"AA10","model_codes":["MZAH10","MZAH15"],"year_from":"2018-11","year_to":"2026-12","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"ナット締結（ねじ径・ピッチ・座面要確認）","fastener_details":{"method":"nut","thread_diameter":null,"thread_pitch":null,"seat":"unknown"},"oem_inch":"18","oem_tire":"225/50R18","confidence":"C","notes":"ランフラット仕様・17インチ仕様、ねじ径・ピッチ・座面を個別確認。","sources":[{"source_type":"manufacturer_official","source_name":"LEXUS UX FAQ","source_url":"https://lexus.jp/models/ux/faq/","verified_at":"2026-09-01"}]},
+      "vehicle_id": "LEX_UX_AA10",
+      "maker": "レクサス",
+      "model": "UX",
+      "generation": "AA10",
+      "model_codes": [
+        "MZAH10",
+        "MZAH15"
+      ],
+      "year_from": "2018-11",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": null,
+        "thread_pitch": null,
+        "seat": "unknown"
+      },
+      "oem_inch": "18",
+      "oem_tire": "225/50R18",
+      "confidence": "C",
+      "notes": "ランフラット仕様・17インチ仕様、ねじ径・ピッチ・座面を個別確認。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS UX FAQ",
+          "source_url": "https://lexus.jp/models/ux/faq/",
+          "verified_at": "2026-09-01"
+        }
+      ]
+    },
     {
-      "vehicle_id": "TOY_PRIUS_NHW20", "maker": "トヨタ", "model": "プリウス", "generation": "NHW20", "year_from": "2003-09", "year_to": "2009-05",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15", "oem_tire": "185/65R15", "confidence": "C",
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "year_from": "2003-09",
+      "year_to": "2009-05",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "15",
+      "oem_tire": "185/65R15",
+      "confidence": "C",
       "notes": "公式アーカイブで年式・型式・純正タイヤを確認。ホイール取付条件は未確認のためタイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/200309/10012143/","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/200309/10012143/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "TOY_ALPHARD_10", "maker": "トヨタ", "model": "アルファードG", "aliases": ["アルファード"], "generation": "10系", "year_from": "2002-05", "year_to": "2008-05",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "205/65R16;225/55R17", "confidence": "C",
+      "vehicle_id": "TOY_ALPHARD_10",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "aliases": [
+        "アルファード"
+      ],
+      "generation": "10系",
+      "year_from": "2002-05",
+      "year_to": "2008-05",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "16/17",
+      "oem_tire": "205/65R16;225/55R17",
+      "confidence": "C",
       "notes": "グレード差あり。ホイール取付条件は未確認のためタイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD_G/","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD_G/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_FIT_GD", "maker": "ホンダ", "model": "フィット", "generation": "GD1-GD4", "year_from": "2001-06", "year_to": "2007-09",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14/15", "oem_tire": "175/65R14;185/55R15", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/fit/2007/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_FIT_GD",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "year_from": "2001-06",
+      "year_to": "2007-09",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "14/15",
+      "oem_tire": "175/65R14;185/55R15",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/fit/2007/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_STEPWGN_RG", "maker": "ホンダ", "model": "ステップワゴン", "generation": "RG1-RG4", "year_from": "2005-05", "year_to": "2009-09",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/16", "oem_tire": "205/65R15;205/60R16", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/stepwgn/spada/2009/webcatalogue/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_STEPWGN_RG",
+      "maker": "ホンダ",
+      "model": "ステップワゴン",
+      "generation": "RG1-RG4",
+      "year_from": "2005-05",
+      "year_to": "2009-09",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "15/16",
+      "oem_tire": "205/65R15;205/60R16",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/stepwgn/spada/2009/webcatalogue/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_ODYSSEY_RB12", "maker": "ホンダ", "model": "オデッセイ", "generation": "RB1/RB2", "year_from": "2003-10", "year_to": "2008-10",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "215/60R16;215/55R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/odyssey/2006/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "year_from": "2003-10",
+      "year_to": "2008-10",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "16/17",
+      "oem_tire": "215/60R16;215/55R17",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/odyssey/2006/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_STREAM_RN15", "maker": "ホンダ", "model": "ストリーム", "generation": "RN1-RN5", "year_from": "2000-10", "year_to": "2006-06",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14/15/16", "oem_tire": "185/70R14;195/65R15;205/50R16", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/stream/2006/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_STREAM_RN15",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN1-RN5",
+      "year_from": "2000-10",
+      "year_to": "2006-06",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "14/15/16",
+      "oem_tire": "185/70R14;195/65R15;205/50R16",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/stream/2006/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_STREAM_RN69", "maker": "ホンダ", "model": "ストリーム", "generation": "RN6-RN9", "year_from": "2006-07", "year_to": "2011-12",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/17", "oem_tire": "205/65R15;205/55R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/factbook/auto/stream/200607/stream-200607.pdf","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_STREAM_RN69",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "year_from": "2006-07",
+      "year_to": "2011-12",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "15/17",
+      "oem_tire": "205/65R15;205/55R17",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/factbook/auto/stream/200607/stream-200607.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_ACCORD_CL", "maker": "ホンダ", "model": "アコード", "generation": "CL7-CL9", "year_from": "2002-10", "year_to": "2008-12",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/16/17", "oem_tire": "195/65R15;205/55R16;215/45R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/accord/4door/2006/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_ACCORD_CL",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "year_from": "2002-10",
+      "year_to": "2008-12",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "15/16/17",
+      "oem_tire": "195/65R15;205/55R16;215/45R17",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/accord/4door/2006/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_ELYSION_RR", "maker": "ホンダ", "model": "エリシオン", "generation": "RR1-RR6", "year_from": "2004-05", "year_to": "2011-12",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "215/65R16;215/60R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/elysion/normal/2006/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_ELYSION_RR",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "year_from": "2004-05",
+      "year_to": "2011-12",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "16/17",
+      "oem_tire": "215/65R16;215/60R17",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/elysion/normal/2006/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_INSIGHT_ZE1", "maker": "ホンダ", "model": "インサイト", "generation": "ZE1", "year_from": "2000-01", "year_to": "2006-08",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14", "oem_tire": "165/65R14", "confidence": "C", "notes": "1999年発売。DB対象期間は2000年から。ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/insight/2006/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "year_from": "2000-01",
+      "year_to": "2006-08",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "14",
+      "oem_tire": "165/65R14",
+      "confidence": "C",
+      "notes": "1999年発売。DB対象期間は2000年から。ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/insight/2006/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "HON_LEGEND_KB1", "maker": "ホンダ", "model": "レジェンド", "generation": "KB1", "year_from": "2004-10", "year_to": "2008-08",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "17", "oem_tire": "235/50R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/legend/4door/2008/grade-data/","verified_at":"2026-09-01"}]
+      "vehicle_id": "HON_LEGEND_KB1",
+      "maker": "ホンダ",
+      "model": "レジェンド",
+      "generation": "KB1",
+      "year_from": "2004-10",
+      "year_to": "2008-08",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "17",
+      "oem_tire": "235/50R17",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "HONDA",
+          "source_url": "https://www.honda.co.jp/auto-archive/legend/4door/2008/grade-data/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
-      "vehicle_id": "LEX_LS_USF40", "maker": "レクサス", "model": "LS", "aliases": ["LEXUS LS"], "generation": "USF40系", "year_from": "2006-09", "year_to": "2011-12",
-      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "18/19", "oem_tire": "235/50R18;245/45R19", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
-      "sources": [{"source_type":"manufacturer_official","source_name":"LEXUS/TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-LEXUS/car-LS/200609/10036145/","verified_at":"2026-09-01"}]
+      "vehicle_id": "LEX_LS_USF40",
+      "maker": "レクサス",
+      "model": "LS",
+      "aliases": [
+        "LEXUS LS"
+      ],
+      "generation": "USF40系",
+      "year_from": "2006-09",
+      "year_to": "2011-12",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "fastener": "",
+      "oem_inch": "18/19",
+      "oem_tire": "235/50R18;245/45R19",
+      "confidence": "C",
+      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "LEXUS/TOYOTA",
+          "source_url": "https://toyota.jp/ucar/catalog/brand-LEXUS/car-LS/200609/10036145/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_ISIS_10_2007",
@@ -112,7 +701,14 @@
       "oem_inch": "15/16",
       "oem_tire": "195/65R15;205/55R16",
       "confidence": "C",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_isis_105470.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_isis_105470.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_BB_QNC_2008",
@@ -128,7 +724,14 @@
       "oem_inch": "14/15",
       "oem_tire": "175/65R14;185/55R15",
       "confidence": "C",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_bb_122473.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_bb_122473.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_IQ_KGJ_NGJ_2009",
@@ -144,7 +747,14 @@
       "oem_inch": "15/16",
       "oem_tire": "175/65R15;175/60R16",
       "confidence": "C",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_iq_156890.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_iq_156890.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_IST_NCP110_2010",
@@ -160,7 +770,14 @@
       "oem_inch": "16",
       "oem_tire": "195/60R16",
       "confidence": "C",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_ist_145091.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_ist_145091.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_RACTIS_120_2010",
@@ -176,7 +793,14 @@
       "oem_inch": "16",
       "oem_tire": "175/60R16;185/60R16",
       "confidence": "C",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/2.0/pdf/228/common_tire_ractis_150503.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/common_tire_ractis_150503.pdf",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_AQUA_NHP10",
@@ -612,7 +1236,16 @@
       "oem_inch": "18/20",
       "oem_tire": "265/65R18;265/60R20",
       "confidence": "C",
-      "weds_url": "https://search.weds.co.jp/maker/toyota/"
+      "weds_url": "https://search.weds.co.jp/maker/toyota/",
+      "wheel_torque_nm": 131,
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA LAND CRUISER 250 取扱説明書 2026.04～ メンテナンスデータ",
+          "source_url": "https://manual.toyota.jp/landcruiser250/3065/cv/ja_JP/contents/vhch08se010401.php",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "HON_NBOX_JF1",
@@ -816,11 +1449,24 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64,
-      "fastener": "M12×P1.5 球面座",
+      "fastener": "ナット締結（M12×1.5、座面要確認）",
       "oem_inch": "15/16",
       "oem_tire": "185/65R15;195/60R16",
       "confidence": "C",
-      "weds_url": "https://search.weds.co.jp/maker/honda/"
+      "weds_url": "https://search.weds.co.jp/maker/honda/",
+      "wheel_torque_nm": 108,
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "Honda FREED サービスデータ FAQ",
+          "source_url": "https://www.honda.co.jp/customer/auto/freed/faq/qa023/",
+          "verified_at": "2026-09-01"
+        }
+      ],
+      "fastener_details": {
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_VEZEL_RU",
@@ -1989,7 +2635,14 @@
       "oem_tire": "205/65R16;215/50R18",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_yariscross_202602.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_yariscross_202602.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_COROLLA_CROSS_10",
@@ -2006,7 +2659,14 @@
       "oem_tire": "215/60R17;225/50R18",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/corollacross/design/","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/corollacross/design/",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_LC300_J300",
@@ -2023,7 +2683,14 @@
       "oem_tire": "265/65R18;265/55R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/landcruiser300/004_p_001/pdf/landcruiser300_spec_202503.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/landcruiser300/004_p_001/pdf/landcruiser300_spec_202503.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_LC70_GDJ76",
@@ -2040,7 +2707,14 @@
       "oem_tire": "265/70R16",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/landcruiser70/003_p_001/pdf/landcruiser70_spec_202311.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/landcruiser70/003_p_001/pdf/landcruiser70_spec_202311.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "HON_CIVIC_FL",
@@ -2057,7 +2731,14 @@
       "oem_tire": "235/40R18",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/honda/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"Honda","source_url":"https://www.honda.co.jp/customer/auto/civic/faq/qa006/","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "Honda",
+          "source_url": "https://www.honda.co.jp/customer/auto/civic/faq/qa006/",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "HON_ZRV_RZ",
@@ -2074,7 +2755,14 @@
       "oem_tire": "225/55R18",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/honda/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"Honda","source_url":"https://www.honda.co.jp/auto-archive/zr-v/2026/common/pdf/zrv_spec_list.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "Honda",
+          "source_url": "https://www.honda.co.jp/auto-archive/zr-v/2026/common/pdf/zrv_spec_list.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "NIS_KICKS_P15",
@@ -2091,7 +2779,14 @@
       "oem_tire": "205/55R17",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/nissan/",
-      "sources": [{"source_type":"manufacturer_official_archive","source_name":"NISSAN","source_url":"https://history.nissan.co.jp/ARCHIVES/PDF/KICKS/P15/20240516/kicks_specsheet.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official_archive",
+          "source_name": "NISSAN",
+          "source_url": "https://history.nissan.co.jp/ARCHIVES/PDF/KICKS/P15/20240516/kicks_specsheet.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "SUZ_JIMNY_SIERRA_JB74",
@@ -2108,7 +2803,14 @@
       "oem_tire": "195/80R15",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/suzuki/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"SUZUKI","source_url":"https://www.suzuki.co.jp/car/jimny_sierra/asset/pdf/detail/detail.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "SUZUKI",
+          "source_url": "https://www.suzuki.co.jp/car/jimny_sierra/asset/pdf/detail/detail.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "MAZ_CX60_KH",
@@ -2125,7 +2827,14 @@
       "oem_tire": "235/60R18;235/50R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/mazda/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"MAZDA","source_url":"https://www.mazda.co.jp/globalassets/assets/cars/cx-60/common/pdf/cx-60_specification_202510.pdf","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "MAZDA",
+          "source_url": "https://www.mazda.co.jp/globalassets/assets/cars/cx-60/common/pdf/cx-60_specification_202510.pdf",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "MAZ_CX80_KL",
@@ -2142,7 +2851,14 @@
       "oem_tire": "235/60R18;235/50R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/mazda/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"MAZDA","source_url":"https://www2.mazda.co.jp/carlife/owner/manual/cx-80/kl/ekya/contents/70071500.html","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "MAZDA",
+          "source_url": "https://www2.mazda.co.jp/carlife/owner/manual/cx-80/kl/ekya/contents/70071500.html",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_BZ4X_XEAM10_YEAM15",
@@ -2159,7 +2875,14 @@
       "oem_tire": "235/60R18;235/50R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://manual.toyota.jp/bz4x/","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://manual.toyota.jp/bz4x/",
+          "verified_at": "2026-09-01"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_BZ4X_XEAM11_XEAM15",
@@ -2176,7 +2899,21 @@
       "oem_tire": "235/60R18;235/50R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/bz4x/001_p_003/pdf/bz4x_spec_202601.pdf","verified_at":"2026-09-01"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA",
+          "source_url": "https://toyota.jp/pages/contents/bz4x/001_p_003/pdf/bz4x_spec_202601.pdf",
+          "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA bZ4X 取扱説明書 2025.10～ メンテナンスデータ",
+          "source_url": "https://manual.toyota.jp/bz4x/2510/bev/ja_JP/contents/vhch09se010401.php",
+          "verified_at": "2026-09-01"
+        }
+      ],
+      "wheel_torque_nm": 103
     },
     {
       "vehicle_id": "MAZ_CX9_TC",
@@ -2193,7 +2930,14 @@
       "oem_tire": "255/60R18;255/50R20",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/mazda/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"Mazda USA","source_url":"https://www.mazdausa.com/static/manuals/2023/cx-9/contents/10020109.html","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "Mazda USA",
+          "source_url": "https://www.mazdausa.com/static/manuals/2023/cx-9/contents/10020109.html",
+          "verified_at": "2026-08-31"
+        }
+      ]
     },
     {
       "vehicle_id": "SUB_BRZ_ZD8",
@@ -2210,7 +2954,14 @@
       "oem_tire": "215/45R17;215/40R18",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/subaru/",
-      "sources": [{"source_type":"manufacturer_official","source_name":"SUBARU","source_url":"https://www.subaru.jp/brz/accessory/","verified_at":"2026-08-31"}]
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "SUBARU",
+          "source_url": "https://www.subaru.jp/brz/accessory/",
+          "verified_at": "2026-08-31"
+        }
+      ]
     }
   ]
 }
