@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "dataset": "aluminum-price-navi-vehicle-fitment",
   "period": {
-    "from": "2012-01",
+    "from": "2000-01",
     "to": "2026-12"
   },
   "update_policy": {
@@ -16,8 +16,155 @@
       "A"
     ]
   },
-  "record_count": 126,
+  "record_count": 144,
   "vehicles": [
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20", "maker": "トヨタ", "model": "プリウス", "generation": "NHW20", "year_from": "2003-09", "year_to": "2009-05",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15", "oem_tire": "185/65R15", "confidence": "C",
+      "notes": "公式アーカイブで年式・型式・純正タイヤを確認。ホイール取付条件は未確認のためタイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/200309/10012143/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10", "maker": "トヨタ", "model": "アルファードG", "aliases": ["アルファード"], "generation": "10系", "year_from": "2002-05", "year_to": "2008-05",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "205/65R16;225/55R17", "confidence": "C",
+      "notes": "グレード差あり。ホイール取付条件は未確認のためタイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD_G/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_FIT_GD", "maker": "ホンダ", "model": "フィット", "generation": "GD1-GD4", "year_from": "2001-06", "year_to": "2007-09",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14/15", "oem_tire": "175/65R14;185/55R15", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/fit/2007/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_FIT_GE_GP1", "maker": "ホンダ", "model": "フィット", "generation": "GE6-GE9/GP1", "year_from": "2007-10", "year_to": "2011-12",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14/15/16", "oem_tire": "175/65R14;175/65R15;185/55R16", "confidence": "C", "notes": "年式・仕様差あり。ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/factbook/auto/fit/201010/FIT.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_STEPWGN_RG", "maker": "ホンダ", "model": "ステップワゴン", "generation": "RG1-RG4", "year_from": "2005-05", "year_to": "2009-09",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/16", "oem_tire": "205/65R15;205/60R16", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/stepwgn/spada/2009/webcatalogue/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12", "maker": "ホンダ", "model": "オデッセイ", "generation": "RB1/RB2", "year_from": "2003-10", "year_to": "2008-10",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "215/60R16;215/55R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/odyssey/2006/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15", "maker": "ホンダ", "model": "ストリーム", "generation": "RN1-RN5", "year_from": "2000-10", "year_to": "2006-06",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14/15/16", "oem_tire": "185/70R14;195/65R15;205/50R16", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/stream/2006/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69", "maker": "ホンダ", "model": "ストリーム", "generation": "RN6-RN9", "year_from": "2006-07", "year_to": "2011-12",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/17", "oem_tire": "205/65R15;205/55R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/factbook/auto/stream/200607/stream-200607.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL", "maker": "ホンダ", "model": "アコード", "generation": "CL7-CL9", "year_from": "2002-10", "year_to": "2008-12",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "15/16/17", "oem_tire": "195/65R15;205/55R16;215/45R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/accord/4door/2006/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR", "maker": "ホンダ", "model": "エリシオン", "generation": "RR1-RR6", "year_from": "2004-05", "year_to": "2011-12",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "16/17", "oem_tire": "215/65R16;215/60R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/elysion/normal/2006/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1", "maker": "ホンダ", "model": "インサイト", "generation": "ZE1", "year_from": "2000-01", "year_to": "2006-08",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "14", "oem_tire": "165/65R14", "confidence": "C", "notes": "1999年発売。DB対象期間は2000年から。ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/insight/2006/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "HON_LEGEND_KB1", "maker": "ホンダ", "model": "レジェンド", "generation": "KB1", "year_from": "2004-10", "year_to": "2008-08",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "17", "oem_tire": "235/50R17", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"HONDA","source_url":"https://www.honda.co.jp/auto-archive/legend/4door/2008/grade-data/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40", "maker": "レクサス", "model": "LS", "aliases": ["LEXUS LS"], "generation": "USF40系", "year_from": "2006-09", "year_to": "2011-12",
+      "pcd": null, "holes": null, "hub_bore": null, "fastener": "", "oem_inch": "18/19", "oem_tire": "235/50R18;245/45R19", "confidence": "C", "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "sources": [{"source_type":"manufacturer_official","source_name":"LEXUS/TOYOTA","source_url":"https://toyota.jp/ucar/catalog/brand-LEXUS/car-LS/200609/10036145/","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_ISIS_10_2007",
+      "maker": "トヨタ",
+      "model": "アイシス",
+      "generation": "10系（2007年5月改良）",
+      "year_from": "2007-05",
+      "year_to": "2011-04",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "",
+      "oem_inch": "15/16",
+      "oem_tire": "195/65R15;205/55R16",
+      "confidence": "C",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_isis_105470.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_BB_QNC_2008",
+      "maker": "トヨタ",
+      "model": "bB",
+      "generation": "QNC系（2008年10月改良）",
+      "year_from": "2008-10",
+      "year_to": "2011-06",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 54,
+      "fastener": "",
+      "oem_inch": "14/15",
+      "oem_tire": "175/65R14;185/55R15",
+      "confidence": "C",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_bb_122473.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_IQ_KGJ_NGJ_2009",
+      "maker": "トヨタ",
+      "model": "iQ",
+      "generation": "KGJ10/NGJ10（2009年8月追加）",
+      "year_from": "2009-08",
+      "year_to": "2011-12",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 54,
+      "fastener": "",
+      "oem_inch": "15/16",
+      "oem_tire": "175/65R15;175/60R16",
+      "confidence": "C",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_iq_156890.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_IST_NCP110_2010",
+      "maker": "トヨタ",
+      "model": "ist",
+      "generation": "NCP110系（2010年8月改良）",
+      "year_from": "2010-08",
+      "year_to": "2011-12",
+      "pcd": 100,
+      "holes": 5,
+      "hub_bore": 54,
+      "fastener": "",
+      "oem_inch": "16",
+      "oem_tire": "195/60R16",
+      "confidence": "C",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_ist_145091.pdf","verified_at":"2026-09-01"}]
+    },
+    {
+      "vehicle_id": "TOY_RACTIS_120_2010",
+      "maker": "トヨタ",
+      "model": "ラクティス",
+      "generation": "NCP/NSP120系",
+      "year_from": "2010-11",
+      "year_to": "2011-12",
+      "pcd": 100,
+      "holes": 5,
+      "hub_bore": 54,
+      "fastener": "",
+      "oem_inch": "16",
+      "oem_tire": "175/60R16;185/60R16",
+      "confidence": "C",
+      "sources": [{"source_type":"manufacturer_official","source_name":"TOYOTA","source_url":"https://toyota.jp/pages/contents/faq/2.0/pdf/228/common_tire_ractis_150503.pdf","verified_at":"2026-09-01"}]
+    },
     {
       "vehicle_id": "TOY_AQUA_NHP10",
       "maker": "トヨタ",

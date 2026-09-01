@@ -41,7 +41,7 @@
     if (!record || typeof record !== "object") return null;
     const vehicleId = text(record.vehicle_id);
     if (!vehicleId) return null;
-    return {
+    const normalized = {
       ...record,
       vehicle_id: vehicleId,
       maker: text(record.maker),
@@ -58,6 +58,24 @@
       confidence: text(record.confidence).toUpperCase(),
       weds_url: text(record.weds_url)
     };
+    normalized.aliases = unique(splitValues(record.aliases));
+    normalized.model_codes = unique(splitValues(record.model_codes));
+    normalized.variants = (Array.isArray(record.variants) ? record.variants : []).map((variant, index) => ({
+      ...variant,
+      variant_id: text(variant.variant_id) || `${vehicleId}-V${index + 1}`,
+      label: text(variant.label || variant.grade || variant.name) || `仕様${index + 1}`,
+      year_from: text(variant.year_from || record.year_from),
+      year_to: text(variant.year_to || record.year_to),
+      grades: unique(splitValues(variant.grades || variant.grade)),
+      drivetrain: text(variant.drivetrain),
+      powertrain: text(variant.powertrain),
+      oem_inches: parseOemInches(variant.oem_inch),
+      oem_tires: parseOemTires(variant.oem_tire),
+      front_tires: parseOemTires(variant.front_tires),
+      rear_tires: parseOemTires(variant.rear_tires),
+      confidence: text(variant.confidence || record.confidence).toUpperCase()
+    }));
+    return normalized;
   }
 
   function normalizeVehicleDatabase(payload) {
@@ -65,9 +83,43 @@
     return records.map(normalizeVehicle).filter(Boolean);
   }
 
-  function tireSizes(vehicle) {
+  function variants(vehicle, selectedYear) {
+    const values = Array.isArray(vehicle?.variants) ? vehicle.variants : [];
+    if (!selectedYear) return [...values];
+    const year = Number(selectedYear);
+    return values.filter(item => {
+      const from = Number(text(item.year_from).slice(0, 4));
+      const to = Number(text(item.year_to).slice(0, 4));
+      return (!Number.isInteger(from) || year >= from) && (!Number.isInteger(to) || year <= to);
+    });
+  }
+
+  function tireSizes(vehicle, options = {}) {
+    const matching = variants(vehicle, options.year);
+    if (matching.length) {
+      const selected = options.variantId && matching.find(item => item.variant_id === options.variantId);
+      const targets = selected ? [selected] : matching;
+      const sizes = unique(targets.flatMap(item => [...item.oem_tires, ...item.front_tires, ...item.rear_tires]));
+      if (sizes.length) return sizes;
+    }
     if (Array.isArray(vehicle?.oem_tires)) return [...vehicle.oem_tires];
     return parseOemTires(vehicle?.oem_tire);
+  }
+
+  function validateVehicles(records) {
+    const vehicles = normalizeVehicleDatabase(records);
+    const errors = [];
+    const ids = new Set();
+    vehicles.forEach((vehicle, index) => {
+      const at = `${vehicle.vehicle_id || `行${index + 1}`}`;
+      if (ids.has(vehicle.vehicle_id)) errors.push(`${at}: vehicle_idが重複しています`);
+      ids.add(vehicle.vehicle_id);
+      if (!vehicle.maker || !vehicle.model || !vehicle.generation) errors.push(`${at}: メーカー・車種・世代は必須です`);
+      if (!years(vehicle).length) errors.push(`${at}: 年式範囲が不正です`);
+      if (!vehicle.oem_tires.length && !vehicle.variants.some(item => item.oem_tires.length || item.front_tires.length)) errors.push(`${at}: 純正タイヤサイズがありません`);
+      tireSizes(vehicle).forEach(size => { if (!/^\d{3}\/\d{2}R\d{2}(?:\.5)?$/i.test(size)) errors.push(`${at}: タイヤサイズ ${size} を確認してください`); });
+    });
+    return { valid: errors.length === 0 && vehicles.length > 0, vehicles, errors };
   }
 
   function years(vehicle) {
@@ -148,6 +200,8 @@
     normalizeVehicleDatabase,
     upsertVehicles,
     tireSizes,
+    variants,
+    validateVehicles,
     years,
     parseOemInches,
     parseOemTires,

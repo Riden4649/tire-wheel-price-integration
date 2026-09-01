@@ -7,15 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="商談価格ナビ">
   <meta name="format-detection" content="telephone=no">
-  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.7.4</title>
+  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.8.0</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon-v172-tire.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32-v172-tire.png">
-  <link rel="stylesheet" href="css/app-v174.css?v=20260901-v174-shared-vehicle">
+  <link rel="stylesheet" href="css/app-v174.css?v=20260901-v180-offline-master">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.7.4</small></div>
+    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.8.0</small></div>
     <div class="status-pill" id="saveStatus">READY</div>
   </header>
 
@@ -35,10 +35,24 @@
           <div><input type="search" id="vehicleModelSearch" placeholder="例：シビック、bZ4X、ランドクルーザー" autocomplete="off" inputmode="search"><button type="button" id="clearVehicleModelSearch">クリア</button></div>
           <small id="vehicleModelSearchStatus">ひらがな・カタカナ・英数字で検索できます</small>
         </div>
+        <div class="missing-vehicle-panel" id="missingVehiclePanel" hidden>
+          <strong>車種が見つかりません</strong>
+          <p>端末内へ未登録車種として保存できます。通常商談や価格データには影響しません。</p>
+          <div class="missing-vehicle-grid">
+            <label>メーカー<select id="missingVehicleMaker"><option>トヨタ</option><option>レクサス</option><option>日産</option><option>ホンダ</option><option>マツダ</option><option>スバル</option><option>スズキ</option><option>ダイハツ</option><option>三菱</option><option>その他</option></select></label>
+            <label>車種名<input id="missingVehicleModel" type="text"></label>
+            <label>年式<input id="missingVehicleYear" type="number" min="1980" max="2035" inputmode="numeric"></label>
+            <label>型式<input id="missingVehicleCode" type="text" placeholder="例：ABC123"></label>
+            <label>タイヤサイズ<input id="missingVehicleTire" type="text" placeholder="例：195/65R15"></label>
+          </div>
+          <button type="button" class="primary" id="saveMissingVehicle">未登録車種として端末に保存</button>
+          <small id="missingVehicleSaveStatus"></small>
+        </div>
         <details class="choice-accordion" data-vehicle-step="maker" open><summary><span>メーカー</span><b></b></summary><div class="choice-row" id="vehicleMakerChips"></div></details>
         <details class="choice-accordion" data-vehicle-step="model"><summary><span>車種</span><b></b></summary><div class="choice-row" id="vehicleModelChips"></div></details>
         <details class="choice-accordion" data-vehicle-step="generation"><summary><span>型式 / 世代</span><b></b></summary><div class="choice-row" id="vehicleGenerationChips"></div></details>
         <details class="choice-accordion" data-vehicle-step="year"><summary><span>年式</span><b></b></summary><div class="choice-row" id="vehicleYearChips"></div></details>
+        <details class="choice-accordion" data-vehicle-step="variant" id="vehicleVariantStep" hidden><summary><span>仕様 / グレード</span><b></b></summary><div class="choice-row" id="vehicleVariantChips"></div></details>
         <details class="choice-accordion" data-vehicle-step="tire"><summary><span>純正タイヤサイズ</span><b></b></summary><div class="choice-row" id="vehicleTireChips"></div></details>
         <div class="vehicle-summary" id="vehicleSummary" hidden></div>
         <button type="button" class="secondary clear-vehicle-selection" id="clearVehicleSelection">車両選択を解除</button>
@@ -229,6 +243,22 @@
           </div>
           </div>
         </details>
+        <details class="settings-accordion admin-wide">
+          <summary><span>車種マスタ・未登録候補</span><b></b></summary>
+          <div class="settings-accordion-body">
+            <div class="import-card">
+              <div class="import-card-head"><strong>車種マスタ差分</strong><span class="source-badge-inline" id="vehicleMasterBadge">端末差分 0件</span></div>
+              <p class="import-detail" id="vehicleMasterStatus">JSONをvehicle_idで検証し、端末DBへupsertします。価格表・設定は変更しません。</p>
+              <div class="action-row"><label class="file-button">JSON差分を読込<input id="vehicleMasterFile" type="file" accept=".json,application/json"></label></div>
+            </div>
+            <div class="import-card">
+              <div class="import-card-head"><strong>未登録車種候補</strong><span class="source-badge-inline" id="missingVehicleCount">0件</span></div>
+              <p class="import-detail" id="missingVehicleAdminStatus">この端末内だけに保存されます。</p>
+              <div class="action-row"><button class="secondary" type="button" id="exportMissingVehicles">JSON書き出し</button><button class="secondary" type="button" id="clearMissingVehicles">候補をクリア</button></div>
+              <div class="missing-vehicle-list" id="missingVehicleList"></div>
+            </div>
+          </div>
+        </details>
         <details class="settings-accordion">
           <summary><span>工賃設定</span><b></b></summary>
           <div class="settings-accordion-body">
@@ -291,7 +321,8 @@
   <script src="js/brand-config.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/workbook.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/pricing.js?v=20260817-v166-labor-ceil10"></script>
-  <script src="js/vehicle-fitment-v170.js?v=20260831-v170-vehicle"></script>
-  <script src="js/app-v174.js?v=20260901-v174-price-qa"></script>
+  <script src="js/vehicle-fitment-v170.js?v=20260901-v180-variants"></script>
+  <script src="js/vehicle-store-v180.js?v=20260901-v180-offline-master"></script>
+  <script src="js/app-v174.js?v=20260901-v180-offline-master"></script>
 </body>
 </html>
