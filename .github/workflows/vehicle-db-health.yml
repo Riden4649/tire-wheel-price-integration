@@ -1,4 +1,4 @@
-name: Vehicle DB Growth v1.1
+name: 車種DB育成 v1.1
 
 on:
   workflow_dispatch:
@@ -30,32 +30,33 @@ permissions:
 
 jobs:
   grow-and-check:
+    name: 車種DBチェック
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: データ取得
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Python準備
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Run adversarial and regression QA
+      - name: QAチェック
         run: python tests/vehicle_db_qa.py
 
-      - name: Run vehicle DB health and generation-integrity check
+      - name: DB健全性・世代境界チェック
         run: python tools/vehicle_db_health.py
 
-      - name: Build missing and generation-review queue
+      - name: 欠損・世代確認キュー作成
         run: python tools/build_missing_data_queue.py
 
-      - name: Build research candidates
+      - name: 調査候補作成
         run: python tools/build_research_candidates.py
 
-      - name: Evaluate submitted evidence
+      - name: 証拠データ評価
         run: python tools/evaluate_vehicle_evidence.py
 
-      - name: Add reports to job summary
+      - name: 結果サマリー作成
         run: |
           cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
           printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
@@ -66,15 +67,15 @@ jobs:
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           d=json.load(open('reports/evidence-evaluation.json', encoding='utf-8'))
-          print('# Evidence Evaluation')
+          print('# 証拠データ評価')
           print()
-          print(f"- Auto-confirm candidates: {d['accepted_count']}")
-          print(f"- Human review: {d['review_count']}")
-          print(f"- Pending evidence: {d['pending_count']}")
-          print(f"- Invalid evidence: {d['invalid_count']}")
+          print(f"- 自動確定候補: {d['accepted_count']}")
+          print(f"- 人による確認: {d['review_count']}")
+          print(f"- 追加根拠待ち: {d['pending_count']}")
+          print(f"- 無効データ: {d['invalid_count']}")
           PY
 
-      - name: Upload DB growth reports
+      - name: レポート保存
         uses: actions/upload-artifact@v4
         with:
           name: vehicle-db-growth-report
