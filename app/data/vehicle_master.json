@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "shared_vehicle_master",
+  "version": "2026-09-01.1",
+  "updated_at": "2026-09-01T17:45:00+09:00",
+  "description": "タイヤナビ・アルミ価格ナビ・セット検索で共通利用する車両マスターの入口。GitHubを正本とし、各アプリはローカルキャッシュを保持してオフライン利用する。",
+  "source_of_truth": "github",
+  "repository": "Riden4649/tire-wheel-price-integration",
+  "default_branch": "main",
+  "offline_policy": {
+    "enabled": true,
+    "cache": "IndexedDB preferred; localStorage fallback",
+    "startup": "ローカルDBを優先して起動し、ネット接続を必須にしない",
+    "update": "ユーザー操作または更新確認時のみGitHub上の新バージョンを取得",
+    "failure": "更新失敗時は既存ローカルDBを保持して継続利用"
+  },
+  "datasets": {
+    "search_master": {
+      "path": "app/data/jp_vehicle_search_master_2000_2026_v1.json",
+      "role": "メーカー・車種名・別名検索用。未検証レコード単独では適合判定しない",
+      "record_count": 545,
+      "fitment_authority": false
+    },
+    "fitment_master": {
+      "path": "app/data/vehicles_2012_2026.json",
+      "role": "PCD・穴数・ハブ径・締結方式・純正タイヤサイズ等の検証済み適合情報",
+      "record_count": 152,
+      "fitment_authority": true
+    },
+    "online_candidates": {
+      "path": "app/data/vehicle-updates/online-master.json",
+      "role": "オンライン収集した人間確認前の候補。確認前は本番適合判定に使用しない",
+      "fitment_authority": false
+    },
+    "update_manifest": {
+      "path": "app/data/vehicle-updates/manifest.json",
+      "role": "差分更新管理"
+    }
+  },
+  "merge_policy": {
+    "primary_key": "vehicle_id",
+    "search_key": "search_id",
+    "fitment_priority": "fitment_master",
+    "search_priority": "search_master",
+    "unverified_display": "車種は登録済み／適合情報は要確認",
+    "delete_policy": "原則削除せず、終了年月や無効フラグで履歴を保持"
+  },
+  "app_usage": {
+    "tire_navi": [
+      "maker",
+      "model",
+      "generation",
+      "year_from",
+      "year_to",
+      "oem_inch",
+      "oem_tire"
+    ],
+    "wheel_navi": [
+      "maker",
+      "model",
+      "generation",
+      "year_from",
+      "year_to",
+      "pcd",
+      "holes",
+      "hub_bore",
+      "fastener",
+      "rim_width_min",
+      "rim_width_max",
+      "offset_min",
+      "offset_max",
+      "oem_inch",
+      "oem_tire"
+    ]
+  }
+}
