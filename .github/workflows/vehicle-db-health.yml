@@ -6,12 +6,14 @@ on:
     paths:
       - 'app/data/**'
       - 'tools/vehicle_db_health.py'
+      - 'tools/build_missing_data_queue.py'
       - '.github/workflows/vehicle-db-health.yml'
   push:
     branches: [main]
     paths:
       - 'app/data/**'
       - 'tools/vehicle_db_health.py'
+      - 'tools/build_missing_data_queue.py'
   schedule:
     - cron: '15 22 * * 0'
 
@@ -33,14 +35,22 @@ jobs:
       - name: Run vehicle DB health check
         run: python tools/vehicle_db_health.py
 
-      - name: Add report to job summary
-        run: cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Build missing data queue
+        run: python tools/build_missing_data_queue.py
 
-      - name: Upload health report
+      - name: Add reports to job summary
+        run: |
+          cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+          cat reports/missing-data-queue.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload DB reports
         uses: actions/upload-artifact@v4
         with:
           name: vehicle-db-health-report
           path: |
             reports/vehicle-db-health.json
             reports/vehicle-db-health.md
+            reports/missing-data-queue.json
+            reports/missing-data-queue.md
           retention-days: 30
