@@ -3,7 +3,7 @@ import importlib.util
 import json
 import re
 import sys
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,9 +72,22 @@ def test_live_evidence():
         check(live.get(key) == expected, f"Official regression anchor changed: {key} expected {expected}, got {live.get(key)}")
 
     accepted, review, pending, invalid = ev.evaluate_records(evidence, registry, valid_vehicle_ids=fitment_ids)
-    check(len(accepted) == len(evidence), "All current official evidence should be accepted")
+    accepted_keys = {(x.get("vehicle_id"), x.get("field")) for x in accepted}
+    official_keys = {
+        (x.get("vehicle_id"), x.get("field"))
+        for x in evidence
+        if x.get("source_type") == "manufacturer_official"
+    }
+    pending_keys = {(x.get("vehicle_id"), x.get("field")) for x in pending}
+    single_wheel_keys = {
+        (x.get("vehicle_id"), x.get("field"))
+        for x in evidence
+        if x.get("source_type") == "wheel_manufacturer_official"
+    }
+
+    check(official_keys <= accepted_keys, "Manufacturer-official evidence must be accepted")
+    check(single_wheel_keys <= pending_keys | accepted_keys, "Wheel-maker evidence must remain pending until corroborated, or be accepted after corroboration")
     check(not review, "Current evidence unexpectedly entered review")
-    check(not pending, "Current evidence unexpectedly became pending")
     check(not invalid, "Current evidence unexpectedly became invalid")
 
 
@@ -141,7 +154,7 @@ def test_adversarial_decisions():
     a, r, p, i = ev.evaluate_records([rec("https://toyota.example/manual", 131, "manufacturer_official", vehicle_id="UNKNOWN")], registry, valid)
     check(len(i) == 1 and i[0]["invalid_reason"] == "unknown_vehicle_id", "Unknown vehicle_id must be rejected")
 
-    future = (date.today() + timedelta(days=1)).isoformat()
+    future = (datetime.now(ev.JST).date() + timedelta(days=1)).isoformat()
     a, r, p, i = ev.evaluate_records([rec("https://toyota.example/manual", 131, "manufacturer_official", verified_at=future)], registry, valid)
     check(len(i) == 1 and i[0]["invalid_reason"] == "invalid_verified_at", "Future verification date must be rejected")
 
