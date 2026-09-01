@@ -9,6 +9,7 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/evaluate_vehicle_evidence.py'
+      - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
   push:
     branches: [main]
@@ -18,6 +19,7 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/evaluate_vehicle_evidence.py'
+      - 'tests/vehicle_db_qa.py'
   schedule:
     - cron: '15 22 * * 0'
 
@@ -35,6 +37,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Run adversarial and regression QA
+        run: python tests/vehicle_db_qa.py
 
       - name: Run vehicle DB health check
         run: python tools/vehicle_db_health.py
