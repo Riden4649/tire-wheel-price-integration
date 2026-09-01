@@ -63,3 +63,5 @@ jobs:
           git add app/data/vehicles_2012_2026.json app/data/vehicle_service_specs.json
           git commit -m 'Apply verified vehicle evidence to production masters'
           git push origin HEAD:main
+
+# one-shot production sync trigger
