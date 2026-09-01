@@ -1,0 +1,49 @@
+name: Deploy Vehicle DB Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dashboard/**'
+      - 'app/data/**'
+      - '.github/workflows/deploy-db-dashboard.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build Pages artifact
+        run: |
+          mkdir -p _site/dashboard _site/app/data
+          cp dashboard/index.html _site/dashboard/index.html
+          cp app/data/jp_vehicle_search_master_2000_2026_v1.json _site/app/data/
+          cp app/data/vehicles_2012_2026.json _site/app/data/
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=dashboard/"><title>Vehicle DB Grow Lab</title><a href="dashboard/">Open dashboard</a>' > _site/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
