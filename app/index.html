@@ -7,16 +7,16 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="商談価格ナビ">
   <meta name="format-detection" content="telephone=no">
-  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.8.0</title>
+  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.9.0</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon-v172-tire.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32-v172-tire.png">
-  <link rel="stylesheet" href="css/app-v174.css?v=20260901-v180-offline-master">
+  <link rel="stylesheet" href="css/app-v174.css?v=20260901-v190-review-fitment">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール / Ver1.8.0</small></div>
-    <div class="status-pill" id="saveStatus">READY</div>
+    <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール</small></div>
+    <div class="status-stack"><div class="status-pill" id="saveStatus">READY</div><small>Ver1.9.0</small></div>
   </header>
 
   <nav class="tabs" aria-label="メイン画面">
@@ -43,7 +43,9 @@
             <label>車種名<input id="missingVehicleModel" type="text"></label>
             <label>年式<input id="missingVehicleYear" type="number" min="1980" max="2035" inputmode="numeric"></label>
             <label>型式<input id="missingVehicleCode" type="text" placeholder="例：ABC123"></label>
+            <label>グレード<input id="missingVehicleGrade" type="text"></label>
             <label>タイヤサイズ<input id="missingVehicleTire" type="text" placeholder="例：195/65R15"></label>
+            <label>メモ<input id="missingVehicleMemo" type="text"></label>
           </div>
           <button type="button" class="primary" id="saveMissingVehicle">未登録車種として端末に保存</button>
           <small id="missingVehicleSaveStatus"></small>
@@ -125,6 +127,7 @@
         </div>
       </details>
       <div class="result-grid wheel-results" id="wheelResults"></div>
+      <p class="message wheel-fitment-warning" id="wheelFitmentWarning" hidden></p>
     </section>
 
     <section class="panel" id="tab-estimate">
@@ -249,7 +252,7 @@
             <div class="import-card">
               <div class="import-card-head"><strong>車種マスタ差分</strong><span class="source-badge-inline" id="vehicleMasterBadge">端末差分 0件</span></div>
               <p class="import-detail" id="vehicleMasterStatus">JSONをvehicle_idで検証し、端末DBへupsertします。価格表・設定は変更しません。</p>
-              <div class="action-row"><label class="file-button">JSON差分を読込<input id="vehicleMasterFile" type="file" accept=".json,application/json"></label></div>
+              <div class="action-row"><button class="secondary" type="button" id="checkVehicleUpdates">車種DB更新</button><button class="secondary" type="button" id="exportVehicleDelta">更新差分JSON</button><label class="file-button">JSON差分を読込<input id="vehicleMasterFile" type="file" accept=".json,application/json"></label></div>
             </div>
             <div class="import-card">
               <div class="import-card-head"><strong>未登録車種候補</strong><span class="source-badge-inline" id="missingVehicleCount">0件</span></div>
@@ -257,6 +260,23 @@
               <div class="action-row"><button class="secondary" type="button" id="exportMissingVehicles">JSON書き出し</button><button class="secondary" type="button" id="clearMissingVehicles">候補をクリア</button></div>
               <div class="missing-vehicle-list" id="missingVehicleList"></div>
             </div>
+            <div class="import-card vehicle-review-editor" id="vehicleReviewEditor" hidden>
+              <div class="import-card-head"><strong id="vehicleReviewTitle">未登録車の確認</strong><span class="source-badge-inline" id="vehicleReviewStatus">未確認</span></div>
+              <p class="import-detail" id="vehicleReviewMessage">オンライン取得結果は候補です。確認済みにするまで車種DBへ入りません。</p>
+              <div class="action-row"><button class="secondary" type="button" id="fetchVehicleInfo">情報を取得</button><button class="secondary" type="button" id="webVehicleCheck">Webで確認</button><button class="secondary" type="button" id="saveVehicleDraft">下書き保存</button></div>
+              <div class="vehicle-candidate-list" id="vehicleCandidateList"></div>
+              <div class="missing-vehicle-grid vehicle-review-grid">
+                <label>vehicle_id<input id="reviewVehicleId" type="text"></label><label>メーカー<input id="reviewMaker" type="text"></label><label>正式車種名<input id="reviewModel" type="text"></label>
+                <label>世代 / 型式<input id="reviewGeneration" type="text"></label><label>開始年月<input id="reviewYearFrom" type="month"></label><label>終了年月<input id="reviewYearTo" type="month"></label>
+                <label>グレード / 仕様<input id="reviewGrade" type="text"></label><label>駆動<input id="reviewDrivetrain" type="text" placeholder="2WD / 4WD"></label><label>動力<input id="reviewPowertrain" type="text" placeholder="HV / PHEV / EV"></label>
+                <label>純正タイヤ<input id="reviewTires" type="text" placeholder="195/65R15;215/45R17"></label><label>純正インチ<input id="reviewInches" type="text" placeholder="15/17"></label><label>PCD<input id="reviewPcd" type="number" step="0.1"></label>
+                <label>穴数<input id="reviewHoles" type="number"></label><label>ハブ径<input id="reviewHub" type="number" step="0.1"></label><label>取付規格<input id="reviewFastener" type="text" placeholder="M12×P1.5"></label>
+                <label>情報源名<input id="reviewSourceName" type="text"></label><label>情報源URL<input id="reviewSourceUrl" type="url"></label><label>確認日<input id="reviewVerifiedAt" type="date"></label><label>確認メモ<input id="reviewNote" type="text"></label>
+              </div>
+              <div class="vehicle-conflict" id="vehicleConflict" hidden></div>
+              <div class="action-row review-primary-actions"><button class="primary" type="button" id="verifyVehicleCandidate">確認済みにする</button><button class="primary" type="button" id="registerVehicleCandidate" disabled>車種DBへ追加</button></div>
+            </div>
+            <div class="import-card"><div class="import-card-head"><strong>更新履歴</strong><span class="source-badge-inline" id="vehicleHistoryCount">0件</span></div><div class="missing-vehicle-list" id="vehicleHistoryList"></div></div>
           </div>
         </details>
         <details class="settings-accordion">
@@ -321,8 +341,8 @@
   <script src="js/brand-config.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/workbook.js?v=20260817-v166-labor-ceil10"></script>
   <script src="js/pricing.js?v=20260817-v166-labor-ceil10"></script>
-  <script src="js/vehicle-fitment-v170.js?v=20260901-v180-variants"></script>
-  <script src="js/vehicle-store-v180.js?v=20260901-v180-offline-master"></script>
-  <script src="js/app-v174.js?v=20260901-v180-offline-master"></script>
+  <script src="js/vehicle-fitment-v170.js?v=20260901-v190-fastener"></script>
+  <script src="js/vehicle-store-v180.js?v=20260901-v190-review-history"></script>
+  <script src="js/app-v174.js?v=20260901-v190-review-fitment"></script>
 </body>
 </html>

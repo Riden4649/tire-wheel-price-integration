@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.8.0";
+  const APP_VERSION = "Ver1.9.0";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -47,6 +47,8 @@
     selectedWheel: null,
     vehicles: [],
     vehicleLoadError: "",
+    currentReviewKey: "",
+    reviewCandidates: [],
     wheelSearchMode: "vehicle",
     vehicleQuery: "",
     vehicleSelection: { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" },
@@ -125,7 +127,9 @@
     missingVehicleModel: $("#missingVehicleModel"),
     missingVehicleYear: $("#missingVehicleYear"),
     missingVehicleCode: $("#missingVehicleCode"),
+    missingVehicleGrade: $("#missingVehicleGrade"),
     missingVehicleTire: $("#missingVehicleTire"),
+    missingVehicleMemo: $("#missingVehicleMemo"),
     saveMissingVehicle: $("#saveMissingVehicle"),
     missingVehicleSaveStatus: $("#missingVehicleSaveStatus"),
     vehicleMasterFile: $("#vehicleMasterFile"),
@@ -135,6 +139,21 @@
     missingVehicleList: $("#missingVehicleList"),
     exportMissingVehicles: $("#exportMissingVehicles"),
     clearMissingVehicles: $("#clearMissingVehicles"),
+    checkVehicleUpdates: $("#checkVehicleUpdates"),
+    exportVehicleDelta: $("#exportVehicleDelta"),
+    vehicleReviewEditor: $("#vehicleReviewEditor"),
+    vehicleReviewTitle: $("#vehicleReviewTitle"),
+    vehicleReviewStatus: $("#vehicleReviewStatus"),
+    vehicleReviewMessage: $("#vehicleReviewMessage"),
+    vehicleCandidateList: $("#vehicleCandidateList"),
+    fetchVehicleInfo: $("#fetchVehicleInfo"), webVehicleCheck: $("#webVehicleCheck"), saveVehicleDraft: $("#saveVehicleDraft"),
+    verifyVehicleCandidate: $("#verifyVehicleCandidate"), registerVehicleCandidate: $("#registerVehicleCandidate"), vehicleConflict: $("#vehicleConflict"),
+    vehicleHistoryCount: $("#vehicleHistoryCount"), vehicleHistoryList: $("#vehicleHistoryList"),
+    reviewVehicleId: $("#reviewVehicleId"), reviewMaker: $("#reviewMaker"), reviewModel: $("#reviewModel"), reviewGeneration: $("#reviewGeneration"),
+    reviewYearFrom: $("#reviewYearFrom"), reviewYearTo: $("#reviewYearTo"), reviewGrade: $("#reviewGrade"), reviewDrivetrain: $("#reviewDrivetrain"), reviewPowertrain: $("#reviewPowertrain"),
+    reviewTires: $("#reviewTires"), reviewInches: $("#reviewInches"), reviewPcd: $("#reviewPcd"), reviewHoles: $("#reviewHoles"), reviewHub: $("#reviewHub"), reviewFastener: $("#reviewFastener"),
+    reviewSourceName: $("#reviewSourceName"), reviewSourceUrl: $("#reviewSourceUrl"), reviewVerifiedAt: $("#reviewVerifiedAt"), reviewNote: $("#reviewNote"),
+    wheelFitmentWarning: $("#wheelFitmentWarning"),
     estimateItems: $("#estimateItems"),
     estimateCosts: $("#estimateCosts"),
     grandTotal: $("#grandTotal"),
@@ -348,6 +367,15 @@
     els.vehicleMasterFile.addEventListener("change", event => event.target.files[0] && importVehicleMaster(event.target.files[0]));
     els.exportMissingVehicles.addEventListener("click", exportMissingVehicles);
     els.clearMissingVehicles.addEventListener("click", clearMissingVehicles);
+    els.missingVehicleList.addEventListener("click", event => event.target.closest("[data-missing-key]") && openMissingVehicleReview(event.target.closest("[data-missing-key]").dataset.missingKey));
+    els.fetchVehicleInfo.addEventListener("click", fetchVehicleInformation);
+    els.webVehicleCheck.addEventListener("click", openVehicleWebCheck);
+    els.saveVehicleDraft.addEventListener("click", saveVehicleDraft);
+    els.verifyVehicleCandidate.addEventListener("click", verifyVehicleCandidate);
+    els.registerVehicleCandidate.addEventListener("click", registerVehicleCandidate);
+    els.exportVehicleDelta.addEventListener("click", exportVehicleDelta);
+    els.checkVehicleUpdates.addEventListener("click", checkVehicleUpdates);
+    els.vehicleCandidateList.addEventListener("click", event => event.target.closest("[data-candidate-index]") && selectOnlineCandidate(Number(event.target.closest("[data-candidate-index]").dataset.candidateIndex)));
     els.clearVehicleModelSearch.addEventListener("click", () => {
       els.vehicleModelSearch.value = "";
       handleVehicleModelSearch({ target: els.vehicleModelSearch });
@@ -860,7 +888,9 @@
       model: els.missingVehicleModel.value || state.vehicleQuery,
       year: els.missingVehicleYear.value,
       model_code: els.missingVehicleCode.value,
-      tire_size: els.missingVehicleTire.value
+      grade: els.missingVehicleGrade.value,
+      tire_size: els.missingVehicleTire.value,
+      memo: els.missingVehicleMemo.value
     };
     if (!input.model.trim()) { els.missingVehicleSaveStatus.textContent = "車種名を入力してください。"; return; }
     try {
@@ -877,9 +907,184 @@
     if (!window.VehicleStore) return;
     const rows = await window.VehicleStore.listMissing();
     els.missingVehicleCount.textContent = `${rows.length}件`;
-    els.missingVehicleList.innerHTML = rows.length ? rows.sort((a, b) => b.last_seen.localeCompare(a.last_seen)).map(item =>
-      `<div><strong>${escapeHtml(item.maker)} ${escapeHtml(item.model)}</strong><span>${escapeHtml([item.year && `${item.year}年`, item.model_code, item.tire_size].filter(Boolean).join(" / ") || "詳細未入力")}・検索 ${item.count}回</span></div>`
+    const labels = { unverified: "未確認", information_acquired: "情報取得済み", needs_review: "要確認", verified: "確認済み", registered: "DB登録済み" };
+    els.missingVehicleList.innerHTML = rows.length ? rows.sort((a, b) => (b.count - a.count) || b.last_seen.localeCompare(a.last_seen)).map(item =>
+      `<button type="button" data-missing-key="${escapeHtml(item.key)}"><strong>${escapeHtml(item.maker)} ${escapeHtml(item.model)} <em>${escapeHtml(labels[item.status] || "未確認")}</em></strong><span>${escapeHtml([item.year && `${item.year}年`, item.model_code, item.tire_size].filter(Boolean).join(" / ") || "詳細未入力")}・検索 ${item.count}回</span></button>`
     ).join("") : "<p>未登録候補はありません。</p>";
+    const history = await window.VehicleStore.listHistory();
+    els.vehicleHistoryCount.textContent = `${history.length}件`;
+    els.vehicleHistoryList.innerHTML = history.length ? history.sort((a, b) => b.applied_at.localeCompare(a.applied_at)).slice(0, 30).map(item => `<div><strong>${escapeHtml(item.operation === "add" ? "追加" : "更新")} ${escapeHtml(item.vehicle_id)}</strong><span>${escapeHtml(formatDateTime(item.applied_at))}</span></div>`).join("") : "<p>更新履歴はありません。</p>";
+  }
+
+  async function openMissingVehicleReview(key) {
+    const record = (await window.VehicleStore.listMissing()).find(item => item.key === key);
+    if (!record) return;
+    state.currentReviewKey = key;
+    state.reviewCandidates = record.candidates || [];
+    els.vehicleReviewEditor.hidden = false;
+    els.vehicleReviewTitle.textContent = `${record.maker} ${record.model}`;
+    els.vehicleReviewStatus.textContent = vehicleReviewStatusLabel(record.status);
+    els.vehicleReviewMessage.textContent = "取得情報は候補です。内容と情報源を人が確認するまで車種DBには追加されません。";
+    fillVehicleReview(record.draft || state.reviewCandidates.find(item => item.candidate_id === record.selected_candidate_id) || {
+      maker: record.maker, model: record.model, generation: record.model_code, year_from: record.year ? `${record.year}-01` : "", year_to: record.year ? `${record.year}-12` : "", oem_tire: record.tire_size,
+      variants: record.grade ? [{ label: record.grade, oem_tire: record.tire_size }] : []
+    });
+    renderOnlineCandidates();
+    els.registerVehicleCandidate.disabled = record.status !== "verified";
+    els.vehicleReviewEditor.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function vehicleReviewStatusLabel(status) {
+    return ({ unverified: "未確認", information_acquired: "情報取得済み", needs_review: "要確認", verified: "確認済み", registered: "DB登録済み" })[status] || "未確認";
+  }
+
+  function fillVehicleReview(value = {}) {
+    const variant = value.variants?.[0] || {};
+    const source = value.sources?.[0] || {};
+    const values = {
+      reviewVehicleId: value.vehicle_id, reviewMaker: value.maker, reviewModel: value.model, reviewGeneration: value.generation,
+      reviewYearFrom: value.year_from, reviewYearTo: value.year_to, reviewGrade: variant.label || variant.grade, reviewDrivetrain: variant.drivetrain, reviewPowertrain: variant.powertrain,
+      reviewTires: value.oem_tire || value.oem_tires?.join(";"), reviewInches: value.oem_inch || value.oem_inches?.join("/"), reviewPcd: value.pcd, reviewHoles: value.holes, reviewHub: value.hub_bore,
+      reviewFastener: value.fastener, reviewSourceName: source.source_name, reviewSourceUrl: source.source_url, reviewVerifiedAt: source.verified_at, reviewNote: value.notes
+    };
+    Object.entries(values).forEach(([key, val]) => { els[key].value = val ?? ""; });
+    if (!els.reviewVehicleId.value) els.reviewVehicleId.value = makeLocalVehicleId(value.maker, value.model, value.generation);
+    if (!els.reviewVerifiedAt.value) els.reviewVerifiedAt.value = new Date().toISOString().slice(0, 10);
+  }
+
+  function collectVehicleReview() {
+    const grade = text(els.reviewGrade.value);
+    return {
+      vehicle_id: text(els.reviewVehicleId.value).normalize("NFKC").toUpperCase().replace(/[^A-Z0-9_-]/g, "_"), maker: text(els.reviewMaker.value), model: text(els.reviewModel.value), generation: text(els.reviewGeneration.value),
+      year_from: text(els.reviewYearFrom.value), year_to: text(els.reviewYearTo.value), pcd: number(els.reviewPcd.value) || null, holes: number(els.reviewHoles.value) || null, hub_bore: number(els.reviewHub.value) || null,
+      fastener: text(els.reviewFastener.value), oem_inch: text(els.reviewInches.value), oem_tire: text(els.reviewTires.value), confidence: "B", notes: text(els.reviewNote.value),
+      variants: grade ? [{ variant_id: `${text(els.reviewVehicleId.value)}-V1`, label: grade, drivetrain: text(els.reviewDrivetrain.value), powertrain: text(els.reviewPowertrain.value), year_from: text(els.reviewYearFrom.value), year_to: text(els.reviewYearTo.value), oem_inch: text(els.reviewInches.value), oem_tire: text(els.reviewTires.value) }] : [],
+      sources: [{ source_type: "manual_web_check", source_name: text(els.reviewSourceName.value), source_url: text(els.reviewSourceUrl.value), verified_at: text(els.reviewVerifiedAt.value), retrieved_at: new Date().toISOString(), verified_by: "store_staff" }]
+    };
+  }
+
+  function makeLocalVehicleId(maker, model, generation) {
+    const base = [maker, model, generation].map(value => normalizeVehicleQuery(value).replace(/[^a-z0-9]/g, "")).filter(Boolean).join("-").toUpperCase();
+    return `LOCAL_${base || stableId([maker, model, generation])}`.slice(0, 64);
+  }
+
+  async function saveVehicleDraft() {
+    if (!state.currentReviewKey) return;
+    await window.VehicleStore.updateMissing(state.currentReviewKey, { draft: collectVehicleReview(), status: "needs_review" });
+    els.vehicleReviewStatus.textContent = "要確認";
+    els.vehicleReviewMessage.textContent = "下書きを端末へ保存しました。";
+    await refreshMissingVehicleAdmin();
+  }
+
+  async function fetchVehicleInformation() {
+    if (!state.currentReviewKey) return;
+    if (!navigator.onLine) { els.vehicleReviewMessage.textContent = "現在オフラインです。手入力と下書き保存は利用できます。"; return; }
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 7000);
+    els.vehicleReviewMessage.textContent = "オンライン車種マスタを確認しています…";
+    try {
+      const response = await fetch("data/vehicle-updates/online-master.json", { cache: "no-store", signal: controller.signal });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json();
+      const missing = (await window.VehicleStore.listMissing()).find(item => item.key === state.currentReviewKey);
+      const maker = normalizeVehicleQuery(missing?.maker); const model = normalizeVehicleQuery(missing?.model); const code = normalizeVehicleQuery(missing?.model_code);
+      state.reviewCandidates = window.VehicleFitment.normalizeDataset(payload).filter(item => (!maker || normalizeVehicleQuery(item.maker).includes(maker)) && [item.model, ...(item.aliases || []), item.generation, ...(item.model_codes || [])].some(value => { const normalized = normalizeVehicleQuery(value); return normalized.includes(model) || (code && normalized.includes(code)); })).slice(0, 12);
+      await window.VehicleStore.updateMissing(state.currentReviewKey, { candidates: state.reviewCandidates, status: state.reviewCandidates.length ? "information_acquired" : "needs_review", last_error: "", retrieved_at: new Date().toISOString() });
+      renderOnlineCandidates();
+      els.vehicleReviewStatus.textContent = state.reviewCandidates.length ? "情報取得済み" : "要確認";
+      els.vehicleReviewMessage.textContent = state.reviewCandidates.length ? `${state.reviewCandidates.length}件の候補を取得しました。候補を選び、内容を確認してください。` : "オンライン車種マスタに候補がありません。Webで確認し、下書きへ入力してください。";
+      await refreshMissingVehicleAdmin();
+    } catch (error) {
+      els.vehicleReviewMessage.textContent = `情報取得に失敗しました（${error.name === "AbortError" ? "タイムアウト" : error.message}）。既存DBと下書きは変更していません。`;
+    } finally { clearTimeout(timer); }
+  }
+
+  function renderOnlineCandidates() {
+    els.vehicleCandidateList.innerHTML = state.reviewCandidates.map((item, index) => `<button type="button" data-candidate-index="${index}"><strong>${escapeHtml(item.maker)} ${escapeHtml(item.model)} / ${escapeHtml(item.generation)}</strong><span>${escapeHtml(item.year_from)}〜${escapeHtml(item.year_to)}・${escapeHtml(item.oem_tire || item.oem_tires?.join(";"))}</span><small>${escapeHtml(item.sources?.[0]?.source_name || "情報源未設定")}</small></button>`).join("");
+  }
+
+  async function selectOnlineCandidate(index) {
+    const candidate = state.reviewCandidates[index]; if (!candidate) return;
+    fillVehicleReview(candidate);
+    await window.VehicleStore.updateMissing(state.currentReviewKey, { selected_candidate_id: candidate.candidate_id || candidate.vehicle_id, draft: candidate, status: "needs_review" });
+    els.vehicleReviewStatus.textContent = "要確認";
+    els.registerVehicleCandidate.disabled = true;
+  }
+
+  function openVehicleWebCheck() {
+    const query = [els.reviewMaker.value, els.reviewModel.value, els.reviewGeneration.value, "純正 タイヤサイズ PCD ハブ径"].filter(Boolean).join(" ");
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank", "noopener");
+  }
+
+  async function verifyVehicleCandidate() {
+    const proposed = collectVehicleReview();
+    const result = window.VehicleFitment.validateVehicleForApproval(proposed);
+    if (!result.valid) { els.vehicleReviewMessage.textContent = `確認できません：${result.errors.slice(0, 4).join(" / ")}`; return; }
+    const conflict = vehicleConflictFor(proposed);
+    if (conflict.type === "conflict") {
+      els.vehicleConflict.hidden = false; els.vehicleConflict.innerHTML = `<strong>既存データあり・競合</strong><p>${escapeHtml(conflict.fields.join("、"))}が異なります。自動上書きしません。vehicle_idを分けるか、既存値を確認してください。</p>`;
+      els.vehicleReviewMessage.textContent = "競合を解決するまで確認済みにできません。"; return;
+    }
+    if (conflict.type === "duplicate") { els.vehicleReviewMessage.textContent = "既存DBと完全一致しています。重複登録は不要です。"; return; }
+    els.vehicleConflict.hidden = true;
+    await window.VehicleStore.updateMissing(state.currentReviewKey, { draft: proposed, status: "verified", verified_at: new Date().toISOString() });
+    els.vehicleReviewStatus.textContent = "確認済み"; els.registerVehicleCandidate.disabled = false;
+    els.vehicleReviewMessage.textContent = "確認済みにしました。まだ車種DBへは追加されていません。";
+    await refreshMissingVehicleAdmin();
+  }
+
+  function vehicleConflictFor(proposed) {
+    const existing = state.vehicles.find(item => item.vehicle_id === proposed.vehicle_id);
+    if (!existing) return { type: "new", fields: [] };
+    const fields = ["maker", "model", "generation", "year_from", "year_to", "pcd", "holes", "hub_bore", "fastener", "oem_inch", "oem_tire"].filter(key => JSON.stringify(existing[key] ?? "") !== JSON.stringify(proposed[key] ?? ""));
+    return { type: fields.length ? "conflict" : "duplicate", fields };
+  }
+
+  async function registerVehicleCandidate() {
+    const missing = (await window.VehicleStore.listMissing()).find(item => item.key === state.currentReviewKey);
+    if (!missing || missing.status !== "verified") { els.vehicleReviewMessage.textContent = "先に確認済みにしてください。"; return; }
+    const proposed = missing.draft; const result = window.VehicleFitment.validateVehicleForApproval(proposed);
+    if (!result.valid || vehicleConflictFor(proposed).type !== "new") { els.vehicleReviewMessage.textContent = "検証または競合確認に失敗しました。DBは変更していません。"; return; }
+    const appliedAt = new Date().toISOString();
+    await window.VehicleStore.applyVehicle(proposed, { vehicle_id: proposed.vehicle_id, operation: "add", before: null, after: proposed, source_missing_key: missing.key, applied_at: appliedAt, app_version: APP_VERSION });
+    await window.VehicleStore.updateMissing(missing.key, { status: "registered", registered_vehicle_id: proposed.vehicle_id, registered_at: appliedAt });
+    if (missing.patch_id) {
+      const applied = await window.VehicleStore.getMetadata("applied_patch_ids") || [];
+      await window.VehicleStore.setMetadata("applied_patch_ids", [...new Set([...applied, missing.patch_id])]);
+    }
+    state.vehicles = window.VehicleFitment.upsertVehicles(state.vehicles, [proposed]);
+    els.vehicleReviewStatus.textContent = "DB登録済み"; els.registerVehicleCandidate.disabled = true;
+    els.vehicleReviewMessage.textContent = "端末の車種DBへ追加しました。すぐに車種検索できます。";
+    renderVehicleChips(); renderTires(); renderWheels(); await refreshMissingVehicleAdmin();
+    const overrides = await window.VehicleStore.getVehicleOverrides(); els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
+  }
+
+  async function exportVehicleDelta() {
+    const history = await window.VehicleStore.listHistory();
+    const updates = history.filter(item => item.after).map(item => item.after);
+    const date = new Date().toISOString().slice(0, 10);
+    downloadBlob(new Blob([JSON.stringify({ schema_version: "1.0.0", db_version: APP_VERSION, generated_at: new Date().toISOString(), change_count: updates.length, updates }, null, 2)], { type: "application/json" }), `vehicle-update-${date}.json`);
+  }
+
+  async function checkVehicleUpdates() {
+    if (!navigator.onLine) { els.vehicleMasterStatus.textContent = "オフラインです。既存DBはそのまま利用できます。"; return; }
+    try {
+      const response = await fetch("data/vehicle-updates/manifest.json", { cache: "no-store" }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const manifest = await response.json(); const applied = await window.VehicleStore.getMetadata("applied_patch_ids") || [];
+      const pending = (manifest.patches || []).filter(item => !applied.includes(item.id));
+      let staged = 0;
+      for (const patch of pending) {
+        const patchResponse = await fetch(new URL(patch.url, location.href), { cache: "no-store" }); if (!patchResponse.ok) throw new Error(`${patch.id}: HTTP ${patchResponse.status}`);
+        const payload = await patchResponse.json(); const result = window.VehicleFitment.validateVehicles(payload); if (!result.valid || (patch.count != null && result.vehicles.length !== patch.count)) throw new Error(`${patch.id}: 差分検証失敗`);
+        for (const vehicle of result.vehicles) {
+          const missing = await window.VehicleStore.recordMissing({ maker: vehicle.maker, model: vehicle.model, model_code: vehicle.generation, year: vehicle.year_from.slice(0, 4), tire_size: vehicle.oem_tires.join(";") });
+          await window.VehicleStore.updateMissing(missing.key, { status: "information_acquired", candidates: [{ ...vehicle, candidate_id: `${patch.id}-${vehicle.vehicle_id}` }], selected_candidate_id: `${patch.id}-${vehicle.vehicle_id}`, patch_id: patch.id });
+          staged += 1;
+        }
+      }
+      els.vehicleMasterStatus.textContent = staged ? `${staged}件を確認候補へ取り込みました。人間確認後に端末DBへ追加してください。` : `車種DBは最新です（${manifest.dataset_version || APP_VERSION}）。`;
+      await refreshMissingVehicleAdmin();
+    } catch (error) { els.vehicleMasterStatus.textContent = `更新確認に失敗しました（${error.message}）。既存DBは変更していません。`; }
   }
 
   async function importVehicleMaster(file) {
@@ -887,12 +1092,12 @@
       const payload = JSON.parse(await file.text());
       const result = window.VehicleFitment.validateVehicles(payload);
       if (!result.valid) throw new Error(result.errors.slice(0, 3).join(" / ") || "有効な車種がありません");
-      await window.VehicleStore.upsertVehicleOverrides(result.vehicles);
-      state.vehicles = window.VehicleFitment.upsertVehicles(state.vehicles, result.vehicles);
-      els.vehicleMasterStatus.textContent = `${result.vehicles.length}件をvehicle_idで更新しました。価格表・設定は保持されています。`;
-      const overrides = await window.VehicleStore.getVehicleOverrides();
-      els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
-      renderVehicleChips(); renderTires(); renderWheels();
+      for (const vehicle of result.vehicles) {
+        const missing = await window.VehicleStore.recordMissing({ maker: vehicle.maker, model: vehicle.model, model_code: vehicle.generation, year: vehicle.year_from.slice(0, 4), tire_size: vehicle.oem_tires.join(";") });
+        await window.VehicleStore.updateMissing(missing.key, { status: "information_acquired", candidates: [{ ...vehicle, candidate_id: `FILE-${vehicle.vehicle_id}` }], selected_candidate_id: `FILE-${vehicle.vehicle_id}` });
+      }
+      els.vehicleMasterStatus.textContent = `${result.vehicles.length}件を確認候補として取り込みました。確認済みにするまで車種DBへ反映しません。`;
+      await refreshMissingVehicleAdmin();
     } catch (error) {
       console.error(error);
       els.vehicleMasterStatus.textContent = `読込エラー：${error.message}`;
@@ -1093,6 +1298,7 @@
     els.wheelSearchSummary.textContent = state.wheelSearchMode === "vehicle"
       ? vehicleSearchSummary(selectedVehicle)
       : summaryText([sourceSummary([els.useBsWheel.checked && "BS", els.useOtherWheel.checked && "社外"], "アルミ"), els.wheelMaker.value, els.wheelBrand.value, els.wheelPattern.value, els.wheelInch.value && `${els.wheelInch.value.replace(/インチ/g, "")}インチ`, els.wheelPcd.value && `PCD ${els.wheelPcd.value}`, els.wheelSize.value]);
+    els.wheelFitmentWarning.hidden = true;
     if (!state.wheelProducts.length) {
       els.wheelResults.innerHTML = emptyCard("管理タブでアルミ価格表を読み込んでください。");
       return;
@@ -1101,11 +1307,12 @@
       els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || "メーカーから順に車両を選択してください。");
       return;
     }
-    if (state.wheelSearchMode === "vehicle" && [selectedVehicle.pcd, selectedVehicle.holes, selectedVehicle.hub_bore].some(value => value == null)) {
-      els.wheelResults.innerHTML = emptyCard("この世代はホイール取付条件が未確認です。誤案内防止のため車両候補を表示しません。アルミ単体は「ホイールから探す」を使用してください。");
-      return;
-    }
-    els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item)).join("") || emptyCard("基本条件を満たす価格登録済みアルミホイールがありません。");
+    els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item, entry.fitment)).join("") || emptyCard("確認済みの基本条件を満たす価格登録済みアルミホイールがありません。");
+    const missingVehicleFields = selectedVehicle ? [["PCD", selectedVehicle.pcd], ["穴数", selectedVehicle.holes], ["ハブ径", selectedVehicle.hub_bore], ["取付規格", selectedVehicle.fastener]].filter(([, value]) => value == null || value === "").map(([name]) => name) : [];
+    els.wheelFitmentWarning.hidden = state.wheelSearchMode !== "vehicle" || !selectedVehicle;
+    if (!els.wheelFitmentWarning.hidden) els.wheelFitmentWarning.textContent = missingVehicleFields.length
+      ? `この車両は${missingVehicleFields.join("・")}が未確認です。表示は確認済み条件と純正インチを基準にした価格確認用候補で、装着適合を示しません。販売前にホイールメーカーの最新公式情報と現車で確認してください。`
+      : `${["C", "D"].includes(selectedVehicle.confidence) ? `車両データ信頼度${selectedVehicle.confidence}のため未確認項目があります。` : "候補絞り込みは装着保証ではありません。"} 販売前にホイールメーカーの最新公式情報と現車で確認してください。`;
   }
 
   function renderWheelChips() {
@@ -1178,7 +1385,7 @@
     openNextSearchStep("wheel", button.dataset.filter);
   }
 
-  function wheelCard(item) {
+  function wheelCard(item, fitment = null) {
     const image = findImage(item.fullPatternName || [item.brandName, item.patternName].filter(Boolean).join(" ") || item.patternName);
     const selected = state.selectedWheel?.id === item.id;
     const salePrice = wheelSalePrice(item);
@@ -1191,12 +1398,13 @@
       ${showImage ? `<div class="wheel-image">${imageHtml}</div>` : ""}
       <h3>${escapeHtml([item.brandName, item.patternName].filter(Boolean).join(" "))}</h3>
       <p class="card-meta">${escapeHtml(item.maker || "—")}<br>${escapeHtml(wheelDisplayDetails(item))}<br>商品コード：${escapeHtml(wheelProductCode(item))}</p>
+      ${fitment?.status === "review" ? `<p class="fitment-card-note">要確認：${escapeHtml(fitment.reasons.slice(0, 3).join("・"))}</p>` : ""}
       <div class="price-row">
         <div><span>販売価格</span><strong>${priceText(salePrice)}</strong></div>
         <div><span>4本合計</span><strong>${salePrice ? yen(salePrice * 4) : "—"}</strong></div>
         ${showImage ? `<div><span>画像</span><strong>${image?.entry?.imageFile ? "登録済み" : "画像なし"}</strong></div>` : ""}
       </div>
-      <button class="select-button" data-wheel-id="${escapeHtml(item.id)}">${selected ? "選択中" : "セット見積に選択"}</button>
+      <button class="select-button" data-wheel-id="${escapeHtml(item.id)}">${selected ? "選択中" : fitment?.status === "review" ? "要確認・見積へ選択" : "セット見積に選択"}</button>
     </article>`;
   }
 

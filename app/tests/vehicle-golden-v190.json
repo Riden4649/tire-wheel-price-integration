@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "description": "公式仕様またはメーカー適合情報と固定突合する回帰基準。変更時は情報源を再確認する。",
+  "records": [
+    {"vehicle_id":"LEX_LS_XF50","pcd":120,"holes":5,"hub_bore":60,"oem_inch":"19/20","oem_tire":"245/50R19;245/45R20","fastener_type":"bolt"},
+    {"vehicle_id":"LEX_NX_AZ20","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"18/20","oem_tire":"235/60R18;235/50R20","fastener_type":"bolt"},
+    {"vehicle_id":"LEX_RX_AL30","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"21","oem_tire":"235/50R21","fastener_type":"bolt"},
+    {"vehicle_id":"TOY_PRIUS_60","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"17/19","oem_tire":"195/60R17;195/50R19"},
+    {"vehicle_id":"TOY_SIENTA_170","pcd":100,"holes":5,"hub_bore":54,"oem_inch":"15/16","oem_tire":"185/60R15;195/50R16"},
+    {"vehicle_id":"TOY_NOAH_80","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"15/16","oem_tire":"195/65R15;205/60R16"},
+    {"vehicle_id":"TOY_ALV_30","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"16/17/18","oem_tire":"215/65R16;225/60R17;235/50R18"},
+    {"vehicle_id":"TOY_ALV_40","pcd":120,"holes":5,"hub_bore":60,"oem_inch":"17/18/19","oem_tire":"225/65R17;225/60R18;225/55R19","fastener_type":"bolt"},
+    {"vehicle_id":"TOY_HARRIER_80","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"17/18/19","oem_tire":"225/65R17;225/60R18;225/55R19"},
+    {"vehicle_id":"TOY_RAV4_50","pcd":114.3,"holes":5,"hub_bore":60,"oem_inch":"17/18/19","oem_tire":"225/65R17;225/60R18;235/55R19"},
+    {"vehicle_id":"HON_NBOX_JF3","pcd":100,"holes":4,"hub_bore":56,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15","seat_type":"spherical"},
+    {"vehicle_id":"HON_FIT_GE","pcd":100,"holes":4,"hub_bore":56,"oem_inch":"14/15/16","oem_tire":"175/65R14;175/65R15;185/55R16","seat_type":"spherical"},
+    {"vehicle_id":"HON_FREED_GB5","pcd":114.3,"holes":5,"hub_bore":64,"oem_inch":"15/16","oem_tire":"185/65R15;195/55R16","seat_type":"spherical"},
+    {"vehicle_id":"NIS_SERENA_C27","pcd":114.3,"holes":5,"hub_bore":66,"oem_inch":"15/16","oem_tire":"195/65R15;195/60R16"},
+    {"vehicle_id":"NIS_XTRAIL_T32","pcd":114.3,"holes":5,"hub_bore":66,"oem_inch":"17/18/19","oem_tire":"225/65R17;225/60R18;225/55R19"},
+    {"vehicle_id":"MAZ_CX5_KF","pcd":114.3,"holes":5,"hub_bore":67,"oem_inch":"17/19","oem_tire":"225/65R17;225/55R19"},
+    {"vehicle_id":"MAZ_MAZDA3_BP","pcd":114.3,"holes":5,"hub_bore":67,"oem_inch":"16/18","oem_tire":"205/60R16;215/45R18"},
+    {"vehicle_id":"SUB_FORESTER_SK","pcd":114.3,"holes":5,"hub_bore":56,"oem_inch":"17/18","oem_tire":"225/60R17;225/55R18"},
+    {"vehicle_id":"SUZ_SPACIA_MK53","pcd":100,"holes":4,"hub_bore":54,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15"},
+    {"vehicle_id":"DAI_TANTO_LA650","pcd":100,"holes":4,"hub_bore":54,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15"}
+  ]
+}

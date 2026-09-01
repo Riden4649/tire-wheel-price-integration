@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "2026-09-01",
+  "description": "人間確認前のオンライン候補マスタ。候補はアプリDBへ自動登録されません。",
+  "candidates": []
+}

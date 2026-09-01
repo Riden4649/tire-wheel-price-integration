@@ -34,11 +34,29 @@ try {
   await page.locator("#missingVehicleTire").fill("195/65R15");
   await page.locator("#saveMissingVehicle").click();
   await page.waitForFunction(() => document.querySelector("#missingVehicleSaveStatus")?.textContent.includes("保存しました"));
+  await page.locator("#saveMissingVehicle").click();
   results.push("PASS 未登録車を端末DBへ保存");
 
   await page.reload();
   await page.waitForFunction(() => document.querySelector("#missingVehicleCount")?.textContent === "1件");
   results.push("PASS 再起動後も未登録車を保持");
+  await page.locator('[data-tab="settings"]').click();
+  await page.locator("details.settings-accordion", { hasText: "車種マスタ・未登録候補" }).locator("summary").click();
+  await page.locator("[data-missing-key]").click();
+  await page.locator("#fetchVehicleInfo").click();
+  await page.waitForFunction(() => document.querySelector("#vehicleReviewMessage")?.textContent.includes("候補がありません"));
+  results.push("PASS オンライン候補0件でも自動確定しない");
+  await page.locator("#reviewMaker").fill("トヨタ"); await page.locator("#reviewModel").fill("テスト未登録車"); await page.locator("#reviewGeneration").fill("QA-TEST");
+  await page.locator("#reviewYearFrom").fill("2004-01"); await page.locator("#reviewYearTo").fill("2004-12"); await page.locator("#reviewTires").fill("195/65R15"); await page.locator("#reviewInches").fill("15");
+  await page.locator("#reviewPcd").fill("100"); await page.locator("#reviewHoles").fill("5"); await page.locator("#reviewHub").fill("54"); await page.locator("#reviewFastener").fill("M12×P1.5");
+  await page.locator("#reviewSourceName").fill("QA公式資料"); await page.locator("#reviewSourceUrl").fill("https://example.com/official"); await page.locator("#reviewVerifiedAt").fill("2026-09-01");
+  await page.locator("#verifyVehicleCandidate").click();
+  await page.waitForFunction(() => document.querySelector("#vehicleReviewStatus")?.textContent === "確認済み");
+  check(await page.locator("#registerVehicleCandidate").isEnabled(), "人間確認後だけDB登録可能");
+  await page.locator("#registerVehicleCandidate").click();
+  await page.waitForFunction(() => document.querySelector("#vehicleReviewStatus")?.textContent === "DB登録済み");
+  await page.locator('[data-tab="tire"]').click(); await page.locator("#vehicleModelSearch").fill("テスト未登録車");
+  check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("1世代"), "登録後すぐ車種検索可能");
 
   await page.locator("#vehicleModelSearch").fill("シビック");
   await page.locator('[data-vehicle-filter="maker"][data-value="ホンダ"]').click();
@@ -63,6 +81,12 @@ try {
     await page.waitForFunction(selector => /成功|失敗/.test(document.querySelector(selector)?.textContent || ""), badge, { timeout: 30000 });
     check((await page.locator(badge).textContent()).includes("成功"), `${label}Excel読込`);
   }
+  await page.locator('[data-tab="tire"]').click(); await page.locator("#vehicleModelSearch").fill("NHW20");
+  await page.locator('[data-vehicle-filter="maker"][data-value="トヨタ"]').click(); await page.locator('[data-vehicle-filter="model"][data-value="プリウス"]').click();
+  await page.locator('[data-vehicle-filter="generation"]').click(); await page.locator('[data-vehicle-filter="year"]').last().click(); await page.locator('[data-vehicle-filter="tire"]').first().click();
+  await page.locator('[data-tab="wheel"]').click();
+  check(await page.locator("#wheelFitmentWarning").isVisible(), "取付条件未確認車は結果下部へ警告表示");
+  check(await page.locator("#wheelResults .card").count() > 0, "取付条件未確認でも価格確認用アルミ候補を表示");
 
   await page.reload();
   await page.waitForFunction(() => navigator.serviceWorker?.controller, null, { timeout: 10000 });
