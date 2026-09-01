@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.9.1";
+  const APP_VERSION = "Ver1.9.2";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -1433,12 +1433,13 @@
     const imageHtml = image?.src
       ? `<button data-preview-src="${escapeHtml(image.src)}" data-preview-alt="${escapeHtml(item.fullPatternName || item.patternName)}"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(item.fullPatternName || item.patternName)}" onerror="this.closest('.wheel-image').textContent='画像なし'"></button>`
       : "画像なし";
+    const specialNotes = specialWheelFitmentNotes(currentVehicle(), fitment);
     return `<article class="card">
       <span class="source-badge">${escapeHtml(item.sourceLabel || "アルミ")}</span>
       ${showImage ? `<div class="wheel-image">${imageHtml}</div>` : ""}
       <h3>${escapeHtml([item.brandName, item.patternName].filter(Boolean).join(" "))}</h3>
       <p class="card-meta">${escapeHtml(item.maker || "—")}<br>${escapeHtml(wheelDisplayDetails(item))}<br>商品コード：${escapeHtml(wheelProductCode(item))}</p>
-      ${fitment?.status === "review" ? `<p class="fitment-card-note">要確認：${escapeHtml(fitment.reasons.slice(0, 3).join("・"))}</p>` : ""}
+      ${specialNotes.length ? `<p class="fitment-card-note">${escapeHtml(specialNotes.join("・"))}</p>` : ""}
       <div class="price-row">
         <div><span>販売価格</span><strong>${priceText(salePrice)}</strong></div>
         <div><span>4本合計</span><strong>${salePrice ? yen(salePrice * 4) : "—"}</strong></div>
@@ -1446,6 +1447,18 @@
       </div>
       <button class="select-button" data-wheel-id="${escapeHtml(item.id)}">${selected ? "選択中" : fitment?.status === "review" ? "要確認・見積へ選択" : "セット見積に選択"}</button>
     </article>`;
+  }
+
+  function specialWheelFitmentNotes(vehicle, fitment) {
+    if (!vehicle || !fitment) return [];
+    const fastenerText = norm([vehicle.fastener, vehicle.fastener_details?.fastener_type, vehicle.fastener_details?.thread_diameter, vehicle.fastener_details?.pitch].filter(Boolean).join(" "));
+    const notes = [];
+    if (/M14/i.test(fastenerText)) notes.push("特殊取付：M14仕様の対応ナット／ボルトを確認");
+    else if (/bolt|ボルト/i.test(fastenerText)) notes.push("特殊取付：ボルト締結式への対応を確認");
+    const seatCaution = (fitment.cautions || []).find(reason => /テーパーナット|純正球面ナット|座面形状/.test(reason));
+    if (seatCaution) notes.push(seatCaution);
+    if (vehicle.front_rear_staggered === true) notes.push("前後異径仕様のため前後サイズを確認");
+    return [...new Set(notes)];
   }
 
   function displayWheelSize(item = {}) {

@@ -98,6 +98,7 @@ try {
   await page.locator('[data-tab="wheel"]').click();
   check(await page.locator("#wheelFitmentWarning").isVisible(), "取付条件未確認車は結果下部へ警告表示");
   check(await page.locator("#wheelResults .card").count() > 0, "取付条件未確認でも価格確認用アルミ候補を表示");
+  check(await page.locator("#wheelResults .fitment-card-note").count() === 0, "一般的な欠損項目コメントは商品カードに表示しない");
 
   await page.reload();
   await page.waitForFunction(() => navigator.serviceWorker?.controller, null, { timeout: 10000 });
