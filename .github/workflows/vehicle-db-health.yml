@@ -1,4 +1,4 @@
-name: Vehicle DB Growth v1.0
+name: Vehicle DB Growth v1.1
 
 on:
   workflow_dispatch:
@@ -20,8 +20,10 @@ on:
       - 'tools/build_research_candidates.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
+      - '.github/workflows/vehicle-db-health.yml'
   schedule:
-    - cron: '15 22 * * 0'
+    # Sunday 07:15 JST = Saturday 22:15 UTC
+    - cron: '15 22 * * 6'
 
 permissions:
   contents: read
@@ -41,10 +43,10 @@ jobs:
       - name: Run adversarial and regression QA
         run: python tests/vehicle_db_qa.py
 
-      - name: Run vehicle DB health check
+      - name: Run vehicle DB health and generation-integrity check
         run: python tools/vehicle_db_health.py
 
-      - name: Build missing data queue
+      - name: Build missing and generation-review queue
         run: python tools/build_missing_data_queue.py
 
       - name: Build research candidates
