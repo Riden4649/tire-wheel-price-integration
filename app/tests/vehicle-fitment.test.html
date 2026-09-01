@@ -29,11 +29,15 @@
         const payload = await response.json();
         const vehicles = VehicleFitment.normalizeVehicleDatabase(payload);
 
-        assert(vehicles.length === 126, "車両DBを126件読み込める");
+        assert(vehicles.length === payload.record_count && vehicles.length === 144, "車両DBを144件読み込める");
+        assert(VehicleFitment.validateVehicles(payload).valid, "車両DBスキーマとタイヤサイズを検証できる");
         assert(new Set(vehicles.map(v => v.vehicle_id)).size === vehicles.length, "vehicle_idが一意");
         const qaModels = ["N-BOX", "スペーシア", "タント", "セレナ", "ノア", "シエンタ", "CX-5", "フォレスター"];
         qaModels.forEach(name => {
           assert(vehicles.some(v => v.model.includes(name)), `${name}が存在する`);
+        });
+        ["プリウス", "アルファードG", "フィット", "ストリーム", "アコード", "エリシオン", "インサイト", "レジェンド", "LS"].forEach(name => {
+          assert(vehicles.some(v => v.model === name && Number(v.year_from.slice(0, 4)) <= 2006), `${name}の旧型データが存在する`);
         });
         ["ヤリスクロス", "カローラクロス", "ランドクルーザー300", "ランドクルーザー70", "bZ4X", "シビック", "ZR-V", "キックス", "ジムニーシエラ", "CX-60", "CX-80", "CX-9", "BRZ"].forEach(name => {
           const vehicle = vehicles.find(v => v.model === name);
@@ -62,6 +66,13 @@
         const updated = VehicleFitment.upsertVehicles(vehicles, [{ ...sk, confidence: "A", model: "フォレスター更新テスト" }]);
         assert(updated.length === vehicles.length, "upsertで既存vehicle_idを重複追加しない");
         assert(updated.find(v => v.vehicle_id === sk.vehicle_id)?.model === "フォレスター更新テスト", "upsertで既存車両を更新できる");
+
+        const variantVehicle = VehicleFitment.normalizeVehicle({ vehicle_id: "QA_VARIANT", maker: "QA", model: "QA", generation: "QA", year_from: "2020-01", year_to: "2022-12", pcd: 100, holes: 4, hub_bore: 54, fastener: "M12×P1.5", oem_inch: "15/17", oem_tire: "195/65R15;215/45R17", variants: [
+          { variant_id: "early", label: "前期", year_from: "2020-01", year_to: "2020-12", oem_inch: "15", oem_tire: "195/65R15" },
+          { variant_id: "late", label: "後期", year_from: "2021-01", year_to: "2022-12", oem_inch: "17", oem_tire: "215/45R17" }
+        ] });
+        assert(VehicleFitment.tireSizes(variantVehicle, { year: 2020 }).join() === "195/65R15", "年式で仕様別タイヤサイズを絞り込める");
+        assert(VehicleFitment.tireSizes(variantVehicle, { year: 2022, variantId: "late" }).join() === "215/45R17", "仕様選択でタイヤサイズを絞り込める");
       } catch (error) {
         failures += 1;
         lines.push(`FAIL テスト実行エラー: ${error.message}`);

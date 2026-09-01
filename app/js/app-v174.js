@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.7.4";
+  const APP_VERSION = "Ver1.8.0";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -49,7 +49,7 @@
     vehicleLoadError: "",
     wheelSearchMode: "vehicle",
     vehicleQuery: "",
-    vehicleSelection: { maker: "", model: "", vehicleId: "", year: "", tire: "" },
+    vehicleSelection: { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" },
     tireInch: "",
     tireCategory: "",
     settings: normalizeSettings(loadJson(STORE_KEY, null) || defaultSettings())
@@ -115,9 +115,26 @@
     vehicleModelChips: $("#vehicleModelChips"),
     vehicleGenerationChips: $("#vehicleGenerationChips"),
     vehicleYearChips: $("#vehicleYearChips"),
+    vehicleVariantStep: $("#vehicleVariantStep"),
+    vehicleVariantChips: $("#vehicleVariantChips"),
     vehicleTireChips: $("#vehicleTireChips"),
     vehicleSummary: $("#vehicleSummary"),
     wheelAssistGrid: $("#wheelAssistGrid"),
+    missingVehiclePanel: $("#missingVehiclePanel"),
+    missingVehicleMaker: $("#missingVehicleMaker"),
+    missingVehicleModel: $("#missingVehicleModel"),
+    missingVehicleYear: $("#missingVehicleYear"),
+    missingVehicleCode: $("#missingVehicleCode"),
+    missingVehicleTire: $("#missingVehicleTire"),
+    saveMissingVehicle: $("#saveMissingVehicle"),
+    missingVehicleSaveStatus: $("#missingVehicleSaveStatus"),
+    vehicleMasterFile: $("#vehicleMasterFile"),
+    vehicleMasterBadge: $("#vehicleMasterBadge"),
+    vehicleMasterStatus: $("#vehicleMasterStatus"),
+    missingVehicleCount: $("#missingVehicleCount"),
+    missingVehicleList: $("#missingVehicleList"),
+    exportMissingVehicles: $("#exportMissingVehicles"),
+    clearMissingVehicles: $("#clearMissingVehicles"),
     estimateItems: $("#estimateItems"),
     estimateCosts: $("#estimateCosts"),
     grandTotal: $("#grandTotal"),
@@ -202,6 +219,7 @@
     renderSourceStatus();
     restoreBundledImageDb();
     restoreBundledVehicleDb();
+    refreshMissingVehicleAdmin();
     registerServiceWorker();
   }
 
@@ -326,6 +344,10 @@
     $$('[data-wheel-search-mode]').forEach(button => button.addEventListener("click", () => setWheelSearchMode(button.dataset.wheelSearchMode)));
     els.vehicleChoicePanel.addEventListener("click", handleVehicleChipClick);
     els.vehicleModelSearch.addEventListener("input", handleVehicleModelSearch);
+    els.saveMissingVehicle.addEventListener("click", saveMissingVehicle);
+    els.vehicleMasterFile.addEventListener("change", event => event.target.files[0] && importVehicleMaster(event.target.files[0]));
+    els.exportMissingVehicles.addEventListener("click", exportMissingVehicles);
+    els.clearMissingVehicles.addEventListener("click", clearMissingVehicles);
     els.clearVehicleModelSearch.addEventListener("click", () => {
       els.vehicleModelSearch.value = "";
       handleVehicleModelSearch({ target: els.vehicleModelSearch });
@@ -818,7 +840,10 @@
       const response = await fetch("data/vehicles_2012_2026.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
-      state.vehicles = window.VehicleFitment.normalizeDataset(payload);
+      const bundled = window.VehicleFitment.normalizeDataset(payload);
+      const overrides = window.VehicleStore ? await window.VehicleStore.getVehicleOverrides() : [];
+      state.vehicles = window.VehicleFitment.upsertVehicles(bundled, overrides);
+      els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
       renderVehicleChips();
       renderTires();
       renderWheels();
@@ -827,6 +852,62 @@
       state.vehicleLoadError = "車両DBを読み込めませんでした。管理者に確認してください。";
       renderWheels();
     }
+  }
+
+  async function saveMissingVehicle() {
+    const input = {
+      maker: els.missingVehicleMaker.value,
+      model: els.missingVehicleModel.value || state.vehicleQuery,
+      year: els.missingVehicleYear.value,
+      model_code: els.missingVehicleCode.value,
+      tire_size: els.missingVehicleTire.value
+    };
+    if (!input.model.trim()) { els.missingVehicleSaveStatus.textContent = "車種名を入力してください。"; return; }
+    try {
+      const saved = await window.VehicleStore.recordMissing(input);
+      els.missingVehicleSaveStatus.textContent = `端末に保存しました（同じ条件 ${saved.count}回）。`;
+      await refreshMissingVehicleAdmin();
+    } catch (error) {
+      console.error(error);
+      els.missingVehicleSaveStatus.textContent = "保存できませんでした。";
+    }
+  }
+
+  async function refreshMissingVehicleAdmin() {
+    if (!window.VehicleStore) return;
+    const rows = await window.VehicleStore.listMissing();
+    els.missingVehicleCount.textContent = `${rows.length}件`;
+    els.missingVehicleList.innerHTML = rows.length ? rows.sort((a, b) => b.last_seen.localeCompare(a.last_seen)).map(item =>
+      `<div><strong>${escapeHtml(item.maker)} ${escapeHtml(item.model)}</strong><span>${escapeHtml([item.year && `${item.year}年`, item.model_code, item.tire_size].filter(Boolean).join(" / ") || "詳細未入力")}・検索 ${item.count}回</span></div>`
+    ).join("") : "<p>未登録候補はありません。</p>";
+  }
+
+  async function importVehicleMaster(file) {
+    try {
+      const payload = JSON.parse(await file.text());
+      const result = window.VehicleFitment.validateVehicles(payload);
+      if (!result.valid) throw new Error(result.errors.slice(0, 3).join(" / ") || "有効な車種がありません");
+      await window.VehicleStore.upsertVehicleOverrides(result.vehicles);
+      state.vehicles = window.VehicleFitment.upsertVehicles(state.vehicles, result.vehicles);
+      els.vehicleMasterStatus.textContent = `${result.vehicles.length}件をvehicle_idで更新しました。価格表・設定は保持されています。`;
+      const overrides = await window.VehicleStore.getVehicleOverrides();
+      els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
+      renderVehicleChips(); renderTires(); renderWheels();
+    } catch (error) {
+      console.error(error);
+      els.vehicleMasterStatus.textContent = `読込エラー：${error.message}`;
+    } finally { els.vehicleMasterFile.value = ""; }
+  }
+
+  async function exportMissingVehicles() {
+    const rows = await window.VehicleStore.listMissing();
+    downloadBlob(new Blob([JSON.stringify({ exported_at: new Date().toISOString(), missing_vehicles: rows }, null, 2)], { type: "application/json" }), "missing_vehicles.json");
+  }
+
+  async function clearMissingVehicles() {
+    if (!window.confirm("この端末の未登録車種候補をすべて削除しますか？")) return;
+    await window.VehicleStore.clearMissing();
+    await refreshMissingVehicleAdmin();
   }
 
   function setWheelSearchMode(mode) {
@@ -850,7 +931,9 @@
     return maker === "SUBARU" ? "スバル" : maker;
   }
 
-  function vehicleModelAliases(model) {
+  function vehicleModelAliases(vehicleOrModel) {
+    const vehicle = typeof vehicleOrModel === "object" ? vehicleOrModel : null;
+    const model = vehicle ? vehicle.model : vehicleOrModel;
     const known = {
       "ノア/ヴォクシー": ["ノア", "ヴォクシー"],
       "ノア/ヴォクシー/エスクァイア": ["ノア", "ヴォクシー", "エスクァイア"],
@@ -861,7 +944,7 @@
       "eKワゴン/eKクロス": ["eKワゴン", "eKクロス"],
       "eKワゴン/eKカスタム": ["eKワゴン", "eKカスタム"]
     };
-    return known[model] || [model];
+    return [...new Set([...(known[model] || [model]), ...(vehicle?.aliases || []), ...(vehicle?.model_codes || [])])];
   }
 
   function vehicleChip(step, value, label, active) {
@@ -878,13 +961,33 @@
 
   function vehicleMatchesQuery(vehicle, query) {
     if (!query) return true;
-    return [vehicle.model, ...vehicleModelAliases(vehicle.model), vehicle.generation]
+    return [vehicle.model, ...vehicleModelAliases(vehicle), vehicle.generation]
       .some(value => normalizeVehicleQuery(value).includes(query));
+  }
+
+  function editDistance(a, b) {
+    const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
+    for (let i = 1; i <= a.length; i += 1) {
+      let diagonal = previous[0]; previous[0] = i;
+      for (let j = 1; j <= b.length; j += 1) {
+        const above = previous[j];
+        previous[j] = Math.min(previous[j] + 1, previous[j - 1] + 1, diagonal + (a[i - 1] === b[j - 1] ? 0 : 1));
+        diagonal = above;
+      }
+    }
+    return previous[b.length];
+  }
+
+  function suggestedVehicles(query) {
+    if (query.length < 2) return [];
+    const threshold = query.length >= 6 ? 2 : 1;
+    return state.vehicles.map(vehicle => ({ vehicle, score: Math.min(...vehicleModelAliases(vehicle).map(value => editDistance(normalizeVehicleQuery(value), query))) }))
+      .filter(item => item.score <= threshold).sort((a, b) => a.score - b.score).slice(0, 8).map(item => item.vehicle);
   }
 
   function handleVehicleModelSearch(event) {
     state.vehicleQuery = event.target.value || "";
-    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", tire: "" };
+    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" };
     $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === "maker"; });
     renderVehicleChips();
     renderTires();
@@ -893,7 +996,7 @@
 
   function clearVehicleSelection() {
     state.vehicleQuery = "";
-    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", tire: "" };
+    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" };
     els.vehicleModelSearch.value = "";
     renderVehicleChips();
     renderTires();
@@ -903,31 +1006,39 @@
   function renderVehicleChips() {
     const selection = state.vehicleSelection;
     const query = normalizeVehicleQuery(state.vehicleQuery);
-    const matchingVehicles = state.vehicles.filter(vehicle => vehicleMatchesQuery(vehicle, query));
+    const directMatches = state.vehicles.filter(vehicle => vehicleMatchesQuery(vehicle, query));
+    const suggestions = directMatches.length ? [] : suggestedVehicles(query);
+    const matchingVehicles = directMatches.length ? directMatches : suggestions;
     const byMaker = matchingVehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
-    const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle.model).includes(selection.model));
+    const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle).includes(selection.model));
     const vehicle = currentVehicle();
     const makers = [...new Set(matchingVehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
-    const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item.model)))].sort((a, b) => a.localeCompare(b, "ja"));
+    const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item)))].sort((a, b) => a.localeCompare(b, "ja"));
     els.vehicleMakerChips.innerHTML = makers.map(value => vehicleChip("maker", value, displayVehicleMaker(value), selection.maker === value)).join("");
     els.vehicleModelChips.innerHTML = models.map(value => vehicleChip("model", value, value, selection.model === value)).join("");
     els.vehicleModelSearchStatus.textContent = query
-      ? `${matchingVehicles.length}世代・${models.length || [...new Set(matchingVehicles.flatMap(item => vehicleModelAliases(item.model)))].length}車種が該当`
+      ? `${suggestions.length ? "近い候補：" : ""}${matchingVehicles.length}世代・${models.length || [...new Set(matchingVehicles.flatMap(item => vehicleModelAliases(item)))].length}車種`
       : "ひらがな・カタカナ・英数字で検索できます";
     els.vehicleGenerationChips.innerHTML = byModel.map(item => vehicleChip("generation", item.vehicle_id, item.generation, selection.vehicleId === item.vehicle_id)).join("");
     const years = vehicle ? window.VehicleFitment.years(vehicle) : [];
     els.vehicleYearChips.innerHTML = years.map(value => vehicleChip("year", String(value), `${value}年`, selection.year === String(value))).join("");
-    const tires = vehicle ? window.VehicleFitment.tireSizes(vehicle) : [];
+    const variants = vehicle ? window.VehicleFitment.variants(vehicle, selection.year) : [];
+    els.vehicleVariantStep.hidden = !variants.length;
+    els.vehicleVariantChips.innerHTML = variants.map(value => vehicleChip("variant", value.variant_id, value.label, selection.variantId === value.variant_id)).join("");
+    const tires = vehicle ? window.VehicleFitment.tireSizes(vehicle, { year: selection.year, variantId: selection.variantId }) : [];
     els.vehicleTireChips.innerHTML = tires.map(value => vehicleChip("tire", value, value, selection.tire === value)).join("");
+    const variant = variants.find(item => item.variant_id === selection.variantId);
     if (vehicle && selection.year && selection.tire) {
       els.vehicleSummary.hidden = false;
-      els.vehicleSummary.innerHTML = `<strong>${escapeHtml(displayVehicleMaker(vehicle.maker))} ${escapeHtml(vehicle.model)} / ${escapeHtml(vehicle.generation)}</strong><span>${escapeHtml(selection.year)}年・純正 ${escapeHtml(selection.tire)}</span><span>PCD ${escapeHtml(vehicle.pcd)} / ${escapeHtml(vehicle.holes)}穴 / ハブ径 ${escapeHtml(vehicle.hub_bore)}mm / ${escapeHtml(vehicle.fastener)} / 純正 ${escapeHtml(vehicle.oem_inch)}インチ</span>`;
+      els.vehicleSummary.innerHTML = `<strong>${escapeHtml(displayVehicleMaker(vehicle.maker))} ${escapeHtml(vehicle.model)} / ${escapeHtml(vehicle.generation)}</strong><span>${escapeHtml(selection.year)}年${variant ? `・${escapeHtml(variant.label)}` : ""}・純正 ${escapeHtml(selection.tire)}</span><span>PCD ${escapeHtml(vehicle.pcd)} / ${escapeHtml(vehicle.holes)}穴 / ハブ径 ${escapeHtml(vehicle.hub_bore)}mm / ${escapeHtml(vehicle.fastener)} / 純正 ${escapeHtml(vehicle.oem_inch)}インチ</span>`;
     } else {
       els.vehicleSummary.hidden = true;
       els.vehicleSummary.innerHTML = "";
     }
     els.sharedVehicleSummary.textContent = vehicleSearchSummary(vehicle);
     els.clearVehicleSelection.hidden = !selection.maker && !state.vehicleQuery;
+    els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || suggestions.length > 0;
+    if (!els.missingVehiclePanel.hidden && !els.missingVehicleModel.value) els.missingVehicleModel.value = state.vehicleQuery;
   }
 
   function handleVehicleChipClick(event) {
@@ -935,13 +1046,15 @@
     if (!button) return;
     const step = button.dataset.vehicleFilter;
     const value = button.dataset.value || "";
-    if (step === "maker") state.vehicleSelection = { maker: value, model: "", vehicleId: "", year: "", tire: "" };
-    if (step === "model") state.vehicleSelection = { ...state.vehicleSelection, model: value, vehicleId: "", year: "", tire: "" };
-    if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, vehicleId: value, year: "", tire: "" };
-    if (step === "year") state.vehicleSelection = { ...state.vehicleSelection, year: value, tire: "" };
+    if (step === "maker") state.vehicleSelection = { maker: value, model: "", vehicleId: "", year: "", variantId: "", tire: "" };
+    if (step === "model") state.vehicleSelection = { ...state.vehicleSelection, model: value, vehicleId: "", year: "", variantId: "", tire: "" };
+    if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, vehicleId: value, year: "", variantId: "", tire: "" };
+    if (step === "year") state.vehicleSelection = { ...state.vehicleSelection, year: value, variantId: "", tire: "" };
+    if (step === "variant") state.vehicleSelection = { ...state.vehicleSelection, variantId: value, tire: "" };
     if (step === "tire") state.vehicleSelection = { ...state.vehicleSelection, tire: value };
     renderVehicleChips();
-    const steps = ["maker", "model", "generation", "year", "tire"];
+    const hasVariants = currentVehicle() && window.VehicleFitment.variants(currentVehicle(), state.vehicleSelection.year).length;
+    const steps = hasVariants ? ["maker", "model", "generation", "year", "variant", "tire"] : ["maker", "model", "generation", "year", "tire"];
     const next = steps[steps.indexOf(step) + 1];
     if (next) {
       $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === next; });
@@ -986,6 +1099,10 @@
     }
     if (state.wheelSearchMode === "vehicle" && !selectedVehicle) {
       els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || "メーカーから順に車両を選択してください。");
+      return;
+    }
+    if (state.wheelSearchMode === "vehicle" && [selectedVehicle.pcd, selectedVehicle.holes, selectedVehicle.hub_bore].some(value => value == null)) {
+      els.wheelResults.innerHTML = emptyCard("この世代はホイール取付条件が未確認です。誤案内防止のため車両候補を表示しません。アルミ単体は「ホイールから探す」を使用してください。");
       return;
     }
     els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item)).join("") || emptyCard("基本条件を満たす価格登録済みアルミホイールがありません。");

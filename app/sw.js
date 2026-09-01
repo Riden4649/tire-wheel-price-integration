@@ -1,10 +1,11 @@
-const CACHE_NAME = "integrated-price-navi-ver1-7-4-shared-vehicle-price-qa";
+const CACHE_NAME = "integrated-price-navi-ver1-8-0-offline-vehicle-master";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/app-v174.css",
   "./js/app-v174.js",
   "./js/vehicle-fitment-v170.js",
+  "./js/vehicle-store-v180.js",
   "./js/brand-config.js",
   "./js/workbook.js",
   "./js/pricing.js",
