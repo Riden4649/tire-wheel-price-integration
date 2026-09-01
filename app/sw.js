@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-2-special-fitment-notes";
+const CACHE_NAME = "integrated-price-navi-ver1-9-3-wheel-torque";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -15,6 +15,7 @@ const APP_SHELL = [
   "./data/wheel_image_master.json",
   "./data/vehicles_2012_2026.json",
   "./data/jp_vehicle_search_master_2000_2026_v1.json",
+  "./data/vehicle_service_specs.json",
   "./data/vehicle-updates/online-master.json",
   "./data/vehicle-updates/manifest.json",
   "./manifest.json",
