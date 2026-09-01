@@ -10,7 +10,7 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.9.0";
+  const APP_VERSION = "Ver1.9.1";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
   const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
@@ -46,12 +46,13 @@
     selectedTire: null,
     selectedWheel: null,
     vehicles: [],
+    vehicleSearchRecords: [],
     vehicleLoadError: "",
     currentReviewKey: "",
     reviewCandidates: [],
     wheelSearchMode: "vehicle",
     vehicleQuery: "",
-    vehicleSelection: { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" },
+    vehicleSelection: { maker: "", model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" },
     tireInch: "",
     tireCategory: "",
     settings: normalizeSettings(loadJson(STORE_KEY, null) || defaultSettings())
@@ -123,6 +124,7 @@
     vehicleSummary: $("#vehicleSummary"),
     wheelAssistGrid: $("#wheelAssistGrid"),
     missingVehiclePanel: $("#missingVehiclePanel"),
+    searchOnlyVehicleNotice: $("#searchOnlyVehicleNotice"), searchOnlyVehicleText: $("#searchOnlyVehicleText"), recordSearchOnlyVehicle: $("#recordSearchOnlyVehicle"),
     missingVehicleMaker: $("#missingVehicleMaker"),
     missingVehicleModel: $("#missingVehicleModel"),
     missingVehicleYear: $("#missingVehicleYear"),
@@ -364,6 +366,7 @@
     els.vehicleChoicePanel.addEventListener("click", handleVehicleChipClick);
     els.vehicleModelSearch.addEventListener("input", handleVehicleModelSearch);
     els.saveMissingVehicle.addEventListener("click", saveMissingVehicle);
+    els.recordSearchOnlyVehicle.addEventListener("click", recordSelectedSearchOnlyVehicle);
     els.vehicleMasterFile.addEventListener("change", event => event.target.files[0] && importVehicleMaster(event.target.files[0]));
     els.exportMissingVehicles.addEventListener("click", exportMissingVehicles);
     els.clearMissingVehicles.addEventListener("click", clearMissingVehicles);
@@ -771,7 +774,11 @@
       .sort(compareTireSalePrice)
       .slice(0, limit);
     renderTireChips();
-    els.tireSearchSummary.textContent = summaryText([selectedVehicle && vehicleSearchSummary(selectedVehicle), sourceSummary([els.useSummerTire.checked && "夏", els.useWinterTire.checked && "冬"], "タイヤ"), tireCategoryLabel(tireCategory), tireBrandDisplayName(brand), els.tireProduct.value, tireInch && `${tireInch}インチ`, els.tireSize.value]);
+    els.tireSearchSummary.textContent = summaryText([(selectedVehicle || currentSearchOnlyVehicle()) && vehicleSearchSummary(selectedVehicle), sourceSummary([els.useSummerTire.checked && "夏", els.useWinterTire.checked && "冬"], "タイヤ"), tireCategoryLabel(tireCategory), tireBrandDisplayName(brand), els.tireProduct.value, tireInch && `${tireInch}インチ`, els.tireSize.value]);
+    if (currentSearchOnlyVehicle() && !selectedVehicle) {
+      els.tireResults.innerHTML = emptyCard("車種名は登録済みですが、純正タイヤサイズが未検証です。適合情報を確認・登録してからタイヤ検索へ進んでください。");
+      return;
+    }
     if (!state.tireProducts.length) {
       els.tireResults.innerHTML = emptyCard("管理タブでタイヤ価格表を読み込んでください。");
       return;
@@ -859,7 +866,7 @@
   }
 
   async function restoreBundledVehicleDb() {
-    if (!window.VehicleFitment) {
+    if (!window.VehicleFitment || !window.VehicleSearchMaster) {
       state.vehicleLoadError = "車両判定モジュールを読み込めませんでした。";
       renderWheels();
       return;
@@ -868,9 +875,12 @@
       const response = await fetch("data/vehicles_2012_2026.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
+      const searchPayload = await fetch("data/jp_vehicle_search_master_2000_2026_v1.json", { cache: "no-store" }).then(result => result.ok ? result.json() : ({ vehicles: [] })).catch(() => ({ vehicles: [] }));
       const bundled = window.VehicleFitment.normalizeDataset(payload);
       const overrides = window.VehicleStore ? await window.VehicleStore.getVehicleOverrides() : [];
-      state.vehicles = window.VehicleFitment.upsertVehicles(bundled, overrides);
+      const merged = window.VehicleSearchMaster.merge(window.VehicleFitment.upsertVehicles(bundled, overrides), searchPayload);
+      state.vehicles = merged.vehicles;
+      state.vehicleSearchRecords = merged.searchRecords;
       els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
       renderVehicleChips();
       renderTires();
@@ -901,6 +911,14 @@
       console.error(error);
       els.missingVehicleSaveStatus.textContent = "保存できませんでした。";
     }
+  }
+
+  async function recordSelectedSearchOnlyVehicle() {
+    const record = currentSearchOnlyVehicle();
+    if (!record) return;
+    const saved = await window.VehicleStore.recordMissing({ maker: record.maker, model: record.model, memo: "検索補完マスターから記録" });
+    els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(record.maker)} ${record.model} を未登録適合情報として端末へ記録しました（${saved.count}回）。`;
+    await refreshMissingVehicleAdmin();
   }
 
   async function refreshMissingVehicleAdmin() {
@@ -1052,7 +1070,8 @@
       const applied = await window.VehicleStore.getMetadata("applied_patch_ids") || [];
       await window.VehicleStore.setMetadata("applied_patch_ids", [...new Set([...applied, missing.patch_id])]);
     }
-    state.vehicles = window.VehicleFitment.upsertVehicles(state.vehicles, [proposed]);
+    const mergedSearch = window.VehicleSearchMaster.merge(window.VehicleFitment.upsertVehicles(state.vehicles, [proposed]), state.vehicleSearchRecords);
+    state.vehicles = mergedSearch.vehicles; state.vehicleSearchRecords = mergedSearch.searchRecords;
     els.vehicleReviewStatus.textContent = "DB登録済み"; els.registerVehicleCandidate.disabled = true;
     els.vehicleReviewMessage.textContent = "端末の車種DBへ追加しました。すぐに車種検索できます。";
     renderVehicleChips(); renderTires(); renderWheels(); await refreshMissingVehicleAdmin();
@@ -1127,8 +1146,15 @@
     return state.vehicles.find(vehicle => vehicle.vehicle_id === state.vehicleSelection.vehicleId) || null;
   }
 
+  function currentSearchOnlyVehicle() {
+    return state.vehicleSearchRecords.find(record => record.search_id === state.vehicleSelection.searchOnlyId && !record.has_verified_fitment) || null;
+  }
+
   function vehicleSearchSummary(vehicle) {
-    if (!vehicle) return "車両未選択";
+    if (!vehicle) {
+      const searchOnly = currentSearchOnlyVehicle();
+      return searchOnly ? summaryText([displayVehicleMaker(searchOnly.maker), searchOnly.model, "適合情報 要確認"]) : "車両未選択";
+    }
     return summaryText([displayVehicleMaker(vehicle.maker), vehicle.model, vehicle.generation, state.vehicleSelection.year && `${state.vehicleSelection.year}年`, state.vehicleSelection.tire]);
   }
 
@@ -1170,6 +1196,11 @@
       .some(value => normalizeVehicleQuery(value).includes(query));
   }
 
+  function searchRecordMatchesQuery(record, query) {
+    if (!query) return true;
+    return [record.model, ...(record.aliases || [])].some(value => normalizeVehicleQuery(value).includes(query));
+  }
+
   function editDistance(a, b) {
     const previous = Array.from({ length: b.length + 1 }, (_, index) => index);
     for (let i = 1; i <= a.length; i += 1) {
@@ -1192,7 +1223,7 @@
 
   function handleVehicleModelSearch(event) {
     state.vehicleQuery = event.target.value || "";
-    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" };
+    state.vehicleSelection = { maker: "", model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
     $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === "maker"; });
     renderVehicleChips();
     renderTires();
@@ -1201,7 +1232,7 @@
 
   function clearVehicleSelection() {
     state.vehicleQuery = "";
-    state.vehicleSelection = { maker: "", model: "", vehicleId: "", year: "", variantId: "", tire: "" };
+    state.vehicleSelection = { maker: "", model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
     els.vehicleModelSearch.value = "";
     renderVehicleChips();
     renderTires();
@@ -1212,17 +1243,20 @@
     const selection = state.vehicleSelection;
     const query = normalizeVehicleQuery(state.vehicleQuery);
     const directMatches = state.vehicles.filter(vehicle => vehicleMatchesQuery(vehicle, query));
-    const suggestions = directMatches.length ? [] : suggestedVehicles(query);
+    const matchingSearchOnly = state.vehicleSearchRecords.filter(record => !record.has_verified_fitment && searchRecordMatchesQuery(record, query));
+    const suggestions = directMatches.length || matchingSearchOnly.length ? [] : suggestedVehicles(query);
     const matchingVehicles = directMatches.length ? directMatches : suggestions;
     const byMaker = matchingVehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
+    const searchByMaker = matchingSearchOnly.filter(record => !selection.maker || record.maker === selection.maker);
     const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle).includes(selection.model));
     const vehicle = currentVehicle();
-    const makers = [...new Set(matchingVehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
-    const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item)))].sort((a, b) => a.localeCompare(b, "ja"));
+    const searchOnly = currentSearchOnlyVehicle();
+    const makers = [...new Set([...matchingVehicles.map(item => item.maker), ...matchingSearchOnly.map(item => item.maker)])].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
+    const models = [...new Set([...byMaker.flatMap(item => vehicleModelAliases(item)), ...searchByMaker.map(item => item.model)])].sort((a, b) => a.localeCompare(b, "ja"));
     els.vehicleMakerChips.innerHTML = makers.map(value => vehicleChip("maker", value, displayVehicleMaker(value), selection.maker === value)).join("");
     els.vehicleModelChips.innerHTML = models.map(value => vehicleChip("model", value, value, selection.model === value)).join("");
     els.vehicleModelSearchStatus.textContent = query
-      ? `${suggestions.length ? "近い候補：" : ""}${matchingVehicles.length}世代・${models.length || [...new Set(matchingVehicles.flatMap(item => vehicleModelAliases(item)))].length}車種`
+      ? `${suggestions.length ? "近い候補：" : ""}${matchingVehicles.length}適合世代・${matchingSearchOnly.length}検索補完車種`
       : "ひらがな・カタカナ・英数字で検索できます";
     els.vehicleGenerationChips.innerHTML = byModel.map(item => vehicleChip("generation", item.vehicle_id, item.generation, selection.vehicleId === item.vehicle_id)).join("");
     const years = vehicle ? window.VehicleFitment.years(vehicle) : [];
@@ -1241,8 +1275,10 @@
       els.vehicleSummary.innerHTML = "";
     }
     els.sharedVehicleSummary.textContent = vehicleSearchSummary(vehicle);
+    els.searchOnlyVehicleNotice.hidden = !searchOnly;
+    if (searchOnly) els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(searchOnly.maker)} ${searchOnly.model} は車種名マスターに登録されていますが、PCD・穴数・ハブ径・締結方式・純正タイヤサイズは未検証です。タイヤ・アルミ候補は表示しません。`;
     els.clearVehicleSelection.hidden = !selection.maker && !state.vehicleQuery;
-    els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || suggestions.length > 0;
+    els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || matchingSearchOnly.length > 0 || suggestions.length > 0;
     if (!els.missingVehiclePanel.hidden && !els.missingVehicleModel.value) els.missingVehicleModel.value = state.vehicleQuery;
   }
 
@@ -1251,13 +1287,17 @@
     if (!button) return;
     const step = button.dataset.vehicleFilter;
     const value = button.dataset.value || "";
-    if (step === "maker") state.vehicleSelection = { maker: value, model: "", vehicleId: "", year: "", variantId: "", tire: "" };
-    if (step === "model") state.vehicleSelection = { ...state.vehicleSelection, model: value, vehicleId: "", year: "", variantId: "", tire: "" };
-    if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, vehicleId: value, year: "", variantId: "", tire: "" };
+    if (step === "maker") state.vehicleSelection = { maker: value, model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
+    if (step === "model") {
+      const searchOnly = state.vehicleSearchRecords.find(item => !item.has_verified_fitment && item.maker === state.vehicleSelection.maker && item.model === value);
+      state.vehicleSelection = { ...state.vehicleSelection, model: value, searchOnlyId: searchOnly?.search_id || "", vehicleId: "", year: "", variantId: "", tire: "" };
+    }
+    if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, searchOnlyId: "", vehicleId: value, year: "", variantId: "", tire: "" };
     if (step === "year") state.vehicleSelection = { ...state.vehicleSelection, year: value, variantId: "", tire: "" };
     if (step === "variant") state.vehicleSelection = { ...state.vehicleSelection, variantId: value, tire: "" };
     if (step === "tire") state.vehicleSelection = { ...state.vehicleSelection, tire: value };
     renderVehicleChips();
+    if (step === "model" && currentSearchOnlyVehicle()) { renderTires(); renderWheels(); return; }
     const hasVariants = currentVehicle() && window.VehicleFitment.variants(currentVehicle(), state.vehicleSelection.year).length;
     const steps = hasVariants ? ["maker", "model", "generation", "year", "variant", "tire"] : ["maker", "model", "generation", "year", "tire"];
     const next = steps[steps.indexOf(step) + 1];
@@ -1299,12 +1339,12 @@
       ? vehicleSearchSummary(selectedVehicle)
       : summaryText([sourceSummary([els.useBsWheel.checked && "BS", els.useOtherWheel.checked && "社外"], "アルミ"), els.wheelMaker.value, els.wheelBrand.value, els.wheelPattern.value, els.wheelInch.value && `${els.wheelInch.value.replace(/インチ/g, "")}インチ`, els.wheelPcd.value && `PCD ${els.wheelPcd.value}`, els.wheelSize.value]);
     els.wheelFitmentWarning.hidden = true;
-    if (!state.wheelProducts.length) {
-      els.wheelResults.innerHTML = emptyCard("管理タブでアルミ価格表を読み込んでください。");
+    if (state.wheelSearchMode === "vehicle" && !selectedVehicle) {
+      els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || (currentSearchOnlyVehicle() ? "車種名は登録済みですが、アルミ適合情報が未検証です。適合情報を確認・登録してから候補検索へ進んでください。" : "メーカーから順に車両を選択してください。"));
       return;
     }
-    if (state.wheelSearchMode === "vehicle" && !selectedVehicle) {
-      els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || "メーカーから順に車両を選択してください。");
+    if (!state.wheelProducts.length) {
+      els.wheelResults.innerHTML = emptyCard("管理タブでアルミ価格表を読み込んでください。");
       return;
     }
     els.wheelResults.innerHTML = visible.map(entry => wheelCard(entry.item, entry.fitment)).join("") || emptyCard("確認済みの基本条件を満たす価格登録済みアルミホイールがありません。");

@@ -1,10 +1,11 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-0-vehicle-review-fitment";
+const CACHE_NAME = "integrated-price-navi-ver1-9-1-search-completion-master";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/app-v174.css",
   "./js/app-v174.js",
   "./js/vehicle-fitment-v170.js",
+  "./js/vehicle-search-master-v191.js",
   "./js/vehicle-store-v180.js",
   "./js/brand-config.js",
   "./js/workbook.js",
@@ -13,6 +14,7 @@ const APP_SHELL = [
   "./vendor/sheetjs-bridge.js",
   "./data/wheel_image_master.json",
   "./data/vehicles_2012_2026.json",
+  "./data/jp_vehicle_search_master_2000_2026_v1.json",
   "./data/vehicle-updates/online-master.json",
   "./data/vehicle-updates/manifest.json",
   "./manifest.json",
