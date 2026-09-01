@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 import json
+import re
 from collections import defaultdict
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-UPDATES = ROOT / "app" / "data" / "vehicle-updates"
+DATA = ROOT / "app" / "data"
+UPDATES = DATA / "vehicle-updates"
 REPORTS = ROOT / "reports"
 REGISTRY = UPDATES / "source_registry.json"
 EVIDENCE = UPDATES / "research-evidence.json"
+FITMENT = DATA / "vehicles_2012_2026.json"
 OUT = REPORTS / "evidence-evaluation.json"
 REVIEW = REPORTS / "review-queue.json"
 CHANGE = REPORTS / "change-plan.json"
@@ -44,6 +48,29 @@ def normalize_value(field, value):
     if field == "hub_bore" and isinstance(value, (int, float)):
         return int(value)
     return value
+
+
+def value_is_sane(field, value):
+    if field == "wheel_torque_nm":
+        return isinstance(value, int) and not isinstance(value, bool) and 50 <= value <= 250
+    if field == "thread_diameter":
+        return isinstance(value, str) and re.fullmatch(r"M\d+(?:\.\d+)?", value) is not None
+    if field == "thread_pitch":
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and 0.5 <= float(value) <= 2.5
+    if field == "pcd":
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and 80 <= float(value) <= 200
+    if field == "holes":
+        return isinstance(value, int) and not isinstance(value, bool) and 3 <= value <= 8
+    if field == "hub_bore":
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and 40 <= float(value) <= 130
+    return True
+
+
+def valid_verified_at(value):
+    try:
+        return date.fromisoformat(value) <= date.today()
+    except (TypeError, ValueError):
+        return False
 
 
 def decide_group(vehicle_id, field, items):
@@ -95,10 +122,11 @@ def decide_group(vehicle_id, field, items):
     }
 
 
-def evaluate_records(records, registry):
+def evaluate_records(records, registry, valid_vehicle_ids=None):
     policies = registry.get("policy", {})
     grouped = defaultdict(list)
     invalid = []
+    seen = set()
 
     for rec in records:
         vehicle_id = rec.get("vehicle_id")
@@ -106,6 +134,15 @@ def evaluate_records(records, registry):
         url = rec.get("source_url")
         if not vehicle_id or not field or "value" not in rec or not url:
             invalid.append({**rec, "invalid_reason": "missing_required_field"})
+            continue
+        if valid_vehicle_ids is not None and vehicle_id not in valid_vehicle_ids:
+            invalid.append({**rec, "invalid_reason": "unknown_vehicle_id"})
+            continue
+        if not value_is_sane(field, rec.get("value")):
+            invalid.append({**rec, "invalid_reason": "implausible_field_value"})
+            continue
+        if not valid_verified_at(rec.get("verified_at")):
+            invalid.append({**rec, "invalid_reason": "invalid_verified_at"})
             continue
 
         domain = domain_of(url)
@@ -122,6 +159,16 @@ def evaluate_records(records, registry):
                 "detected_source_type": detected_type,
             })
             continue
+
+        duplicate_key = (
+            vehicle_id, field,
+            json.dumps(rec.get("value"), ensure_ascii=False, sort_keys=True),
+            url,
+        )
+        if duplicate_key in seen:
+            invalid.append({**rec, "invalid_reason": "duplicate_evidence"})
+            continue
+        seen.add(duplicate_key)
 
         source_type = detected_type
         weight = policies.get(source_type, {}).get("weight", 0)
@@ -150,10 +197,14 @@ def main():
     REPORTS.mkdir(exist_ok=True)
     registry = load(REGISTRY)
     evidence = load(EVIDENCE)
-    accepted, review, pending, invalid = evaluate_records(evidence.get("records", []), registry)
+    fitment = load(FITMENT)
+    valid_vehicle_ids = {x.get("vehicle_id") for x in fitment.get("vehicles", []) if x.get("vehicle_id")}
+    accepted, review, pending, invalid = evaluate_records(
+        evidence.get("records", []), registry, valid_vehicle_ids=valid_vehicle_ids
+    )
 
     result = {
-        "schema_version": "1.0.1",
+        "schema_version": "1.0.2",
         "accepted_count": len(accepted),
         "review_count": len(review),
         "pending_count": len(pending),
@@ -164,8 +215,8 @@ def main():
         "invalid": invalid,
     }
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    REVIEW.write_text(json.dumps({"schema_version": "1.0.1", "dataset": "vehicle_review_queue", "records": review + pending}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    CHANGE.write_text(json.dumps({"schema_version": "1.0.1", "dataset": "vehicle_change_plan", "production_master_write": False, "records": accepted}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    REVIEW.write_text(json.dumps({"schema_version": "1.0.2", "dataset": "vehicle_review_queue", "records": review + pending}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    CHANGE.write_text(json.dumps({"schema_version": "1.0.2", "dataset": "vehicle_change_plan", "production_master_write": False, "records": accepted}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(json.dumps({"accepted": len(accepted), "review": len(review), "pending": len(pending), "invalid": len(invalid)}, ensure_ascii=False, indent=2))
 
