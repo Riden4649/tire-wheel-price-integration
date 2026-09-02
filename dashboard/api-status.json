@@ -1,63 +1,52 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-02T16:26:50+09:00",
+  "updated_at": "2026-09-02T16:41:33+09:00",
   "run": {
-    "id": "33603503207",
-    "number": "44",
+    "id": "33604815433",
+    "number": "46",
     "event": "push",
-    "sha": "e3dc46aa127e32da0e579a484d80c8dfab9d4cbf",
+    "sha": "cb7bcf7cca5570e37fb8f4b6ac21a032f3b1a837",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
-  "overall_status": "ok",
+  "overall_status": "error",
   "totals": {
-    "attempted": 31,
-    "success": 31,
-    "errors": 0,
-    "success_rate": 100.0
+    "attempted": 9,
+    "success": 0,
+    "errors": 9,
+    "success_rate": 0.0
   },
   "services": [
     {
       "name": "Tavily",
-      "status": "ok",
-      "attempted": 11,
-      "success": 11,
-      "errors": 0,
-      "success_rate": 100.0,
-      "candidates": 2,
-      "confirmed": 0,
+      "status": "error",
+      "attempted": 9,
+      "success": 0,
+      "errors": 9,
+      "success_rate": 0.0,
+      "candidates": 0,
+      "confirmed": 1,
       "conflicts": 0
     },
     {
       "name": "Brave",
-      "status": "ok",
-      "attempted": 12,
-      "success": 12,
+      "status": "not_run",
+      "attempted": 0,
+      "success": 0,
       "errors": 0,
-      "success_rate": 100.0,
-      "candidates": 0,
-      "confirmed": 0,
-      "conflicts": 0
+      "success_rate": null
     },
     {
       "name": "Gemini",
-      "status": "ok",
-      "attempted": 8,
-      "success": 8,
+      "status": "not_run",
+      "attempted": 0,
+      "success": 0,
       "errors": 0,
-      "success_rate": 100.0,
-      "identity_confirmed": 1,
-      "pcd_candidates": 1,
-      "confirmed": 1,
-      "conflicts": 0,
-      "retries": 0,
-      "fallback_success": 0,
-      "model": "gemini-3.5-flash-lite",
-      "fallback_model": "gemini-3.1-flash-lite"
+      "success_rate": null
     }
   ],
   "production_apply": {
-    "applied_count": 1,
+    "applied_count": 0,
     "skipped_count": 0
   },
   "note": "APIキーや秘密情報は保存しません。表示値は直近の車種DB育成Runで生成された公開可能な実行統計のみです。"
