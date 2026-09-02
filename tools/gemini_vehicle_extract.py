@@ -3,6 +3,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -28,9 +29,11 @@ OUT_MD = REPORTS / "gemini-structured-extraction.md"
 PERSISTENT = UPDATES / "auto-structured-evidence.json"
 
 JST = timezone(timedelta(hours=9))
-DEFAULT_MODEL = "gemini-2.5-flash-lite"
+DEFAULT_MODEL = "gemini-3.5-flash-lite"
+FALLBACK_MODEL = "gemini-3.1-flash-lite"
 DEFAULT_MAX_URLS = 8
 ALLOWED_TYPES = {"manufacturer_official", "wheel_manufacturer_official"}
+RETRYABLE_HTTP = {429, 500, 502, 503, 504}
 
 
 def now_jst():
@@ -98,9 +101,8 @@ def build_targets(registry, max_urls):
     return targets
 
 
-def gemini_call(api_key, model, target):
-    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    prompt = f"""
+def build_prompt(target):
+    return f"""
 You are extracting automotive fitment/service facts from ONE official webpage.
 Target vehicle:
 - maker: {target.get('maker')}
@@ -143,8 +145,12 @@ JSON shape:
   }}
 }}
 """.strip()
+
+
+def gemini_call_once(api_key, model, target):
+    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     body = {
-        "contents": [{"parts": [{"text": prompt}]}],
+        "contents": [{"parts": [{"text": build_prompt(target)}]}],
         "tools": [{"url_context": {}}],
         "generationConfig": {"temperature": 0, "maxOutputTokens": 1200},
     }
@@ -154,16 +160,44 @@ JSON shape:
         headers={
             "Content-Type": "application/json",
             "x-goog-api-key": api_key,
-            "User-Agent": "vehicle-db-growth-gemini/1.0",
+            "User-Agent": "vehicle-db-growth-gemini/1.1",
         },
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=60) as response:
+    with urllib.request.urlopen(req, timeout=75) as response:
         payload = json.loads(response.read().decode("utf-8"))
     parts = (((payload.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
     text = "\n".join(str(p.get("text", "")) for p in parts if p.get("text"))
     metadata = (payload.get("candidates") or [{}])[0].get("urlContextMetadata") or {}
     return text, metadata, payload.get("usageMetadata") or {}
+
+
+def gemini_call(api_key, primary_model, target):
+    models = [primary_model]
+    if FALLBACK_MODEL not in models:
+        models.append(FALLBACK_MODEL)
+    attempts = []
+    last_exc = None
+    for model_index, model in enumerate(models):
+        for retry in range(3):
+            try:
+                text, metadata, usage = gemini_call_once(api_key, model, target)
+                return text, metadata, usage, model, attempts
+            except urllib.error.HTTPError as exc:
+                detail = exc.read().decode("utf-8", errors="replace")[:1000]
+                attempts.append({"model": model, "retry": retry + 1, "status": exc.code, "error": detail})
+                last_exc = RuntimeError(f"Gemini HTTP {exc.code}: {detail}")
+                if exc.code not in RETRYABLE_HTTP:
+                    break
+                if retry < 2:
+                    time.sleep(2 ** retry)
+            except Exception as exc:
+                attempts.append({"model": model, "retry": retry + 1, "error": str(exc)[:1000]})
+                last_exc = exc
+                break
+        if model_index == 0:
+            time.sleep(1)
+    raise RuntimeError(str(last_exc) if last_exc else "Gemini call failed")
 
 
 def parse_json_object(text):
@@ -234,7 +268,7 @@ def merge_structured(new_records):
         merged[key] = item
     records = sorted(merged.values(), key=lambda x: (x.get("vehicle_id", ""), x.get("source_domain", ""), x.get("source_url", "")))
     payload = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "dataset": "auto_structured_vehicle_evidence",
         "updated_at": now_jst(),
         "policy": {
@@ -243,6 +277,7 @@ def merge_structured(new_records):
             "missing_values_are_never_inferred": True,
             "production_write_for_non_pcd_fields": False,
             "pcd_still_requires_two_independent_official_domains_same_value": True,
+            "temporary_api_errors_retry_then_free_tier_fallback": True,
         },
         "record_count": len(records),
         "records": records,
@@ -264,17 +299,18 @@ def main():
     extracted = []
     pcd_candidates = []
     errors = []
+    fallback_success_count = 0
+    retry_attempt_count = 0
     for target in targets:
         try:
-            text, url_metadata, usage = gemini_call(api_key, model, target)
+            text, url_metadata, usage, used_model, attempts = gemini_call(api_key, model, target)
+            retry_attempt_count += len(attempts)
+            if used_model != model:
+                fallback_success_count += 1
             raw = parse_json_object(text)
             normalized = normalize_extraction(raw)
-        except urllib.error.HTTPError as exc:
-            detail = exc.read().decode("utf-8", errors="replace")[:1000]
-            errors.append({"vehicle_id": target.get("vehicle_id"), "url": target.get("url"), "status": exc.code, "error": detail})
-            continue
         except Exception as exc:
-            errors.append({"vehicle_id": target.get("vehicle_id"), "url": target.get("url"), "error": str(exc)})
+            errors.append({"vehicle_id": target.get("vehicle_id"), "url": target.get("url"), "error": str(exc)[:1200]})
             continue
 
         record = {
@@ -283,7 +319,7 @@ def main():
             "source_url": target.get("url"),
             "source_title": target.get("title"),
             "search_engine": "gemini_url_context",
-            "gemini_model": model,
+            "gemini_model": used_model,
             "url_context_metadata": url_metadata,
             "usage_metadata": usage,
             "first_seen_at": now_jst(),
@@ -314,9 +350,10 @@ def main():
     confirmed, conflicts = build_confirmed(pool)
 
     payload = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "dataset": "gemini_vehicle_structured_extraction",
         "model": model,
+        "fallback_model": FALLBACK_MODEL,
         "production_master_write": False,
         "url_count": len(targets),
         "successful_extractions": len(extracted),
@@ -326,6 +363,8 @@ def main():
         "persistent_pcd_candidates": len(pool),
         "auto_confirmed_pcd_count": len(confirmed),
         "pcd_conflict_count": len(conflicts),
+        "retry_attempt_count": retry_attempt_count,
+        "fallback_success_count": fallback_success_count,
         "error_count": len(errors),
         "records": extracted,
         "errors": errors,
@@ -335,7 +374,8 @@ def main():
     lines = [
         "# Gemini 公式ページ構造化抽出",
         "",
-        f"- モデル: {model}",
+        f"- 主モデル: {model}",
+        f"- フォールバック: {FALLBACK_MODEL}",
         f"- URL解析: {len(targets)}件",
         f"- 抽出成功: {len(extracted)}件",
         f"- 車種同一性確認: {payload['identity_confirmed_count']}件",
@@ -343,7 +383,9 @@ def main():
         f"- 累積構造化候補: {len(structured_records)}件",
         f"- 2独立公式ドメイン一致PCD: {len(confirmed)}件",
         f"- PCD競合: {len(conflicts)}件",
-        f"- エラー: {len(errors)}件",
+        f"- API再試行: {retry_attempt_count}回",
+        f"- フォールバック成功: {fallback_success_count}件",
+        f"- 最終エラー: {len(errors)}件",
         "- Gemini抽出値だけでは本番確定しません。PCDは従来どおり独立公式2ドメイン一致が必須です。",
         "- 穴数・ハブ径・ネジ・トルク等は現段階では候補保存のみで、本番自動反映しません。",
         "",
@@ -355,13 +397,13 @@ def main():
             for field in ["pcd", "holes", "hub_bore", "thread_diameter", "thread_pitch", "wheel_torque_nm"]:
                 if item.get(field) is not None:
                     vals.append(f"{field}={item.get(field)}")
-            lines.append(f"- {item.get('maker')} {item.get('model')} {item.get('generation') or ''} / {item.get('source_domain')}: " + (", ".join(vals) if vals else "明示値なし"))
+            lines.append(f"- {item.get('maker')} {item.get('model')} {item.get('generation') or ''} / {item.get('source_domain')} / {item.get('gemini_model')}: " + (", ".join(vals) if vals else "明示値なし"))
     else:
         lines.append("- 抽出なし")
     if errors:
-        lines.extend(["", "## エラー"])
+        lines.extend(["", "## 最終エラー"])
         for err in errors[:10]:
-            lines.append(f"- {err.get('vehicle_id')} / {err.get('status', '')}: {err.get('error', '')[:300]}")
+            lines.append(f"- {err.get('vehicle_id')}: {err.get('error', '')[:300]}")
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     print(json.dumps({
@@ -371,8 +413,16 @@ def main():
         "pcd_candidates_added": len(pcd_candidates),
         "auto_confirmed_pcd_count": len(confirmed),
         "pcd_conflict_count": len(conflicts),
+        "retry_attempt_count": retry_attempt_count,
+        "fallback_success_count": fallback_success_count,
         "error_count": len(errors),
     }, ensure_ascii=False, indent=2))
+
+    # If Gemini is completely unavailable for a non-empty target set, fail visibly so
+    # the workflow cannot silently continue as if the extraction layer were healthy.
+    if targets and not extracted and errors:
+        print("Gemini extraction unavailable for all targets; stopping before production apply.", file=sys.stderr)
+        return 3
     return 0
 
 
