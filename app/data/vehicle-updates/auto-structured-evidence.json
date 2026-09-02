@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T15:31:12+09:00",
+  "updated_at": "2026-09-02T16:03:48+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,8 +11,148 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 18,
+  "record_count": 26,
   "records": [
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422",
+      "title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果",
+      "origin": "tavily",
+      "search_relevance": null,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 54,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The official page explicitly lists ホンダ エリシオン with model code RR1 and years 2006-2012.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR1"
+      ],
+      "generation_text": "2006～2012",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ　エリシオン 型式： RR1 年式： 2006～2012"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422",
+      "source_title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 229,
+        "totalTokenCount": 10798,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 10105,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10105
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:02:52+09:00",
+      "last_seen_at": "2026-09-02T16:02:52+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/214/2207/7978/9346/",
+      "title": "トヨタ:アルファード:2018～2023:AGH35W:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 58,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL corresponds to the 30系 Toyota Alphard (2018–2023, model AGH35W), not the requested 10系 Alphard G.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "グレード： S 年式： 2018～2023 型式： AGH35W"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/214/2207/7978/9346/",
+      "source_title": "トヨタ:アルファード:2018～2023:AGH35W:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/214/2207/7978/9346/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 229,
+        "totalTokenCount": 4082,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 3389,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3389
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:02:49+09:00",
+      "last_seen_at": "2026-09-02T16:02:49+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
     {
       "vehicle_id": "TOY_ALPHARD_10",
       "search_id": "トヨタ:アルファードG",
@@ -80,6 +220,148 @@
       },
       "first_seen_at": "2026-09-02T15:31:10+09:00",
       "last_seen_at": "2026-09-02T15:31:10+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/216/2250/8127/9521/",
+      "title": "トヨタ:アルファード V:2003～2008:ANH10W:AS プレミアムのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 62,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The page refers to 'アルファード V' (Alphard V) rather than 'アルファードG' (Alphard G), and does not explicitly state PCD, holes, hub bore, thread data, or torque values.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/216/2250/8127/9521/",
+      "source_title": "トヨタ:アルファード V:2003～2008:ANH10W:AS プレミアムのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/216/2250/8127/9521/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 211,
+        "totalTokenCount": 4285,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 3610,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3610
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:02:24+09:00",
+      "last_seen_at": "2026-09-02T16:02:24+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/216/2266/8176/9570/",
+      "title": "トヨタ:アルファード V:2007～2008:ANH10W:AX Lエディションのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 62,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or verified directly to confirm the vehicle identity.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/216/2266/8176/9570/",
+      "source_title": "トヨタ:アルファード V:2007～2008:ANH10W:AX Lエディションのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/216/2266/8176/9570/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          },
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/216/2266/8176/9570/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 228,
+        "totalTokenCount": 2260,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 1568,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1568
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:02:38+09:00",
+      "last_seen_at": "2026-09-02T16:02:38+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -838,6 +1120,79 @@
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファード",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/63c09a63d6d08.pdf",
+      "title": "▲ SPECIFICATIONS 19inch 1PIECE/REVERSE アッシュドチタン グリミットシルバー ダイヤカットリム SIZE",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a Work Wheels catalog PDF for WORK EMOTION D9R, and it does not explicitly identify or list the target vehicle (Toyota Alphard G 10系).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/63c09a63d6d08.pdf",
+      "source_title": "▲ SPECIFICATIONS 19inch 1PIECE/REVERSE アッシュドチタン グリミットシルバー ダイヤカットリム SIZE",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/63c09a63d6d08.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 199,
+        "totalTokenCount": 11258,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 10599,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5979
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 4620
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:03:11+09:00",
+      "last_seen_at": "2026-09-02T16:03:11+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
       "search_id": "トヨタ:アルファードG",
       "maker": "トヨタ",
       "model": "アルファードG",
@@ -904,6 +1259,79 @@
       },
       "first_seen_at": "2026-09-02T14:32:11+09:00",
       "last_seen_at": "2026-09-02T15:07:40+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファード",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
+      "title": "グローガンメタ・GGM 19（ウルトラディープテーパー） アイスホワイト・ICW 19（ディープテーパー） アームドチタン・AMG",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a WORK EMOTION CR Shigoku wheel catalog page which does not contain fitment or identification data for the target vehicle (Toyota Alphard G 10 series).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
+      "source_title": "グローガンメタ・GGM 19（ウルトラディープテーパー） アイスホワイト・ICW 19（ディープテーパー） アームドチタン・AMG",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 198,
+        "totalTokenCount": 12320,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 11662,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 7042
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 4620
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:03:25+09:00",
+      "last_seen_at": "2026-09-02T16:03:25+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -1239,6 +1667,144 @@
       },
       "first_seen_at": "2026-09-02T15:28:00+09:00",
       "last_seen_at": "2026-09-02T15:28:00+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "url": "https://www.search.weds.co.jp/brand/kranze/weaval/toyota/puriusu-60kei/?size=20inch",
+      "title": "ブランド検索 -> Kranze(クレンツェ) 製品一覧 -> Weaval -> プリウス 60系（20インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 15,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 41,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The official URL is for プリウス 60系 (Prius 60 series), but the target vehicle generation/model code is NHW20.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/brand/kranze/weaval/toyota/puriusu-60kei/?size=20inch",
+      "source_title": "ブランド検索 -> Kranze(クレンツェ) 製品一覧 -> Weaval -> プリウス 60系（20インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/brand/kranze/weaval/toyota/puriusu-60kei/?size=20inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 196,
+        "totalTokenCount": 2583,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 1925,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1925
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:03:48+09:00",
+      "last_seen_at": "2026-09-02T16:03:48+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "url": "https://www.search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
+      "title": "車種検索 -> トヨタ -> プリウス 60系 -> 20インチ -> WedsSport(ウェッズスポーツ): SA-20R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The target vehicle is NHW20, but the provided URL is for the 60系 (60 series) Prius.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
+      "source_title": "車種検索 -> トヨタ -> プリウス 60系 -> 20インチ -> WedsSport(ウェッズスポーツ): SA-20R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 189,
+        "totalTokenCount": 5147,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 4496,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4496
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:03:34+09:00",
+      "last_seen_at": "2026-09-02T16:03:34+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     }
   ]

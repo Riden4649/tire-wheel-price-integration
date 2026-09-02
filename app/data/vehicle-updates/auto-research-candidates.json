@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-02T15:31:12+09:00",
+  "updated_at": "2026-09-02T16:03:48+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -9,8 +9,42 @@
     "any_conflicting_official_value_blocks_auto_confirm": true,
     "no_guessing": true
   },
-  "record_count": 1,
+  "record_count": 3,
   "records": [
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/wedssport-tc105x?size=15inch",
+      "source_title": "エリシオン RR1-6 *D -> 15インチ -> WedsSport(ウェッズ ...",
+      "search_score": 0.74807674,
+      "source_domain": "weds.co.jp",
+      "first_seen_at": "2026-09-02T16:01:27+09:00",
+      "last_seen_at": "2026-09-02T16:01:27+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "manufacturer_official",
+      "source_url": "https://www.honda.co.jp/customer/auto/insight/faq/qa029",
+      "source_title": "【インサイト】【機能装備】タイヤ・ホイールのスペックについて ...",
+      "search_score": 0.63804686,
+      "source_domain": "honda.co.jp",
+      "first_seen_at": "2026-09-02T16:01:27+09:00",
+      "last_seen_at": "2026-09-02T16:01:27+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
     {
       "vehicle_id": "TOY_ALPHARD_10",
       "search_id": "トヨタ:アルファードG",
