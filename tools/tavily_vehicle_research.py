@@ -89,23 +89,24 @@ def extract_pcd(text):
     return unique
 
 
-def tavily_search(api_key, query, domains, max_results=5):
+def tavily_search(api_key, query, domains=None, max_results=8):
     payload = {
         "query": query,
         "search_depth": "basic",
         "max_results": max_results,
         "include_answer": False,
         "include_raw_content": False,
-        "include_domains": domains,
         "country": "japan",
     }
+    if domains:
+        payload["include_domains"] = domains
     req = urllib.request.Request(
         API_URL,
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}",
-            "User-Agent": "vehicle-db-growth/1.1",
+            "User-Agent": "vehicle-db-growth/1.8",
         },
         method="POST",
     )
@@ -117,14 +118,9 @@ def merge_candidate_pool(new_candidates, registry):
     now = datetime.now(JST).isoformat(timespec="seconds")
     old = load(AUTO_POOL, {"records": []}).get("records", [])
     merged = {}
-
     for item in old:
-        key = (
-            item.get("vehicle_id"), item.get("field"), item.get("candidate_value"),
-            item.get("source_url"),
-        )
+        key = (item.get("vehicle_id"), item.get("field"), item.get("candidate_value"), item.get("source_url"))
         merged[key] = item
-
     for item in new_candidates:
         url = item.get("source_url", "")
         source_type = registered_source(url, registry)
@@ -133,22 +129,13 @@ def merge_candidate_pool(new_candidates, registry):
         normalized = dict(item)
         normalized["source_type"] = source_type
         normalized["source_domain"] = registered_domain(url, registry)
-        key = (
-            normalized.get("vehicle_id"), normalized.get("field"),
-            normalized.get("candidate_value"), normalized.get("source_url"),
-        )
-        if key in merged:
-            normalized["first_seen_at"] = merged[key].get("first_seen_at", now)
-        else:
-            normalized["first_seen_at"] = now
+        key = (normalized.get("vehicle_id"), normalized.get("field"), normalized.get("candidate_value"), normalized.get("source_url"))
+        normalized["first_seen_at"] = merged.get(key, {}).get("first_seen_at", now)
         normalized["last_seen_at"] = now
         normalized["status"] = "candidate_only_needs_corroboration"
         merged[key] = normalized
-
     records = list(merged.values())
-    records.sort(key=lambda x: (
-        x.get("vehicle_id") or "", str(x.get("candidate_value")), x.get("source_domain") or ""
-    ))
+    records.sort(key=lambda x: (x.get("vehicle_id") or "", str(x.get("candidate_value")), x.get("source_domain") or ""))
     payload = {
         "schema_version": "1.1.0",
         "dataset": "auto_vehicle_research_candidates",
@@ -180,17 +167,11 @@ def build_confirmed(records):
         if not vid or value is None or not domain:
             continue
         grouped.setdefault(vid, {}).setdefault(value, {})[domain] = item
-
-    confirmed = []
-    conflicts = []
+    confirmed, conflicts = [], []
     for vid, values in grouped.items():
         distinct_values = list(values.keys())
         if len(distinct_values) != 1:
-            conflicts.append({
-                "vehicle_id": vid,
-                "values": sorted(distinct_values, key=lambda x: float(x)),
-                "status": "human_review_required_conflicting_official_candidates",
-            })
+            conflicts.append({"vehicle_id": vid, "values": sorted(distinct_values, key=lambda x: float(x)), "status": "human_review_required_conflicting_official_candidates"})
             continue
         value = distinct_values[0]
         sources_by_domain = values[value]
@@ -198,12 +179,7 @@ def build_confirmed(records):
             continue
         sources = []
         for domain, item in sorted(sources_by_domain.items()):
-            sources.append({
-                "domain": domain,
-                "source_type": item.get("source_type"),
-                "url": item.get("source_url"),
-                "title": item.get("source_title"),
-            })
+            sources.append({"domain": domain, "source_type": item.get("source_type"), "url": item.get("source_url"), "title": item.get("source_title")})
         sample = next(iter(sources_by_domain.values()))
         confirmed.append({
             "vehicle_id": vid,
@@ -218,17 +194,11 @@ def build_confirmed(records):
             "status": "auto_confirmed_two_independent_official_domains",
             "confirmed_at": now,
         })
-
     payload = {
         "schema_version": "1.0.0",
         "dataset": "auto_confirmed_pcd",
         "updated_at": now,
-        "policy": {
-            "minimum_independent_domains": 2,
-            "official_registered_domains_only": True,
-            "conflict_blocks_confirmation": True,
-            "fills_missing_pcd_only": True,
-        },
+        "policy": {"minimum_independent_domains": 2, "official_registered_domains_only": True, "conflict_blocks_confirmation": True, "fills_missing_pcd_only": True},
         "confirmed_count": len(confirmed),
         "conflict_count": len(conflicts),
         "records": confirmed,
@@ -238,12 +208,34 @@ def build_confirmed(records):
     return confirmed, conflicts
 
 
+def official_domains_by_vehicle(pool_records):
+    out = {}
+    for item in pool_records:
+        if item.get("field") != "pcd":
+            continue
+        vid = item.get("vehicle_id")
+        domain = item.get("source_domain")
+        if vid and domain:
+            out.setdefault(vid, set()).add(domain)
+    return out
+
+
+def broad_query(vehicle, rq, has_one_source):
+    maker = str(vehicle.get("maker") or "").strip()
+    model = str(vehicle.get("model") or "").strip()
+    generation = str(vehicle.get("generation") or "").strip()
+    base = " ".join(x for x in [maker, model, generation] if x)
+    if has_one_source:
+        return f"{base} 型式 PCD ホイール 適合 マッチング 114.3 100 120"
+    original = str(rq.get("query") or "").strip()
+    return f"{base} 型式 世代 PCD ホイール 適合 マッチング {original}".strip()
+
+
 def main():
     api_key = os.environ.get("TAVILY_API_KEY", "").strip()
     if not api_key:
         print("TAVILY_API_KEY is not configured", file=sys.stderr)
         return 2
-
     if not CANDIDATES.exists():
         print("research-candidates.json not found; run build_research_candidates.py first", file=sys.stderr)
         return 2
@@ -251,72 +243,78 @@ def main():
     max_queries = max(1, min(int(os.environ.get("TAVILY_MAX_QUERIES", DEFAULT_MAX_QUERIES)), 50))
     candidates = load(CANDIDATES, {}).get("records", [])
     registry = load(REGISTRY, {})
-    domains = source_domains(registry)
+    pool_records = load(AUTO_POOL, {"records": []}).get("records", [])
+    seen_by_vehicle = official_domains_by_vehicle(pool_records)
 
     queue = []
     for vehicle in candidates:
         for rq in vehicle.get("research_queries", []):
             if rq.get("field") == "pcd":
-                queue.append((vehicle, rq))
-    queue.sort(key=lambda x: x[0].get("priority_score", 0), reverse=True)
+                domains = sorted(seen_by_vehicle.get(vehicle.get("vehicle_id"), set()))
+                queue.append((vehicle, rq, domains))
+    queue.sort(key=lambda x: (1 if len(x[2]) == 1 else 0, x[0].get("priority_score", 0)), reverse=True)
     queue = queue[:max_queries]
 
-    searches = []
-    evidence_candidates = []
-    errors = []
-    for index, (vehicle, rq) in enumerate(queue, start=1):
-        query = rq.get("query", "").strip()
-        if not query:
-            continue
+    searches, evidence_candidates, errors = [], [], []
+    broad_hint_result_count = 0
+    for index, (vehicle, rq, existing_domains) in enumerate(queue, start=1):
+        query = broad_query(vehicle, rq, len(existing_domains) == 1)
         try:
-            response = tavily_search(api_key, query, domains)
+            # v1.8: deliberately search the broad web. Non-official pages are hint-only.
+            response = tavily_search(api_key, query, None, max_results=8)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")[:500]
-            errors.append({"query": query, "status": exc.code, "error": body})
+            errors.append({"vehicle_id": vehicle.get("vehicle_id"), "query": query, "status": exc.code, "error": body})
             continue
         except Exception as exc:
-            errors.append({"query": query, "error": str(exc)})
+            errors.append({"vehicle_id": vehicle.get("vehicle_id"), "query": query, "error": str(exc)})
             continue
 
         result_items = []
         for result in response.get("results", []):
             url = result.get("url", "")
             source_type = registered_source(url, registry)
-            if source_type not in {"manufacturer_official", "wheel_manufacturer_official"}:
-                continue
+            source_domain = registered_domain(url, registry)
             text = " ".join([str(result.get("title", "")), str(result.get("content", ""))])
             pcd_values = extract_pcd(text)
+            is_official = source_type in {"manufacturer_official", "wheel_manufacturer_official"}
+            if not is_official:
+                broad_hint_result_count += 1
             normalized = {
                 "title": result.get("title"),
                 "url": url,
                 "score": result.get("score"),
                 "source_type": source_type,
+                "source_domain": source_domain,
                 "snippet": result.get("content"),
                 "pcd_values_found": pcd_values,
+                "role": "official_candidate" if is_official else "web_hint_only_not_evidence",
             }
             result_items.append(normalized)
-            for value in pcd_values:
-                evidence_candidates.append({
-                    "vehicle_id": vehicle.get("vehicle_id"),
-                    "search_id": vehicle.get("search_id"),
-                    "maker": vehicle.get("maker"),
-                    "model": vehicle.get("model"),
-                    "generation": vehicle.get("generation"),
-                    "field": "pcd",
-                    "candidate_value": value,
-                    "source_type": source_type,
-                    "source_url": url,
-                    "source_title": result.get("title"),
-                    "search_score": result.get("score"),
-                })
-
+            if is_official:
+                for value in pcd_values:
+                    evidence_candidates.append({
+                        "vehicle_id": vehicle.get("vehicle_id"),
+                        "search_id": vehicle.get("search_id"),
+                        "maker": vehicle.get("maker"),
+                        "model": vehicle.get("model"),
+                        "generation": vehicle.get("generation"),
+                        "field": "pcd",
+                        "candidate_value": value,
+                        "source_type": source_type,
+                        "source_url": url,
+                        "source_title": result.get("title"),
+                        "search_score": result.get("score"),
+                    })
         searches.append({
             "vehicle_id": vehicle.get("vehicle_id"),
+            "search_id": vehicle.get("search_id"),
             "maker": vehicle.get("maker"),
             "model": vehicle.get("model"),
             "generation": vehicle.get("generation"),
             "field": "pcd",
             "query": query,
+            "existing_official_domains": existing_domains,
             "results": result_items,
         })
         if index < len(queue):
@@ -324,16 +322,14 @@ def main():
 
     pool = merge_candidate_pool(evidence_candidates, registry)
     confirmed, conflicts = build_confirmed(pool)
-
     payload = {
-        "schema_version": "1.1.0",
+        "schema_version": "1.2.0",
         "dataset": "tavily_vehicle_research",
         "production_master_write": False,
         "policy": {
-            "pcd_first": True,
-            "official_domains_only": True,
-            "search_depth": "basic",
-            "max_queries_per_run": max_queries,
+            "role": "broad_web_discovery_and_official_candidate_capture",
+            "broad_web_results_are_hint_only_unless_registered_official": True,
+            "one_source_vehicle_priority": True,
             "candidate_values_are_not_confirmed": True,
             "auto_confirmation_requires_two_independent_registered_domains": True,
             "conflict_blocks_auto_confirmation": True,
@@ -341,6 +337,8 @@ def main():
         },
         "query_count": len(queue),
         "search_success_count": len(searches),
+        "broad_hint_result_count": broad_hint_result_count,
+        "official_candidate_value_count": len(evidence_candidates),
         "candidate_value_count": len(evidence_candidates),
         "persistent_candidate_count": len(pool),
         "auto_confirmed_count": len(confirmed),
@@ -354,41 +352,24 @@ def main():
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     lines = [
-        "# Web自動検索（Tavily）",
+        "# 広域Web探索（Tavily）",
         "",
         f"- 検索実行: {len(queue)}件",
         f"- 正常検索: {len(searches)}件",
-        f"- 今回のPCD候補値: {len(evidence_candidates)}件",
-        f"- 累積候補: {len(pool)}件",
+        f"- 非公式/未登録の探索ヒント: {broad_hint_result_count}件",
+        f"- 公式PCD候補値: {len(evidence_candidates)}件",
+        f"- 累積公式候補: {len(pool)}件",
         f"- 2独立公式ドメイン一致: {len(confirmed)}件",
         f"- 競合: {len(conflicts)}件",
         f"- エラー: {len(errors)}件",
-        "- 競合は自動反映しません。2独立公式ドメイン一致のみ次工程へ送ります。",
-        "",
-        "## 自動確定候補",
+        "- 非公式サイト・ショップ記事・集約サイト等は検索ヒント専用。DB確定根拠には使用しません。",
     ]
-    for item in confirmed[:30]:
-        lines.append(
-            f"- {item.get('maker')} {item.get('model')} {item.get('generation') or ''}: "
-            f"PCD {item.get('value')} / 独立公式 {item.get('support_count')}ドメイン"
-        )
-    if not confirmed:
-        lines.append("- 今回は2独立公式ドメイン一致なし")
-    if conflicts:
-        lines.extend(["", "## 競合（自動反映停止）"])
-        for item in conflicts[:20]:
-            lines.append(f"- {item.get('vehicle_id')}: {item.get('values')}")
-    if errors:
-        lines.extend(["", "## エラー"])
-        for err in errors[:10]:
-            lines.append(f"- {err.get('query')}: {err.get('status', '')} {err.get('error', '')}")
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
     print(json.dumps({
         "query_count": len(queue),
         "search_success_count": len(searches),
+        "broad_hint_result_count": broad_hint_result_count,
         "candidate_value_count": len(evidence_candidates),
-        "persistent_candidate_count": len(pool),
         "auto_confirmed_count": len(confirmed),
         "conflict_count": len(conflicts),
         "error_count": len(errors),
