@@ -1,0 +1,69 @@
+/* Integrated app UI v1.9.4 — tire-app visual language, iPad landscape first */
+html.ai-team-v194 body{background:#f3f6f5;color:#20362e}
+@media(min-width:761px){
+html.ai-team-v194 .tabs{width:118px;padding:14px 8px;background:#f8faf9;border-right:1px solid #dde6e2;box-shadow:none}
+html.ai-team-v194 .tabs::before{content:"B";min-height:54px;margin:0 10px 12px;border-radius:12px;background:#2f6b57;color:#fff;font-size:24px;font-weight:900}
+html.ai-team-v194 .tab{min-height:58px;padding:30px 4px 5px;border-radius:11px;font-size:10.5px;color:#4f625a}
+html.ai-team-v194 .tab.active{background:#2f6b57;color:#fff;box-shadow:none}
+html.ai-team-v194 .tab.active::before{color:#fff}
+html.ai-team-v194 .topbar{left:118px;min-height:62px;padding:8px 18px;background:#fff;border-bottom:1px solid #e0e7e4;box-shadow:none}
+html.ai-team-v194 .brand span{width:38px;height:38px;border-radius:10px;background:#2f6b57}
+html.ai-team-v194 .brand strong{font-size:16px}
+html.ai-team-v194 .brand small{font-size:9px;letter-spacing:.13em}
+html.ai-team-v194 .shell{margin-left:118px;padding:76px 14px 28px;max-width:none}
+
+/* Tire-app style top control rack */
+html.ai-team-v194 #tab-tire .section-head{display:none}
+html.ai-team-v194 #tab-tire>.source-status{display:none}
+html.ai-team-v194 #tireSearchDetails{display:block!important;border:1px solid #dfe7e3;border-radius:14px;background:#fff;box-shadow:none;margin:0 0 12px;overflow:visible}
+html.ai-team-v194 #tireSearchDetails>summary{display:none!important}
+html.ai-team-v194 #tireSearchDetails>.source-filter{display:grid;grid-template-columns:140px repeat(2,minmax(160px,1fr));gap:8px;padding:10px;background:#f7f9f8;border-bottom:1px solid #e5ebe8}
+html.ai-team-v194 #tireSearchDetails>.source-filter>span{display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:900;color:#53665e;letter-spacing:.05em}
+html.ai-team-v194 #tireSearchDetails>.source-filter label{display:flex;justify-content:center;align-items:center;min-height:42px;border:1px solid #dce5e1;border-radius:10px;background:#fff;font-size:12px;font-weight:800;cursor:pointer}
+html.ai-team-v194 #tireSearchDetails>.source-filter label:has(input:checked){background:#2f6b57;color:#fff;border-color:#2f6b57}
+html.ai-team-v194 #tireSearchDetails>.source-filter input{position:absolute;opacity:0;pointer-events:none}
+html.ai-team-v194 #tireChoicePanel{padding:9px 10px 10px}
+html.ai-team-v194 #tireChoicePanel .choice-accordion[data-search-item="category"]{display:block!important;border:0;background:transparent}
+html.ai-team-v194 #tireChoicePanel .choice-accordion[data-search-item="category"]>summary{display:none!important}
+html.ai-team-v194 #tireCategoryChips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+html.ai-team-v194 #tireCategoryChips .choice-chip{min-height:38px;justify-content:center;border-radius:10px;background:#fff;border:1px solid #dce5e1;font-size:11px;font-weight:800}
+html.ai-team-v194 #tireCategoryChips .choice-chip.selected{background:#2f6b57!important;color:#fff!important;border-color:#2f6b57!important}
+html.ai-team-v194 #tireChoicePanel .choice-accordion:not([data-search-item="category"]){margin-top:7px}
+html.ai-team-v194 #tireSearchDetails>.assist-grid{padding:0 10px 10px}
+
+/* Compact vehicle block matching tire-only app */
+html.ai-team-v194 #sharedVehicleSearch{display:block!important;margin:0 0 12px;border:1px solid #dfe7e3;border-radius:14px;background:#fff;box-shadow:none;overflow:hidden}
+html.ai-team-v194 #sharedVehicleSearch>summary{min-height:42px;padding:0 14px;background:#fff;border-bottom:1px solid #e8eeeb;font-size:12px}
+html.ai-team-v194 #sharedVehicleSearch>summary strong{font-size:12px}
+html.ai-team-v194 #vehicleChoicePanel{display:grid;grid-template-columns:minmax(320px,.9fr) minmax(440px,1.1fr);gap:10px;padding:10px}
+html.ai-team-v194 .vehicle-model-search{grid-column:1;padding:10px;border:1px solid #e3e9e6;border-radius:11px;background:#fbfcfc}
+html.ai-team-v194 .vehicle-model-search label{font-size:11px;font-weight:900}
+html.ai-team-v194 .vehicle-model-search>div{display:grid;grid-template-columns:1fr 70px;gap:7px;margin-top:6px}
+html.ai-team-v194 .vehicle-model-search input{min-height:38px}
+html.ai-team-v194 #vehicleModelSearchStatus{font-size:9.5px;color:#75857e}
+html.ai-team-v194 #vehicleSummary{grid-column:2;grid-row:1 / span 2;display:block!important;min-height:100%;padding:12px;border:1px solid #e3e9e6;border-radius:11px;background:#fbfcfc}
+html.ai-team-v194 #vehicleChoicePanel>.choice-accordion{grid-column:1;margin:0;border-radius:9px}
+html.ai-team-v194 #vehicleChoicePanel>.choice-accordion>summary{min-height:36px;font-size:11px}
+html.ai-team-v194 #vehicleChoicePanel>.choice-accordion:not([open]){display:none}
+html.ai-team-v194 #vehicleChoicePanel>.choice-accordion[open]{display:block}
+html.ai-team-v194 #vehicleChoicePanel>.search-only-vehicle-notice,html.ai-team-v194 #vehicleChoicePanel>.missing-vehicle-panel{grid-column:1/-1}
+html.ai-team-v194 #clearVehicleSelection{grid-column:1;justify-self:start;min-height:32px;padding:0 10px;font-size:10px}
+html.ai-team-v194 .fitment-disclaimer{grid-column:1/-1;margin:0;padding:4px 2px;font-size:9.5px;color:#6e7d77}
+html.ai-team-v194 .vehicle-summary strong{font-size:13px}
+html.ai-team-v194 .vehicle-summary span{font-size:10px}
+
+/* Results: denser, cleaner, no ornamental bulk */
+html.ai-team-v194 .result-grid{gap:9px}
+html.ai-team-v194 .card{padding:11px;border:1px solid #dfe7e3;border-radius:12px;background:#fff;box-shadow:none}
+html.ai-team-v194 .card:hover{box-shadow:none}
+html.ai-team-v194 .card h3{font-size:15px}
+html.ai-team-v194 .card-meta{font-size:9.5px}
+html.ai-team-v194 .price-row>div{padding:8px;border-radius:9px;background:#f7f9f8}
+html.ai-team-v194 .price-row strong{font-size:16px}
+html.ai-team-v194 .select-button{min-height:36px;border-radius:9px}
+html.ai-team-v194 .section-head{padding:10px 12px;border:0;background:transparent;box-shadow:none}
+html.ai-team-v194 .section-head h1{font-size:20px}
+html.ai-team-v194 .search-box,html.ai-team-v194 .summary-card,html.ai-team-v194 .total-card{box-shadow:none}
+}
+@media(max-width:760px){html.ai-team-v194 .shell{padding-top:12px}html.ai-team-v194 #vehicleChoicePanel{display:block}html.ai-team-v194 #vehicleSummary{margin-top:8px}html.ai-team-v194 #tireSearchDetails>.source-filter{grid-template-columns:1fr 1fr}html.ai-team-v194 #tireSearchDetails>.source-filter>span{grid-column:1/-1}}
+@media print{html.ai-team-v194 .tabs,html.ai-team-v194 .topbar{display:none!important}html.ai-team-v194 .shell{margin:0!important;padding:0!important}}
