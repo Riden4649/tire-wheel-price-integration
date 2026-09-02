@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-3-ai-team-ipad-r1";
+const CACHE_NAME = "integrated-price-navi-ver1-9-3-ai-team-ipad-r2";
 const APP_SHELL = [
   "./",
   "./index.html",
