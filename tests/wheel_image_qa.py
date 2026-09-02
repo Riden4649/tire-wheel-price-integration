@@ -27,6 +27,22 @@ for n, x in enumerate(items, 1):
         if u and urlparse(u).scheme not in ("http", "https"):
             errors.append(f"{k}: invalid {field}")
 
+    allowed = x.get("offline_cache_allowed")
+    if allowed is not None and not isinstance(allowed, bool):
+        errors.append(f"{k}: offline_cache_allowed must be boolean")
+
+    local_path = x.get("local_path", "")
+    if local_path:
+        if not local_path.startswith("app/assets/wheels/") or not local_path.endswith(".webp"):
+            errors.append(f"{k}: invalid local_path")
+        local_file = ROOT / local_path
+        if not local_file.exists():
+            errors.append(f"{k}: local thumbnail missing: {local_path}")
+        if not x.get("local_sha256"):
+            errors.append(f"{k}: local_sha256 missing")
+        if not isinstance(x.get("local_bytes"), int) or x.get("local_bytes", 0) <= 0:
+            errors.append(f"{k}: invalid local_bytes")
+
 print(f"wheel image QA: {len(items)} items / {len(errors)} errors")
 if errors:
     print("\n".join(errors))
