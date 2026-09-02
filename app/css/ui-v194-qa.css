@@ -1,8 +1,48 @@
-/* v1.9.4 QA guards */
-html.ai-team-v194 #vehicleSummary[hidden]{display:none!important}
-html.ai-team-v194 [hidden]{visibility:visible}
-html.ai-team-v194 #missingVehiclePanel[hidden],html.ai-team-v194 #searchOnlyVehicleNotice[hidden],html.ai-team-v194 #wheelFitmentWarning[hidden],html.ai-team-v194 #vehicleVariantStep[hidden]{display:none!important}
+/* v1.9.4 strict UI QA guards */
+/* Respect the native hidden contract. Never globally expose hidden UI. */
+html.ai-team-v194 [hidden]{display:none!important}
+
+/* Vehicle block: compact before selection, two-column summary after selection. */
 @media(min-width:761px){
-html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]){grid-template-columns:1fr}
-html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]) .vehicle-model-search{grid-column:1}
+  html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]){grid-template-columns:1fr}
+  html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]) .vehicle-model-search{grid-column:1}
+  html.ai-team-v194 #vehicleChoicePanel:not(:has(#vehicleSummary[hidden])) .vehicle-model-search{grid-column:1}
+  html.ai-team-v194 #vehicleChoicePanel:not(:has(#vehicleSummary[hidden])) #vehicleSummary{grid-column:2;grid-row:1 / span 2}
+
+  /* Keep selected vehicle data readable without inflating the screen. */
+  html.ai-team-v194 #vehicleSummary{padding:11px 12px!important;line-height:1.45}
+  html.ai-team-v194 #vehicleSummary strong{font-size:13px!important}
+  html.ai-team-v194 #vehicleSummary span{font-size:9.5px!important}
+
+  /* Search hierarchy: primary controls first, advanced filters visually secondary. */
+  html.ai-team-v194 #tireSearchDetails>.assist-grid{border-top:1px solid #edf1ef;background:#fbfcfc}
+  html.ai-team-v194 #tireChoicePanel .choice-accordion:not([data-search-item="category"]){background:#fbfcfc;border-color:#e7ecea}
+
+  /* iPad landscape target sizes: compact, but no accidental tiny tap targets. */
+  html.ai-team-v194 .tab{min-height:60px}
+  html.ai-team-v194 .choice-chip,
+  html.ai-team-v194 .search-mode-button,
+  html.ai-team-v194 .select-button{min-height:38px}
+}
+
+/* Warnings stay visible only when the application intentionally shows them. */
+html.ai-team-v194 #missingVehiclePanel[hidden],
+html.ai-team-v194 #searchOnlyVehicleNotice[hidden],
+html.ai-team-v194 #wheelFitmentWarning[hidden],
+html.ai-team-v194 #vehicleVariantStep[hidden],
+html.ai-team-v194 #vehicleSummary[hidden]{display:none!important}
+
+/* Preserve print contrast after UI unification. */
+@media print{
+  html.ai-team-v194 .print-total,
+  html.ai-team-v194 .print-total *{
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+  }
+  html.ai-team-v194 .print-total span,
+  html.ai-team-v194 .print-total strong,
+  html.ai-team-v194 #printGrandTotal{
+    color:#fff!important;
+    -webkit-text-fill-color:#fff!important;
+  }
 }
