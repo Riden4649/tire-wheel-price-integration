@@ -50,6 +50,30 @@
       ],
       "applied_at": "2026-09-02T17:20:47+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "field": "pcd",
+      "old": null,
+      "new": 114.3,
+      "reason": "auto_confirmed_two_independent_official_domains",
+      "confidence": "B",
+      "sources": [
+        {
+          "domain": "bridgestone.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
+          "title": "ホンダ:アコード:2005～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン"
+        },
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://search.weds.co.jp/maker/honda/akoodo-cl79-d/wedssport-all",
+          "title": "車種検索 -> ホンダ -> アコード CL7-9　*D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        }
+      ],
+      "applied_at": "2026-09-02T18:07:47+09:00",
+      "actor": "github_actions_auto_pcd"
     }
   ]
 }

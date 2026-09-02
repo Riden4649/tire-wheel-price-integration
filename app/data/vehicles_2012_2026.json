@@ -571,13 +571,13 @@
       "generation": "CL7-CL9",
       "year_from": "2002-10",
       "year_to": "2008-12",
-      "pcd": null,
+      "pcd": 114.3,
       "holes": null,
       "hub_bore": null,
       "fastener": "",
       "oem_inch": "15/16/17",
       "oem_tire": "195/65R15;205/55R16;215/45R17",
-      "confidence": "C",
+      "confidence": "B",
       "notes": "ホイール取付条件未確認。タイヤ検索専用。",
       "sources": [
         {

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T17:20:47+09:00",
+  "updated_at": "2026-09-02T18:07:47+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 46,
+  "record_count": 55,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -22,66 +22,54 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
       "title": "ホンダ:アコード:2005～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists Honda Accord, model code CL7, grade Euro R, years 2005-2008.",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "thread_diameter": null,
-      "thread_pitch": null,
-      "fastener": null,
-      "wheel_torque_nm": null,
+      "identity_reason": "The URL explicitly lists Honda Accord, model code CL7/CL8/CL9.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": "nut",
+      "wheel_torque_nm": 108.0,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
       "model_codes": [
-        "CL7"
+        "CL7",
+        "CL8",
+        "CL9"
       ],
-      "generation_text": "2005～2008",
+      "generation_text": null,
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
-        "hub_bore": null,
-        "thread": null,
-        "torque": null,
-        "identity": "ホンダ アコード グレード： ユーロR 年式： 2005～2008 型式： CL7"
+        "pcd": "P.C.D.114.3",
+        "holes": "5穴",
+        "hub_bore": "ハブ径64",
+        "thread": "ネジサイズM12×1.5",
+        "torque": "規定トルク108N・m",
+        "identity": "ホンダ アコード (CL7/CL8/CL9)"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
       "source_title": "ホンダ:アコード:2005～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
-      "url_context_metadata": {
-        "urlMetadata": [
-          {
-            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
-            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
-          }
-        ]
-      },
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 233,
-        "totalTokenCount": 4211,
+        "candidatesTokenCount": 290,
+        "totalTokenCount": 752,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 462
           }
         ],
-        "toolUsePromptTokenCount": 3516,
-        "toolUsePromptTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 3516
-          }
-        ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T17:18:24+09:00",
-      "last_seen_at": "2026-09-02T17:18:24+09:00",
+      "last_seen_at": "2026-09-02T17:55:11+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -152,7 +140,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T17:18:09+09:00",
-      "last_seen_at": "2026-09-02T17:18:09+09:00",
+      "last_seen_at": "2026-09-02T17:52:48+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -164,7 +152,7 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/416/5271/18428/21103/",
       "title": "ホンダ:アコード:2006～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
@@ -189,7 +177,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ アコード グレード： ユーロR 年式： 2006～2008 型式： CL7"
+        "identity": "グレード： ユーロR 年式： 2006～2008 型式： CL7"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/416/5271/18428/21103/",
       "source_title": "ホンダ:アコード:2006～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -205,8 +193,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 235,
-        "totalTokenCount": 4213,
+        "candidatesTokenCount": 229,
+        "totalTokenCount": 4207,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -223,7 +211,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T17:18:25+09:00",
-      "last_seen_at": "2026-09-02T17:18:25+09:00",
+      "last_seen_at": "2026-09-02T17:56:12+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -309,7 +297,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle identity.",
+      "identity_reason": "The provided URL is a general news/matching list page that does not contain specific fitment data or explicit identification for the Honda Accord CL7-CL9.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -332,36 +320,22 @@
       "source_url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
       "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
-      "url_context_metadata": {
-        "urlMetadata": [
-          {
-            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
-            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
-          }
-        ]
-      },
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
       "usage_metadata": {
         "promptTokenCount": 448,
-        "candidatesTokenCount": 167,
-        "totalTokenCount": 1264,
+        "candidatesTokenCount": 213,
+        "totalTokenCount": 661,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 448
           }
         ],
-        "toolUsePromptTokenCount": 649,
-        "toolUsePromptTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 649
-          }
-        ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:52:17+09:00",
-      "last_seen_at": "2026-09-02T17:19:47+09:00",
+      "last_seen_at": "2026-09-02T18:01:56+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -662,7 +636,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 58,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to confirm the vehicle identity and fitment specifications.",
+      "identity_reason": "The provided URL could not be accessed to verify the vehicle identity or fitment data.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -685,7 +659,7 @@
       "source_url": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
       "source_title": "MATCHING｜WORK COMPANY LIMITED",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
+      "gemini_model": "gemini-3.1-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
@@ -696,7 +670,7 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 171,
+        "candidatesTokenCount": 169,
         "totalTokenCount": 1274,
         "promptTokensDetails": [
           {
@@ -704,17 +678,86 @@
             "tokenCount": 451
           }
         ],
-        "toolUsePromptTokenCount": 652,
+        "toolUsePromptTokenCount": 654,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 652
+            "tokenCount": 654
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:53:26+09:00",
-      "last_seen_at": "2026-09-02T17:20:03+09:00",
+      "last_seen_at": "2026-09-02T18:06:00+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "origin": "brave",
+      "search_relevance": 4,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 48,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The PDF file could not be accessed or verified for the target vehicle.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 458,
+        "candidatesTokenCount": 173,
+        "totalTokenCount": 1261,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 458
+          }
+        ],
+        "toolUsePromptTokenCount": 630,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 630
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:07:47+09:00",
+      "last_seen_at": "2026-09-02T18:07:47+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -731,7 +774,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify vehicle fitment evidence.",
+      "identity_reason": "The requested URL could not be accessed or verified to contain matching data for the target vehicle.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -765,8 +808,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 168,
-        "totalTokenCount": 1271,
+        "candidatesTokenCount": 170,
+        "totalTokenCount": 1273,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -783,7 +826,567 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:51+09:00",
-      "last_seen_at": "2026-09-02T17:19:45+09:00",
+      "last_seen_at": "2026-09-02T18:03:16+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/456/5798/19922/22643/",
+      "title": "ホンダ:フィット:2004～2007:GD1:1.3Wのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided Bridgestone webpage is a tire size/product search result page for the Honda Fit (GD1, 1.3W grade) and does not contain fitment facts such as PCD, holes, hub bore, thread size, fastener type, or wheel torque.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/456/5798/19922/22643/",
+      "source_title": "ホンダ:フィット:2004～2007:GD1:1.3Wのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/456/5798/19922/22643/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 461,
+        "candidatesTokenCount": 222,
+        "totalTokenCount": 3920,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 461
+          }
+        ],
+        "toolUsePromptTokenCount": 3237,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3237
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:56:40+09:00",
+      "last_seen_at": "2026-09-02T17:56:40+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/456/5800/19930/22651/",
+      "title": "ホンダ:フィット:2005～2007:GD1:1.3Aのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly identifies the vehicle as Honda Fit, model code GD1, grade 1.3A, for the years 2005-2007.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "GD1"
+      ],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ:フィット:2005～2007:GD1:1.3A"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/456/5800/19930/22651/",
+      "source_title": "ホンダ:フィット:2005～2007:GD1:1.3Aのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/456/5800/19930/22651/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 461,
+        "candidatesTokenCount": 225,
+        "totalTokenCount": 10859,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 461
+          }
+        ],
+        "toolUsePromptTokenCount": 10173,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10173
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:00:21+09:00",
+      "last_seen_at": "2026-09-02T18:00:21+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/456/5804/19948/22669/",
+      "title": "ホンダ:フィット:2006～2007:GD1:HDDナビエディションのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Honda Fit (ホンダ　フィット) model code GD1 for the 2006-2007 year range.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "GD1"
+      ],
+      "generation_text": "2006～2007",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ　フィット グレード： HDDナビエディション 年式： 2006～2007 型式： GD1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/456/5804/19948/22669/",
+      "source_title": "ホンダ:フィット:2006～2007:GD1:HDDナビエディションのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/456/5804/19948/22669/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 461,
+        "candidatesTokenCount": 240,
+        "totalTokenCount": 10870,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 461
+          }
+        ],
+        "toolUsePromptTokenCount": 10169,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10169
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:59:03+09:00",
+      "last_seen_at": "2026-09-02T17:59:03+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://search.weds.co.jp/brand/velva/charge/honda/",
+      "title": "ブランド検索 -> VELVA(ヴェルヴァ) 製品一覧 -> CHARGE -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 21,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 65,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The official URL could not be accessed or did not provide verifiable text evidence for the target vehicle GD1-GD4.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://search.weds.co.jp/brand/velva/charge/honda/",
+      "source_title": "ブランド検索 -> VELVA(ヴェルヴァ) 製品一覧 -> CHARGE -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/brand/velva/charge/honda/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 1245,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "toolUsePromptTokenCount": 632,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 632
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:03:58+09:00",
+      "last_seen_at": "2026-09-02T18:03:58+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://search.weds.co.jp/maker/honda/",
+      "title": "車種検索 -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 68,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL lists 'フィット / フィットアリア GD1-9' and 'フィット GR1-4・GS4・6', but does not explicitly isolate and provide specification data for the exact target generation/model code 'GD1-GD4' on this manufacturer listing page.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://search.weds.co.jp/maker/honda/",
+      "source_title": "車種検索 -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/honda/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 437,
+        "candidatesTokenCount": 201,
+        "totalTokenCount": 2148,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 437
+          }
+        ],
+        "toolUsePromptTokenCount": 1510,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1510
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:00:23+09:00",
+      "last_seen_at": "2026-09-02T18:00:23+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://www.search.weds.co.jp/brand/steelwheel/winterace/honda/",
+      "title": "ブランド検索 -> STEEL WHEEL(スチールホイール) 製品一覧 -> WINTER ACE -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 21,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 65,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The page lists 'フィット / フィットアリア GD1-9', but does not provide specific fitment values (PCD, holes, hub bore, thread, torque) for the GD1-GD4 generation on this index/listing page.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/brand/steelwheel/winterace/honda/",
+      "source_title": "ブランド検索 -> STEEL WHEEL(スチールホイール) 製品一覧 -> WINTER ACE -> ホンダ｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/brand/steelwheel/winterace/honda/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 445,
+        "candidatesTokenCount": 201,
+        "totalTokenCount": 2497,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 445
+          }
+        ],
+        "toolUsePromptTokenCount": 1851,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1851
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:04:44+09:00",
+      "last_seen_at": "2026-09-02T18:04:44+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://work-wheels.co.jp/search/web_matching/",
+      "title": "MATCHING 車から検索｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 73,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a generic wheel search matching tool form and does not explicitly identify or display fitment details for the Honda Fit GD1-GD4.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/search/web_matching/",
+      "source_title": "MATCHING 車から検索｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 438,
+        "candidatesTokenCount": 174,
+        "totalTokenCount": 2383,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 438
+          }
+        ],
+        "toolUsePromptTokenCount": 1771,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1771
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:52:47+09:00",
+      "last_seen_at": "2026-09-02T17:52:47+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 52,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a wheel catalog PDF (Work Emotion CR Kiwami) and does not explicitly identify or list fitment data for the Honda Fit GD1-GD4 generation.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 454,
+        "candidatesTokenCount": 195,
+        "totalTokenCount": 10690,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 454
+          }
+        ],
+        "toolUsePromptTokenCount": 10041,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3111
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 6930
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T18:07:04+09:00",
+      "last_seen_at": "2026-09-02T18:07:04+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
