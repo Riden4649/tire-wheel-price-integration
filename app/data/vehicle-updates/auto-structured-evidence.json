@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T16:03:48+09:00",
+  "updated_at": "2026-09-02T16:26:50+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 26,
+  "record_count": 32,
   "records": [
     {
       "vehicle_id": "HON_ELYSION_RR",
@@ -83,6 +83,424 @@
       "first_seen_at": "2026-09-02T16:02:52+09:00",
       "last_seen_at": "2026-09-02T16:02:52+09:00",
       "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=19inch",
+      "title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 19インチ -> WedsSport(ウェッズスポーツ): SA-75R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 20,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 72,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The inspected URL is for the Nissan Leaf (ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=19inch",
+      "source_title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 19インチ -> WedsSport(ウェッズスポーツ): SA-75R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=19inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 458,
+        "candidatesTokenCount": 188,
+        "totalTokenCount": 3312,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 458
+          }
+        ],
+        "toolUsePromptTokenCount": 2666,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2666
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:31+09:00",
+      "last_seen_at": "2026-09-02T16:26:31+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://www.search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=15inch",
+      "title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 15インチ -> WedsSport(ウェッズスポーツ): SA-75R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 20,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 72,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The URL is for the Nissan Leaf (ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=15inch",
+      "source_title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 15インチ -> WedsSport(ウェッズスポーツ): SA-75R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/nissan/riifu-ze1-c/wedssport-sa75r/?size=15inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 189,
+        "totalTokenCount": 2377,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 1728,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1728
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:04+09:00",
+      "last_seen_at": "2026-09-02T16:26:04+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://www.stg.search.weds.co.jp/maker/nissan/riifu-ze1-c/leonis-mx/?size=19inch",
+      "title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 19インチ -> LEONIS(レオニス): MX｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 20,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 72,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is for a Nissan Leaf (riifu-ze1-c), not a Honda Insight (ZE1). Furthermore, the page content could not be accessed.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.stg.search.weds.co.jp/maker/nissan/riifu-ze1-c/leonis-mx/?size=19inch",
+      "source_title": "車種検索 -> 日産 -> リーフ ZE1 *C -> 19インチ -> LEONIS(レオニス): MX｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.stg.search.weds.co.jp/maker/nissan/riifu-ze1-c/leonis-mx/?size=19inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 459,
+        "candidatesTokenCount": 200,
+        "totalTokenCount": 1345,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 459
+          }
+        ],
+        "toolUsePromptTokenCount": 686,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 686
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:34+09:00",
+      "last_seen_at": "2026-09-02T16:26:34+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://work-wheels.co.jp/search/web_matching/",
+      "title": "MATCHING 車から検索｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 73,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The URL is a general vehicle wheel matching search form page and does not explicitly identify or display fitment data for the Honda Insight ZE1.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/search/web_matching/",
+      "source_title": "MATCHING 車から検索｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 437,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 2378,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 437
+          }
+        ],
+        "toolUsePromptTokenCount": 1770,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1770
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:02+09:00",
+      "last_seen_at": "2026-09-02T16:26:02+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
+      "title": "▲ SPECIFICATIONS 20inch 2PIECE/REVERSE ディスクカラー SIZE セミコンケイブ ミドルコンケイブ マットブラック",
+      "origin": "brave",
+      "search_relevance": 10,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 48,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a WORK wheels catalog PDF for ZEAST ST1 containing generic wheel specifications and a Scion/Toyota 86 photo, with no mention of Honda Insight ZE1.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
+      "source_title": "▲ SPECIFICATIONS 20inch 2PIECE/REVERSE ディスクカラー SIZE セミコンケイブ ミドルコンケイブ マットブラック",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 454,
+        "candidatesTokenCount": 198,
+        "totalTokenCount": 4863,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 454
+          }
+        ],
+        "toolUsePromptTokenCount": 4211,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 2310
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1901
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:39+09:00",
+      "last_seen_at": "2026-09-02T16:26:39+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=32",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 13,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 67,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle identity.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=32",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/news/?page=32",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 445,
+        "candidatesTokenCount": 166,
+        "totalTokenCount": 1255,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 445
+          }
+        ],
+        "toolUsePromptTokenCount": 644,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 644
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:26:36+09:00",
+      "last_seen_at": "2026-09-02T16:26:36+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -1132,7 +1550,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a Work Wheels catalog PDF for WORK EMOTION D9R, and it does not explicitly identify or list the target vehicle (Toyota Alphard G 10系).",
+      "identity_reason": "The provided URL is a product catalog page for WORK EMOTION D9R wheels and does not list or identify the target vehicle (Toyota Alphard G 10系).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -1166,8 +1584,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 199,
-        "totalTokenCount": 11258,
+        "candidatesTokenCount": 196,
+        "totalTokenCount": 11255,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -1177,18 +1595,18 @@
         "toolUsePromptTokenCount": 10599,
         "toolUsePromptTokensDetails": [
           {
-            "modality": "TEXT",
-            "tokenCount": 5979
-          },
-          {
             "modality": "IMAGE",
             "tokenCount": 4620
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 5979
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:03:11+09:00",
-      "last_seen_at": "2026-09-02T16:03:11+09:00",
+      "last_seen_at": "2026-09-02T16:26:44+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -1274,10 +1692,10 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "target_score": 46,
-      "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a WORK EMOTION CR Shigoku wheel catalog page which does not contain fitment or identification data for the target vehicle (Toyota Alphard G 10 series).",
-      "pcd": null,
-      "holes": null,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The provided URL explicitly lists model code 10系 under 車種名 for LEXUS GS F SPORTS 356ローター / LEXUS RC F SPORTS(356ローター) / マークX G's, but checking carefully... wait, let's look at row 1 of the compatibility table: 10系, 5H-114.3.",
+      "pcd": 114.3,
+      "holes": 5,
       "hub_bore": null,
       "thread_diameter": null,
       "thread_pitch": null,
@@ -1285,15 +1703,17 @@
       "wheel_torque_nm": null,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
-      "model_codes": [],
+      "model_codes": [
+        "10系"
+      ],
       "generation_text": null,
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
+        "pcd": "5H-114.3",
+        "holes": "5H",
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": null
+        "identity": "10系"
       },
       "source_url": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
       "source_title": "グローガンメタ・GGM 19（ウルトラディープテーパー） アイスホワイト・ICW 19（ディープテーパー） アームドチタン・AMG",
@@ -1309,19 +1729,19 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 198,
-        "totalTokenCount": 12320,
+        "candidatesTokenCount": 258,
+        "totalTokenCount": 12377,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 460
           }
         ],
-        "toolUsePromptTokenCount": 11662,
+        "toolUsePromptTokenCount": 11659,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 7042
+            "tokenCount": 7039
           },
           {
             "modality": "IMAGE",
@@ -1331,8 +1751,8 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:03:25+09:00",
-      "last_seen_at": "2026-09-02T16:03:25+09:00",
-      "status": "identity_not_confirmed_no_auto_use"
+      "last_seen_at": "2026-09-02T16:26:50+09:00",
+      "status": "candidate_only_needs_corroboration"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",

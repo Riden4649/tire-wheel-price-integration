@@ -427,13 +427,13 @@
       "generation": "10系",
       "year_from": "2002-05",
       "year_to": "2008-05",
-      "pcd": null,
+      "pcd": 114.3,
       "holes": null,
       "hub_bore": null,
       "fastener": "",
       "oem_inch": "16/17",
       "oem_tire": "205/65R16;225/55R17",
-      "confidence": "C",
+      "confidence": "B",
       "notes": "グレード差あり。ホイール取付条件は未確認のためタイヤ検索専用。",
       "sources": [
         {

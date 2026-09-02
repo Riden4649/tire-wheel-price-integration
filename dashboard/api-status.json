@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-02T16:03:48+09:00",
+  "updated_at": "2026-09-02T16:26:50+09:00",
   "run": {
-    "id": "33601230007",
-    "number": "42",
+    "id": "33603503207",
+    "number": "44",
     "event": "push",
-    "sha": "00f7119300813014691e32910c4e474209fd420a",
+    "sha": "e3dc46aa127e32da0e579a484d80c8dfab9d4cbf",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
   "overall_status": "ok",
@@ -47,8 +47,8 @@
       "errors": 0,
       "success_rate": 100.0,
       "identity_confirmed": 1,
-      "pcd_candidates": 0,
-      "confirmed": 0,
+      "pcd_candidates": 1,
+      "confirmed": 1,
       "conflicts": 0,
       "retries": 0,
       "fallback_success": 0,
@@ -57,7 +57,7 @@
     }
   ],
   "production_apply": {
-    "applied_count": 0,
+    "applied_count": 1,
     "skipped_count": 0
   },
   "note": "APIキーや秘密情報は保存しません。表示値は直近の車種DB育成Runで生成された公開可能な実行統計のみです。"

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-02T16:03:48+09:00",
+  "updated_at": "2026-09-02T16:26:50+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -9,7 +9,7 @@
     "any_conflicting_official_value_blocks_auto_confirm": true,
     "no_guessing": true
   },
-  "record_count": 3,
+  "record_count": 5,
   "records": [
     {
       "vehicle_id": "HON_ELYSION_RR",
@@ -29,6 +29,23 @@
       "status": "candidate_only_needs_corroboration"
     },
     {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/wedssport-sa99r?size=15inch",
+      "source_title": "ホンダ -> エリシオン RR1-6 *D -> 15インチ -> WedsSport ...",
+      "search_score": 0.69672287,
+      "source_domain": "weds.co.jp",
+      "first_seen_at": "2026-09-02T16:25:44+09:00",
+      "last_seen_at": "2026-09-02T16:25:44+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
       "vehicle_id": "HON_INSIGHT_ZE1",
       "search_id": "ホンダ:インサイト",
       "maker": "ホンダ",
@@ -38,11 +55,11 @@
       "candidate_value": 114.3,
       "source_type": "manufacturer_official",
       "source_url": "https://www.honda.co.jp/customer/auto/insight/faq/qa029",
-      "source_title": "【インサイト】【機能装備】タイヤ・ホイールのスペックについて ...",
-      "search_score": 0.63804686,
+      "source_title": "【インサイト】【機能装備】タイヤ・ホイールのスペックについて教えて｜Q＆A・お問い合わせ｜Honda公式サイト",
+      "search_score": 0.6466616,
       "source_domain": "honda.co.jp",
       "first_seen_at": "2026-09-02T16:01:27+09:00",
-      "last_seen_at": "2026-09-02T16:01:27+09:00",
+      "last_seen_at": "2026-09-02T16:25:44+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -61,6 +78,26 @@
       "target_reason": "official_page_body_extraction",
       "first_seen_at": "2026-09-02T13:30:54+09:00",
       "last_seen_at": "2026-09-02T15:28:05+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファード",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
+      "source_title": "グローガンメタ・GGM 19（ウルトラディープテーパー） アイスホワイト・ICW 19（ディープテーパー） アームドチタン・AMG",
+      "source_domain": "work-wheels.co.jp",
+      "search_engine": "gemini_url_context",
+      "target_reason": "official_page_body_extraction",
+      "identity_validated": true,
+      "target_score": 46,
+      "first_seen_at": "2026-09-02T16:26:50+09:00",
+      "last_seen_at": "2026-09-02T16:26:50+09:00",
       "status": "candidate_only_needs_corroboration"
     }
   ]

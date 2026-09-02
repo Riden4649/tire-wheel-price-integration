@@ -1,15 +1,42 @@
 {
   "schema_version": "1.0.0",
   "dataset": "auto_confirmed_pcd",
-  "updated_at": "2026-09-02T16:03:48+09:00",
+  "updated_at": "2026-09-02T16:26:50+09:00",
   "policy": {
     "minimum_independent_domains": 2,
     "official_registered_domains_only": true,
     "conflict_blocks_confirmation": true,
     "fills_missing_pcd_only": true
   },
-  "confirmed_count": 0,
+  "confirmed_count": 1,
   "conflict_count": 0,
-  "records": [],
+  "records": [
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "field": "pcd",
+      "value": 114.3,
+      "confidence": "B",
+      "support_count": 2,
+      "sources": [
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://search.weds.co.jp/brand/gyraft/9m/toyota/arufuaado-10kei4wd?size=16inch",
+          "title": "Gyraft(グラフト) 製品一覧 -> 9M -> アルファード 10系/4WD ..."
+        },
+        {
+          "domain": "work-wheels.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.work-wheels.co.jp/img_save/pdf/69605022219d7.pdf",
+          "title": "グローガンメタ・GGM 19（ウルトラディープテーパー） アイスホワイト・ICW 19（ディープテーパー） アームドチタン・AMG"
+        }
+      ],
+      "status": "auto_confirmed_two_independent_official_domains",
+      "confirmed_at": "2026-09-02T16:26:50+09:00"
+    }
+  ],
   "conflicts": []
 }
