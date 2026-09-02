@@ -8,7 +8,7 @@
 
   function version(){
     const v = $(".status-stack small");
-    if(v && v.textContent !== "Ver1.9.5") v.textContent = "Ver1.9.5";
+    if(v && v.textContent !== "Ver1.9.6") v.textContent = "Ver1.9.6";
   }
 
   function labels(){
@@ -29,19 +29,14 @@
     if(active.id === "tab-tire"){
       const search=$("#tireSearchDetails");
       if(!search) return;
-      // Vehicle choice is the primary entry point: always place it before tire controls.
-      if(vehicle.parentElement!==active || vehicle.nextElementSibling!==search){
-        active.insertBefore(vehicle, search);
-      }
+      if(vehicle.parentElement!==active || vehicle.nextElementSibling!==search){ active.insertBefore(vehicle, search); }
       return;
     }
 
     const head=active.querySelector(".section-head");
     if(head){
       if(vehicle.parentElement!==active || head.nextElementSibling!==vehicle) head.insertAdjacentElement("afterend",vehicle);
-    }else if(active.firstElementChild!==vehicle){
-      active.prepend(vehicle);
-    }
+    }else if(active.firstElementChild!==vehicle){ active.prepend(vehicle); }
   }
 
   function notice(){
@@ -70,28 +65,17 @@
   function qaGuards(){
     const search=$("#tireSearchDetails");
     if(search && search.hidden) search.hidden=false;
-
     const active=$(".panel.active");
     const vehicle=$("#sharedVehicleSearch");
     if(active?.id === "tab-tire" && vehicle && search){
-      // Self-heal DOM order if core rendering or a later mutation moves either block.
-      if(vehicle.parentElement!==active || search.parentElement!==active || vehicle.nextElementSibling!==search){
-        active.insertBefore(vehicle, search);
-      }
+      if(vehicle.parentElement!==active || search.parentElement!==active || vehicle.nextElementSibling!==search){ active.insertBefore(vehicle, search); }
     }
   }
 
   function apply(){
     queued=false;
     document.documentElement.classList.add("ai-team-v193","ai-team-v194");
-    labels();
-    version();
-    keepTireControlsOpen();
-    placeVehicleSearch();
-    qaGuards();
-    notice();
-    clearReference();
-    unverifiedWheels();
+    labels(); version(); keepTireControlsOpen(); placeVehicleSearch(); qaGuards(); notice(); clearReference(); unverifiedWheels();
   }
 
   function schedule(){ if(queued)return; queued=true; requestAnimationFrame(apply); }
@@ -104,9 +88,6 @@
   },true);
 
   const observer=new MutationObserver(schedule);
-  function start(){
-    schedule();
-    observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","hidden","open"]});
-  }
+  function start(){ schedule(); observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","hidden","open"]}); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start,{once:true}); else start();
 })();
