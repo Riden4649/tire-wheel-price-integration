@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T14:32:28+09:00",
+  "updated_at": "2026-09-02T15:07:48+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -23,7 +23,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "mid-wheels.com",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided webpage is a product detail page for the MID WHEELS G10 wheel and does not contain vehicle-specific fitment data or service facts for the Toyota Alphard G (10系).",
+      "identity_reason": "The provided webpage contains wheel product specifications for MID G10 wheels, but does not list vehicle matching application data or specifications for the Toyota Alphard G 10系.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -57,8 +57,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 488,
-        "candidatesTokenCount": 251,
-        "totalTokenCount": 5882,
+        "candidatesTokenCount": 244,
+        "totalTokenCount": 5875,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -75,7 +75,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:28:35+09:00",
-      "last_seen_at": "2026-09-02T14:32:27+09:00",
+      "last_seen_at": "2026-09-02T15:07:42+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -89,7 +89,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "mid-wheels.com",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided webpage is a wheel product specification page for MID WHEELS (StaG) and does not contain vehicle-specific fitment or service facts for the Toyota Alphard G 10 series.",
+      "identity_reason": "The provided URL is for a wheel brand model (StaG) page and does not contain specific fitment service facts or vehicle generation data for the Toyota Alphard G 10系.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -123,8 +123,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 488,
-        "candidatesTokenCount": 249,
-        "totalTokenCount": 9351,
+        "candidatesTokenCount": 247,
+        "totalTokenCount": 9349,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -141,7 +141,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:32:28+09:00",
-      "last_seen_at": "2026-09-02T14:32:28+09:00",
+      "last_seen_at": "2026-09-02T15:07:48+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -155,7 +155,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "weds.co.jp",
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page is for トヨタ アルファード 10系/4WD（16インチ） matching the target vehicle model and generation 10系.",
+      "identity_reason": "The page explicitly matches Toyota Alphard 10系/4WD.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60.0,
@@ -175,7 +175,7 @@
         "hub_bore": "φ60",
         "thread": "M12x1.5 ナット",
         "torque": null,
-        "identity": "車種 アルファード / 型式等： 10系/4WD"
+        "identity": "アルファード 10系/4WD"
       },
       "source_url": "https://search.weds.co.jp/brand/gyraft/9m/toyota/arufuaado-10kei4wd?size=16inch",
       "source_title": "Gyraft(グラフト) 製品一覧 -> 9M -> アルファード 10系/4WD ...",
@@ -191,8 +191,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 508,
-        "candidatesTokenCount": 338,
-        "totalTokenCount": 3700,
+        "candidatesTokenCount": 314,
+        "totalTokenCount": 3676,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -209,7 +209,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:31:43+09:00",
-      "last_seen_at": "2026-09-02T14:31:43+09:00",
+      "last_seen_at": "2026-09-02T15:07:20+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -223,7 +223,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a general WORK wheels custom order plan page for special P.C.D. and does not mention the Toyota Alphard G 10系 model or its fitment/service facts.",
+      "identity_reason": "The provided URL is a general Work Wheels custom order plan page for special P.C.D. and does not mention the Toyota Alphard G 10系 or any specific vehicle fitment data.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -257,8 +257,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 489,
-        "candidatesTokenCount": 252,
-        "totalTokenCount": 2488,
+        "candidatesTokenCount": 251,
+        "totalTokenCount": 2487,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -275,7 +275,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:31:46+09:00",
-      "last_seen_at": "2026-09-02T14:31:46+09:00",
+      "last_seen_at": "2026-09-02T15:07:23+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -289,7 +289,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a WORK EMOTION CR kiwami wheel catalog/specification sheet and does not contain service fitment facts or model codes for the Toyota Alphard G 10系.",
+      "identity_reason": "The provided webpage is a product catalog for WORK EMOTION CR kiwami wheels and does not contain fitment or service facts for the Toyota Alphard G (10系).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -323,8 +323,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 503,
-        "candidatesTokenCount": 263,
-        "totalTokenCount": 10856,
+        "candidatesTokenCount": 261,
+        "totalTokenCount": 10854,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -345,7 +345,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:31:52+09:00",
-      "last_seen_at": "2026-09-02T14:31:52+09:00",
+      "last_seen_at": "2026-09-02T15:07:27+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -359,7 +359,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a WORK Wheels product catalog page for WORK EMOTION T7R wheels and does not contain fitment or service facts for the Toyota Alphard G 10系.",
+      "identity_reason": "The provided webpage is a catalog for WORK EMOTION T7R wheels and does not mention the Toyota Alphard G 10系 vehicle fitment or service facts.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -393,8 +393,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 504,
-        "candidatesTokenCount": 264,
-        "totalTokenCount": 11342,
+        "candidatesTokenCount": 260,
+        "totalTokenCount": 11338,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -404,18 +404,18 @@
         "toolUsePromptTokenCount": 10574,
         "toolUsePromptTokensDetails": [
           {
-            "modality": "IMAGE",
-            "tokenCount": 4620
-          },
-          {
             "modality": "TEXT",
             "tokenCount": 5954
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 4620
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:32:11+09:00",
-      "last_seen_at": "2026-09-02T14:32:11+09:00",
+      "last_seen_at": "2026-09-02T15:07:40+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -429,7 +429,7 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided webpage is a product page for WORK EMOTION ZR10 and does not contain vehicle fitment data, specifications, or model codes for the Toyota Alphard 10系.",
+      "identity_reason": "The provided URL is for the WORK EMOTION ZR10 wheel product page and contains no specific vehicle fitment, generation, model code, or service data for the トヨタ アルファードG (10系).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -463,8 +463,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 491,
-        "candidatesTokenCount": 251,
-        "totalTokenCount": 6249,
+        "candidatesTokenCount": 258,
+        "totalTokenCount": 6256,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -481,7 +481,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:28:00+09:00",
-      "last_seen_at": "2026-09-02T14:31:45+09:00",
+      "last_seen_at": "2026-09-02T15:07:22+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -495,25 +495,27 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The page discusses wheels targeting 40系アルファード/ヴェルファイア (40 series Alphard/Vellfire), not the 10系 (10 series) target vehicle.",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
+      "identity_reason": "The page is for the 40 series Alphard/Vellfire, not the target 10 series Alphard G.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60.0,
       "thread_diameter": null,
       "thread_pitch": null,
       "fastener": null,
       "wheel_torque_nm": null,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
-      "model_codes": [],
-      "generation_text": null,
+      "model_codes": [
+        "40系"
+      ],
+      "generation_text": "40系",
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
-        "hub_bore": null,
+        "pcd": "5H-114.3および5H-120のマルチP.C.D.",
+        "holes": "5H-114.3",
+        "hub_bore": "ハブはトヨタ専用のφ60を採用",
         "thread": null,
         "torque": null,
-        "identity": "40系アルファード/ヴェルファイア、LEXUS LM500hをメインターゲットにした"
+        "identity": "40系アルファード/ヴェルファイア、LEXUS LM500hをメインターゲット"
       },
       "source_url": "https://www.work-wheels.co.jp/wtopics/news/111/",
       "source_title": "静かに語る品格、それが「EMITZ STRAHL」登場WHEEL TOPICS ホイール情報｜株式会社ワーク",
@@ -529,8 +531,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 492,
-        "candidatesTokenCount": 278,
-        "totalTokenCount": 3934,
+        "candidatesTokenCount": 326,
+        "totalTokenCount": 3982,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -547,7 +549,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T14:31:54+09:00",
-      "last_seen_at": "2026-09-02T14:31:54+09:00",
+      "last_seen_at": "2026-09-02T15:07:35+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     }
   ]

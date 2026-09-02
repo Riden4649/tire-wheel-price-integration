@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset": "auto_confirmed_pcd",
-  "updated_at": "2026-09-02T14:32:28+09:00",
+  "updated_at": "2026-09-02T15:07:48+09:00",
   "policy": {
     "minimum_independent_domains": 2,
     "official_registered_domains_only": true,
