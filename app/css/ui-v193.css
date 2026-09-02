@@ -1,0 +1,201 @@
+/* AI team horizontal iPad layout - Ver1.9.3 */
+@media (min-width: 761px) {
+  html.ai-team-v193 body {
+    background: #f4f7f6;
+  }
+  html.ai-team-v193 .tabs {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 80;
+    width: 132px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: max(18px, env(safe-area-inset-top)) 10px 16px max(10px, env(safe-area-inset-left));
+    border-right: 1px solid #dfe8e4;
+    border-bottom: 0;
+    background: rgba(247,250,249,.98);
+    box-shadow: 8px 0 24px rgba(32,67,55,.05);
+    backdrop-filter: blur(14px);
+  }
+  html.ai-team-v193 .tabs::before {
+    content: "商談\A価格ナビ";
+    white-space: pre-line;
+    display: grid;
+    place-items: center;
+    min-height: 76px;
+    margin: 0 2px 8px;
+    border-radius: 16px;
+    background: #2f6b57;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: .03em;
+  }
+  html.ai-team-v193 .tab {
+    position: relative;
+    min-height: 62px;
+    padding: 28px 5px 6px;
+    border: 0;
+    border-radius: 14px;
+    background: transparent;
+    color: #64746d;
+    font-size: 11px;
+    line-height: 1.15;
+    font-weight: 900;
+  }
+  html.ai-team-v193 .tab::before {
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    line-height: 1;
+    color: #70877e;
+  }
+  html.ai-team-v193 .tab[data-tab="tire"]::before { content: "◉"; }
+  html.ai-team-v193 .tab[data-tab="wheel"]::before { content: "✦"; }
+  html.ai-team-v193 .tab[data-tab="estimate"]::before { content: "¥"; }
+  html.ai-team-v193 .tab[data-tab="settings"]::before { content: "⚙"; }
+  html.ai-team-v193 .tab.active {
+    background: #e8f2ee;
+    color: #245b48;
+    box-shadow: inset 0 0 0 1px rgba(47,107,87,.12);
+  }
+  html.ai-team-v193 .tab.active::before { color: #2f6b57; }
+
+  html.ai-team-v193 .topbar {
+    position: fixed;
+    top: 0;
+    left: 132px;
+    right: 0;
+    z-index: 70;
+    min-height: 64px;
+    padding: 9px 18px;
+    border-bottom: 1px solid #e2e9e6;
+    background: rgba(255,255,255,.95);
+  }
+  html.ai-team-v193 .brand span { width: 38px; height: 38px; border-radius: 11px; font-size: 19px; }
+  html.ai-team-v193 .brand strong { font-size: 16px; }
+  html.ai-team-v193 .brand small { font-size: 10px; }
+  html.ai-team-v193 .status-pill { padding: 6px 10px; font-size: 10px; }
+  html.ai-team-v193 .status-stack small { font-size: 10px; color: #83918b; text-align: right; }
+
+  html.ai-team-v193 .shell {
+    width: auto;
+    max-width: none;
+    margin: 0 0 0 132px;
+    padding: 80px 16px 32px;
+  }
+  html.ai-team-v193 .shared-vehicle-search,
+  html.ai-team-v193 .search-box,
+  html.ai-team-v193 .summary-card,
+  html.ai-team-v193 .total-card,
+  html.ai-team-v193 .section-head,
+  html.ai-team-v193 .card {
+    border-radius: 15px;
+    border-color: #dde7e3;
+    box-shadow: 0 6px 20px rgba(41,75,63,.045);
+  }
+  html.ai-team-v193 .shared-vehicle-search {
+    margin-bottom: 12px;
+    border-width: 1px;
+  }
+  html.ai-team-v193 .shared-vehicle-search > summary {
+    min-height: 52px;
+    background: #f0f7f4;
+  }
+  html.ai-team-v193 .search-box summary { min-height: 50px; }
+  html.ai-team-v193 .section-head { padding: 13px 15px; }
+  html.ai-team-v193 .section-head h1 { font-size: 24px; }
+  html.ai-team-v193 .kicker { font-size: 10px; }
+  html.ai-team-v193 .message { margin: 9px 0; padding: 9px 11px; font-size: 11px; border-radius: 10px; }
+  html.ai-team-v193 .choice-panel { gap: 9px; padding: 0 12px 12px; }
+  html.ai-team-v193 .choice-accordion { border-radius: 10px; }
+  html.ai-team-v193 .choice-accordion summary { min-height: 40px; padding: 0 10px; font-size: 13px; }
+  html.ai-team-v193 .choice-row { gap: 6px; }
+  html.ai-team-v193 .choice-chip { min-height: 34px; padding: 0 10px; font-size: 11px; }
+  html.ai-team-v193 .source-filter { gap: 7px; padding: 0 12px 10px; }
+  html.ai-team-v193 .source-filter label { min-height: 34px; padding: 0 10px; font-size: 11px; }
+  html.ai-team-v193 .search-mode-switch { gap: 7px; padding: 9px 12px 0; }
+  html.ai-team-v193 .search-mode-button { min-height: 42px; font-size: 12px; border-radius: 10px; }
+  html.ai-team-v193 .filter-grid,
+  html.ai-team-v193 .cost-grid { gap: 8px; padding: 0 12px 12px; }
+  html.ai-team-v193 .filter-grid label,
+  html.ai-team-v193 .cost-grid label { font-size: 10px; }
+  html.ai-team-v193 input,
+  html.ai-team-v193 select { min-height: 38px; font-size: 12px; }
+
+  html.ai-team-v193 .result-grid { gap: 10px; }
+  html.ai-team-v193 .card { padding: 12px; }
+  html.ai-team-v193 .card h3 { font-size: 16px; line-height: 1.25; }
+  html.ai-team-v193 .card-meta { font-size: 10px; line-height: 1.5; }
+  html.ai-team-v193 .source-badge { font-size: 9px; }
+  html.ai-team-v193 .price-row { gap: 6px; }
+  html.ai-team-v193 .price-row > div { padding: 8px; border-radius: 10px; }
+  html.ai-team-v193 .price-row span { font-size: 9px; }
+  html.ai-team-v193 .price-row strong { font-size: 15px; }
+  html.ai-team-v193 .select-button { min-height: 38px; font-size: 11px; }
+  html.ai-team-v193 .fitment-card-note { font-size: 9px; line-height: 1.4; }
+  html.ai-team-v193 .wheel-fitment-warning { font-size: 10px; }
+  html.ai-team-v193 .reference-only-results::before {
+    content: "適合未確認車両：以下は価格確認用候補です";
+    grid-column: 1 / -1;
+    display: block;
+    padding: 8px 10px;
+    border: 1px solid #e8c66a;
+    border-radius: 10px;
+    background: #fff8df;
+    color: #76591f;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  html.ai-team-v193 .search-only-vehicle-notice,
+  html.ai-team-v193 .fitment-disclaimer { font-size: 10.5px; }
+  html.ai-team-v193 .search-only-vehicle-notice { padding: 10px 11px; border-width: 1px; border-radius: 11px; }
+  html.ai-team-v193 .vehicle-summary { padding: 10px; border-width: 1px; border-radius: 11px; }
+  html.ai-team-v193 .vehicle-summary strong { font-size: 14px; }
+  html.ai-team-v193 .vehicle-summary span { font-size: 10px; }
+  html.ai-team-v193 .estimate-layout { gap: 10px; }
+  html.ai-team-v193 .summary-card,
+  html.ai-team-v193 .total-card { padding: 13px; }
+}
+
+/* Keep future wheel image slots fully hidden while image display setting is OFF. */
+html.ai-team-v193 .card:not(:has(.wheel-image)) { --image-slot-display: none; }
+
+/* Print contrast: total amount must remain white in every estimate/preview variant. */
+html.ai-team-v193 .print-total,
+html.ai-team-v193 .print-preview-paper .print-total {
+  background: #4d7488 !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+html.ai-team-v193 .print-total span,
+html.ai-team-v193 .print-total strong,
+html.ai-team-v193 #printGrandTotal,
+html.ai-team-v193 .print-preview-paper .print-total span,
+html.ai-team-v193 .print-preview-paper .print-total strong,
+html.ai-team-v193 .print-preview-paper #printGrandTotal {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 760px) {
+  html.ai-team-v193 .tabs { position: sticky; top: 68px; }
+  html.ai-team-v193 .topbar { position: sticky; left: auto; right: auto; }
+  html.ai-team-v193 .shell { margin-left: auto; padding-top: 16px; }
+}
+
+@media print {
+  html.ai-team-v193 .tabs,
+  html.ai-team-v193 .topbar { display: none !important; }
+  html.ai-team-v193 .shell { margin: 0 !important; padding: 0 !important; }
+  html.ai-team-v193 .print-total span,
+  html.ai-team-v193 .print-total strong,
+  html.ai-team-v193 #printGrandTotal { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+}
