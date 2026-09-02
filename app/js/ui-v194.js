@@ -8,7 +8,7 @@
 
   function version(){
     const v = $(".status-stack small");
-    if(v && v.textContent !== "Ver1.9.4") v.textContent = "Ver1.9.4";
+    if(v && v.textContent !== "Ver1.9.5") v.textContent = "Ver1.9.5";
   }
 
   function labels(){
@@ -25,15 +25,23 @@
     const vehicle=$("#sharedVehicleSearch");
     const active=$(".panel.active");
     if(!vehicle || !active) return;
+
     if(active.id === "tab-tire"){
       const search=$("#tireSearchDetails");
-      if(search && vehicle.parentElement===active && search.nextElementSibling===vehicle) return;
-      if(search) search.insertAdjacentElement("afterend",vehicle);
+      if(!search) return;
+      // Vehicle choice is the primary entry point: always place it before tire controls.
+      if(vehicle.parentElement!==active || vehicle.nextElementSibling!==search){
+        active.insertBefore(vehicle, search);
+      }
       return;
     }
+
     const head=active.querySelector(".section-head");
-    if(vehicle.parentElement===active && (!head || head.nextElementSibling===vehicle)) return;
-    if(head) head.insertAdjacentElement("afterend",vehicle); else active.prepend(vehicle);
+    if(head){
+      if(vehicle.parentElement!==active || head.nextElementSibling!==vehicle) head.insertAdjacentElement("afterend",vehicle);
+    }else if(active.firstElementChild!==vehicle){
+      active.prepend(vehicle);
+    }
   }
 
   function notice(){
@@ -60,21 +68,45 @@
   function clearReference(){ if(!visible($("#searchOnlyVehicleNotice"))) $("#wheelResults")?.classList.remove("reference-only-results"); }
 
   function qaGuards(){
-    const summary=$("#vehicleSummary");
-    if(summary?.hidden) summary.style.removeProperty("display");
     const search=$("#tireSearchDetails");
     if(search && search.hidden) search.hidden=false;
+
+    const active=$(".panel.active");
+    const vehicle=$("#sharedVehicleSearch");
+    if(active?.id === "tab-tire" && vehicle && search){
+      // Self-heal DOM order if core rendering or a later mutation moves either block.
+      if(vehicle.parentElement!==active || search.parentElement!==active || vehicle.nextElementSibling!==search){
+        active.insertBefore(vehicle, search);
+      }
+    }
   }
 
   function apply(){
     queued=false;
     document.documentElement.classList.add("ai-team-v193","ai-team-v194");
-    labels(); version(); keepTireControlsOpen(); placeVehicleSearch(); qaGuards(); notice(); clearReference(); unverifiedWheels();
+    labels();
+    version();
+    keepTireControlsOpen();
+    placeVehicleSearch();
+    qaGuards();
+    notice();
+    clearReference();
+    unverifiedWheels();
   }
+
   function schedule(){ if(queued)return; queued=true; requestAnimationFrame(apply); }
 
-  document.addEventListener("click",e=>{ if(e.target.closest(".tab,#sharedVehicleSearch,#tireSearchDetails,[data-wheel-search-mode],#clearVehicleSelection")){ setTimeout(schedule,0); setTimeout(schedule,80); } },true);
+  document.addEventListener("click",e=>{
+    if(e.target.closest(".tab,#sharedVehicleSearch,#tireSearchDetails,[data-wheel-search-mode],#clearVehicleSelection")){
+      setTimeout(schedule,0);
+      setTimeout(schedule,80);
+    }
+  },true);
+
   const observer=new MutationObserver(schedule);
-  function start(){ schedule(); observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","hidden","open"]}); }
+  function start(){
+    schedule();
+    observer.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:["class","hidden","open"]});
+  }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start,{once:true}); else start();
 })();
