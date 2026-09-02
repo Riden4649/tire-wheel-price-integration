@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const stamp = "20260902-ai-team-v196-ipad-spacing";
+  const stamp = "20260902-v197-full-master-replace";
 
   function style(href, key) {
     if (document.querySelector(`link[data-ui-style="${key}"]`)) return;
@@ -23,5 +23,7 @@
     document.head.appendChild(script);
   }
 
-  load("js/app-v174-core.js", () => load("js/ui-v194.js"));
+  load("js/master-db-update-v197.js", () => {
+    load("js/app-v174-core.js", () => load("js/ui-v194.js"));
+  });
 })();
