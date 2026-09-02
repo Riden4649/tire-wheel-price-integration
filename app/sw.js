@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-4-tire-style-ui-r1";
+const CACHE_NAME = "integrated-price-navi-ver1-9-4-tire-style-ui-r2";
 const APP_SHELL = [
   "./",
   "./index.html",
