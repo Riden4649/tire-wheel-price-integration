@@ -26,6 +26,30 @@
       ],
       "applied_at": "2026-09-02T16:26:50+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "field": "pcd",
+      "old": null,
+      "new": 114.3,
+      "reason": "auto_confirmed_two_independent_official_domains",
+      "confidence": "B",
+      "sources": [
+        {
+          "domain": "honda.co.jp",
+          "source_type": "manufacturer_official",
+          "url": "https://www.honda.co.jp/customer/auto/insight/faq/qa029",
+          "title": "【インサイト】【機能装備】タイヤ・ホイールのスペックについて ..."
+        },
+        {
+          "domain": "work-wheels.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
+          "title": "▲ SPECIFICATIONS 20inch 2PIECE/REVERSE ディスクカラー SIZE セミコンケイブ ミドルコンケイブ マットブラック"
+        }
+      ],
+      "applied_at": "2026-09-02T17:20:47+09:00",
+      "actor": "github_actions_auto_pcd"
     }
   ]
 }

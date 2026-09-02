@@ -619,13 +619,13 @@
       "generation": "ZE1",
       "year_from": "2000-01",
       "year_to": "2006-08",
-      "pcd": null,
+      "pcd": 114.3,
       "holes": null,
       "hub_bore": null,
       "fastener": "",
       "oem_inch": "14",
       "oem_tire": "165/65R14",
-      "confidence": "C",
+      "confidence": "B",
       "notes": "1999年発売。DB対象期間は2000年から。ホイール取付条件未確認。タイヤ検索専用。",
       "sources": [
         {

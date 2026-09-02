@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T16:53:53+09:00",
+  "updated_at": "2026-09-02T17:20:47+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,8 +11,290 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 42,
+  "record_count": 46,
   "records": [
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
+      "title": "ホンダ:アコード:2005～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Honda Accord, model code CL7, grade Euro R, years 2005-2008.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "CL7"
+      ],
+      "generation_text": "2005～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ アコード グレード： ユーロR 年式： 2005～2008 型式： CL7"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
+      "source_title": "ホンダ:アコード:2005～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18421/21096/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 4211,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 3516,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3516
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:18:24+09:00",
+      "last_seen_at": "2026-09-02T17:18:24+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18426/21101/",
+      "title": "ホンダ:アコード:2005～2008:CL7:20Aのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ アコード 2005～2008 CL7 20A",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "CL7"
+      ],
+      "generation_text": "2005～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ アコード グレード： 20A 年式： 2005～2008 型式： CL7"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18426/21101/",
+      "source_title": "ホンダ:アコード:2005～2008:CL7:20Aのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/416/5268/18426/21101/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 225,
+        "totalTokenCount": 4067,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 3380,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3380
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:18:09+09:00",
+      "last_seen_at": "2026-09-02T17:18:09+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/416/5271/18428/21103/",
+      "title": "ホンダ:アコード:2006～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ アコード グレード： ユーロR 年式： 2006～2008 型式： CL7",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "CL7"
+      ],
+      "generation_text": "2006～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ アコード グレード： ユーロR 年式： 2006～2008 型式： CL7"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/416/5271/18428/21103/",
+      "source_title": "ホンダ:アコード:2006～2008:CL7:ユーロRのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/416/5271/18428/21103/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 235,
+        "totalTokenCount": 4213,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 3516,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3516
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:18:25+09:00",
+      "last_seen_at": "2026-09-02T17:18:25+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "url": "https://work-wheels.co.jp/search/web_matching/",
+      "title": "MATCHING 車から検索｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 73,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a generic wheel matching search page and does not explicitly identify or provide fitment data for the target vehicle (ホンダ アコード CL7-CL9).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/search/web_matching/",
+      "source_title": "MATCHING 車から検索｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 439,
+        "candidatesTokenCount": 178,
+        "totalTokenCount": 2389,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 439
+          }
+        ],
+        "toolUsePromptTokenCount": 1772,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1772
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T17:18:01+09:00",
+      "last_seen_at": "2026-09-02T17:18:01+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
     {
       "vehicle_id": "HON_ACCORD_CL",
       "search_id": "ホンダ:アコード",
@@ -27,7 +309,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to confirm vehicle fitment data.",
+      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle identity.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -61,8 +343,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 448,
-        "candidatesTokenCount": 168,
-        "totalTokenCount": 1265,
+        "candidatesTokenCount": 167,
+        "totalTokenCount": 1264,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -79,7 +361,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:52:17+09:00",
-      "last_seen_at": "2026-09-02T16:52:17+09:00",
+      "last_seen_at": "2026-09-02T17:19:47+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -380,7 +662,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 58,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle.",
+      "identity_reason": "The requested URL could not be accessed or fetched to confirm the vehicle identity and fitment specifications.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -414,8 +696,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 166,
-        "totalTokenCount": 1269,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 1274,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -432,7 +714,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:53:26+09:00",
-      "last_seen_at": "2026-09-02T16:53:26+09:00",
+      "last_seen_at": "2026-09-02T17:20:03+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -449,7 +731,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to confirm the vehicle identity and fitment specifications.",
+      "identity_reason": "The requested URL could not be accessed or fetched to verify vehicle fitment evidence.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -483,8 +765,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 171,
-        "totalTokenCount": 1274,
+        "candidatesTokenCount": 168,
+        "totalTokenCount": 1271,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -501,7 +783,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:51+09:00",
-      "last_seen_at": "2026-09-02T16:51:51+09:00",
+      "last_seen_at": "2026-09-02T17:19:45+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -518,7 +800,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 76,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "ホンダ インサイト 2004～2009 ZE1 ベースグレード",
+      "identity_reason": "The page explicitly shows ホンダ インサイト, model code ZE1, year 2004～2009, base grade.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -538,7 +820,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ\nインサイト\nグレード：\nベースグレード\n年式：\n2004～2009\n型式：\nZE1"
+        "identity": "ホンダ インサイト 型式： ZE1 年式： 2004～2009 グレード： ベースグレード"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/421/5310/18517/21192/",
       "source_title": "ホンダ:インサイト:2004～2009:ZE1:ベースグレードのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -572,7 +854,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:50:26+09:00",
-      "last_seen_at": "2026-09-02T16:50:26+09:00",
+      "last_seen_at": "2026-09-02T17:18:00+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -589,7 +871,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 66,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or verified.",
+      "identity_reason": "The webpage could not be accessed to verify vehicle identity or fitment facts.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -623,8 +905,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 176,
-        "totalTokenCount": 1324,
+        "candidatesTokenCount": 181,
+        "totalTokenCount": 1329,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -641,7 +923,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:52:42+09:00",
-      "last_seen_at": "2026-09-02T16:52:42+09:00",
+      "last_seen_at": "2026-09-02T17:19:53+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -658,7 +940,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 66,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The webpage could not be accessed to confirm the vehicle identity and fitment facts.",
+      "identity_reason": "Failed to access or retrieve content from the specified URL.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -692,8 +974,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 182,
-        "totalTokenCount": 1330,
+        "candidatesTokenCount": 177,
+        "totalTokenCount": 1325,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -710,7 +992,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:53:07+09:00",
-      "last_seen_at": "2026-09-02T16:53:07+09:00",
+      "last_seen_at": "2026-09-02T17:19:56+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -727,7 +1009,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is for the Nissan Leaf (リーフ ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "identity_reason": "The provided URL is for the Nissan Leaf ZE1, whereas the target vehicle is the Honda Insight ZE1.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -761,8 +1043,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 458,
-        "candidatesTokenCount": 190,
-        "totalTokenCount": 3314,
+        "candidatesTokenCount": 186,
+        "totalTokenCount": 3310,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -779,7 +1061,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:31+09:00",
-      "last_seen_at": "2026-09-02T16:51:06+09:00",
+      "last_seen_at": "2026-09-02T17:18:06+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -796,7 +1078,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The URL is for the Nissan Leaf (リーフ ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "identity_reason": "The URL is for the Nissan Leaf (リーフ ZE1), whereas the target vehicle is the Honda Insight (インサイト ZE1).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -830,8 +1112,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 191,
-        "totalTokenCount": 2379,
+        "candidatesTokenCount": 193,
+        "totalTokenCount": 2381,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -848,7 +1130,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:04+09:00",
-      "last_seen_at": "2026-09-02T16:50:28+09:00",
+      "last_seen_at": "2026-09-02T17:18:03+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -865,7 +1147,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL corresponds to a Nissan Leaf (ZE1), whereas the target vehicle is a Honda Insight (ZE1). Furthermore, the page content could not be accessed.",
+      "identity_reason": "The requested URL corresponds to a Nissan Leaf (ZE1), which does not match the target vehicle Honda Insight (ZE1), and the page cannot be accessed or does not confirm the target identity.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -899,8 +1181,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 459,
-        "candidatesTokenCount": 199,
-        "totalTokenCount": 1344,
+        "candidatesTokenCount": 204,
+        "totalTokenCount": 1349,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -917,7 +1199,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:34+09:00",
-      "last_seen_at": "2026-09-02T16:51:03+09:00",
+      "last_seen_at": "2026-09-02T17:18:07+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -1075,65 +1357,49 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "target_score": 48,
-      "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a WORK Wheels catalog PDF for ZEAST ST1 wheels and does not mention or identify the Honda Insight ZE1 vehicle anywhere.",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "thread_diameter": null,
-      "thread_pitch": null,
-      "fastener": null,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The document explicitly lists 'インサイト' and model code 'ZE1' in the fitment table.",
+      "pcd": 114.3,
+      "holes": 4,
+      "hub_bore": 56.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": "nut",
       "wheel_torque_nm": null,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
-      "model_codes": [],
+      "model_codes": [
+        "ZE1"
+      ],
       "generation_text": null,
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
-        "hub_bore": null,
-        "thread": null,
+        "pcd": "P.C.D. 114.3",
+        "holes": "4H",
+        "hub_bore": "HUB 56",
+        "thread": "M12×P1.5",
         "torque": null,
-        "identity": null
+        "identity": "インサイト ZE1"
       },
       "source_url": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
       "source_title": "▲ SPECIFICATIONS 20inch 2PIECE/REVERSE ディスクカラー SIZE セミコンケイブ ミドルコンケイブ マットブラック",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
-      "url_context_metadata": {
-        "urlMetadata": [
-          {
-            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
-            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
-          }
-        ]
-      },
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
       "usage_metadata": {
         "promptTokenCount": 454,
-        "candidatesTokenCount": 189,
-        "totalTokenCount": 4854,
+        "candidatesTokenCount": 259,
+        "totalTokenCount": 713,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 454
           }
         ],
-        "toolUsePromptTokenCount": 4211,
-        "toolUsePromptTokensDetails": [
-          {
-            "modality": "IMAGE",
-            "tokenCount": 2310
-          },
-          {
-            "modality": "TEXT",
-            "tokenCount": 1901
-          }
-        ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:39+09:00",
-      "last_seen_at": "2026-09-02T16:53:30+09:00",
-      "status": "identity_not_confirmed_no_auto_use"
+      "last_seen_at": "2026-09-02T17:20:47+09:00",
+      "status": "candidate_only_needs_corroboration"
     },
     {
       "vehicle_id": "HON_INSIGHT_ZE1",
@@ -1149,7 +1415,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify the target vehicle.",
+      "identity_reason": "The requested URL could not be accessed or fetched to verify vehicle fitment data for the Honda Insight ZE1.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -1183,8 +1449,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 445,
-        "candidatesTokenCount": 166,
-        "totalTokenCount": 1255,
+        "candidatesTokenCount": 173,
+        "totalTokenCount": 1262,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -1201,7 +1467,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:36+09:00",
-      "last_seen_at": "2026-09-02T16:51:16+09:00",
+      "last_seen_at": "2026-09-02T17:19:43+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
