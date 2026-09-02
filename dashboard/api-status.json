@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "vehicle_db_api_run_status",
+  "updated_at": null,
+  "run": {
+    "id": null,
+    "number": null,
+    "event": null,
+    "sha": null,
+    "repository": "Riden4649/tire-wheel-price-integration"
+  },
+  "overall_status": "idle",
+  "totals": {
+    "attempted": 0,
+    "success": 0,
+    "errors": 0,
+    "success_rate": null
+  },
+  "services": [
+    {"name":"Tavily","status":"not_run","attempted":0,"success":0,"errors":0,"success_rate":null},
+    {"name":"Brave","status":"not_run","attempted":0,"success":0,"errors":0,"success_rate":null},
+    {"name":"Gemini","status":"not_run","attempted":0,"success":0,"errors":0,"success_rate":null}
+  ],
+  "production_apply": {"applied_count":0,"skipped_count":0},
+  "note": "次回の車種DB育成Run完了後に実行統計へ自動更新されます。APIキーや秘密情報は保存しません。"
+}
