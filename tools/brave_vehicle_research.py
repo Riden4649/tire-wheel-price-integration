@@ -15,6 +15,7 @@ from tavily_vehicle_research import (
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
+SEARCH_PLAN = REPORTS / "gemini-search-plan.json"
 OUT_JSON = REPORTS / "brave-search-results.json"
 OUT_MD = REPORTS / "brave-search-results.md"
 API_URL = "https://api.search.brave.com/res/v1/web/search"
@@ -44,7 +45,7 @@ def brave_search(api_key, query, count=5):
     })
     req = urllib.request.Request(
         f"{API_URL}?{params}",
-        headers={"Accept":"application/json","Accept-Encoding":"gzip","X-Subscription-Token":api_key,"User-Agent":"vehicle-db-growth-brave/1.1"},
+        headers={"Accept":"application/json","Accept-Encoding":"gzip","X-Subscription-Token":api_key,"User-Agent":"vehicle-db-growth-brave/1.8"},
         method="GET",
     )
     with urllib.request.urlopen(req, timeout=30) as response:
@@ -65,7 +66,7 @@ def pool_by_vehicle(records):
 
 def base_query(vehicle, expected=None):
     parts = [str(vehicle.get("maker") or "").strip(), str(vehicle.get("model") or "").strip(), str(vehicle.get("generation") or "").strip()]
-    parts += ["適合", "マッチング", "車種", "PCD"]
+    parts += ["適合", "マッチング", "車種", "PCD", "型式"]
     if expected is not None:
         parts.append(str(expected))
     return " ".join(p for p in parts if p)
@@ -77,12 +78,54 @@ def make_query(registry, domain, vehicle, expected=None):
     return " ".join([f"site:{domain}", base_query(vehicle, expected)] + [str(x) for x in terms])
 
 
+def planner_targets(pool_records, registry, max_queries):
+    if not SEARCH_PLAN.exists():
+        return []
+    plans = load(SEARCH_PLAN, {}).get("plans", [])
+    by_vehicle = pool_by_vehicle(pool_records)
+    allowed = set(official_domains(registry))
+    targets = []
+    for plan in plans:
+        vid = plan.get("vehicle_id")
+        if not vid:
+            continue
+        items = by_vehicle.get(vid, [])
+        values = {i.get("candidate_value") for i in items if i.get("candidate_value") is not None}
+        seen_domains = {i.get("source_domain") for i in items if i.get("source_domain")}
+        expected = next(iter(values)) if len(values) == 1 else None
+        for q in plan.get("official_queries") or []:
+            domain = str(q.get("domain") or "").lower().strip()
+            query = str(q.get("query") or "").strip()
+            if domain not in allowed or not query or domain in seen_domains:
+                continue
+            targets.append({
+                "vehicle_id": vid,
+                "search_id": plan.get("search_id"),
+                "maker": plan.get("maker"),
+                "model": plan.get("model"),
+                "generation": plan.get("generation"),
+                "expected_candidate": expected,
+                "target_domain": domain,
+                "reason": "gemini_web_hint_to_official_search",
+                "query": query,
+                "search_hint_model_codes": plan.get("model_code_hints") or [],
+                "search_hint_pcd": plan.get("pcd_hints") or [],
+                "planner_confidence": plan.get("confidence_as_search_hint"),
+            })
+            if len(targets) >= max_queries:
+                return targets
+    return targets
+
+
 def build_targets(pool_records, research_records, registry, max_queries):
     domains = official_domains(registry)
     by_vehicle = pool_by_vehicle(pool_records)
-    targets = []
+    targets = planner_targets(pool_records, registry, max_queries)
+    seen_keys = {(t.get("vehicle_id"), t.get("target_domain"), t.get("query")) for t in targets}
+    if len(targets) >= max_queries:
+        return targets[:max_queries]
 
-    # Priority 1: one confirmed-looking official candidate already exists -> seek second domain.
+    # Next priority: any vehicle with exactly one official PCD domain.
     for vid, items in by_vehicle.items():
         values = {i.get("candidate_value") for i in items if i.get("candidate_value") is not None}
         seen_domains = {i.get("source_domain") for i in items if i.get("source_domain")}
@@ -92,28 +135,35 @@ def build_targets(pool_records, research_records, registry, max_queries):
         for domain in domains:
             if domain in seen_domains:
                 continue
-            targets.append({
+            target = {
                 "vehicle_id":vid,"maker":sample.get("maker"),"model":sample.get("model"),"generation":sample.get("generation"),
                 "search_id":sample.get("search_id"),"expected_candidate":expected,"target_domain":domain,
                 "reason":"seek_independent_second_official_domain",
                 "query":make_query(registry, domain, sample, expected),
-            })
+            }
+            key = (vid, domain, target["query"])
+            if key in seen_keys:
+                continue
+            targets.append(target); seen_keys.add(key)
             if len(targets) >= max_queries:
                 return targets
 
-    # Priority 2: discover first official candidate for high-priority missing vehicles.
     known_ids = set(by_vehicle)
     for vehicle in sorted(research_records, key=lambda x: x.get("priority_score", 0), reverse=True):
         vid = vehicle.get("vehicle_id")
         if not vid or vid in known_ids or not any(q.get("field") == "pcd" for q in vehicle.get("research_queries", [])):
             continue
         for domain in domains:
-            targets.append({
+            target = {
                 "vehicle_id":vid,"maker":vehicle.get("maker"),"model":vehicle.get("model"),"generation":vehicle.get("generation"),
                 "search_id":vehicle.get("search_id"),"expected_candidate":None,"target_domain":domain,
                 "reason":"discover_first_official_pcd_candidate",
                 "query":make_query(registry, domain, vehicle),
-            })
+            }
+            key = (vid, domain, target["query"])
+            if key in seen_keys:
+                continue
+            targets.append(target); seen_keys.add(key)
             if len(targets) >= max_queries:
                 return targets
     return targets
@@ -129,6 +179,9 @@ def relevance_score(target, result, registry):
         token = str(token or "").strip().lower()
         if token and token in text:
             score += pts
+    for code in target.get("search_hint_model_codes") or []:
+        if str(code).lower() in text:
+            score += 6
     for term in ["適合", "マッチング", "matching", "車種", "pcd", "型式"]:
         if term in text:
             score += 2
@@ -190,16 +243,17 @@ def main():
     pool = merge_candidate_pool(evidence_candidates, registry)
     confirmed, conflicts = build_confirmed(pool)
     REPORTS.mkdir(parents=True, exist_ok=True)
+    planner_count = sum(1 for t in targets if t.get("reason") == "gemini_web_hint_to_official_search")
     payload = {
-        "schema_version":"1.1.0","dataset":"brave_vehicle_research","production_master_write":False,
-        "policy":{"role":"independent_second_source_search","one_source_priority":True,"vehicle_specific_page_priority":True,"official_registered_domains_only":True,"different_domain_priority":True,"search_engine_independence_does_not_count_as_source_independence":True,"auto_confirmation_requires_two_independent_registered_domains_same_value":True,"conflict_blocks_auto_confirmation":True,"no_guessing":True},
-        "query_count":len(targets),"search_success_count":len(searches),"candidate_value_count":len(evidence_candidates),"persistent_candidate_count":len(pool),"auto_confirmed_count":len(confirmed),"conflict_count":len(conflicts),"error_count":len(errors),
+        "schema_version":"1.2.0","dataset":"brave_vehicle_research","production_master_write":False,
+        "policy":{"role":"official_search_executor","gemini_planner_priority":True,"one_source_priority":True,"vehicle_specific_page_priority":True,"official_registered_domains_only":True,"different_domain_priority":True,"search_engine_independence_does_not_count_as_source_independence":True,"auto_confirmation_requires_two_independent_registered_domains_same_value":True,"conflict_blocks_auto_confirmation":True,"no_guessing":True},
+        "query_count":len(targets),"planner_query_count":planner_count,"search_success_count":len(searches),"candidate_value_count":len(evidence_candidates),"persistent_candidate_count":len(pool),"auto_confirmed_count":len(confirmed),"conflict_count":len(conflicts),"error_count":len(errors),
         "searches":searches,"evidence_candidates":evidence_candidates,"errors":errors,
     }
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
-    lines=["# 第2根拠探索（Brave Search v1.7）","",f"- 検索実行: {len(targets)}件",f"- 正常検索: {len(searches)}件",f"- 今回のPCD候補値: {len(evidence_candidates)}件",f"- 累積候補: {len(pool)}件",f"- 2独立公式ドメイン一致: {len(confirmed)}件",f"- 競合: {len(conflicts)}件",f"- エラー: {len(errors)}件","- 1ソース取得済み車種を最優先し、メーカー別の車種適合・マッチングページを狙います。","- 商品・ニュース等の汎用ページは優先度を下げます。"]
+    lines=["# 公式狙い撃ち探索（Brave Search v1.8）","",f"- 検索実行: {len(targets)}件",f"- Geminiヒント起点: {planner_count}件",f"- 正常検索: {len(searches)}件",f"- 今回のPCD候補値: {len(evidence_candidates)}件",f"- 累積候補: {len(pool)}件",f"- 2独立公式ドメイン一致: {len(confirmed)}件",f"- 競合: {len(conflicts)}件",f"- エラー: {len(errors)}件","- Tavilyの広域Web探索→Geminiの検索戦略→Braveの公式狙い撃ち、の順で探索します。"]
     OUT_MD.write_text("\n".join(lines)+"\n", encoding="utf-8")
-    print(json.dumps({"query_count":len(targets),"search_success_count":len(searches),"candidate_value_count":len(evidence_candidates),"auto_confirmed_count":len(confirmed),"error_count":len(errors)},ensure_ascii=False,indent=2))
+    print(json.dumps({"query_count":len(targets),"planner_query_count":planner_count,"search_success_count":len(searches),"candidate_value_count":len(evidence_candidates),"auto_confirmed_count":len(confirmed),"error_count":len(errors)},ensure_ascii=False,indent=2))
     return 0
 
 if __name__ == "__main__":
