@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const stamp = "20260902-ai-team-v195-vehicle-first";
+  const stamp = "20260902-ai-team-v196-ipad-spacing";
 
   function style(href, key) {
     if (document.querySelector(`link[data-ui-style="${key}"]`)) return;
