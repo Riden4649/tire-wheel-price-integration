@@ -1,9 +1,12 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-3-wheel-torque";
+const CACHE_NAME = "integrated-price-navi-ver1-9-3-ai-team-ipad-r1";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./css/app-v174.css",
+  "./css/ui-v193.css",
   "./js/app-v174.js",
+  "./js/app-v174-core.js",
+  "./js/ui-v193.js",
   "./js/vehicle-fitment-v170.js",
   "./js/vehicle-search-master-v191.js",
   "./js/vehicle-store-v180.js",
