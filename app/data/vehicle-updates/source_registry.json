@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "dataset": "vehicle_source_registry",
   "policy": {
     "manufacturer_official": {"weight": 100, "auto_confirm_single_source": true},
@@ -17,6 +17,23 @@
       "pcd": "preserve_semantically_required_decimal_such_as_114.3",
       "thread_pitch": "always_preserve_decimal",
       "wheel_torque_nm": "preserve_integer_or_official_range"
+    }
+  },
+  "search_strategy": {
+    "priority": ["one_source_needs_second", "vehicle_specific_fitment_page", "first_official_candidate"],
+    "fitment_terms": ["適合", "マッチング", "車種", "PCD", "型式"],
+    "deprioritize_url_terms": ["/products/", "/news/", "/topics/", "/campaign/"],
+    "domain_hints": {
+      "weds.co.jp": {"preferred_url_terms": ["search.weds.co.jp", "/matching/", "/match/"], "query_terms": ["適合", "マッチング", "車種"]},
+      "work-wheels.co.jp": {"preferred_url_terms": ["/search/web_matching/", "web_matching"], "query_terms": ["マッチング", "適合", "型式"]},
+      "mid-wheels.com": {"preferred_url_terms": ["matching", "match", "car"], "query_terms": ["適合", "マッチング", "車種"]},
+      "hotstuff-cp.co.jp": {"preferred_url_terms": ["matching", "match", "vehicle"], "query_terms": ["適合", "マッチング", "車種"]},
+      "bridgestone.co.jp": {"preferred_url_terms": ["wheel", "matching", "car"], "query_terms": ["適合", "車種", "ホイール"]},
+      "toyota.jp": {"preferred_url_terms": ["manual", "spec"], "query_terms": ["主要諸元", "取扱説明書", "型式"]},
+      "manual.toyota.jp": {"preferred_url_terms": ["manual"], "query_terms": ["取扱説明書", "ホイール", "締付"]},
+      "lexus.jp": {"preferred_url_terms": ["manual", "spec"], "query_terms": ["主要諸元", "取扱説明書", "型式"]},
+      "manual.lexus.jp": {"preferred_url_terms": ["manual"], "query_terms": ["取扱説明書", "ホイール", "締付"]},
+      "honda.co.jp": {"preferred_url_terms": ["faq", "manual", "spec"], "query_terms": ["取扱説明書", "主要諸元", "ホイール"]}
     }
   },
   "domains": [
