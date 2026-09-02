@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.2
+name: 車種DB育成 v1.3 自動運転
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
+      - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
@@ -20,19 +21,25 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
+      - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
   schedule:
-    # Sunday 07:15 JST = Saturday 22:15 UTC
-    - cron: '15 22 * * 6'
+    # 毎日 07:15 JST = 前日 22:15 UTC。PCD欠損が無くなれば検索対象は0件になる。
+    - cron: '15 22 * * *'
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: vehicle-db-autopilot
+  cancel-in-progress: false
 
 jobs:
   grow-and-check:
-    name: 車種DBチェック＋Web調査
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    name: 車種DB自動育成＋Web調査
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -43,7 +50,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: QAチェック
+      - name: 事前QAチェック
         run: python tests/vehicle_db_qa.py
 
       - name: DB健全性・世代境界チェック
@@ -62,6 +69,16 @@ jobs:
           TAVILY_MAX_QUERIES: '12'
         run: python tools/tavily_vehicle_research.py
 
+      - name: PCD自動確定反映（2独立公式一致のみ）
+        if: ${{ github.event_name != 'pull_request' }}
+        run: python tools/apply_auto_confirmed_pcd.py
+
+      - name: 反映後QAチェック
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          python tests/vehicle_db_qa.py
+          python tools/vehicle_db_health.py
+
       - name: 証拠データ評価
         run: python tools/evaluate_vehicle_evidence.py
 
@@ -76,6 +93,17 @@ jobs:
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             cat reports/tavily-search-results.md >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ -f reports/auto-pcd-apply.json ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('reports/auto-pcd-apply.json', encoding='utf-8'))
+          print('# PCD自動反映')
+          print()
+          print(f"- 本番反映: {d['applied_count']}件")
+          print(f"- 安全条件でスキップ: {d['skipped_count']}件")
+          PY
+          fi
           printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
@@ -87,6 +115,23 @@ jobs:
           print(f"- 追加根拠待ち: {d['pending_count']}")
           print(f"- 無効データ: {d['invalid_count']}")
           PY
+
+      - name: 自動調査結果・確定PCDを保存
+        if: ${{ github.event_name != 'pull_request' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            app/data/vehicle-updates/auto-research-candidates.json \
+            app/data/vehicle-updates/auto-confirmed-pcd.json \
+            app/data/vehicle-updates/change_log.json \
+            app/data/vehicles_2012_2026.json
+          if git diff --cached --quiet; then
+            echo "保存対象の変更なし"
+          else
+            git commit -m "chore: persist automated vehicle research [skip ci]"
+            git push
+          fi
 
       - name: レポート保存
         uses: actions/upload-artifact@v4
@@ -101,6 +146,7 @@ jobs:
             reports/research-candidates.md
             reports/tavily-search-results.json
             reports/tavily-search-results.md
+            reports/auto-pcd-apply.json
             reports/evidence-evaluation.json
             reports/review-queue.json
             reports/change-plan.json
