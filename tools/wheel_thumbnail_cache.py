@@ -86,8 +86,11 @@ def main() -> None:
     details = []
 
     for item in items:
+        # Keep the permission state explicit in the master for humans, app code and GitHub diffs.
+        item.setdefault("offline_cache_allowed", False)
+        item.setdefault("local_path", "")
         if processed >= MAX_ITEMS:
-            break
+            continue
         if not item.get("active", True):
             continue
         if not item.get("image_url"):
