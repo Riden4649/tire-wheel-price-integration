@@ -1,4 +1,4 @@
-const CACHE_NAME = "integrated-price-navi-ver1-9-6-ipad-spacing-r1";
+const CACHE_NAME = "integrated-price-navi-ver1-9-7-full-master-replace-r1";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,6 +7,7 @@ const APP_SHELL = [
   "./css/ui-v194.css",
   "./css/ui-v194-qa.css",
   "./js/app-v174.js",
+  "./js/master-db-update-v197.js",
   "./js/app-v174-core.js",
   "./js/ui-v194.js",
   "./js/vehicle-fitment-v170.js",
@@ -21,8 +22,6 @@ const APP_SHELL = [
   "./data/vehicles_2012_2026.json",
   "./data/jp_vehicle_search_master_2000_2026_v1.json",
   "./data/vehicle_service_specs.json",
-  "./data/vehicle-updates/online-master.json",
-  "./data/vehicle-updates/manifest.json",
   "./manifest.json",
   "./icons/favicon-32-v172-tire.png",
   "./icons/icon-192-v172-tire.png",
@@ -37,9 +36,5 @@ self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
   if (event.request.mode === "navigate") { event.respondWith(fetch(event.request).catch(() => caches.match(OFFLINE_URL))); return; }
   if (url.origin !== location.origin) return;
-  if (url.pathname.includes("/data/vehicle-updates/")) {
-    event.respondWith(fetch(event.request).then(response => { if (response?.status === 200) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone())); return response; }).catch(() => caches.match(event.request, { ignoreSearch: true })));
-    return;
-  }
   event.respondWith(caches.match(event.request, { ignoreSearch: true }).then(cached => cached || fetch(event.request).then(response => { if (!response || response.status !== 200) return response; const copy=response.clone(); caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)); return response; }).catch(() => caches.match(OFFLINE_URL))));
 });
