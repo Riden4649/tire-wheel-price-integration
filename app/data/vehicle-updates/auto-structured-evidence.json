@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "auto_structured_vehicle_evidence",
+  "updated_at": "2026-09-02T14:25:10+09:00",
+  "policy": {
+    "official_registered_domains_only": true,
+    "gemini_output_is_candidate_not_truth": true,
+    "missing_values_are_never_inferred": true,
+    "production_write_for_non_pcd_fields": false,
+    "pcd_still_requires_two_independent_official_domains_same_value": true
+  },
+  "record_count": 0,
+  "records": []
+}
