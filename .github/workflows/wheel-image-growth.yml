@@ -1,0 +1,70 @@
+name: ホイール画像DB育成 v1.0
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 22 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'app/data/wheels/image_master.json'
+      - 'tools/wheel_image_research.py'
+      - 'tests/wheel_image_qa.py'
+      - '.github/workflows/wheel-image-growth.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wheel-image-autopilot
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 依存パッケージ
+        run: pip install requests beautifulsoup4
+      - name: 事前QA
+        run: python tests/wheel_image_qa.py
+      - name: 公式ホイール画像候補収集
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          WHEEL_IMAGE_MAX_ITEMS: '12'
+        run: python tools/wheel_image_research.py
+      - name: 反映後QA
+        run: python tests/wheel_image_qa.py
+      - name: サマリー
+        if: ${{ always() }}
+        run: |
+          if [ -f reports/wheel-image-research.md ]; then
+            cat reports/wheel-image-research.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: 候補保存
+        if: ${{ always() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/data/wheels/image_master.json
+          if git diff --cached --quiet; then
+            echo "保存対象の変更なし"
+          else
+            git commit -m "chore: collect official wheel image candidates [skip ci]"
+            git push
+          fi
+      - name: レポート保存
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheel-image-growth-report
+          path: |
+            reports/wheel-image-research.json
+            reports/wheel-image-research.md
+          if-no-files-found: warn
+          retention-days: 30
