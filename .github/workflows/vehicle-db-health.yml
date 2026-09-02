@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.1
+name: 車種DB育成 v1.2
 
 on:
   workflow_dispatch:
@@ -8,6 +8,7 @@ on:
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
+      - 'tools/tavily_vehicle_research.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
@@ -18,6 +19,7 @@ on:
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
+      - 'tools/tavily_vehicle_research.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
@@ -30,7 +32,7 @@ permissions:
 
 jobs:
   grow-and-check:
-    name: 車種DBチェック
+    name: 車種DBチェック＋Web調査
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -53,6 +55,13 @@ jobs:
       - name: 調査候補作成
         run: python tools/build_research_candidates.py
 
+      - name: Web自動検索（PCD優先）
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          TAVILY_MAX_QUERIES: '12'
+        run: python tools/tavily_vehicle_research.py
+
       - name: 証拠データ評価
         run: python tools/evaluate_vehicle_evidence.py
 
@@ -63,6 +72,10 @@ jobs:
           cat reports/missing-data-queue.md >> "$GITHUB_STEP_SUMMARY"
           printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
           cat reports/research-candidates.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/tavily-search-results.md ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/tavily-search-results.md >> "$GITHUB_STEP_SUMMARY"
+          fi
           printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
@@ -86,7 +99,10 @@ jobs:
             reports/missing-data-queue.md
             reports/research-candidates.json
             reports/research-candidates.md
+            reports/tavily-search-results.json
+            reports/tavily-search-results.md
             reports/evidence-evaluation.json
             reports/review-queue.json
             reports/change-plan.json
+          if-no-files-found: warn
           retention-days: 30
