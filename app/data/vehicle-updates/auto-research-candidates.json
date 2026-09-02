@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-02T16:41:33+09:00",
+  "updated_at": "2026-09-02T16:53:53+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -9,8 +9,25 @@
     "any_conflicting_official_value_blocks_auto_confirm": true,
     "no_guessing": true
   },
-  "record_count": 5,
+  "record_count": 6,
   "records": [
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://search.weds.co.jp/maker/honda/akoodo-cl79-d/wedssport-all",
+      "source_title": "車種検索 -> ホンダ -> アコード CL7-9　*D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_score": 0.8047902,
+      "source_domain": "weds.co.jp",
+      "first_seen_at": "2026-09-02T16:50:00+09:00",
+      "last_seen_at": "2026-09-02T16:50:00+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
     {
       "vehicle_id": "HON_ELYSION_RR",
       "search_id": "ホンダ:エリシオン",
@@ -42,7 +59,7 @@
       "search_score": 0.69672287,
       "source_domain": "weds.co.jp",
       "first_seen_at": "2026-09-02T16:25:44+09:00",
-      "last_seen_at": "2026-09-02T16:25:44+09:00",
+      "last_seen_at": "2026-09-02T16:50:00+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -59,7 +76,7 @@
       "search_score": 0.6466616,
       "source_domain": "honda.co.jp",
       "first_seen_at": "2026-09-02T16:01:27+09:00",
-      "last_seen_at": "2026-09-02T16:25:44+09:00",
+      "last_seen_at": "2026-09-02T16:50:00+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

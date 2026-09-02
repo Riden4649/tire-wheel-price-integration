@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T16:26:50+09:00",
+  "updated_at": "2026-09-02T16:53:53+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,8 +11,77 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 32,
+  "record_count": 42,
   "records": [
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "search_id": "ホンダ:アコード",
+      "maker": "ホンダ",
+      "model": "アコード",
+      "generation": "CL7-CL9",
+      "url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 13,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 67,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or fetched to confirm vehicle fitment data.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 448,
+        "candidatesTokenCount": 168,
+        "totalTokenCount": 1265,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 448
+          }
+        ],
+        "toolUsePromptTokenCount": 649,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 649
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:52:17+09:00",
+      "last_seen_at": "2026-09-02T16:52:17+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
     {
       "vehicle_id": "HON_ELYSION_RR",
       "search_id": "ホンダ:エリシオン",
@@ -85,6 +154,566 @@
       "status": "candidate_only_needs_corroboration"
     },
     {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
+      "title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR1"
+      ],
+      "generation_text": "2006～2012",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "メーカー/車種 ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
+      "source_title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 236,
+        "totalTokenCount": 4144,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 3443,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3443
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:51:07+09:00",
+      "last_seen_at": "2026-09-02T16:51:07+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/428/5388/18735/21426/",
+      "title": "ホンダ:エリシオン:2006～2012:RR3:VGのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ エリシオン 2006～2012 RR3",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR3"
+      ],
+      "generation_text": "2006～2012",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ\nエリシオン\nグレード：\n VG\n年式：\n 2006～2012\n型式：\n RR3"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/428/5388/18735/21426/",
+      "source_title": "ホンダ:エリシオン:2006～2012:RR3:VGのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/428/5388/18735/21426/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 10805,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 10107,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10107
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:51:14+09:00",
+      "last_seen_at": "2026-09-02T16:51:14+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/429/5416/18797/21488/",
+      "title": "ホンダ:エリシオン プレステージ:2007～2013:RR1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly specifies Honda Elysion Prestige (エリシオン プレステージ) model code RR1.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR1"
+      ],
+      "generation_text": "2007～2013",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ　エリシオン プレステージ 年式： 2007～2013 型式： RR1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/429/5416/18797/21488/",
+      "source_title": "ホンダ:エリシオン プレステージ:2007～2013:RR1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/429/5416/18797/21488/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 225,
+        "totalTokenCount": 10815,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 10125,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10125
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:51:11+09:00",
+      "last_seen_at": "2026-09-02T16:51:11+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
+      "title": "MATCHING｜WORK COMPANY LIMITED",
+      "origin": "brave",
+      "search_relevance": 9,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 58,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
+      "source_title": "MATCHING｜WORK COMPANY LIMITED",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 451,
+        "candidatesTokenCount": 166,
+        "totalTokenCount": 1269,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 451
+          }
+        ],
+        "toolUsePromptTokenCount": 652,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 652
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:53:26+09:00",
+      "last_seen_at": "2026-09-02T16:53:26+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 13,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 67,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or fetched to confirm the vehicle identity and fitment specifications.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 451,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 1274,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 451
+          }
+        ],
+        "toolUsePromptTokenCount": 652,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 652
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:51:51+09:00",
+      "last_seen_at": "2026-09-02T16:51:51+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/421/5310/18517/21192/",
+      "title": "ホンダ:インサイト:2004～2009:ZE1:ベースグレードのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 27,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 76,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ インサイト 2004～2009 ZE1 ベースグレード",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "ZE1"
+      ],
+      "generation_text": "2004～2009",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ\nインサイト\nグレード：\nベースグレード\n年式：\n2004～2009\n型式：\nZE1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/421/5310/18517/21192/",
+      "source_title": "ホンダ:インサイト:2004～2009:ZE1:ベースグレードのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/421/5310/18517/21192/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 232,
+        "totalTokenCount": 10769,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 10077,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10077
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:50:26+09:00",
+      "last_seen_at": "2026-09-02T16:50:26+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://tire.bridgestone.co.jp/search/car/4/392/5053/17518/20132/",
+      "title": "日産:リーフ:2020～:ZE1:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 20,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 66,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL could not be accessed or verified.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/4/392/5053/17518/20132/",
+      "source_title": "日産:リーフ:2020～:ZE1:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/404",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 176,
+        "totalTokenCount": 1324,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 688,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 688
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:52:42+09:00",
+      "last_seen_at": "2026-09-02T16:52:42+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
+      "url": "https://tire.bridgestone.co.jp/search/car/4/392/5055/17537/20156/",
+      "title": "日産:リーフ:2022～:ZE1:Xのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 20,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 66,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The webpage could not be accessed to confirm the vehicle identity and fitment facts.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/4/392/5055/17537/20156/",
+      "source_title": "日産:リーフ:2022～:ZE1:Xのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/404",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 182,
+        "totalTokenCount": 1330,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 460
+          }
+        ],
+        "toolUsePromptTokenCount": 688,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 688
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:53:07+09:00",
+      "last_seen_at": "2026-09-02T16:53:07+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
       "vehicle_id": "HON_INSIGHT_ZE1",
       "search_id": "ホンダ:インサイト",
       "maker": "ホンダ",
@@ -98,7 +727,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The inspected URL is for the Nissan Leaf (ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "identity_reason": "The provided URL is for the Nissan Leaf (リーフ ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -132,8 +761,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 458,
-        "candidatesTokenCount": 188,
-        "totalTokenCount": 3312,
+        "candidatesTokenCount": 190,
+        "totalTokenCount": 3314,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -150,7 +779,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:31+09:00",
-      "last_seen_at": "2026-09-02T16:26:31+09:00",
+      "last_seen_at": "2026-09-02T16:51:06+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -167,7 +796,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The URL is for the Nissan Leaf (ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
+      "identity_reason": "The URL is for the Nissan Leaf (リーフ ZE1), whereas the target vehicle is the Honda Insight (ZE1).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -201,8 +830,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 189,
-        "totalTokenCount": 2377,
+        "candidatesTokenCount": 191,
+        "totalTokenCount": 2379,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -219,7 +848,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:04+09:00",
-      "last_seen_at": "2026-09-02T16:26:04+09:00",
+      "last_seen_at": "2026-09-02T16:50:28+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -236,7 +865,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 72,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is for a Nissan Leaf (riifu-ze1-c), not a Honda Insight (ZE1). Furthermore, the page content could not be accessed.",
+      "identity_reason": "The requested URL corresponds to a Nissan Leaf (ZE1), whereas the target vehicle is a Honda Insight (ZE1). Furthermore, the page content could not be accessed.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -270,8 +899,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 459,
-        "candidatesTokenCount": 200,
-        "totalTokenCount": 1345,
+        "candidatesTokenCount": 199,
+        "totalTokenCount": 1344,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -288,7 +917,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:34+09:00",
-      "last_seen_at": "2026-09-02T16:26:34+09:00",
+      "last_seen_at": "2026-09-02T16:51:03+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -366,6 +995,79 @@
       "maker": "ホンダ",
       "model": "インサイト",
       "generation": "ZE1",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "origin": "brave",
+      "search_relevance": 4,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 48,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL does not explicitly identify or list the target vehicle (Honda Insight ZE1).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 453,
+        "candidatesTokenCount": 177,
+        "totalTokenCount": 10684,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 453
+          }
+        ],
+        "toolUsePromptTokenCount": 10054,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 6930
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 3124
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T16:53:53+09:00",
+      "last_seen_at": "2026-09-02T16:53:53+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "search_id": "ホンダ:インサイト",
+      "maker": "ホンダ",
+      "model": "インサイト",
+      "generation": "ZE1",
       "url": "https://www.work-wheels.co.jp/img_save/pdf/5e17c8b164457.pdf",
       "title": "▲ SPECIFICATIONS 20inch 2PIECE/REVERSE ディスクカラー SIZE セミコンケイブ ミドルコンケイブ マットブラック",
       "origin": "brave",
@@ -374,7 +1076,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 48,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a WORK wheels catalog PDF for ZEAST ST1 containing generic wheel specifications and a Scion/Toyota 86 photo, with no mention of Honda Insight ZE1.",
+      "identity_reason": "The provided URL is a WORK Wheels catalog PDF for ZEAST ST1 wheels and does not mention or identify the Honda Insight ZE1 vehicle anywhere.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -408,8 +1110,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 454,
-        "candidatesTokenCount": 198,
-        "totalTokenCount": 4863,
+        "candidatesTokenCount": 189,
+        "totalTokenCount": 4854,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -430,7 +1132,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:39+09:00",
-      "last_seen_at": "2026-09-02T16:26:39+09:00",
+      "last_seen_at": "2026-09-02T16:53:30+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -447,7 +1149,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify the vehicle identity.",
+      "identity_reason": "The requested URL could not be accessed or fetched to verify the target vehicle.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -499,7 +1201,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:26:36+09:00",
-      "last_seen_at": "2026-09-02T16:26:36+09:00",
+      "last_seen_at": "2026-09-02T16:51:16+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
