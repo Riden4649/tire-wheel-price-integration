@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.3 自動運転
+name: 車種DB育成 v1.4 Tavily＋Brave自動運転
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
+      - 'tools/brave_vehicle_research.py'
       - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
@@ -21,6 +22,7 @@ on:
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
+      - 'tools/brave_vehicle_research.py'
       - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
@@ -39,7 +41,7 @@ concurrency:
 jobs:
   grow-and-check:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    name: 車種DB自動育成＋Web調査
+    name: 車種DB自動育成＋2系統Web調査
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -62,12 +64,19 @@ jobs:
       - name: 調査候補作成
         run: python tools/build_research_candidates.py
 
-      - name: Web自動検索（PCD優先）
+      - name: 第1探索 Tavily（PCD優先）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           TAVILY_MAX_QUERIES: '12'
         run: python tools/tavily_vehicle_research.py
+
+      - name: 第2根拠探索 Brave（別公式ドメイン優先）
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          BRAVE_MAX_QUERIES: '12'
+        run: python tools/brave_vehicle_research.py
 
       - name: PCD自動確定反映（2独立公式一致のみ）
         if: ${{ github.event_name != 'pull_request' }}
@@ -92,6 +101,10 @@ jobs:
           if [ -f reports/tavily-search-results.md ]; then
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             cat reports/tavily-search-results.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f reports/brave-search-results.md ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/brave-search-results.md >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ -f reports/auto-pcd-apply.json ]; then
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
@@ -146,6 +159,8 @@ jobs:
             reports/research-candidates.md
             reports/tavily-search-results.json
             reports/tavily-search-results.md
+            reports/brave-search-results.json
+            reports/brave-search-results.md
             reports/auto-pcd-apply.json
             reports/evidence-evaluation.json
             reports/review-queue.json
