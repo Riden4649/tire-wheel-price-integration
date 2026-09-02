@@ -1,4 +1,4 @@
-name: ホイール画像DB育成 v1.1
+name: ホイール画像DB育成 v1.2 初期加速20件/日
 
 on:
   workflow_dispatch:
@@ -36,11 +36,11 @@ jobs:
         run: pip install requests beautifulsoup4 pillow
       - name: 事前QA
         run: python tests/wheel_image_qa.py
-      - name: 公式ホイール画像候補収集
+      - name: 公式ホイール画像候補収集（初期加速20件/日）
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
-          WHEEL_IMAGE_MAX_ITEMS: '12'
+          WHEEL_IMAGE_MAX_ITEMS: '20'
         run: python tools/wheel_image_research.py
       - name: オフライン用WebPサムネイル生成
         env:
