@@ -1,17 +1,367 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T15:28:05+09:00",
+  "updated_at": "2026-09-02T15:31:12+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
     "missing_values_are_never_inferred": true,
     "production_write_for_non_pcd_fields": false,
     "pcd_still_requires_two_independent_official_domains_same_value": true,
-    "temporary_api_errors_retry_then_free_tier_fallback": true
+    "temporary_api_errors_retry_then_free_tier_fallback": true,
+    "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 10,
+  "record_count": 18,
   "records": [
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/215/2221/8035/9429/",
+      "title": "トヨタ:アルファード G:2002～2008:MNH15W:MSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 58,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "Unable to access the URL to verify vehicle identity and fitment specifications.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/215/2221/8035/9429/",
+      "source_title": "トヨタ:アルファード G:2002～2008:MNH15W:MSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/215/2221/8035/9429/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 178,
+        "totalTokenCount": 1330,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 688,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 688
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:10+09:00",
+      "last_seen_at": "2026-09-02T15:31:10+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/23/",
+      "title": "アルファードG/Vのタイヤ 中間検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 11,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 67,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The requested URL points to Suzuki Kizashi (スズキ キザシ), not Toyota Alphard G 10系.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/23/",
+      "source_title": "アルファードG/Vのタイヤ 中間検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/23/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 448,
+        "candidatesTokenCount": 174,
+        "totalTokenCount": 9247,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 448
+          }
+        ],
+        "toolUsePromptTokenCount": 8625,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 8625
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:01+09:00",
+      "last_seen_at": "2026-09-02T15:31:01+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://tirestore.bridgestone.co.jp/matching-data.html",
+      "title": "車両マッチング情報 | タイヤ販売と取付予約「コクピット・タイヤ館 オンラインストア」",
+      "origin": "brave",
+      "search_relevance": 16,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 66,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The target vehicle 'アルファードG' with model code '10系' is not present or identified on the inspected URL's matching data page.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://tirestore.bridgestone.co.jp/matching-data.html",
+      "source_title": "車両マッチング情報 | タイヤ販売と取付予約「コクピット・タイヤ館 オンラインストア」",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tirestore.bridgestone.co.jp/matching-data.html",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 445,
+        "candidatesTokenCount": 177,
+        "totalTokenCount": 6214,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 445
+          }
+        ],
+        "toolUsePromptTokenCount": 5592,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5592
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:02+09:00",
+      "last_seen_at": "2026-09-02T15:31:02+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://www.honda.co.jp/auto-archive/stepwgn/normal/2025/common/pdf/stepwgn_spec_list.pdf",
+      "title": "原動機型式 エンジン型式 エンジン種類・シリンダー数及び配置 弁機構 総排気量（L） 内径×行程（mm） 圧縮比 燃料供給装置型式 使用燃料種類",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "manufacturer_official",
+      "source_domain": "honda.co.jp",
+      "target_score": 59,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL points to a Honda Stepwgn specification document, which does not contain information about the target Toyota Alphard G (10系).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.honda.co.jp/auto-archive/stepwgn/normal/2025/common/pdf/stepwgn_spec_list.pdf",
+      "source_title": "原動機型式 エンジン型式 エンジン種類・シリンダー数及び配置 弁機構 総排気量（L） 内径×行程（mm） 圧縮比 燃料供給装置型式 使用燃料種類",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.honda.co.jp/auto-archive/stepwgn/normal/2025/common/pdf/stepwgn_spec_list.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 196,
+        "totalTokenCount": 4499,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 3837,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1527
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 2310
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:08+09:00",
+      "last_seen_at": "2026-09-02T15:31:08+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://lexus.jp/models/ux/pdf/specificationslist.pdf",
+      "title": "＊1 . 車両型式の末尾に“version L”は（L）、 “F SPORT”は（F）、",
+      "origin": "brave",
+      "search_relevance": 10,
+      "source_type": "manufacturer_official",
+      "source_domain": "lexus.jp",
+      "target_score": 61,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is for a Lexus UX specification sheet, not the Toyota Alphard G (10系).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://lexus.jp/models/ux/pdf/specificationslist.pdf",
+      "source_title": "＊1 . 車両型式の末尾に“version L”は（L）、 “F SPORT”は（F）、",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://lexus.jp/models/ux/pdf/specificationslist.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 445,
+        "candidatesTokenCount": 167,
+        "totalTokenCount": 5242,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 445
+          }
+        ],
+        "toolUsePromptTokenCount": 4630,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4630
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:04+09:00",
+      "last_seen_at": "2026-09-02T15:31:04+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
     {
       "vehicle_id": "TOY_ALPHARD_10",
       "search_id": "トヨタ:アルファードG",
@@ -150,6 +500,75 @@
       "maker": "トヨタ",
       "model": "アルファードG",
       "generation": "10系",
+      "url": "https://toyota.jp/pages/contents/alphard/004_p_001/pdf/alphard_spec_202606.pdf",
+      "title": "SPECIFICATIONS トヨタ アルファード 主要諸元表 トヨタ アルファード 主要諸元表 トヨタ アルファード 主要諸元表",
+      "origin": "brave",
+      "search_relevance": 8,
+      "source_type": "manufacturer_official",
+      "source_domain": "toyota.jp",
+      "target_score": 58,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is for the current generation Alphard (40系, specification date 2026/06), whereas the target vehicle is the 10系 generation.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "トヨタ アルファード 主要諸元表 (40系 specification sheet)"
+      },
+      "source_url": "https://toyota.jp/pages/contents/alphard/004_p_001/pdf/alphard_spec_202606.pdf",
+      "source_title": "SPECIFICATIONS トヨタ アルファード 主要諸元表 トヨタ アルファード 主要諸元表 トヨタ アルファード 主要諸元表",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://toyota.jp/pages/contents/alphard/004_p_001/pdf/alphard_spec_202606.pdf",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 218,
+        "totalTokenCount": 13770,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 13086,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 13086
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:31:12+09:00",
+      "last_seen_at": "2026-09-02T15:31:12+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
       "url": "https://search.weds.co.jp/brand/gyraft/9m/toyota/arufuaado-10kei4wd?size=16inch",
       "title": "Gyraft(グラフト) 製品一覧 -> 9M -> アルファード 10系/4WD ...",
       "source_type": "wheel_manufacturer_official",
@@ -276,6 +695,75 @@
       },
       "first_seen_at": "2026-09-02T14:31:46+09:00",
       "last_seen_at": "2026-09-02T15:27:53+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://work-wheels.co.jp/search/web_matching/",
+      "title": "MATCHING 車から検索｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 73,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The page is a vehicle search matching tool interface and does not explicitly identify or list fitment facts for the target vehicle (アルファードG 10系).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/search/web_matching/",
+      "source_title": "MATCHING 車から検索｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 443,
+        "candidatesTokenCount": 176,
+        "totalTokenCount": 2395,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 443
+          }
+        ],
+        "toolUsePromptTokenCount": 1776,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1776
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:30:58+09:00",
+      "last_seen_at": "2026-09-02T15:30:58+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -548,6 +1036,75 @@
       },
       "first_seen_at": "2026-09-02T14:28:00+09:00",
       "last_seen_at": "2026-09-02T15:27:52+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "search_id": "トヨタ:アルファードG",
+      "maker": "トヨタ",
+      "model": "アルファードG",
+      "generation": "10系",
+      "url": "https://www.work-wheels.co.jp/search/web_matching/attention/",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 18,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 79,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a general terms and conditions / precautions page and does not explicitly identify the target vehicle, model code (10系), or grade.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/search/web_matching/attention/",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/attention/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 447,
+        "candidatesTokenCount": 178,
+        "totalTokenCount": 2710,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 447
+          }
+        ],
+        "toolUsePromptTokenCount": 2085,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2085
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-02T15:30:56+09:00",
+      "last_seen_at": "2026-09-02T15:30:56+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {

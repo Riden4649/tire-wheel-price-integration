@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-02T15:28:05+09:00",
+  "updated_at": "2026-09-02T15:31:12+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
