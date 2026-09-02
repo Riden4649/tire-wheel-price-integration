@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.8 3API探索ループ
+name: 車種DB育成 v1.9 初期加速15件/日
 
 on:
   workflow_dispatch:
@@ -6,16 +6,7 @@ on:
     paths:
       - 'app/data/**'
       - 'dashboard/**'
-      - 'tools/vehicle_db_health.py'
-      - 'tools/build_missing_data_queue.py'
-      - 'tools/build_research_candidates.py'
-      - 'tools/tavily_vehicle_research.py'
-      - 'tools/gemini_search_planner.py'
-      - 'tools/brave_vehicle_research.py'
-      - 'tools/gemini_vehicle_extract.py'
-      - 'tools/apply_auto_confirmed_pcd.py'
-      - 'tools/build_api_run_status.py'
-      - 'tools/evaluate_vehicle_evidence.py'
+      - 'tools/**'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
   push:
@@ -23,16 +14,7 @@ on:
     paths:
       - 'app/data/**'
       - 'dashboard/**'
-      - 'tools/vehicle_db_health.py'
-      - 'tools/build_missing_data_queue.py'
-      - 'tools/build_research_candidates.py'
-      - 'tools/tavily_vehicle_research.py'
-      - 'tools/gemini_search_planner.py'
-      - 'tools/brave_vehicle_research.py'
-      - 'tools/gemini_vehicle_extract.py'
-      - 'tools/apply_auto_confirmed_pcd.py'
-      - 'tools/build_api_run_status.py'
-      - 'tools/evaluate_vehicle_evidence.py'
+      - 'tools/**'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
   schedule:
@@ -48,11 +30,13 @@ concurrency:
 jobs:
   grow-and-check:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    name: 広域探索→Gemini戦略→Brave公式探索→Gemini本文検証
+    name: PCD初期加速15件→公式2ソース照合→QA
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Python準備
         uses: actions/setup-python@v5
         with:
@@ -65,37 +49,32 @@ jobs:
         run: python tools/build_missing_data_queue.py
       - name: 調査候補作成
         run: python tools/build_research_candidates.py
-
-      - name: 第1層 Tavily（広いWebから探索ヒント収集）
+      - name: 第1層 Tavily（初期加速15件/日）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-          TAVILY_MAX_QUERIES: '12'
+          TAVILY_MAX_QUERIES: '15'
         run: python tools/tavily_vehicle_research.py
-
-      - name: 第2層 Gemini（Webヒントから公式検索戦略を生成）
+      - name: 第2層 Gemini（検索戦略）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
-          GEMINI_PLAN_MAX_VEHICLES: '6'
+          GEMINI_PLAN_MAX_VEHICLES: '15'
         run: python tools/gemini_search_planner.py
-
-      - name: 第3層 Brave（Gemini戦略で別公式ドメインを狙い撃ち）
+      - name: 第3層 Brave（別公式ドメイン探索15件/日）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
-          BRAVE_MAX_QUERIES: '12'
+          BRAVE_MAX_QUERIES: '15'
         run: python tools/brave_vehicle_research.py
-
-      - name: 第4層 Gemini（公式ページ本文検証＋複数項目回収）
+      - name: 第4層 Gemini（公式ページ本文検証）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
-          GEMINI_MAX_URLS: '8'
+          GEMINI_MAX_URLS: '15'
         run: python tools/gemini_vehicle_extract.py
-
       - name: PCD自動確定反映（2独立公式一致のみ）
         if: ${{ github.event_name != 'pull_request' }}
         run: python tools/apply_auto_confirmed_pcd.py
@@ -119,30 +98,6 @@ jobs:
               cat "reports/$f.md" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
-          if [ -f reports/auto-pcd-apply.json ]; then
-            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
-            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
-          import json
-          d=json.load(open('reports/auto-pcd-apply.json', encoding='utf-8'))
-          print('# PCD自動反映')
-          print()
-          print(f"- 本番反映: {d['applied_count']}件")
-          print(f"- 安全条件でスキップ: {d['skipped_count']}件")
-          PY
-          fi
-          if [ -f reports/evidence-evaluation.json ]; then
-            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
-            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
-          import json
-          d=json.load(open('reports/evidence-evaluation.json', encoding='utf-8'))
-          print('# 証拠データ評価')
-          print()
-          print(f"- 自動確定候補: {d['accepted_count']}")
-          print(f"- 人による確認: {d['review_count']}")
-          print(f"- 追加根拠待ち: {d['pending_count']}")
-          print(f"- 無効データ: {d['invalid_count']}")
-          PY
-          fi
       - name: 自動調査結果・確定PCD・構造化候補・API状況を保存
         if: ${{ always() && github.event_name != 'pull_request' }}
         run: |
@@ -158,8 +113,9 @@ jobs:
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
-            git commit -m "chore: persist automated vehicle research [skip ci]"
-            git push
+            git commit -m "chore: persist accelerated vehicle research [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
       - name: レポート保存
         if: ${{ always() }}
@@ -167,24 +123,8 @@ jobs:
         with:
           name: vehicle-db-growth-report
           path: |
-            reports/vehicle-db-health.json
-            reports/vehicle-db-health.md
-            reports/missing-data-queue.json
-            reports/missing-data-queue.md
-            reports/research-candidates.json
-            reports/research-candidates.md
-            reports/tavily-search-results.json
-            reports/tavily-search-results.md
-            reports/gemini-search-plan.json
-            reports/gemini-search-plan.md
-            reports/brave-search-results.json
-            reports/brave-search-results.md
-            reports/gemini-structured-extraction.json
-            reports/gemini-structured-extraction.md
-            reports/auto-pcd-apply.json
-            reports/evidence-evaluation.json
-            reports/review-queue.json
-            reports/change-plan.json
+            reports/*.json
+            reports/*.md
             dashboard/api-status.json
           if-no-files-found: warn
           retention-days: 30
