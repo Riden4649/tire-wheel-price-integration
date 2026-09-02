@@ -1,4 +1,4 @@
-name: ホイール画像DB育成 v1.0
+name: ホイール画像DB育成 v1.1
 
 on:
   workflow_dispatch:
@@ -8,7 +8,9 @@ on:
     branches: [main]
     paths:
       - 'app/data/wheels/image_master.json'
+      - 'app/assets/wheels/**'
       - 'tools/wheel_image_research.py'
+      - 'tools/wheel_thumbnail_cache.py'
       - 'tests/wheel_image_qa.py'
       - '.github/workflows/wheel-image-growth.yml'
 
@@ -25,11 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: 依存パッケージ
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 pillow
       - name: 事前QA
         run: python tests/wheel_image_qa.py
       - name: 公式ホイール画像候補収集
@@ -38,6 +42,12 @@ jobs:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           WHEEL_IMAGE_MAX_ITEMS: '12'
         run: python tools/wheel_image_research.py
+      - name: オフライン用WebPサムネイル生成
+        env:
+          WHEEL_THUMBNAIL_MAX_ITEMS: '20'
+          WHEEL_THUMBNAIL_MAX_SIDE: '480'
+          WHEEL_THUMBNAIL_QUALITY: '78'
+        run: python tools/wheel_thumbnail_cache.py
       - name: 反映後QA
         run: python tests/wheel_image_qa.py
       - name: サマリー
@@ -46,17 +56,28 @@ jobs:
           if [ -f reports/wheel-image-research.md ]; then
             cat reports/wheel-image-research.md >> "$GITHUB_STEP_SUMMARY"
           fi
-      - name: 候補保存
+          if [ -f reports/wheel-thumbnail-cache.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('reports/wheel-thumbnail-cache.json', encoding='utf-8'))
+          print('\n# オフライン画像キャッシュ')
+          print(f"- WebP生成: {d['cached']}件")
+          print(f"- 利用許可待ち: {d['skipped_permission']}件")
+          print(f"- 失敗/ブロック: {d['failed']}件")
+          PY
+          fi
+      - name: 候補・サムネイル保存
         if: ${{ always() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/data/wheels/image_master.json
+          git add app/data/wheels/image_master.json app/assets/wheels/ || true
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
-            git commit -m "chore: collect official wheel image candidates [skip ci]"
-            git push
+            git commit -m "chore: collect wheel images and offline thumbnails [skip ci]"
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
       - name: レポート保存
         if: ${{ always() }}
@@ -66,5 +87,6 @@ jobs:
           path: |
             reports/wheel-image-research.json
             reports/wheel-image-research.md
+            reports/wheel-thumbnail-cache.json
           if-no-files-found: warn
           retention-days: 30
