@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.4 Tavily＋Brave自動運転
+name: 車種DB育成 v1.5 Tavily＋Brave＋Gemini自動運転
 
 on:
   workflow_dispatch:
@@ -10,6 +10,7 @@ on:
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
       - 'tools/brave_vehicle_research.py'
+      - 'tools/gemini_vehicle_extract.py'
       - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
@@ -23,6 +24,7 @@ on:
       - 'tools/build_research_candidates.py'
       - 'tools/tavily_vehicle_research.py'
       - 'tools/brave_vehicle_research.py'
+      - 'tools/gemini_vehicle_extract.py'
       - 'tools/apply_auto_confirmed_pcd.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
@@ -41,7 +43,7 @@ concurrency:
 jobs:
   grow-and-check:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    name: 車種DB自動育成＋2系統Web調査
+    name: 車種DB自動育成＋検索＋公式ページ構造化
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -78,6 +80,14 @@ jobs:
           BRAVE_MAX_QUERIES: '12'
         run: python tools/brave_vehicle_research.py
 
+      - name: 公式ページ本文をGeminiで構造化抽出
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: 'gemini-2.5-flash-lite'
+          GEMINI_MAX_URLS: '8'
+        run: python tools/gemini_vehicle_extract.py
+
       - name: PCD自動確定反映（2独立公式一致のみ）
         if: ${{ github.event_name != 'pull_request' }}
         run: python tools/apply_auto_confirmed_pcd.py
@@ -106,6 +116,10 @@ jobs:
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             cat reports/brave-search-results.md >> "$GITHUB_STEP_SUMMARY"
           fi
+          if [ -f reports/gemini-structured-extraction.md ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/gemini-structured-extraction.md >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ -f reports/auto-pcd-apply.json ]; then
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
@@ -129,7 +143,7 @@ jobs:
           print(f"- 無効データ: {d['invalid_count']}")
           PY
 
-      - name: 自動調査結果・確定PCDを保存
+      - name: 自動調査結果・確定PCD・構造化候補を保存
         if: ${{ github.event_name != 'pull_request' }}
         run: |
           git config user.name "github-actions[bot]"
@@ -137,6 +151,7 @@ jobs:
           git add \
             app/data/vehicle-updates/auto-research-candidates.json \
             app/data/vehicle-updates/auto-confirmed-pcd.json \
+            app/data/vehicle-updates/auto-structured-evidence.json \
             app/data/vehicle-updates/change_log.json \
             app/data/vehicles_2012_2026.json
           if git diff --cached --quiet; then
@@ -161,6 +176,8 @@ jobs:
             reports/tavily-search-results.md
             reports/brave-search-results.json
             reports/brave-search-results.md
+            reports/gemini-structured-extraction.json
+            reports/gemini-structured-extraction.md
             reports/auto-pcd-apply.json
             reports/evidence-evaluation.json
             reports/review-queue.json
