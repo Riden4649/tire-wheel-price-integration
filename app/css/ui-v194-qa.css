@@ -1,0 +1,8 @@
+/* v1.9.4 QA guards */
+html.ai-team-v194 #vehicleSummary[hidden]{display:none!important}
+html.ai-team-v194 [hidden]{visibility:visible}
+html.ai-team-v194 #missingVehiclePanel[hidden],html.ai-team-v194 #searchOnlyVehicleNotice[hidden],html.ai-team-v194 #wheelFitmentWarning[hidden],html.ai-team-v194 #vehicleVariantStep[hidden]{display:none!important}
+@media(min-width:761px){
+html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]){grid-template-columns:1fr}
+html.ai-team-v194 #vehicleChoicePanel:has(#vehicleSummary[hidden]) .vehicle-model-search{grid-column:1}
+}
