@@ -1,10 +1,11 @@
-name: 車種DB育成 v1.5 Tavily＋Brave＋Gemini自動運転
+name: 車種DB育成 v1.6 API稼働状況ダッシュボード対応
 
 on:
   workflow_dispatch:
   pull_request:
     paths:
       - 'app/data/**'
+      - 'dashboard/**'
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
@@ -12,6 +13,7 @@ on:
       - 'tools/brave_vehicle_research.py'
       - 'tools/gemini_vehicle_extract.py'
       - 'tools/apply_auto_confirmed_pcd.py'
+      - 'tools/build_api_run_status.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
@@ -19,6 +21,7 @@ on:
     branches: [main]
     paths:
       - 'app/data/**'
+      - 'dashboard/**'
       - 'tools/vehicle_db_health.py'
       - 'tools/build_missing_data_queue.py'
       - 'tools/build_research_candidates.py'
@@ -26,6 +29,7 @@ on:
       - 'tools/brave_vehicle_research.py'
       - 'tools/gemini_vehicle_extract.py'
       - 'tools/apply_auto_confirmed_pcd.py'
+      - 'tools/build_api_run_status.py'
       - 'tools/evaluate_vehicle_evidence.py'
       - 'tests/vehicle_db_qa.py'
       - '.github/workflows/vehicle-db-health.yml'
@@ -101,13 +105,22 @@ jobs:
       - name: 証拠データ評価
         run: python tools/evaluate_vehicle_evidence.py
 
+      - name: API稼働状況スナップショット作成
+        if: ${{ always() && github.event_name != 'pull_request' }}
+        run: python tools/build_api_run_status.py
+
       - name: 結果サマリー作成
+        if: ${{ always() }}
         run: |
-          cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"
-          printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
-          cat reports/missing-data-queue.md >> "$GITHUB_STEP_SUMMARY"
-          printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
-          cat reports/research-candidates.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/vehicle-db-health.md ]; then cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f reports/missing-data-queue.md ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/missing-data-queue.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f reports/research-candidates.md ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            cat reports/research-candidates.md >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ -f reports/tavily-search-results.md ]; then
             printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
             cat reports/tavily-search-results.md >> "$GITHUB_STEP_SUMMARY"
@@ -131,8 +144,9 @@ jobs:
           print(f"- 安全条件でスキップ: {d['skipped_count']}件")
           PY
           fi
-          printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
-          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/evidence-evaluation.json ]; then
+            printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           d=json.load(open('reports/evidence-evaluation.json', encoding='utf-8'))
           print('# 証拠データ評価')
@@ -142,9 +156,10 @@ jobs:
           print(f"- 追加根拠待ち: {d['pending_count']}")
           print(f"- 無効データ: {d['invalid_count']}")
           PY
+          fi
 
-      - name: 自動調査結果・確定PCD・構造化候補を保存
-        if: ${{ github.event_name != 'pull_request' }}
+      - name: 自動調査結果・確定PCD・構造化候補・API状況を保存
+        if: ${{ always() && github.event_name != 'pull_request' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -153,7 +168,8 @@ jobs:
             app/data/vehicle-updates/auto-confirmed-pcd.json \
             app/data/vehicle-updates/auto-structured-evidence.json \
             app/data/vehicle-updates/change_log.json \
-            app/data/vehicles_2012_2026.json
+            app/data/vehicles_2012_2026.json \
+            dashboard/api-status.json
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
@@ -162,6 +178,7 @@ jobs:
           fi
 
       - name: レポート保存
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: vehicle-db-growth-report
@@ -182,5 +199,6 @@ jobs:
             reports/evidence-evaluation.json
             reports/review-queue.json
             reports/change-plan.json
+            dashboard/api-status.json
           if-no-files-found: warn
           retention-days: 30
