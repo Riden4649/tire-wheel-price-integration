@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-02",
+  "updated_at": "2026-09-03",
   "policy": {
     "image_scope": "design reference image; size mismatch allowed",
     "matching_key": "maker + brand + model + color",
@@ -431,7 +431,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "",
+      "notes": "official candidate not found in this run",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -446,7 +446,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "",
+      "notes": "official candidate not found in this run",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -461,7 +461,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "",
+      "notes": "official candidate not found in this run",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -472,11 +472,11 @@
       "model": "TITO",
       "color_code": "GM",
       "color_name": "ﾃﾞｨｰﾌﾟﾒﾀﾙ",
-      "product_url": "",
-      "image_url": "",
-      "image_status": "missing",
+      "product_url": "https://www.weds.co.jp/event_old/20190305-3.html",
+      "image_url": "https://www.weds.co.jp/images/thumb_wheel_index_stylish_zamik_tito.png",
+      "image_status": "candidate",
       "active": true,
-      "notes": "",
+      "notes": "auto candidate score=82 title=weds CO., LTD.ã|ãæ ªå¼ä¼ç¤¾ã¦ã§ããºã|ããã¥ã¼ã¹ãï½ã2019/03/05ãã3æ16æ¥ã»17æ¥ åµåº«çãã",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -491,7 +491,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "",
+      "notes": "official candidate not found in this run",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -506,7 +506,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "",
+      "notes": "official candidate not found in this run",
       "offline_cache_allowed": false,
       "local_path": ""
     },
