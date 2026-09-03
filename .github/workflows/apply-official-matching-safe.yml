@@ -28,8 +28,15 @@ jobs:
         run: python tools/apply_official_matching_safe.py
       - name: 車種DB QA
         run: |
-          node app/tests/vehicle-data-audit.mjs
-          node app/tests/vehicle-search-master-audit.mjs
+          cat > /tmp/ci-dom-stub.cjs <<'EOF'
+          globalThis.document = {
+            readyState: "complete",
+            querySelector: () => null,
+            addEventListener: () => {}
+          };
+          EOF
+          NODE_OPTIONS="--require=/tmp/ci-dom-stub.cjs" node app/tests/vehicle-data-audit.mjs
+          NODE_OPTIONS="--require=/tmp/ci-dom-stub.cjs" node app/tests/vehicle-search-master-audit.mjs
           python tests/vehicle_db_qa.py
       - name: 変更をコミット
         run: |
