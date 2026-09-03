@@ -74,6 +74,30 @@
       ],
       "applied_at": "2026-09-02T18:07:47+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "field": "pcd",
+      "old": null,
+      "new": 100,
+      "reason": "auto_confirmed_two_independent_official_domains",
+      "confidence": "B",
+      "sources": [
+        {
+          "domain": "honda.co.jp",
+          "source_type": "manufacturer_official",
+          "url": "https://www.honda.co.jp/customer/auto/fit/faq/qa011",
+          "title": "【フィット】【機能装備】タイヤ・ホイールのスペックについて教えて"
+        },
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "title": "WEDS WINTER WHEELS | ebook5"
+        }
+      ],
+      "applied_at": "2026-09-03T09:14:10+09:00",
+      "actor": "github_actions_auto_pcd"
     }
   ]
 }

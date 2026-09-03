@@ -1,18 +1,18 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-02T18:07:47+09:00",
+  "updated_at": "2026-09-03T09:14:10+09:00",
   "run": {
-    "id": "33610806265",
-    "number": "51",
-    "event": "push",
-    "sha": "02b8c7927c403217a0b5856c6330619c1805854f",
+    "id": "33698524007",
+    "number": "58",
+    "event": "schedule",
+    "sha": "3f91f2840d456a0ce445b7911186b24a9d251736",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
   "overall_status": "ok",
   "totals": {
-    "attempted": 38,
-    "success": 38,
+    "attempted": 37,
+    "success": 37,
     "errors": 0,
     "success_rate": 100.0
   },
@@ -20,12 +20,12 @@
     {
       "name": "Tavily",
       "status": "ok",
-      "attempted": 8,
-      "success": 8,
+      "attempted": 7,
+      "success": 7,
       "errors": 0,
       "success_rate": 100.0,
-      "candidates": 3,
-      "confirmed": 2,
+      "candidates": 1,
+      "confirmed": 3,
       "conflicts": 0
     },
     {
@@ -35,8 +35,8 @@
       "success": 15,
       "errors": 0,
       "success_rate": 100.0,
-      "candidates": 0,
-      "confirmed": 2,
+      "candidates": 1,
+      "confirmed": 4,
       "conflicts": 0
     },
     {
@@ -46,19 +46,19 @@
       "success": 15,
       "errors": 0,
       "success_rate": 100.0,
-      "identity_confirmed": 5,
-      "pcd_candidates": 1,
-      "confirmed": 3,
+      "identity_confirmed": 9,
+      "pcd_candidates": 0,
+      "confirmed": 4,
       "conflicts": 0,
-      "retries": 23,
-      "fallback_success": 4,
+      "retries": 3,
+      "fallback_success": 0,
       "model": "gemini-3.5-flash-lite",
       "fallback_model": "gemini-3.1-flash-lite"
     }
   ],
   "production_apply": {
     "applied_count": 1,
-    "skipped_count": 2
+    "skipped_count": 3
   },
   "note": "APIキーや秘密情報は保存しません。表示値は直近の車種DB育成Runで生成された公開可能な実行統計のみです。"
 }

@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "dataset": "auto_confirmed_pcd",
-  "updated_at": "2026-09-02T18:07:47+09:00",
+  "updated_at": "2026-09-03T09:14:10+09:00",
   "policy": {
     "minimum_independent_domains": 2,
     "official_registered_domains_only": true,
     "conflict_blocks_confirmation": true,
     "fills_missing_pcd_only": true
   },
-  "confirmed_count": 3,
+  "confirmed_count": 4,
   "conflict_count": 0,
   "records": [
     {
@@ -35,7 +35,33 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-02T18:07:47+09:00"
+      "confirmed_at": "2026-09-03T09:14:10+09:00"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "field": "pcd",
+      "value": 100,
+      "confidence": "B",
+      "support_count": 2,
+      "sources": [
+        {
+          "domain": "honda.co.jp",
+          "source_type": "manufacturer_official",
+          "url": "https://www.honda.co.jp/customer/auto/fit/faq/qa011",
+          "title": "【フィット】【機能装備】タイヤ・ホイールのスペックについて教えて"
+        },
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "title": "WEDS WINTER WHEELS | ebook5"
+        }
+      ],
+      "status": "auto_confirmed_two_independent_official_domains",
+      "confirmed_at": "2026-09-03T09:14:10+09:00"
     },
     {
       "vehicle_id": "HON_INSIGHT_ZE1",
@@ -61,7 +87,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-02T18:07:47+09:00"
+      "confirmed_at": "2026-09-03T09:14:10+09:00"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -87,7 +113,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-02T18:07:47+09:00"
+      "confirmed_at": "2026-09-03T09:14:10+09:00"
     }
   ],
   "conflicts": []

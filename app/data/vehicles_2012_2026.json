@@ -451,13 +451,13 @@
       "generation": "GD1-GD4",
       "year_from": "2001-06",
       "year_to": "2007-09",
-      "pcd": null,
+      "pcd": 100,
       "holes": null,
       "hub_bore": null,
       "fastener": "",
       "oem_inch": "14/15",
       "oem_tire": "175/65R14;185/55R15",
-      "confidence": "C",
+      "confidence": "B",
       "notes": "ホイール取付条件未確認。タイヤ検索専用。",
       "sources": [
         {

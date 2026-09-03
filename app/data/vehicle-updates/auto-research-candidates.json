@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-02T18:07:47+09:00",
+  "updated_at": "2026-09-03T09:14:10+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -9,7 +9,7 @@
     "any_conflicting_official_value_blocks_auto_confirm": true,
     "no_guessing": true
   },
-  "record_count": 10,
+  "record_count": 11,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -100,6 +100,25 @@
       "status": "candidate_only_needs_corroboration"
     },
     {
+      "vehicle_id": "HON_FIT_GD",
+      "search_id": "ホンダ:フィット",
+      "maker": "ホンダ",
+      "model": "フィット",
+      "generation": "GD1-GD4",
+      "field": "pcd",
+      "candidate_value": 100,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+      "source_title": "WEDS WINTER WHEELS | ebook5",
+      "source_domain": "weds.co.jp",
+      "search_engine": "brave",
+      "target_reason": "gemini_web_hint_to_official_search",
+      "relevance_score": 17,
+      "first_seen_at": "2026-09-03T09:13:25+09:00",
+      "last_seen_at": "2026-09-03T09:13:25+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
       "vehicle_id": "HON_INSIGHT_ZE1",
       "search_id": "ホンダ:インサイト",
       "maker": "ホンダ",
@@ -146,11 +165,11 @@
       "candidate_value": 114.3,
       "source_type": "wheel_manufacturer_official",
       "source_url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
-      "source_title": "ホンダ -> ストリーム RN6-9 *D -> 19インチ -> WedsSport ...",
-      "search_score": 0.76490957,
+      "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_score": 0.73138535,
       "source_domain": "weds.co.jp",
       "first_seen_at": "2026-09-02T17:50:14+09:00",
-      "last_seen_at": "2026-09-02T17:50:14+09:00",
+      "last_seen_at": "2026-09-03T09:13:03+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

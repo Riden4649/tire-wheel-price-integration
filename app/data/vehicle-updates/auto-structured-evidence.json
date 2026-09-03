@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-02T18:07:47+09:00",
+  "updated_at": "2026-09-03T09:14:10+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 55,
+  "record_count": 63,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -418,12 +418,12 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
       "title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 21,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1",
+      "identity_reason": "ホンダ エリシオン 年式： 2006～2012 型式： RR1",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -443,7 +443,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "メーカー/車種 ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1"
+        "identity": "ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
       "source_title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -459,25 +459,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 465,
-        "candidatesTokenCount": 236,
-        "totalTokenCount": 4144,
+        "candidatesTokenCount": 251,
+        "totalTokenCount": 4160,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 465
           }
         ],
-        "toolUsePromptTokenCount": 3443,
+        "toolUsePromptTokenCount": 3444,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 3443
+            "tokenCount": 3444
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:07+09:00",
-      "last_seen_at": "2026-09-02T16:51:07+09:00",
+      "last_seen_at": "2026-09-03T09:13:36+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -560,12 +560,12 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/429/5416/18797/21488/",
       "title": "ホンダ:エリシオン プレステージ:2007～2013:RR1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 21,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly specifies Honda Elysion Prestige (エリシオン プレステージ) model code RR1.",
+      "identity_reason": "ホンダ エリシオン プレステージ RR1 is explicitly identified on the page.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -585,7 +585,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ　エリシオン プレステージ 年式： 2007～2013 型式： RR1"
+        "identity": "ホンダ　エリシオン プレステージ\n\n グレード：\n S\n\n 年式：\n 2007～2013\n\n 型式：\n RR1"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/429/5416/18797/21488/",
       "source_title": "ホンダ:エリシオン プレステージ:2007～2013:RR1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -601,25 +601,96 @@
       },
       "usage_metadata": {
         "promptTokenCount": 465,
-        "candidatesTokenCount": 225,
-        "totalTokenCount": 10815,
+        "candidatesTokenCount": 248,
+        "totalTokenCount": 10839,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 465
           }
         ],
-        "toolUsePromptTokenCount": 10125,
+        "toolUsePromptTokenCount": 10126,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 10125
+            "tokenCount": 10126
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:11+09:00",
-      "last_seen_at": "2026-09-02T16:51:11+09:00",
+      "last_seen_at": "2026-09-03T09:13:34+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/429/5421/18809/21500/",
+      "title": "ホンダ:エリシオン プレステージ:2008～2013:RR6:SGのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 21,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists ホンダ (Honda) エリシオン プレステージ (Elysion Prestige) with model code RR6.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR6"
+      ],
+      "generation_text": "2008～2013",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ　エリシオン プレステージ 型式： RR6"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/429/5421/18809/21500/",
+      "source_title": "ホンダ:エリシオン プレステージ:2008～2013:RR6:SGのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/429/5421/18809/21500/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 219,
+        "totalTokenCount": 11032,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 10348,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10348
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:13:29+09:00",
+      "last_seen_at": "2026-09-03T09:13:29+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -636,7 +707,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 58,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL could not be accessed to verify the vehicle identity or fitment data.",
+      "identity_reason": "The page could not be accessed or does not contain explicit fitment data for this target vehicle.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -659,7 +730,7 @@
       "source_url": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
       "source_title": "MATCHING｜WORK COMPANY LIMITED",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.1-flash-lite",
+      "gemini_model": "gemini-3.5-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
@@ -670,25 +741,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 169,
-        "totalTokenCount": 1274,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 1275,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 451
           }
         ],
-        "toolUsePromptTokenCount": 654,
+        "toolUsePromptTokenCount": 653,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 654
+            "tokenCount": 653
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:53:26+09:00",
-      "last_seen_at": "2026-09-02T18:06:00+09:00",
+      "last_seen_at": "2026-09-03T09:13:47+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -705,7 +776,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 48,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The PDF file could not be accessed or verified for the target vehicle.",
+      "identity_reason": "The provided URL is a WORK EMOTION CR kiwami wheel catalog page and does not mention or identify the Honda Elysion RR1-RR6.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -733,31 +804,35 @@
         "urlMetadata": [
           {
             "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
-            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
           }
         ]
       },
       "usage_metadata": {
         "promptTokenCount": 458,
-        "candidatesTokenCount": 173,
-        "totalTokenCount": 1261,
+        "candidatesTokenCount": 190,
+        "totalTokenCount": 10694,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 458
           }
         ],
-        "toolUsePromptTokenCount": 630,
+        "toolUsePromptTokenCount": 10046,
         "toolUsePromptTokensDetails": [
           {
+            "modality": "IMAGE",
+            "tokenCount": 6930
+          },
+          {
             "modality": "TEXT",
-            "tokenCount": 630
+            "tokenCount": 3116
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T18:07:47+09:00",
-      "last_seen_at": "2026-09-02T18:07:47+09:00",
+      "last_seen_at": "2026-09-03T09:13:55+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -774,7 +849,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or verified to contain matching data for the target vehicle.",
+      "identity_reason": "The requested URL could not be accessed or fetched to confirm vehicle identity.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -808,25 +883,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 170,
-        "totalTokenCount": 1273,
+        "candidatesTokenCount": 166,
+        "totalTokenCount": 1270,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 451
           }
         ],
-        "toolUsePromptTokenCount": 652,
+        "toolUsePromptTokenCount": 653,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 652
+            "tokenCount": 653
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:51+09:00",
-      "last_seen_at": "2026-09-02T18:03:16+09:00",
+      "last_seen_at": "2026-09-03T09:13:45+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -1121,9 +1196,9 @@
       "search_relevance": 23,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "weds.co.jp",
-      "target_score": 68,
+      "target_score": 41,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL lists 'フィット / フィットアリア GD1-9' and 'フィット GR1-4・GS4・6', but does not explicitly isolate and provide specification data for the exact target generation/model code 'GD1-GD4' on this manufacturer listing page.",
+      "identity_reason": "The page lists 'フィット / フィットアリア GD1-9' as a combined category, but does not provide specific fitment facts (PCD, holes, hub bore, thread, torque) for GD1-GD4 on this index page.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -1157,25 +1232,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 437,
-        "candidatesTokenCount": 201,
-        "totalTokenCount": 2148,
+        "candidatesTokenCount": 194,
+        "totalTokenCount": 2142,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 437
           }
         ],
-        "toolUsePromptTokenCount": 1510,
+        "toolUsePromptTokenCount": 1511,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 1510
+            "tokenCount": 1511
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T18:00:23+09:00",
-      "last_seen_at": "2026-09-02T18:00:23+09:00",
+      "last_seen_at": "2026-09-03T09:14:10+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -2072,6 +2147,219 @@
       "first_seen_at": "2026-09-02T16:26:36+09:00",
       "last_seen_at": "2026-09-02T17:19:43+09:00",
       "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5707/19649/22370/",
+      "title": "ホンダ:ストリーム:2006～2014:RN9:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly matches maker Honda, model Stream, generation code RN9, and year 2006-2014.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN9"
+      ],
+      "generation_text": "2006～2014",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ:ストリーム:2006～2014:RN9"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5707/19649/22370/",
+      "source_title": "ホンダ:ストリーム:2006～2014:RN9:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/448/5707/19649/22370/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 463,
+        "candidatesTokenCount": 221,
+        "totalTokenCount": 10308,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 463
+          }
+        ],
+        "toolUsePromptTokenCount": 9624,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9624
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:13:43+09:00",
+      "last_seen_at": "2026-09-03T09:13:43+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
+      "title": "ホンダ:ストリーム:2010～2014:RN6:TSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page lists Honda Stream model code RN6 for years 2010-2014.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN6"
+      ],
+      "generation_text": "2010～2014",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ ストリーム グレード： TS 年式： 2010～2014 型式： RN6"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
+      "source_title": "ホンダ:ストリーム:2010～2014:RN6:TSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 463,
+        "candidatesTokenCount": 224,
+        "totalTokenCount": 3884,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 463
+          }
+        ],
+        "toolUsePromptTokenCount": 3197,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3197
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:13:40+09:00",
+      "last_seen_at": "2026-09-03T09:13:40+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5722/19709/22430/",
+      "title": "ホンダ:ストリーム:2012～2014:RN6:RSZのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page lists ホンダ ストリーム with model code RN6.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN6"
+      ],
+      "generation_text": "2012～2014",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "グレード： RSZ 年式： 2012～2014 型式： RN6"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5722/19709/22430/",
+      "source_title": "ホンダ:ストリーム:2012～2014:RN6:RSZのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/448/5722/19709/22430/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 463,
+        "candidatesTokenCount": 210,
+        "totalTokenCount": 4004,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 463
+          }
+        ],
+        "toolUsePromptTokenCount": 3331,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3331
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:13:37+09:00",
+      "last_seen_at": "2026-09-03T09:13:37+09:00",
+      "status": "candidate_only_needs_corroboration"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -3666,6 +3954,219 @@
       "maker": "トヨタ",
       "model": "プリウス",
       "generation": "NHW20",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/303/3644/12366/14436/",
+      "title": "トヨタ:プリウス:2004～2009:NHW20:Sツーリングセレクション プレミアムのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 27,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Toyota Prius NHW20 (2004-2009).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "NHW20"
+      ],
+      "generation_text": "2004～2009",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "グレード： Sツーリングセレクション プレミアム 年式： 2004～2009 型式： NHW20"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/303/3644/12366/14436/",
+      "source_title": "トヨタ:プリウス:2004～2009:NHW20:Sツーリングセレクション プレミアムのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/303/3644/12366/14436/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 227,
+        "totalTokenCount": 3975,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 3282,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3282
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:14:07+09:00",
+      "last_seen_at": "2026-09-03T09:14:07+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/303/3645/12367/14437/",
+      "title": "トヨタ:プリウス:2005～2009:NHW20:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Toyota Prius, model code NHW20, years 2005-2009, and grade G.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "NHW20"
+      ],
+      "generation_text": "2005～2009",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "グレード： G 年式： 2005～2009 型式： NHW20"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/303/3645/12367/14437/",
+      "source_title": "トヨタ:プリウス:2005～2009:NHW20:Gのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/303/3645/12367/14437/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 230,
+        "totalTokenCount": 3939,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 3243,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3243
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:14:08+09:00",
+      "last_seen_at": "2026-09-03T09:14:08+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "url": "https://tire.bridgestone.co.jp/search/car/1/303/3646/12374/14444/",
+      "title": "トヨタ:プリウス:2007～2009:NHW20:Gツーリングセレクション･レザーパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 27,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Toyota Prius, model code NHW20, year 2007-2009, and grade G Touring Selection Leather Package.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "NHW20"
+      ],
+      "generation_text": "2007～2009",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "型式：\n NHW20"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/1/303/3646/12374/14444/",
+      "source_title": "トヨタ:プリウス:2007～2009:NHW20:Gツーリングセレクション･レザーパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/1/303/3646/12374/14444/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 220,
+        "totalTokenCount": 10956,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 10270,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10270
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:14:05+09:00",
+      "last_seen_at": "2026-09-03T09:14:05+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
       "url": "https://www.search.weds.co.jp/brand/kranze/weaval/toyota/puriusu-60kei/?size=20inch",
       "title": "ブランド検索 -> Kranze(クレンツェ) 製品一覧 -> Weaval -> プリウス 60系（20インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "origin": "brave",
@@ -3743,7 +4244,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The target vehicle is NHW20, but the provided URL is for the 60系 (60 series) Prius.",
+      "identity_reason": "The provided URL is for the Toyota Prius 60-kei (60 series), whereas the target vehicle is the NHW20 generation.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -3777,25 +4278,94 @@
       },
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 189,
-        "totalTokenCount": 5147,
+        "candidatesTokenCount": 192,
+        "totalTokenCount": 5151,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 462
           }
         ],
-        "toolUsePromptTokenCount": 4496,
+        "toolUsePromptTokenCount": 4497,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 4496
+            "tokenCount": 4497
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:03:34+09:00",
-      "last_seen_at": "2026-09-02T16:03:34+09:00",
+      "last_seen_at": "2026-09-03T09:13:59+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "url": "https://work-wheels.co.jp/sp/search/web_matching/result/?car_model_id=&car_name=%E3%83%AD%E3%83%BC%E3%83%89%E3%82%B9%E3%82%BF%E3%83%BC&maker_id=17&wheel_id=",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 18,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 49,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL searches for Roadster (マツダ ロードスター) with maker_id=17 (Mazda), which does not match the target vehicle Toyota Prius NHW20.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/sp/search/web_matching/result/?car_model_id=&car_name=%E3%83%AD%E3%83%BC%E3%83%89%E3%82%B9%E3%82%BF%E3%83%BC&maker_id=17&wheel_id=",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://work-wheels.co.jp/sp/search/web_matching/result/?car_model_id=&car_name=%E3%83%AD%E3%83%BC%E3%83%89%E3%82%B9%E3%82%BF%E3%83%BC&maker_id=17&wheel_id=",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 518,
+        "candidatesTokenCount": 257,
+        "totalTokenCount": 1627,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 518
+          }
+        ],
+        "toolUsePromptTokenCount": 852,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 852
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-03T09:13:49+09:00",
+      "last_seen_at": "2026-09-03T09:13:49+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     }
   ]
