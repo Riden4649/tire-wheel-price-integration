@@ -1,0 +1,48 @@
+name: 公式マッチング安全反映
+
+on:
+  push:
+    branches:
+      - official-matching-import-20260903
+    paths:
+      - '.github/workflows/apply-official-matching-safe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    name: 許可済み不足項目だけ反映
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: official-matching-import-20260903
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 公式原票との差分を再監査
+        run: python tools/import_official_matching.py
+      - name: ホワイトリスト済み項目を反映
+        run: python tools/apply_official_matching_safe.py
+      - name: 車種DB QA
+        run: |
+          node app/tests/vehicle-data-audit.mjs
+          node app/tests/vehicle-search-master-audit.mjs
+          python tests/vehicle_db_qa.py
+      - name: 変更をコミット
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/data/vehicles_2012_2026.json \
+                  app/data/vehicle-updates/official-matching-applied-20260903.json \
+                  app/data/vehicle-updates/official-matching-proposals.json \
+                  reports/official-matching-import.json \
+                  reports/official-matching-import.md
+          if git diff --cached --quiet; then
+            echo '反映対象なし'
+          else
+            git commit -m 'data: apply reviewed official Lexus fastener fields [skip ci]'
+            git push origin HEAD:official-matching-import-20260903
+          fi
