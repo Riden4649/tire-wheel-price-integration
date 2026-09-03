@@ -1,0 +1,43 @@
+name: 公式マッチング資料監査
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'app/data/official-matching/**'
+      - 'app/data/vehicles_2012_2026.json'
+      - 'app/data/jp_vehicle_search_master_2000_2026_v1.json'
+      - 'tools/import_official_matching.py'
+      - '.github/workflows/official-matching-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: 公式原票と検索・適合DBの差分監査
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 公式資料との差分監査
+        run: python tools/import_official_matching.py
+      - name: 監査サマリー
+        if: always()
+        run: |
+          if [ -f reports/official-matching-import.md ]; then
+            cat reports/official-matching-import.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: レポート保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-matching-audit
+          path: |
+            reports/official-matching-import.json
+            reports/official-matching-import.md
+            app/data/vehicle-updates/official-matching-proposals.json
+          if-no-files-found: error
+          retention-days: 30
