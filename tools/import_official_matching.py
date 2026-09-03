@@ -58,9 +58,24 @@ def fastener(a):
  if method:o['method']=method
  if raw:o['raw']=sorted(set(raw))
  return o
-def eq(a,b):
+def fieldset(k,v):
+ if v in (None,'',[],{}): return set()
+ parts=re.split(r'[;/]',str(v))
+ out=set()
+ for x in parts:
+  x=unicodedata.normalize('NFKC',x).upper().strip()
+  if k=='oem_tire': x=re.sub(r'^(?:F:|R:|F|R|標|オ)','',x)
+  x=re.sub(r'\s+','',x)
+  if x: out.add(x)
+ return out
+def status(k,a,b):
  if a in (None,'',[],{}): return 'fill'
  if b in (None,'',[],{}): return 'none'
+ if k in ('oem_tire','oem_inch'):
+  aa,bb=fieldset(k,a),fieldset(k,b)
+  if aa==bb:return 'same'
+  if aa and aa < bb:return 'extension'
+  return 'conflict'
  try:
   if float(a)==float(b): return 'same'
  except: pass
@@ -101,17 +116,19 @@ def main():
   cand={'pcd':uniqnum(s['pcd']),'holes':uniqnum(s['holes']),'hub_bore':uniqnum(s['hub_bore']),'oem_tire':joined(s['oem_tires']),'oem_inch':inch(s['oem_wheels'])}
   f=fastener(s['fasteners']); fd=v.get('fastener_details') or {}
   fmap={'thread_diameter':'thread_diameter','thread_pitch':'thread_pitch','method':'method'}
-  changes={}; bad={}
+  changes={}; bad={}; extensions={}
   for k,val in cand.items():
-   st=eq(v.get(k),val)
+   st=status(k,v.get(k),val)
    if st=='fill': changes[k]=val
+   elif st=='extension': extensions[k]={'current':v.get(k),'official':val}
    elif st=='conflict': bad[k]={'current':v.get(k),'official':val}
   for sk,dk in fmap.items():
-   val=f.get(sk); st=eq(fd.get(dk),val)
+   val=f.get(sk); st=status(sk,fd.get(dk),val)
    if st=='fill' and val is not None: changes.setdefault('fastener_details',{})[dk]=val
    elif st=='conflict': bad[f'fastener_details.{dk}']={'current':fd.get(dk),'official':val}
   base={'vehicle_id':v.get('vehicle_id'),'maker':v.get('maker'),'model':v.get('model'),'model_codes':v.get('model_codes',[]),'source_type':'official_supplied_matching_file','source_received':'2026-09-03'}
   if changes: proposals.append(base|{'changes':changes})
+  if extensions: proposals.append(base|{'coverage_extensions':extensions,'requires_human_review':True})
   if bad: conflicts.append(base|{'conflicts':bad,'requires_human_review':True})
  result={'schema_version':'1.0.0','generated_at':'2026-09-03','source_rows':source_rows,'source_files':[p.name for p in sorted(SRC.glob('*.json'))],'fitment_records':len(vehicles),'fitment_matched':matched,'model_code_hits':code_hits,'search_base_records':search.get('record_count'),'search_model_matches':sum(1 for k in groups if k in search_keys),'proposal_records':len(proposals),'conflict_records':len(conflicts),'maker_fitment_matches':dict(maker_hits),'proposals':proposals,'conflicts':conflicts,'policy':'audit_only_no_production_mutation; existing A conflicts require human review'}
  OUT.parent.mkdir(parents=True,exist_ok=True); RJSON.parent.mkdir(parents=True,exist_ok=True)
