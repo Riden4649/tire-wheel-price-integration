@@ -46,3 +46,5 @@ jobs:
             git commit -m 'data: apply reviewed official Lexus fastener fields [skip ci]'
             git push origin HEAD:official-matching-import-20260903
           fi
+
+# trigger: reviewed official matching safe-apply 2026-09-03
