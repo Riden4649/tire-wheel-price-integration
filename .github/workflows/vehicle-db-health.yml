@@ -1,4 +1,4 @@
-name: 車種DB育成 v2.1 API節約型PCD改善ループ
+name: 車種DB育成 v2.2 API節約＋Codex枯渇モード
 
 on:
   workflow_dispatch:
@@ -31,7 +31,7 @@ concurrency:
 jobs:
   grow-and-check:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    name: キャッシュ優先→Tavily少数探索→Brave第2公式ソース→QA
+    name: キャッシュ優先→省API探索→Codex引継ぎキュー→QA
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -62,12 +62,14 @@ jobs:
 
       - name: 第1層 Tavily（少数の広域探索）
         if: ${{ github.event_name != 'pull_request' && env.RUN_TAVILY == '1' }}
+        continue-on-error: true
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python tools/tavily_vehicle_research.py
 
       - name: 第2層 Gemini（検索戦略）
         if: ${{ github.event_name != 'pull_request' && env.RUN_GEMINI == '1' }}
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
@@ -75,16 +77,25 @@ jobs:
 
       - name: 第3層 Brave（第2の独立公式ソースが必要な時だけ）
         if: ${{ github.event_name != 'pull_request' && env.RUN_BRAVE == '1' }}
+        continue-on-error: true
         env:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
         run: python tools/brave_vehicle_research.py
 
       - name: 第4層 Gemini（公式ページ本文検証）
         if: ${{ github.event_name != 'pull_request' && env.RUN_GEMINI == '1' }}
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
         run: python tools/gemini_vehicle_extract.py
+
+      - name: Codex枯渇モード引継ぎキュー作成
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          CODEX_SESSION_MINUTES: '120'
+          CODEX_MAX_TASKS: '30'
+        run: python tools/build_codex_research_queue.py
 
       - name: PCD自動確定反映（2独立公式一致のみ）
         if: ${{ github.event_name != 'pull_request' }}
@@ -111,7 +122,7 @@ jobs:
         if: ${{ always() }}
         run: |
           if [ -f reports/vehicle-db-health.md ]; then cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"; fi
-          for f in pcd-growth-controller missing-data-queue research-candidates tavily-search-results gemini-search-plan brave-search-results gemini-structured-extraction; do
+          for f in pcd-growth-controller missing-data-queue research-candidates tavily-search-results gemini-search-plan brave-search-results gemini-structured-extraction codex-research-queue; do
             if [ -f "reports/$f.md" ]; then
               printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
               cat "reports/$f.md" >> "$GITHUB_STEP_SUMMARY"
@@ -131,7 +142,7 @@ jobs:
           PY
           fi
 
-      - name: 自動調査結果・確定PCD・改善戦略・API状況を保存
+      - name: 自動調査結果・Codex引継ぎキュー・API状況を保存
         if: ${{ always() && github.event_name != 'pull_request' }}
         run: |
           git config user.name "github-actions[bot]"
@@ -142,12 +153,13 @@ jobs:
             app/data/vehicle-updates/auto-structured-evidence.json \
             app/data/vehicle-updates/change_log.json \
             app/data/vehicle-updates/pcd-growth-strategy.json \
+            app/data/vehicle-updates/codex-research-queue.json \
             app/data/vehicles_2012_2026.json \
             dashboard/api-status.json
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
-            git commit -m "chore: persist budgeted PCD research [skip ci]"
+            git commit -m "chore: persist budgeted PCD research and Codex queue [skip ci]"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -161,5 +173,6 @@ jobs:
             reports/*.json
             reports/*.md
             dashboard/api-status.json
+            app/data/vehicle-updates/codex-research-queue.json
           if-no-files-found: warn
           retention-days: 30
