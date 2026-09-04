@@ -1,0 +1,38 @@
+{
+  "schema_version": "2.0.0",
+  "dataset": "pcd_growth_strategy",
+  "updated_at": "2026-09-04T17:03:52+09:00",
+  "coverage": {
+    "total_records": 152,
+    "pcd_filled": 145,
+    "pcd_missing": 7,
+    "pcd_fill_rate": 95.4
+  },
+  "previous_run": {
+    "applied_count": 0,
+    "skipped_count": 5,
+    "run_id": "33851566948"
+  },
+  "cached_evidence": {
+    "vehicles_with_exactly_one_official_pcd_source": 2
+  },
+  "mode": "focused",
+  "query_variant_level": 1,
+  "budgets": {
+    "tavily_max_queries": 5,
+    "brave_max_queries": 2,
+    "gemini_max_targets": 5,
+    "run_tavily": true,
+    "run_brave": true,
+    "run_gemini": true
+  },
+  "reason": "high_coverage_stalled_keep_budget_capped",
+  "safety": {
+    "confirmation_rule_unchanged": true,
+    "requires_two_independent_official_domains": true,
+    "never_overwrite_existing_pcd": true,
+    "conflicts_block_auto_apply": true,
+    "brave_reserved_for_second_source_when_possible": true,
+    "no_api_budget_spike_when_stalled": true
+  }
+}

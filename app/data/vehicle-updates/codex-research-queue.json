@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "codex_pcd_research_queue",
+  "updated_at": "2026-09-04T17:03:52+09:00",
+  "mode": "codex_fallback_api_free",
+  "session_budget_minutes": 120,
+  "task_count": 5,
+  "policy": {
+    "do_not_use_tavily": true,
+    "do_not_use_brave": true,
+    "registered_official_domains_only": true,
+    "reuse_existing_evidence": true,
+    "two_independent_official_domains_required_for_auto_apply": true,
+    "never_guess": true,
+    "never_overwrite_existing_pcd": true,
+    "conflicts_require_human_review": true
+  },
+  "result_file": "app/data/vehicle-updates/codex-research-results.json",
+  "tasks": [
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "year_from": "2003-10",
+      "year_to": "2008-10",
+      "priority_score": 77,
+      "priority_class": "one_source_needs_second",
+      "existing_official_evidence": [
+        {
+          "candidate_value": 114.3,
+          "domain": "weds.co.jp",
+          "url": "https://search.weds.co.jp/brand/joker/smash/honda/odessei-rb1-2-d/?size=22inch",
+          "title": "ブランド検索 -> JOKER(ジョーカー) 製品一覧 -> SMASH -> オデッセイ RB1・2 *D（22インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        },
+        {
+          "candidate_value": 114.3,
+          "domain": "weds.co.jp",
+          "url": "https://search.weds.co.jp/brand/wedssport/sa99r/honda/odessei-rb1-2-d/",
+          "title": "ブランド検索 -> WedsSport(ウェッズスポーツ) 製品一覧 -> SA-99R -> オデッセイ RB1・2 *D｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        }
+      ],
+      "target_domains": [
+        "toyota.jp",
+        "manual.toyota.jp",
+        "lexus.jp",
+        "manual.lexus.jp",
+        "honda.co.jp",
+        "nissan.co.jp",
+        "mazda.co.jp",
+        "subaru.jp",
+        "suzuki.co.jp",
+        "daihatsu.co.jp",
+        "mitsubishi-motors.co.jp",
+        "work-wheels.co.jp",
+        "mid-wheels.com",
+        "hotstuff-cp.co.jp",
+        "bridgestone.co.jp"
+      ],
+      "search_queries": [
+        "ホンダ オデッセイ RB1/RB2 PCD",
+        "ホンダ オデッセイ RB1/RB2 ホイール PCD 穴数",
+        "ホンダ オデッセイ RB1/RB2 型式 PCD",
+        "ホンダ オデッセイ RB1/RB2 ホイール 適合 マッチング"
+      ],
+      "completion": {
+        "preferred": "same PCD value from a second independent registered official domain",
+        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
+        "conflict": "record conflict and do not auto-apply"
+      }
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "year_from": "2006-07",
+      "year_to": "2011-12",
+      "priority_score": 77,
+      "priority_class": "one_source_needs_second",
+      "existing_official_evidence": [
+        {
+          "candidate_value": 114.3,
+          "domain": "weds.co.jp",
+          "url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
+          "title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        }
+      ],
+      "target_domains": [
+        "toyota.jp",
+        "manual.toyota.jp",
+        "lexus.jp",
+        "manual.lexus.jp",
+        "honda.co.jp",
+        "nissan.co.jp",
+        "mazda.co.jp",
+        "subaru.jp",
+        "suzuki.co.jp",
+        "daihatsu.co.jp",
+        "mitsubishi-motors.co.jp",
+        "work-wheels.co.jp",
+        "mid-wheels.com",
+        "hotstuff-cp.co.jp",
+        "bridgestone.co.jp"
+      ],
+      "search_queries": [
+        "ホンダ ストリーム RN6-RN9 PCD",
+        "ホンダ ストリーム RN6-RN9 ホイール PCD 穴数",
+        "ホンダ ストリーム RN6-RN9 型式 PCD",
+        "ホンダ ストリーム RN6-RN9 ホイール 適合 マッチング"
+      ],
+      "completion": {
+        "preferred": "same PCD value from a second independent registered official domain",
+        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
+        "conflict": "record conflict and do not auto-apply"
+      }
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "search_id": "トヨタ:プリウス",
+      "maker": "トヨタ",
+      "model": "プリウス",
+      "generation": "NHW20",
+      "year_from": "2003-09",
+      "year_to": "2009-05",
+      "priority_score": 77,
+      "priority_class": "needs_first_official_source",
+      "existing_official_evidence": [],
+      "target_domains": [
+        "toyota.jp",
+        "manual.toyota.jp",
+        "lexus.jp",
+        "manual.lexus.jp",
+        "honda.co.jp",
+        "nissan.co.jp",
+        "mazda.co.jp",
+        "subaru.jp",
+        "suzuki.co.jp",
+        "daihatsu.co.jp",
+        "mitsubishi-motors.co.jp",
+        "weds.co.jp",
+        "work-wheels.co.jp",
+        "mid-wheels.com",
+        "hotstuff-cp.co.jp",
+        "bridgestone.co.jp"
+      ],
+      "search_queries": [
+        "トヨタ プリウス NHW20 PCD",
+        "トヨタ プリウス NHW20 ホイール PCD 穴数",
+        "トヨタ プリウス NHW20 型式 PCD",
+        "トヨタ プリウス NHW20 ホイール 適合 マッチング"
+      ],
+      "completion": {
+        "preferred": "same PCD value from a second independent registered official domain",
+        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
+        "conflict": "record conflict and do not auto-apply"
+      }
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN1-RN5",
+      "year_from": "2000-10",
+      "year_to": "2006-06",
+      "priority_score": 77,
+      "priority_class": "needs_first_official_source",
+      "existing_official_evidence": [],
+      "target_domains": [
+        "toyota.jp",
+        "manual.toyota.jp",
+        "lexus.jp",
+        "manual.lexus.jp",
+        "honda.co.jp",
+        "nissan.co.jp",
+        "mazda.co.jp",
+        "subaru.jp",
+        "suzuki.co.jp",
+        "daihatsu.co.jp",
+        "mitsubishi-motors.co.jp",
+        "weds.co.jp",
+        "work-wheels.co.jp",
+        "mid-wheels.com",
+        "hotstuff-cp.co.jp",
+        "bridgestone.co.jp"
+      ],
+      "search_queries": [
+        "ホンダ ストリーム RN1-RN5 PCD",
+        "ホンダ ストリーム RN1-RN5 ホイール PCD 穴数",
+        "ホンダ ストリーム RN1-RN5 型式 PCD",
+        "ホンダ ストリーム RN1-RN5 ホイール 適合 マッチング"
+      ],
+      "completion": {
+        "preferred": "same PCD value from a second independent registered official domain",
+        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
+        "conflict": "record conflict and do not auto-apply"
+      }
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40",
+      "search_id": "レクサス:LS",
+      "maker": "レクサス",
+      "model": "LS",
+      "generation": "USF40系",
+      "year_from": "2006-09",
+      "year_to": "2011-12",
+      "priority_score": 77,
+      "priority_class": "needs_first_official_source",
+      "existing_official_evidence": [],
+      "target_domains": [
+        "toyota.jp",
+        "manual.toyota.jp",
+        "lexus.jp",
+        "manual.lexus.jp",
+        "honda.co.jp",
+        "nissan.co.jp",
+        "mazda.co.jp",
+        "subaru.jp",
+        "suzuki.co.jp",
+        "daihatsu.co.jp",
+        "mitsubishi-motors.co.jp",
+        "weds.co.jp",
+        "work-wheels.co.jp",
+        "mid-wheels.com",
+        "hotstuff-cp.co.jp",
+        "bridgestone.co.jp"
+      ],
+      "search_queries": [
+        "レクサス LS USF40系 PCD",
+        "レクサス LS USF40系 ホイール PCD 穴数",
+        "レクサス LS USF40系 型式 PCD",
+        "レクサス LS USF40系 ホイール 適合 マッチング"
+      ],
+      "completion": {
+        "preferred": "same PCD value from a second independent registered official domain",
+        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
+        "conflict": "record conflict and do not auto-apply"
+      }
+    }
+  ]
+}

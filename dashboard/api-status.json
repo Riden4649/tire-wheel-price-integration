@@ -1,29 +1,29 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-04T13:32:32+09:00",
+  "updated_at": "2026-09-04T17:03:52+09:00",
   "run": {
-    "id": "33836865842",
-    "number": "80",
+    "id": "33851566948",
+    "number": "89",
     "event": "push",
-    "sha": "886b59d654114b5a20b9bd822accb8720b5545aa",
+    "sha": "92cfdb9524864243ffc8dbf7ee34a15243d5ee1e",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
-  "overall_status": "ok",
+  "overall_status": "warning",
   "totals": {
-    "attempted": 35,
-    "success": 35,
-    "errors": 0,
-    "success_rate": 100.0
+    "attempted": 12,
+    "success": 9,
+    "errors": 3,
+    "success_rate": 75.0
   },
   "services": [
     {
       "name": "Tavily",
-      "status": "ok",
+      "status": "warning",
       "attempted": 5,
-      "success": 5,
-      "errors": 0,
-      "success_rate": 100.0,
+      "success": 2,
+      "errors": 3,
+      "success_rate": 40.0,
       "candidates": 0,
       "confirmed": 5,
       "conflicts": 0
@@ -31,8 +31,8 @@
     {
       "name": "Brave",
       "status": "ok",
-      "attempted": 15,
-      "success": 15,
+      "attempted": 2,
+      "success": 2,
       "errors": 0,
       "success_rate": 100.0,
       "candidates": 0,
@@ -42,15 +42,15 @@
     {
       "name": "Gemini",
       "status": "ok",
-      "attempted": 15,
-      "success": 15,
+      "attempted": 5,
+      "success": 5,
       "errors": 0,
       "success_rate": 100.0,
-      "identity_confirmed": 3,
-      "pcd_candidates": 0,
+      "identity_confirmed": 2,
+      "pcd_candidates": 1,
       "confirmed": 5,
       "conflicts": 0,
-      "retries": 2,
+      "retries": 0,
       "fallback_success": 0,
       "model": "gemini-3.5-flash-lite",
       "fallback_model": "gemini-3.1-flash-lite"
