@@ -116,7 +116,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -127,11 +127,11 @@
       "model": "AR12",
       "color_code": "GM2",
       "color_name": "",
-      "product_url": "",
-      "image_url": "",
-      "image_status": "missing",
+      "product_url": "https://www.bridgestone.co.jp/products/tire/mc/products/detail/pr036/",
+      "image_url": "https://www.bridgestone.co.jp/products/tire/mc/shared/img/og_image.jpg",
+      "image_status": "candidate",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "auto candidate score=65 strategy=2 title=BATTLAX｜BATTLAX SC｜二輪車用タイヤ｜株式会社ブリヂストン",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -142,11 +142,11 @@
       "model": "DS-M",
       "color_code": "MA",
       "color_name": "",
-      "product_url": "",
-      "image_url": "",
-      "image_status": "missing",
+      "product_url": "https://www.bridgestone.co.jp/products/tire/mc/products/size/result.html?tire_width=130&oblateness=70&rim_width=18",
+      "image_url": "https://www.bridgestone.co.jp/products/tire/mc/shared/img/og_image.jpg",
+      "image_status": "candidate",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "auto candidate score=70 strategy=2 title=サイズから選ぶ：検索結果｜二輪車用タイヤ｜株式会社ブリヂストン",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -176,7 +176,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -191,7 +191,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -206,7 +206,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -217,11 +217,11 @@
       "model": "Elan",
       "color_code": "SDG",
       "color_name": "",
-      "product_url": "",
+      "product_url": "https://ms.bridgestone.co.jp/special/document/60th/en/",
       "image_url": "",
-      "image_status": "missing",
+      "image_status": "page_verified",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "auto candidate score=60 strategy=2 title=60th anniversary website | Bridgestone Motorsport",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -236,7 +236,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -247,11 +247,11 @@
       "model": "NEO",
       "color_code": "S",
       "color_name": "",
-      "product_url": "",
-      "image_url": "",
-      "image_status": "missing",
+      "product_url": "https://www.bridgestone.co.jp/products/tire/mc/products/detail/pr151",
+      "image_url": "https://www.bridgestone.co.jp/products/tire/mc/shared/img/og_image.jpg",
+      "image_status": "candidate",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "auto candidate score=70 strategy=2 title=RACING BATTLAX｜RACING BATTLAX W01｜二輪車用タイヤ｜株式会社ブリヂストン",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -262,11 +262,11 @@
       "model": "NEO",
       "color_code": "B/C",
       "color_name": "",
-      "product_url": "",
-      "image_url": "",
-      "image_status": "missing",
+      "product_url": "https://www.bridgestone.co.jp/products/tire/mc/products/detail/pr151",
+      "image_url": "https://www.bridgestone.co.jp/products/tire/mc/shared/img/og_image.jpg",
+      "image_status": "candidate",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "auto candidate score=65 strategy=2 title=RACING BATTLAX｜RACING BATTLAX W01｜二輪車用タイヤ｜株式会社ブリヂストン",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -281,7 +281,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -386,7 +386,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -401,7 +401,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -416,7 +416,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -431,7 +431,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -446,7 +446,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -461,7 +461,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -596,7 +596,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -611,7 +611,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -671,7 +671,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -761,7 +761,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -791,7 +791,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1121,7 +1121,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1136,7 +1136,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1151,7 +1151,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1166,7 +1166,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1181,7 +1181,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1196,7 +1196,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1211,7 +1211,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1241,7 +1241,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1256,7 +1256,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1331,7 +1331,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1346,7 +1346,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found in this run",
+      "notes": "official candidate not found; strategy=2",
       "offline_cache_allowed": false,
       "local_path": ""
     },
