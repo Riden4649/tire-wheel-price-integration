@@ -35,8 +35,8 @@
       "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": 14,
+        "thread_pitch": 1.5,
         "seat": "spherical",
         "wheel_hole_diameter": 15.4
       },
@@ -66,6 +66,11 @@
           "source_name": "LEXUS LC FAQ",
           "source_url": "https://lexus.jp/models/lc/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -82,8 +87,8 @@
       "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": 14,
+        "thread_pitch": 1.5,
         "seat": "spherical",
         "wheel_hole_diameter": 15.4
       },
@@ -130,6 +135,11 @@
           "source_name": "LEXUS RZ FAQ",
           "source_url": "https://lexus.jp/models/rz/faq/?faqid=80",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -197,7 +207,7 @@
       "fastener_details": {
         "method": "bolt",
         "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "18/20",
@@ -216,6 +226,11 @@
           "source_name": "LEXUS NX 取扱説明書",
           "source_url": "https://manual.lexus.jp/nx/3026/phev/ja_JP/contents/pbg1665129721464.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -241,7 +256,7 @@
       "fastener_details": {
         "method": "bolt",
         "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "21",
@@ -260,6 +275,11 @@
           "source_name": "LEXUS RX 取扱説明書",
           "source_url": "https://manual.lexus.jp/rx/2211/phev/ja_JP/contents/vhch07se020405.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -276,8 +296,8 @@
       "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": 14,
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "17/18",
@@ -296,6 +316,11 @@
           "source_name": "LEXUS LBX 取扱説明書",
           "source_url": "https://manual.lexus.jp/lbx/3034/cv/ja_JP/contents/vhch06se020405.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -312,8 +337,8 @@
       "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
       "fastener_details": {
         "method": "nut",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": 14,
+        "thread_pitch": 1.5,
         "seat": "unknown"
       },
       "oem_inch": "18/22",
@@ -326,6 +351,11 @@
           "source_name": "LEXUS GX FAQ",
           "source_url": "https://lexus.jp/models/gx/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },
@@ -376,8 +406,8 @@
       "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
       "fastener_details": {
         "method": "nut",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": 12,
+        "thread_pitch": 1.5,
         "seat": "unknown"
       },
       "oem_inch": "18",
@@ -390,6 +420,11 @@
           "source_name": "LEXUS UX FAQ",
           "source_url": "https://lexus.jp/models/ux/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "official_supplied_matching_file",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+          "verified_at": "2026-09-03"
         }
       ]
     },

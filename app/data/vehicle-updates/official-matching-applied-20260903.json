@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "applied_at": "2026-09-03",
+  "source": {
+    "source_type": "official_supplied_matching_file",
+    "source_name": "TOPY 2025年 国産車用マッチングデータ.xlsx",
+    "verified_at": "2026-09-03"
+  },
+  "policy": "whitelist_missing_fields_only_no_overwrite",
+  "applied": [
+    {
+      "vehicle_id": "LEX_LC_Z100",
+      "changes": {
+        "thread_diameter": 14,
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_RZ_E10",
+      "changes": {
+        "thread_diameter": 14,
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_NX_AZ20",
+      "changes": {
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_RX_AL30",
+      "changes": {
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_LBX_MAYH",
+      "changes": {
+        "thread_diameter": 14,
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_GX_550_JP",
+      "changes": {
+        "thread_diameter": 14,
+        "thread_pitch": 1.5
+      }
+    },
+    {
+      "vehicle_id": "LEX_UX_AA10",
+      "changes": {
+        "thread_diameter": 12,
+        "thread_pitch": 1.5
+      }
+    }
+  ],
+  "already_present": [],
+  "coverage_extensions_applied": 0
+}

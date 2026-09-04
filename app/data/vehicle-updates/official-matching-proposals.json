@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-03",
+  "proposals": [
+    {
+      "vehicle_id": "LEX_LC_Z100",
+      "maker": "レクサス",
+      "model": "LC",
+      "model_codes": [
+        "URZ100",
+        "GWZ100"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_diameter": 14,
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_LC_Z100",
+      "maker": "レクサス",
+      "model": "LC",
+      "model_codes": [
+        "URZ100",
+        "GWZ100"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "coverage_extensions": {
+        "oem_tire": {
+          "current": "245/40R21;275/35R21",
+          "official": "F:245/40R21;R:275/35R21;F:245/45R20;R:275/40R20"
+        },
+        "oem_inch": {
+          "current": "21",
+          "official": "21/20"
+        }
+      },
+      "requires_human_review": true
+    },
+    {
+      "vehicle_id": "LEX_RZ_E10",
+      "maker": "レクサス",
+      "model": "RZ",
+      "model_codes": [],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_diameter": 14,
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_NX_AZ20",
+      "maker": "レクサス",
+      "model": "NX",
+      "model_codes": [
+        "AAZH20",
+        "AAZH25",
+        "AAZH26",
+        "AAZA20",
+        "AAZA25",
+        "TAZA25"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_NX_AZ20",
+      "maker": "レクサス",
+      "model": "NX",
+      "model_codes": [
+        "AAZH20",
+        "AAZH25",
+        "AAZH26",
+        "AAZA20",
+        "AAZA25",
+        "TAZA25"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "coverage_extensions": {
+        "oem_tire": {
+          "current": "235/60R18;235/50R20",
+          "official": "235/60R18;235/50R20;225/65R17;225/60R18;235/55R18"
+        },
+        "oem_inch": {
+          "current": "18/20",
+          "official": "18/20/17"
+        }
+      },
+      "requires_human_review": true
+    },
+    {
+      "vehicle_id": "LEX_RX_AL30",
+      "maker": "レクサス",
+      "model": "RX",
+      "model_codes": [
+        "TALH17",
+        "AALH10",
+        "AALH15",
+        "AALH16",
+        "TALA10",
+        "TALA15"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_RX_AL30",
+      "maker": "レクサス",
+      "model": "RX",
+      "model_codes": [
+        "TALH17",
+        "AALH10",
+        "AALH15",
+        "AALH16",
+        "TALA10",
+        "TALA15"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "coverage_extensions": {
+        "oem_tire": {
+          "current": "235/50R21",
+          "official": "235/50R21;235/60R18;235/55R19;235/65R18;235/55R20"
+        },
+        "oem_inch": {
+          "current": "21",
+          "official": "21/18/19/20"
+        }
+      },
+      "requires_human_review": true
+    },
+    {
+      "vehicle_id": "LEX_LBX_MAYH",
+      "maker": "レクサス",
+      "model": "LBX",
+      "model_codes": [],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_diameter": 14,
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_GX_550_JP",
+      "maker": "レクサス",
+      "model": "GX",
+      "model_codes": [],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_diameter": 14,
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_UX_AA10",
+      "maker": "レクサス",
+      "model": "UX",
+      "model_codes": [
+        "MZAH10",
+        "MZAH15"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "changes": {
+        "fastener_details": {
+          "thread_diameter": 12,
+          "thread_pitch": 1.5
+        }
+      }
+    },
+    {
+      "vehicle_id": "LEX_UX_AA10",
+      "maker": "レクサス",
+      "model": "UX",
+      "model_codes": [
+        "MZAH10",
+        "MZAH15"
+      ],
+      "source_type": "official_supplied_matching_file",
+      "source_received": "2026-09-03",
+      "coverage_extensions": {
+        "oem_tire": {
+          "current": "225/50R18",
+          "official": "225/50R18;215/60R17"
+        },
+        "oem_inch": {
+          "current": "18",
+          "official": "18/17"
+        }
+      },
+      "requires_human_review": true
+    }
+  ],
+  "conflicts": []
+}
