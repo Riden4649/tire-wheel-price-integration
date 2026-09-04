@@ -1,4 +1,4 @@
-name: ホイール画像DB育成 v1.3 大量候補収集＋QA 50件/日
+name: ホイール画像DB育成 v1.4 大量候補収集＋自動検索修正
 
 on:
   workflow_dispatch:
@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - 'app/data/wheels/image_master.json'
+      - 'app/data/wheels/search_strategy.json'
       - 'app/assets/wheels/**'
       - 'tools/wheel_image_research.py'
       - 'tools/wheel_thumbnail_cache.py'
@@ -36,11 +37,13 @@ jobs:
         run: pip install requests beautifulsoup4 pillow
       - name: 事前QA
         run: python tests/wheel_image_qa.py
-      - name: 公式ホイール画像候補を大量収集（50件/日）
+      - name: ホイール画像候補収集＋回収率低下時の自動検索修正
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
           WHEEL_IMAGE_MAX_ITEMS: '50'
+          WHEEL_RECOVERY_THRESHOLD: '0.25'
+          WHEEL_ADAPTIVE_PASSES: '3'
         run: python tools/wheel_image_research.py
       - name: オフライン用WebPサムネイル生成
         env:
@@ -66,16 +69,16 @@ jobs:
           print(f"- 失敗/ブロック: {d['failed']}件")
           PY
           fi
-      - name: 候補・サムネイル保存
+      - name: 候補・検索戦略・サムネイル保存
         if: ${{ always() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/data/wheels/image_master.json app/assets/wheels/ || true
+          git add app/data/wheels/image_master.json app/data/wheels/search_strategy.json app/assets/wheels/ || true
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
-            git commit -m "chore: collect wheel images and offline thumbnails [skip ci]"
+            git commit -m "chore: collect wheel images with adaptive search [skip ci]"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
