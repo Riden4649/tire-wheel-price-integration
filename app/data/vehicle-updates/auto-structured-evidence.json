@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-04T09:04:58+09:00",
+  "updated_at": "2026-09-04T13:23:21+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 78,
+  "record_count": 84,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -2359,12 +2359,12 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/431/5444/18874/21565/",
       "title": "ホンダ:オデッセイ:2003～2008:RB1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The official page explicitly lists ホンダ (Honda) オデッセイ (Odyssey) with model code RB1 and year range 2003～2008.",
+      "identity_reason": "ホンダ オデッセイ 2003～2008 RB1 Sのページであることを確認",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -2384,7 +2384,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ:オデッセイ:2003～2008:RB1:S"
+        "identity": "ホンダ オデッセイ グレード： S 年式： 2003～2008 型式： RB1"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/431/5444/18874/21565/",
       "source_title": "ホンダ:オデッセイ:2003～2008:RB1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -2400,25 +2400,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 467,
-        "candidatesTokenCount": 234,
-        "totalTokenCount": 4153,
+        "candidatesTokenCount": 227,
+        "totalTokenCount": 4145,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 467
           }
         ],
-        "toolUsePromptTokenCount": 3452,
+        "toolUsePromptTokenCount": 3451,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 3452
+            "tokenCount": 3451
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T09:04:25+09:00",
-      "last_seen_at": "2026-09-04T09:04:25+09:00",
+      "last_seen_at": "2026-09-04T13:22:02+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -2501,12 +2501,12 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18898/21589/",
       "title": "ホンダ:オデッセイ:2006～2008:RB1:Bのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "ホンダ オデッセイ 2006～2008 RB1 B",
+      "identity_reason": "The page explicitly specifies Honda Odyssey, model code RB1, year 2006-2008, grade B.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -2526,7 +2526,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ\nオデッセイ\nグレード：\n B\n年式：\n 2006～2008\n型式：\n RB1"
+        "identity": "ホンダ　オデッセイ グレード： B 年式： 2006～2008 型式： RB1"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18898/21589/",
       "source_title": "ホンダ:オデッセイ:2006～2008:RB1:Bのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -2542,25 +2542,96 @@
       },
       "usage_metadata": {
         "promptTokenCount": 467,
-        "candidatesTokenCount": 235,
-        "totalTokenCount": 10990,
+        "candidatesTokenCount": 237,
+        "totalTokenCount": 10991,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 467
           }
         ],
-        "toolUsePromptTokenCount": 10288,
+        "toolUsePromptTokenCount": 10287,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 10288
+            "tokenCount": 10287
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T09:04:30+09:00",
-      "last_seen_at": "2026-09-04T09:04:30+09:00",
+      "last_seen_at": "2026-09-04T13:22:23+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://tire.bridgestone.co.jp/search/car/5/461/4439/8865/21570R15/",
+      "title": "ホンダ:オデッセイ:2004～2008:RB2:アブソルートのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 19,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly specifies maker ホンダ, model オデッセイ, model code RB2, and year range 2004～2008 for the absolute grade.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RB2"
+      ],
+      "generation_text": "2004～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "型式： RB2"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/5/461/4439/8865/21570R15/",
+      "source_title": "ホンダ:オデッセイ:2004～2008:RB2:アブソルートのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/5/461/4439/8865/21570R15/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 469,
+        "candidatesTokenCount": 219,
+        "totalTokenCount": 11213,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 469
+          }
+        ],
+        "toolUsePromptTokenCount": 10525,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10525
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:22:16+09:00",
+      "last_seen_at": "2026-09-04T13:22:16+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -2790,7 +2861,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 73,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The URL is a vehicle matching search page and does not explicitly list fitment data, model codes, or evidence for the target vehicle (Honda Odyssey RB1/RB2).",
+      "identity_reason": "The provided URL is a search interface for vehicle matching and does not explicitly identify the target vehicle/generation (RB1/RB2) or provide specific fitment facts for it.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -2824,7 +2895,7 @@
       },
       "usage_metadata": {
         "promptTokenCount": 444,
-        "candidatesTokenCount": 178,
+        "candidatesTokenCount": 179,
         "totalTokenCount": 2400,
         "promptTokensDetails": [
           {
@@ -2832,17 +2903,17 @@
             "tokenCount": 444
           }
         ],
-        "toolUsePromptTokenCount": 1778,
+        "toolUsePromptTokenCount": 1777,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 1778
+            "tokenCount": 1777
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T09:04:15+09:00",
-      "last_seen_at": "2026-09-04T09:04:15+09:00",
+      "last_seen_at": "2026-09-04T13:21:55+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -2859,7 +2930,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL could not be accessed or fetched to verify the vehicle identity.",
+      "identity_reason": "The URL content could not be accessed or retrieved to verify the target vehicle identity.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -2893,25 +2964,232 @@
       },
       "usage_metadata": {
         "promptTokenCount": 453,
-        "candidatesTokenCount": 167,
-        "totalTokenCount": 1275,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 1340,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 453
           }
         ],
-        "toolUsePromptTokenCount": 655,
+        "toolUsePromptTokenCount": 654,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 655
+            "tokenCount": 654
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T09:04:42+09:00",
-      "last_seen_at": "2026-09-04T09:04:42+09:00",
+      "last_seen_at": "2026-09-04T13:22:28+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN1-RN5",
+      "url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/rizley-di/?size=16inch",
+      "title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> 16インチ -> Rizley(ライツレー): DI｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The official page is for model code RN6-9, whereas the target generation is RN1-RN5.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/rizley-di/?size=16inch",
+      "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> 16インチ -> Rizley(ライツレー): DI｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/rizley-di/?size=16inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 462,
+        "candidatesTokenCount": 188,
+        "totalTokenCount": 2301,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 462
+          }
+        ],
+        "toolUsePromptTokenCount": 1651,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1651
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:23:00+09:00",
+      "last_seen_at": "2026-09-04T13:23:00+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN1-RN5",
+      "url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-all/",
+      "title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The URL provided is for the Stream RN6-RN9 generation (sutoriimu-rn69-d), not the target RN1-RN5 generation. Furthermore, the URL content cannot be accessed or verified.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-all/",
+      "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-all/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 458,
+        "candidatesTokenCount": 207,
+        "totalTokenCount": 1341,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 458
+          }
+        ],
+        "toolUsePromptTokenCount": 676,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 676
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:22:57+09:00",
+      "last_seen_at": "2026-09-04T13:22:57+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN1-RN5",
+      "url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-rn05m/?size=21inch",
+      "title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> 21インチ -> WedsSport(ウェッズスポーツ): RN-05M｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is for the Stream RN6-RN9 generation (sutoriimu-rn69-d), whereas the target vehicle is RN1-RN5. Furthermore, the page content could not be accessed to confirm fitment details.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-rn05m/?size=21inch",
+      "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9 *D -> 21インチ -> WedsSport(ウェッズスポーツ): RN-05M｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-rn05m/?size=21inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 466,
+        "candidatesTokenCount": 220,
+        "totalTokenCount": 1387,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 466
+          }
+        ],
+        "toolUsePromptTokenCount": 701,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 701
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:23:02+09:00",
+      "last_seen_at": "2026-09-04T13:23:02+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -3283,7 +3561,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 73,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a search interface and does not explicitly identify or display fitment facts for the target vehicle (Honda Stream RN6-RN9).",
+      "identity_reason": "The provided URL is a general vehicle matching search form page and does not explicitly list or identify the target vehicle generation RN6-RN9 or its specific fitment facts.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -3317,25 +3595,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 440,
-        "candidatesTokenCount": 173,
-        "totalTokenCount": 2387,
+        "candidatesTokenCount": 177,
+        "totalTokenCount": 2390,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 440
           }
         ],
-        "toolUsePromptTokenCount": 1774,
+        "toolUsePromptTokenCount": 1773,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 1774
+            "tokenCount": 1773
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T20:50:28+09:00",
-      "last_seen_at": "2026-09-03T20:50:28+09:00",
+      "last_seen_at": "2026-09-04T13:21:57+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -3409,6 +3687,144 @@
       },
       "first_seen_at": "2026-09-03T20:53:06+09:00",
       "last_seen_at": "2026-09-03T20:53:06+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40",
+      "search_id": "レクサス:LS",
+      "maker": "レクサス",
+      "model": "LS",
+      "generation": "USF40系",
+      "url": "https://www.search.weds.co.jp/maker/lexus/ls-40kei4wdls460ls460lls600hls600hl-fsportnozoku-a/fzero-all/",
+      "title": "車種検索 -> レクサス -> LS 40系/4WD LS460・LS460L・LS600h・LS600hL (F SPORT 除く) *A -> F-ZERO(エフゼロ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided official URL could not be accessed or verified directly to confirm page contents and matching vehicle attributes.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/lexus/ls-40kei4wdls460ls460lls600hls600hl-fsportnozoku-a/fzero-all/",
+      "source_title": "車種検索 -> レクサス -> LS 40系/4WD LS460・LS460L・LS600h・LS600hL (F SPORT 除く) *A -> F-ZERO(エフゼロ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/lexus/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 480,
+        "candidatesTokenCount": 330,
+        "totalTokenCount": 7891,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 480
+          }
+        ],
+        "toolUsePromptTokenCount": 7081,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 7081
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:23:19+09:00",
+      "last_seen_at": "2026-09-04T13:23:19+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40",
+      "search_id": "レクサス:LS",
+      "maker": "レクサス",
+      "model": "LS",
+      "generation": "USF40系",
+      "url": "https://www.search.weds.co.jp/maker/lexus/ls-40keifrls460ls460l-versverszfsportnozoku-a/maverick-709mcf/?size=20inch",
+      "title": "車種検索 -> レクサス -> LS 40系/FR LS460・LS460L (Ver.S・Ver.SZ・F SPORT 除く) *A -> 20インチ -> MAVERICK(マーベリック): 709M CF｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "brave",
+      "search_relevance": 17,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 46,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The official URL could not be accessed or verified for the target vehicle details.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.search.weds.co.jp/maker/lexus/ls-40keifrls460ls460l-versverszfsportnozoku-a/maverick-709mcf/?size=20inch",
+      "source_title": "車種検索 -> レクサス -> LS 40系/FR LS460・LS460L (Ver.S・Ver.SZ・F SPORT 除く) *A -> 20インチ -> MAVERICK(マーベリック): 709M CF｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.search.weds.co.jp/maker/lexus/ls-40keifrls460ls460l-versverszfsportnozoku-a/maverick-709mcf/?size=20inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 483,
+        "candidatesTokenCount": 200,
+        "totalTokenCount": 1433,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 483
+          }
+        ],
+        "toolUsePromptTokenCount": 750,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 750
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T13:23:21+09:00",
+      "last_seen_at": "2026-09-04T13:23:21+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -5012,7 +5428,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists Toyota Prius, model code NHW20, year 2004-2009, and grade Sツーリングセレクション プレミアム.",
+      "identity_reason": "The page explicitly lists maker as トヨタ, model as プリウス, generation/model code as NHW20, and grade as Sツーリングセレクション プレミアム.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -5032,7 +5448,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "グレード： Sツーリングセレクション プレミアム 年式： 2004～2009 型式： NHW20"
+        "identity": "トヨタ:プリウス:2004～2009:NHW20:Sツーリングセレクション プレミアム"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/1/303/3644/12366/14436/",
       "source_title": "トヨタ:プリウス:2004～2009:NHW20:Sツーリングセレクション プレミアムのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -5048,25 +5464,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 466,
-        "candidatesTokenCount": 242,
-        "totalTokenCount": 3990,
+        "candidatesTokenCount": 240,
+        "totalTokenCount": 3987,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 466
           }
         ],
-        "toolUsePromptTokenCount": 3282,
+        "toolUsePromptTokenCount": 3281,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 3282
+            "tokenCount": 3281
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T09:14:07+09:00",
-      "last_seen_at": "2026-09-03T20:55:00+09:00",
+      "last_seen_at": "2026-09-04T13:22:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -5083,7 +5499,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "グレード： G 年式： 2005～2009 型式： NHW20 トヨタ プリウス",
+      "identity_reason": "トヨタ プリウス 2005～2009 NHW20 G",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -5119,25 +5535,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 466,
-        "candidatesTokenCount": 228,
-        "totalTokenCount": 3937,
+        "candidatesTokenCount": 219,
+        "totalTokenCount": 3927,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 466
           }
         ],
-        "toolUsePromptTokenCount": 3243,
+        "toolUsePromptTokenCount": 3242,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 3243
+            "tokenCount": 3242
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T09:14:08+09:00",
-      "last_seen_at": "2026-09-03T20:55:29+09:00",
+      "last_seen_at": "2026-09-04T13:22:54+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -5154,7 +5570,7 @@
       "source_domain": "bridgestone.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly identifies maker トヨタ, model プリウス, generation code NHW20, and grade Gツーリングセレクション･レザーパッケージ.",
+      "identity_reason": "The page explicitly lists Toyota Prius NHW20 model, year 2007-2009, and G Touring Selection Leather Package grade.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -5174,7 +5590,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "トヨタ　プリウス 2007～2009 NHW20 Gツーリングセレクション･レザーパッケージ"
+        "identity": "トヨタ　プリウス 年式： 2007～2009 型式： NHW20"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/1/303/3646/12374/14444/",
       "source_title": "トヨタ:プリウス:2007～2009:NHW20:Gツーリングセレクション･レザーパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -5190,25 +5606,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 466,
-        "candidatesTokenCount": 236,
-        "totalTokenCount": 10972,
+        "candidatesTokenCount": 235,
+        "totalTokenCount": 10970,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 466
           }
         ],
-        "toolUsePromptTokenCount": 10270,
+        "toolUsePromptTokenCount": 10269,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 10270
+            "tokenCount": 10269
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T09:14:05+09:00",
-      "last_seen_at": "2026-09-03T20:54:30+09:00",
+      "last_seen_at": "2026-09-04T13:22:48+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -5294,25 +5710,25 @@
       "source_domain": "weds.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested vehicle is NHW20, but the official webpage is for the 60系 (60 series) Prius.",
-      "pcd": 114.3,
-      "holes": 5,
-      "hub_bore": 60.0,
-      "thread_diameter": "M12",
-      "thread_pitch": 1.5,
+      "identity_reason": "The official URL and page content correspond to the Toyota Prius 60系 (60 series), whereas the target vehicle is the NHW20 generation.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
       "fastener": null,
       "wheel_torque_nm": null,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
       "model_codes": [],
-      "generation_text": "60系",
+      "generation_text": null,
       "explicit_evidence": {
-        "pcd": "5/114.3",
-        "holes": "5/114.3",
-        "hub_bore": "φ60",
-        "thread": "M12x1.5",
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
         "torque": null,
-        "identity": "車種 プリウス 型式等 60系"
+        "identity": null
       },
       "source_url": "https://www.search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
       "source_title": "車種検索 -> トヨタ -> プリウス 60系 -> 20インチ -> WedsSport(ウェッズスポーツ): SA-20R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
@@ -5328,25 +5744,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 232,
-        "totalTokenCount": 5191,
+        "candidatesTokenCount": 194,
+        "totalTokenCount": 5152,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 462
           }
         ],
-        "toolUsePromptTokenCount": 4497,
+        "toolUsePromptTokenCount": 4496,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 4497
+            "tokenCount": 4496
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:03:34+09:00",
-      "last_seen_at": "2026-09-04T09:04:58+09:00",
+      "last_seen_at": "2026-09-04T13:22:45+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
