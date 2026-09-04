@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json
+import json, os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,10 +34,35 @@ def load(path):
         return json.load(f)
 
 
+def pcd_variants(maker: str, model: str, generation: str, level: int) -> list[str]:
+    base = f"{maker} {model} {generation}".strip()
+    out = []
+    if level >= 1:
+        out += [
+            f"{base} ホイール PCD 穴数",
+            f"{maker} {model} {generation} 型式 PCD",
+            f"{maker} {model} {generation} ホイール 適合 マッチング",
+        ]
+    if level >= 2:
+        out += [
+            f"{base} 旧型 PCD カタログ PDF",
+            f"{base} 生産終了 ホイール 適合",
+            f"{base} archive PCD wheel",
+            f"{maker} {model} {generation} 純正 ホイール サイズ PCD",
+        ]
+    # preserve order while removing duplicates/empty noise
+    return list(dict.fromkeys(q.strip() for q in out if q.strip()))
+
+
 def main():
     data = load(QUEUE)
     records = data.get("records", data if isinstance(data, list) else [])
     candidates = []
+    mode = os.getenv("PCD_RESEARCH_MODE", "normal")
+    try:
+        variant_level = int(os.getenv("PCD_QUERY_VARIANT_LEVEL", "0"))
+    except ValueError:
+        variant_level = 0
 
     for item in records[:100]:
         maker = item.get("maker", "")
@@ -56,6 +81,18 @@ def main():
                     "trusted_secondary",
                 ],
             })
+            if field == "pcd" and variant_level > 0:
+                for q in pcd_variants(maker, model, generation, variant_level):
+                    queries.append({
+                        "field": "pcd",
+                        "query": q,
+                        "preferred_sources": [
+                            "manufacturer_official",
+                            "wheel_manufacturer_official",
+                            "trusted_secondary",
+                        ],
+                        "adaptive_variant": True,
+                    })
 
         if item.get("status") == "search_only_unverified" and not queries:
             queries.append({
@@ -80,6 +117,8 @@ def main():
             "status": item.get("status"),
             "missing_fields": missing,
             "research_queries": queries,
+            "research_mode": mode,
+            "query_variant_level": variant_level,
             "acceptance_policy": {
                 "auto_confirm": "manufacturer official source, or two trusted independent sources that agree",
                 "conflict": "human_review_required",
@@ -90,9 +129,11 @@ def main():
         })
 
     payload = {
-        "schema_version": "1.0.0",
+        "schema_version": "1.1.0",
         "dataset": "vehicle_research_candidates",
         "candidate_count": len(candidates),
+        "research_mode": mode,
+        "query_variant_level": variant_level,
         "policy": {
             "official_first": True,
             "cross_check_required_for_non_official": True,
@@ -103,12 +144,17 @@ def main():
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    lines = ["# Vehicle Research Candidates", "", f"- Candidates: {len(candidates)}", "- Production master is not modified by this step.", "", "## Top 20"]
+    lines = [
+        "# Vehicle Research Candidates", "",
+        f"- Candidates: {len(candidates)}",
+        f"- Adaptive mode: {mode} / variant level {variant_level}",
+        "- Production master is not modified by this step.", "", "## Top 20"
+    ]
     for c in candidates[:20]:
         fields = ", ".join(c["missing_fields"]) or "fitment_seed"
         lines.append(f"- {c['priority_score']:>3} | {c['maker']} {c['model']} {c.get('generation') or ''} | {fields}")
     MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(json.dumps({"candidate_count": len(candidates), "top": candidates[:5]}, ensure_ascii=False, indent=2))
+    print(json.dumps({"candidate_count": len(candidates), "mode": mode, "variant_level": variant_level, "top": candidates[:5]}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
