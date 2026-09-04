@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "dataset": "auto_confirmed_pcd",
-  "updated_at": "2026-09-03T20:58:45+09:00",
+  "updated_at": "2026-09-04T09:04:58+09:00",
   "policy": {
     "minimum_independent_domains": 2,
     "official_registered_domains_only": true,
     "conflict_blocks_confirmation": true,
     "fills_missing_pcd_only": true
   },
-  "confirmed_count": 4,
+  "confirmed_count": 5,
   "conflict_count": 0,
   "records": [
     {
@@ -35,7 +35,33 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-03T20:58:45+09:00"
+      "confirmed_at": "2026-09-04T09:04:58+09:00"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "field": "pcd",
+      "value": 114.3,
+      "confidence": "B",
+      "support_count": 2,
+      "sources": [
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all?size=19inch",
+          "title": "車種検索 -> ホンダ -> エリシオン RR1-6　*D -> 19インチ -> ELYSIA(エリシア): ELYSIA｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        },
+        {
+          "domain": "work-wheels.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+          "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D."
+        }
+      ],
+      "status": "auto_confirmed_two_independent_official_domains",
+      "confirmed_at": "2026-09-04T09:04:58+09:00"
     },
     {
       "vehicle_id": "HON_FIT_GD",
@@ -61,7 +87,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-03T20:58:45+09:00"
+      "confirmed_at": "2026-09-04T09:04:58+09:00"
     },
     {
       "vehicle_id": "HON_INSIGHT_ZE1",
@@ -87,7 +113,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-03T20:58:45+09:00"
+      "confirmed_at": "2026-09-04T09:04:58+09:00"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -113,7 +139,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-03T20:58:45+09:00"
+      "confirmed_at": "2026-09-04T09:04:58+09:00"
     }
   ],
   "conflicts": []

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-03T20:58:45+09:00",
+  "updated_at": "2026-09-04T09:04:58+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -9,7 +9,7 @@
     "any_conflicting_official_value_blocks_auto_confirm": true,
     "no_guessing": true
   },
-  "record_count": 14,
+  "record_count": 15,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -96,7 +96,27 @@
       "search_score": 0.73505294,
       "source_domain": "weds.co.jp",
       "first_seen_at": "2026-09-03T20:49:23+09:00",
-      "last_seen_at": "2026-09-03T20:49:23+09:00",
+      "last_seen_at": "2026-09-04T09:03:55+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "field": "pcd",
+      "candidate_value": 114.3,
+      "source_type": "wheel_manufacturer_official",
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
+      "source_domain": "work-wheels.co.jp",
+      "search_engine": "gemini_url_context",
+      "target_reason": "official_page_body_extraction",
+      "identity_validated": true,
+      "target_score": 48,
+      "first_seen_at": "2026-09-04T09:04:58+09:00",
+      "last_seen_at": "2026-09-04T09:04:58+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

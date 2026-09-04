@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-03T20:58:45+09:00",
+  "updated_at": "2026-09-04T09:04:58+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 69,
+  "record_count": 78,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -418,12 +418,12 @@
       "url": "https://tire.bridgestone.co.jp/search/car/3/428/5386/18731/21422/",
       "title": "ホンダ:エリシオン:2006～2012:RR1:MXのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page specifies ホンダ エリシオン, model code RR1, and year 2006-2012.",
+      "identity_reason": "ホンダ エリシオン グレード： MX 年式： 2006～2012 型式： RR1",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -459,8 +459,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 465,
-        "candidatesTokenCount": 232,
-        "totalTokenCount": 4141,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 4142,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -477,7 +477,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:07+09:00",
-      "last_seen_at": "2026-09-03T20:50:45+09:00",
+      "last_seen_at": "2026-09-04T09:04:17+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -770,6 +770,148 @@
       "maker": "ホンダ",
       "model": "エリシオン",
       "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/5/428/5380/18700/21391/",
+      "title": "ホンダ:エリシオン:2004～2012:RR3:VXのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 19,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ エリシオン 2004～2012 RR3 VX",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR3"
+      ],
+      "generation_text": "2004～2012",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ\tエリシオン 年式： 2004～2012 型式： RR3 グレード： VX"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/5/428/5380/18700/21391/",
+      "source_title": "ホンダ:エリシオン:2004～2012:RR3:VXのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/5/428/5380/18700/21391/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 224,
+        "totalTokenCount": 10797,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 10108,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10108
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:20+09:00",
+      "last_seen_at": "2026-09-04T09:04:20+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://tire.bridgestone.co.jp/search/car/5/429/5414/18791/21482/",
+      "title": "ホンダ:エリシオン プレステージ:2007～2013:RR5:SG HDDナビパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 19,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly specifies Honda Elysion Prestige model code RR5, matching generation RR1-RR6.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR5"
+      ],
+      "generation_text": "2007～2013",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "型式： RR5"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/5/429/5414/18791/21482/",
+      "source_title": "ホンダ:エリシオン プレステージ:2007～2013:RR5:SG HDDナビパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/5/429/5414/18791/21482/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 465,
+        "candidatesTokenCount": 201,
+        "totalTokenCount": 11026,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 465
+          }
+        ],
+        "toolUsePromptTokenCount": 10360,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10360
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:23+09:00",
+      "last_seen_at": "2026-09-04T09:04:23+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
       "url": "https://www.work-wheels.co.jp/en/search/web_matching/news/?page=3",
       "title": "MATCHING｜WORK COMPANY LIMITED",
       "origin": "brave",
@@ -778,7 +920,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 58,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The URL could not be accessed to verify vehicle identity or fitment facts.",
+      "identity_reason": "The provided URL could not be accessed or does not contain explicit matching data for the target vehicle on this page.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -812,8 +954,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 167,
-        "totalTokenCount": 1271,
+        "candidatesTokenCount": 174,
+        "totalTokenCount": 1278,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -830,7 +972,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:53:26+09:00",
-      "last_seen_at": "2026-09-03T20:52:27+09:00",
+      "last_seen_at": "2026-09-04T09:04:44+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -846,65 +988,54 @@
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
       "target_score": 48,
-      "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a wheel catalog PDF (WORK EMOTION CR kiwami) and does not identify the target vehicle ELYSION RR1-RR6.",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "thread_diameter": null,
-      "thread_pitch": null,
-      "fastener": null,
-      "wheel_torque_nm": null,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The document explicitly lists 'エリシオン' and model codes 'RR1/2/3/4/5/6' in the vehicle compatibility table.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": "nut",
+      "wheel_torque_nm": 108.0,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
-      "model_codes": [],
+      "model_codes": [
+        "RR1",
+        "RR2",
+        "RR3",
+        "RR4",
+        "RR5",
+        "RR6"
+      ],
       "generation_text": null,
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
-        "hub_bore": null,
-        "thread": null,
-        "torque": null,
-        "identity": null
+        "pcd": "P.C.D. 114.3",
+        "holes": "HOLE 5",
+        "hub_bore": "HUB 64",
+        "thread": "ネジサイズ M12×P1.5",
+        "torque": "締付トルク 108N・m",
+        "identity": "車種 エリシオン 型式 RR1/2/3/4/5/6"
       },
       "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
       "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
-      "url_context_metadata": {
-        "urlMetadata": [
-          {
-            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
-            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
-          }
-        ]
-      },
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
       "usage_metadata": {
         "promptTokenCount": 458,
-        "candidatesTokenCount": 193,
-        "totalTokenCount": 10729,
+        "candidatesTokenCount": 333,
+        "totalTokenCount": 791,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 458
           }
         ],
-        "toolUsePromptTokenCount": 10078,
-        "toolUsePromptTokensDetails": [
-          {
-            "modality": "TEXT",
-            "tokenCount": 3148
-          },
-          {
-            "modality": "IMAGE",
-            "tokenCount": 6930
-          }
-        ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T18:07:47+09:00",
-      "last_seen_at": "2026-09-03T20:52:56+09:00",
-      "status": "identity_not_confirmed_no_auto_use"
+      "last_seen_at": "2026-09-04T09:04:53+09:00",
+      "status": "candidate_only_needs_corroboration"
     },
     {
       "vehicle_id": "HON_ELYSION_RR",
@@ -920,7 +1051,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 67,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The requested URL could not be accessed or fetched to verify the target vehicle.",
+      "identity_reason": "The requested URL could not be accessed or fetched to confirm the vehicle identity and fitment specifications.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -954,8 +1085,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 451,
-        "candidatesTokenCount": 167,
-        "totalTokenCount": 1271,
+        "candidatesTokenCount": 171,
+        "totalTokenCount": 1275,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -972,7 +1103,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:51:51+09:00",
-      "last_seen_at": "2026-09-03T20:52:04+09:00",
+      "last_seen_at": "2026-09-04T09:04:39+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -2225,6 +2356,219 @@
       "maker": "ホンダ",
       "model": "オデッセイ",
       "generation": "RB1/RB2",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/431/5444/18874/21565/",
+      "title": "ホンダ:オデッセイ:2003～2008:RB1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The official page explicitly lists ホンダ (Honda) オデッセイ (Odyssey) with model code RB1 and year range 2003～2008.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RB1"
+      ],
+      "generation_text": "2003～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ:オデッセイ:2003～2008:RB1:S"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/431/5444/18874/21565/",
+      "source_title": "ホンダ:オデッセイ:2003～2008:RB1:Sのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/431/5444/18874/21565/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 467,
+        "candidatesTokenCount": 234,
+        "totalTokenCount": 4153,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 467
+          }
+        ],
+        "toolUsePromptTokenCount": 3452,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3452
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:25+09:00",
+      "last_seen_at": "2026-09-04T09:04:25+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18896/21587/",
+      "title": "ホンダ:オデッセイ:2006～2008:RB1:アブソルートのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The official page explicitly identifies the vehicle as maker ホンダ, model オデッセイ, model code RB1, and generation 2006～2008.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RB1"
+      ],
+      "generation_text": "2006～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "メーカー/車種 ホンダ オデッセイ グレード： アブソルート 年式： 2006～2008 型式： RB1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18896/21587/",
+      "source_title": "ホンダ:オデッセイ:2006～2008:RB1:アブソルートのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18896/21587/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 467,
+        "candidatesTokenCount": 246,
+        "totalTokenCount": 4262,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 467
+          }
+        ],
+        "toolUsePromptTokenCount": 3549,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3549
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:31+09:00",
+      "last_seen_at": "2026-09-04T09:04:31+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18898/21589/",
+      "title": "ホンダ:オデッセイ:2006～2008:RB1:Bのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 23,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "ホンダ オデッセイ 2006～2008 RB1 B",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RB1"
+      ],
+      "generation_text": "2006～2008",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ\nオデッセイ\nグレード：\n B\n年式：\n 2006～2008\n型式：\n RB1"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18898/21589/",
+      "source_title": "ホンダ:オデッセイ:2006～2008:RB1:Bのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/431/5450/18898/21589/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 467,
+        "candidatesTokenCount": 235,
+        "totalTokenCount": 10990,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 467
+          }
+        ],
+        "toolUsePromptTokenCount": 10288,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10288
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:30+09:00",
+      "last_seen_at": "2026-09-04T09:04:30+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
       "url": "https://search.weds.co.jp/brand/joker/smash/honda/odessei-rb1-2-d/?size=22inch",
       "title": "ブランド検索 -> JOKER(ジョーカー) 製品一覧 -> SMASH -> オデッセイ RB1・2 *D（22インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "origin": "brave",
@@ -2433,6 +2777,215 @@
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://work-wheels.co.jp/search/web_matching/",
+      "title": "MATCHING 車から検索｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 14,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 73,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The URL is a vehicle matching search page and does not explicitly list fitment data, model codes, or evidence for the target vehicle (Honda Odyssey RB1/RB2).",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://work-wheels.co.jp/search/web_matching/",
+      "source_title": "MATCHING 車から検索｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 444,
+        "candidatesTokenCount": 178,
+        "totalTokenCount": 2400,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 444
+          }
+        ],
+        "toolUsePromptTokenCount": 1778,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1778
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:15+09:00",
+      "last_seen_at": "2026-09-04T09:04:15+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "origin": "brave",
+      "search_relevance": 13,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 67,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL could not be accessed or fetched to verify the vehicle identity.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+      "source_title": "MATCHING 車種マッチング｜株式会社ワーク",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://www.work-wheels.co.jp/search/web_matching/news/?page=161",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_ERROR"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 453,
+        "candidatesTokenCount": 167,
+        "totalTokenCount": 1275,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 453
+          }
+        ],
+        "toolUsePromptTokenCount": 655,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 655
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:42+09:00",
+      "last_seen_at": "2026-09-04T09:04:42+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5704/19643/22364/",
+      "title": "ホンダ:ストリーム:2006～2014:RN6:RSZのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 19,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The official Bridgestone page explicitly displays Honda Stream, model code RN6, and year range 2006-2014.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN6"
+      ],
+      "generation_text": "2006～2014",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダストリーム グレード： RSZ 年式： 2006～2014 型式： RN6"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5704/19643/22364/",
+      "source_title": "ホンダ:ストリーム:2006～2014:RN6:RSZのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/448/5704/19643/22364/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 463,
+        "candidatesTokenCount": 233,
+        "totalTokenCount": 10794,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 463
+          }
+        ],
+        "toolUsePromptTokenCount": 10098,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10098
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:34+09:00",
+      "last_seen_at": "2026-09-04T09:04:34+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
       "vehicle_id": "HON_STREAM_RN69",
       "search_id": "ホンダ:ストリーム",
       "maker": "ホンダ",
@@ -2509,15 +3062,86 @@
       "maker": "ホンダ",
       "model": "ストリーム",
       "generation": "RN6-RN9",
-      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
-      "title": "ホンダ:ストリーム:2010～2014:RN6:TSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5712/19696/22417/",
+      "title": "ホンダ:ストリーム:2009～2014:RN6:ZS Sパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
       "origin": "brave",
-      "search_relevance": 23,
+      "search_relevance": 19,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "bridgestone.co.jp",
       "target_score": 70,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page lists Honda Stream model code RN6 for years 2010-2014.",
+      "identity_reason": "ホンダ ストリーム RN6 ZS Sパッケージのページであるため",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN6"
+      ],
+      "generation_text": "2009～2014",
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": "ホンダ ストリーム グレード： ZS Sパッケージ 年式： 2009～2014 型式： RN6"
+      },
+      "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5712/19696/22417/",
+      "source_title": "ホンダ:ストリーム:2009～2014:RN6:ZS Sパッケージのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://tire.bridgestone.co.jp/search/car/3/448/5712/19696/22417/",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 463,
+        "candidatesTokenCount": 219,
+        "totalTokenCount": 3885,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 463
+          }
+        ],
+        "toolUsePromptTokenCount": 3203,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3203
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T09:04:35+09:00",
+      "last_seen_at": "2026-09-04T09:04:35+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
+      "title": "ホンダ:ストリーム:2010～2014:RN6:TSのタイヤ 検索結果 - 株式会社ブリヂストン",
+      "origin": "brave",
+      "search_relevance": 19,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "bridgestone.co.jp",
+      "target_score": 70,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The page specifies model RN6 with grade TS, but does not provide fitment facts like PCD, holes, hub bore, thread data, or torque.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -2537,7 +3161,7 @@
         "hub_bore": null,
         "thread": null,
         "torque": null,
-        "identity": "ホンダ ストリーム グレード： TS 年式： 2010～2014 型式： RN6"
+        "identity": "グレード： TS 年式： 2010～2014 型式： RN6"
       },
       "source_url": "https://tire.bridgestone.co.jp/search/car/3/448/5716/19700/22421/",
       "source_title": "ホンダ:ストリーム:2010～2014:RN6:TSのタイヤ 検索結果 - 株式会社ブリヂストン",
@@ -2553,8 +3177,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 463,
-        "candidatesTokenCount": 224,
-        "totalTokenCount": 3884,
+        "candidatesTokenCount": 227,
+        "totalTokenCount": 3887,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -2571,8 +3195,8 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T09:13:40+09:00",
-      "last_seen_at": "2026-09-03T09:13:40+09:00",
-      "status": "candidate_only_needs_corroboration"
+      "last_seen_at": "2026-09-04T09:04:37+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
     },
     {
       "vehicle_id": "HON_STREAM_RN69",
@@ -4670,45 +5294,59 @@
       "source_domain": "weds.co.jp",
       "target_score": 46,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is for the 'puriusu-60kei' (60 series Prius), which does not match the target vehicle NHW20 (20 series Prius).",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "thread_diameter": null,
-      "thread_pitch": null,
+      "identity_reason": "The requested vehicle is NHW20, but the official webpage is for the 60系 (60 series) Prius.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
       "fastener": null,
       "wheel_torque_nm": null,
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
       "model_codes": [],
-      "generation_text": null,
+      "generation_text": "60系",
       "explicit_evidence": {
-        "pcd": null,
-        "holes": null,
-        "hub_bore": null,
-        "thread": null,
+        "pcd": "5/114.3",
+        "holes": "5/114.3",
+        "hub_bore": "φ60",
+        "thread": "M12x1.5",
         "torque": null,
-        "identity": "The URL specifies 'puriusu-60kei', which is the 60 series Prius, not the NHW20."
+        "identity": "車種 プリウス 型式等 60系"
       },
       "source_url": "https://www.search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
       "source_title": "車種検索 -> トヨタ -> プリウス 60系 -> 20インチ -> WedsSport(ウェッズスポーツ): SA-20R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.1-flash-lite",
-      "url_context_metadata": {},
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/toyota/puriusu-60kei/wedssport-all/?size=20inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 246,
-        "totalTokenCount": 708,
+        "candidatesTokenCount": 232,
+        "totalTokenCount": 5191,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 462
           }
         ],
+        "toolUsePromptTokenCount": 4497,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 4497
+          }
+        ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-02T16:03:34+09:00",
-      "last_seen_at": "2026-09-03T20:54:24+09:00",
+      "last_seen_at": "2026-09-04T09:04:58+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {

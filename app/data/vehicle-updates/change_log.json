@@ -98,6 +98,30 @@
       ],
       "applied_at": "2026-09-03T09:14:10+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "field": "pcd",
+      "old": null,
+      "new": 114.3,
+      "reason": "auto_confirmed_two_independent_official_domains",
+      "confidence": "B",
+      "sources": [
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all?size=19inch",
+          "title": "車種検索 -> ホンダ -> エリシオン RR1-6　*D -> 19インチ -> ELYSIA(エリシア): ELYSIA｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        },
+        {
+          "domain": "work-wheels.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+          "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D."
+        }
+      ],
+      "applied_at": "2026-09-04T09:04:58+09:00",
+      "actor": "github_actions_auto_pcd"
     }
   ]
 }
