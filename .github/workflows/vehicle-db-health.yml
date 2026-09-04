@@ -1,4 +1,4 @@
-name: 車種DB育成 v1.9 初期加速15件/日
+name: 車種DB育成 v2.0 PCD自動改善ループ
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ concurrency:
 jobs:
   grow-and-check:
     if: ${{ github.actor != 'github-actions[bot]' }}
-    name: PCD初期加速15件→公式2ソース照合→QA
+    name: PCD登録率監視→検索自動調整→公式2ソース照合→QA
     runs-on: ubuntu-latest
     steps:
       - name: データ取得
@@ -47,33 +47,32 @@ jobs:
         run: python tools/vehicle_db_health.py
       - name: 欠損・世代確認キュー作成
         run: python tools/build_missing_data_queue.py
-      - name: 調査候補作成
+      - name: PCD進捗監視・検索戦略自動決定
+        if: ${{ github.event_name != 'pull_request' }}
+        run: python tools/pcd_growth_controller.py
+      - name: 調査候補作成（残り率に応じて検索語を自動拡張）
         run: python tools/build_research_candidates.py
-      - name: 第1層 Tavily（初期加速15件/日）
+      - name: 第1層 Tavily（自動件数調整）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
-          TAVILY_MAX_QUERIES: '15'
         run: python tools/tavily_vehicle_research.py
       - name: 第2層 Gemini（検索戦略）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
-          GEMINI_PLAN_MAX_VEHICLES: '15'
         run: python tools/gemini_search_planner.py
-      - name: 第3層 Brave（別公式ドメイン探索15件/日）
+      - name: 第3層 Brave（別公式ドメイン探索・自動件数調整）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
-          BRAVE_MAX_QUERIES: '15'
         run: python tools/brave_vehicle_research.py
       - name: 第4層 Gemini（公式ページ本文検証）
         if: ${{ github.event_name != 'pull_request' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: 'gemini-3.5-flash-lite'
-          GEMINI_MAX_URLS: '15'
         run: python tools/gemini_vehicle_extract.py
       - name: PCD自動確定反映（2独立公式一致のみ）
         if: ${{ github.event_name != 'pull_request' }}
@@ -88,17 +87,33 @@ jobs:
       - name: API稼働状況スナップショット作成
         if: ${{ always() && github.event_name != 'pull_request' }}
         run: python tools/build_api_run_status.py
+      - name: 次回PCD検索戦略を再評価
+        if: ${{ always() && github.event_name != 'pull_request' }}
+        run: python tools/pcd_growth_controller.py
       - name: 結果サマリー作成
         if: ${{ always() }}
         run: |
           if [ -f reports/vehicle-db-health.md ]; then cat reports/vehicle-db-health.md >> "$GITHUB_STEP_SUMMARY"; fi
-          for f in missing-data-queue research-candidates tavily-search-results gemini-search-plan brave-search-results gemini-structured-extraction; do
+          for f in pcd-growth-controller missing-data-queue research-candidates tavily-search-results gemini-search-plan brave-search-results gemini-structured-extraction; do
             if [ -f "reports/$f.md" ]; then
               printf '\n---\n\n' >> "$GITHUB_STEP_SUMMARY"
               cat "reports/$f.md" >> "$GITHUB_STEP_SUMMARY"
             fi
           done
-      - name: 自動調査結果・確定PCD・構造化候補・API状況を保存
+          if [ -f reports/auto-pcd-apply.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from collections import Counter
+          d=json.load(open('reports/auto-pcd-apply.json', encoding='utf-8'))
+          reasons=Counter(x.get('reason','unknown') for x in d.get('skipped', []))
+          print('\n---\n\n# PCD反映結果')
+          print(f"- 新規反映: {d.get('applied_count',0)}件")
+          print(f"- スキップ: {d.get('skipped_count',0)}件")
+          for k,v in reasons.most_common():
+              print(f"- skip/{k}: {v}件")
+          PY
+          fi
+      - name: 自動調査結果・確定PCD・改善戦略・API状況を保存
         if: ${{ always() && github.event_name != 'pull_request' }}
         run: |
           git config user.name "github-actions[bot]"
@@ -108,12 +123,13 @@ jobs:
             app/data/vehicle-updates/auto-confirmed-pcd.json \
             app/data/vehicle-updates/auto-structured-evidence.json \
             app/data/vehicle-updates/change_log.json \
+            app/data/vehicle-updates/pcd-growth-strategy.json \
             app/data/vehicles_2012_2026.json \
             dashboard/api-status.json
           if git diff --cached --quiet; then
             echo "保存対象の変更なし"
           else
-            git commit -m "chore: persist accelerated vehicle research [skip ci]"
+            git commit -m "chore: persist adaptive PCD research [skip ci]"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
