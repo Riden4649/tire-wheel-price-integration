@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-04T13:23:22+09:00",
+  "updated_at": "2026-09-04T13:32:32+09:00",
   "run": {
-    "id": "33836488976",
-    "number": "79",
+    "id": "33836865842",
+    "number": "80",
     "event": "push",
-    "sha": "f95d961d38c3884c55babc67ce1f67d066e6f159",
+    "sha": "886b59d654114b5a20b9bd822accb8720b5545aa",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
   "overall_status": "ok",
@@ -46,11 +46,11 @@
       "success": 15,
       "errors": 0,
       "success_rate": 100.0,
-      "identity_confirmed": 6,
+      "identity_confirmed": 3,
       "pcd_candidates": 0,
       "confirmed": 5,
       "conflicts": 0,
-      "retries": 0,
+      "retries": 2,
       "fallback_success": 0,
       "model": "gemini-3.5-flash-lite",
       "fallback_model": "gemini-3.1-flash-lite"
