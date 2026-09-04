@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-04T17:03:52+09:00",
+  "updated_at": "2026-09-04T21:14:34+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 93,
+  "record_count": 95,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -227,7 +227,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 29,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The official URL and page content explicitly state the vehicle maker as ホンダ (Honda), model as アコード (Accord), and model code/generation as CL7-9.",
+      "identity_reason": "The page explicitly lists 'アコード' (Accord) and 'CL7-9' as the vehicle model.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -240,19 +240,19 @@
       "model_codes": [
         "CL7-9"
       ],
-      "generation_text": "CL7-9　*D",
+      "generation_text": null,
       "explicit_evidence": {
         "pcd": "5/114.3",
         "holes": "5/114.3",
         "hub_bore": "φ64",
         "thread": "M12x1.5 ナット",
         "torque": null,
-        "identity": "車種 アコード / 型式等 CL7-9　*D"
+        "identity": "車種: アコード, 型式等: CL7-9"
       },
       "source_url": "https://search.weds.co.jp/maker/honda/akoodo-cl79-d/wedssport-all",
       "source_title": "車種検索 -> ホンダ -> アコード CL7-9　*D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
+      "gemini_model": "gemini-3.1-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
@@ -263,25 +263,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 453,
-        "candidatesTokenCount": 252,
-        "totalTokenCount": 3244,
+        "candidatesTokenCount": 313,
+        "totalTokenCount": 3308,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 453
           }
         ],
-        "toolUsePromptTokenCount": 2539,
+        "toolUsePromptTokenCount": 2542,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 2539
+            "tokenCount": 2542
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T17:03:52+09:00",
-      "last_seen_at": "2026-09-04T17:03:52+09:00",
+      "last_seen_at": "2026-09-04T21:14:34+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -2922,6 +2922,61 @@
       "maker": "ホンダ",
       "model": "オデッセイ",
       "generation": "RB1/RB2",
+      "url": "https://mid-wheels.com/search/",
+      "title": "ホイール検索｜MID WHEELS｜日本品質の安全と技術を誇るマルカサービス株式会社",
+      "origin": "brave",
+      "search_relevance": 4,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "mid-wheels.com",
+      "target_score": 42,
+      "vehicle_identity_confirmed": false,
+      "identity_reason": "The provided URL is a general search page for wheel products and does not contain specific fitment data, vehicle identification, or technical specifications for the Honda Odyssey RB1/RB2.",
+      "pcd": null,
+      "holes": null,
+      "hub_bore": null,
+      "thread_diameter": null,
+      "thread_pitch": null,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [],
+      "generation_text": null,
+      "explicit_evidence": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "thread": null,
+        "torque": null,
+        "identity": null
+      },
+      "source_url": "https://mid-wheels.com/search/",
+      "source_title": "ホイール検索｜MID WHEELS｜日本品質の安全と技術を誇るマルカサービス株式会社",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
+      "usage_metadata": {
+        "promptTokenCount": 438,
+        "candidatesTokenCount": 152,
+        "totalTokenCount": 590,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 438
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T21:14:18+09:00",
+      "last_seen_at": "2026-09-04T21:14:18+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
       "url": "https://search.weds.co.jp/brand/joker/smash/honda/odessei-rb1-2-d/?size=22inch",
       "title": "ブランド検索 -> JOKER(ジョーカー) 製品一覧 -> SMASH -> オデッセイ RB1・2 *D（22インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "origin": "brave",
@@ -3143,7 +3198,7 @@
       "source_domain": "work-wheels.co.jp",
       "target_score": 73,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided URL is a search page form where vehicle and model selection yields 0 results initially and does not explicitly identify the target vehicle (RB1/RB2 Odyssey) in the page content.",
+      "identity_reason": "The provided URL is a search interface that requires user interaction to select a vehicle. It does not contain explicit data for the Honda Odyssey RB1/RB2 on the page itself.",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -3166,7 +3221,7 @@
       "source_url": "https://work-wheels.co.jp/search/web_matching/",
       "source_title": "MATCHING 車から検索｜株式会社ワーク",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
+      "gemini_model": "gemini-3.1-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
@@ -3177,25 +3232,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 444,
-        "candidatesTokenCount": 182,
-        "totalTokenCount": 2403,
+        "candidatesTokenCount": 244,
+        "totalTokenCount": 2468,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 444
           }
         ],
-        "toolUsePromptTokenCount": 1777,
+        "toolUsePromptTokenCount": 1780,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 1777
+            "tokenCount": 1780
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T09:04:15+09:00",
-      "last_seen_at": "2026-09-04T17:03:37+09:00",
+      "last_seen_at": "2026-09-04T21:13:34+09:00",
       "status": "identity_not_confirmed_no_auto_use"
     },
     {
@@ -3204,15 +3259,15 @@
       "maker": "ホンダ",
       "model": "オデッセイ",
       "generation": "RB1/RB2",
-      "url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
-      "title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
       "origin": "brave",
       "search_relevance": 4,
       "source_type": "wheel_manufacturer_official",
       "source_domain": "work-wheels.co.jp",
-      "target_score": 42,
+      "target_score": 48,
       "vehicle_identity_confirmed": false,
-      "identity_reason": "The provided webpage is a wheel catalog for WORK Lanvec LDZ and does not identify the target vehicle model (Honda Odyssey RB1/RB2).",
+      "identity_reason": "The provided document is a wheel catalog (WORK EMOTION CR kiwami) that lists various vehicle models and their compatible wheel sizes, but it does not contain any information regarding the Honda Odyssey (RB1/RB2).",
       "pcd": null,
       "holes": null,
       "hub_bore": null,
@@ -3232,44 +3287,98 @@
         "torque": null,
         "identity": null
       },
-      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
-      "source_title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE",
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
+      "source_title": "※装着画像はイメージです。 ▲ WORK EMOTION CR Kiwami ビッグキャリパー対応ガイド 車種名 型式 HOLES & P.C.D.",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.5-flash-lite",
+      "gemini_model": "gemini-3.1-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
-            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
+            "retrievedUrl": "https://www.work-wheels.co.jp/img_save/pdf/571f0f867dd94.pdf",
             "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
           }
         ]
       },
       "usage_metadata": {
         "promptTokenCount": 460,
-        "candidatesTokenCount": 189,
-        "totalTokenCount": 12486,
+        "candidatesTokenCount": 204,
+        "totalTokenCount": 11497,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 460
           }
         ],
-        "toolUsePromptTokenCount": 11837,
+        "toolUsePromptTokenCount": 10833,
         "toolUsePromptTokensDetails": [
           {
-            "modality": "IMAGE",
-            "tokenCount": 4620
-          },
+            "modality": "TEXT",
+            "tokenCount": 10833
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-04T21:14:02+09:00",
+      "last_seen_at": "2026-09-04T21:14:02+09:00",
+      "status": "identity_not_confirmed_no_auto_use"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "search_id": "ホンダ:オデッセイ",
+      "maker": "ホンダ",
+      "model": "オデッセイ",
+      "generation": "RB1/RB2",
+      "url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
+      "title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE",
+      "origin": "brave",
+      "search_relevance": 4,
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "work-wheels.co.jp",
+      "target_score": 42,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The document explicitly lists 'ODYSSEY' and model codes 'RB1/RB2' in the fitment table.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": "nut",
+      "wheel_torque_nm": 108.0,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RB1",
+        "RB2"
+      ],
+      "generation_text": "RB1/RB2",
+      "explicit_evidence": {
+        "pcd": "P.C.D. 114.3",
+        "holes": "HOLE 5",
+        "hub_bore": "HUB 64",
+        "thread": "M12×P1.5",
+        "torque": "108N・m",
+        "identity": "ODYSSEY RB1/RB2"
+      },
+      "source_url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
+      "source_title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.1-flash-lite",
+      "url_context_metadata": {},
+      "usage_metadata": {
+        "promptTokenCount": 460,
+        "candidatesTokenCount": 289,
+        "totalTokenCount": 749,
+        "promptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 7217
+            "tokenCount": 460
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T13:31:40+09:00",
-      "last_seen_at": "2026-09-04T17:03:44+09:00",
-      "status": "identity_not_confirmed_no_auto_use"
+      "last_seen_at": "2026-09-04T21:14:11+09:00",
+      "status": "candidate_only_needs_corroboration"
     },
     {
       "vehicle_id": "HON_ODYSSEY_RB12",

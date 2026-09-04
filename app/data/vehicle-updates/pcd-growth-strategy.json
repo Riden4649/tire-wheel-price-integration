@@ -1,32 +1,32 @@
 {
   "schema_version": "2.0.0",
   "dataset": "pcd_growth_strategy",
-  "updated_at": "2026-09-04T17:03:52+09:00",
+  "updated_at": "2026-09-04T21:14:35+09:00",
   "coverage": {
     "total_records": 152,
-    "pcd_filled": 145,
-    "pcd_missing": 7,
-    "pcd_fill_rate": 95.4
+    "pcd_filled": 146,
+    "pcd_missing": 6,
+    "pcd_fill_rate": 96.1
   },
   "previous_run": {
-    "applied_count": 0,
+    "applied_count": 1,
     "skipped_count": 5,
-    "run_id": "33851566948"
+    "run_id": "33871672166"
   },
   "cached_evidence": {
-    "vehicles_with_exactly_one_official_pcd_source": 2
+    "vehicles_with_exactly_one_official_pcd_source": 1
   },
   "mode": "focused",
   "query_variant_level": 1,
   "budgets": {
-    "tavily_max_queries": 5,
+    "tavily_max_queries": 4,
     "brave_max_queries": 2,
-    "gemini_max_targets": 5,
+    "gemini_max_targets": 4,
     "run_tavily": true,
     "run_brave": true,
     "run_gemini": true
   },
-  "reason": "high_coverage_stalled_keep_budget_capped",
+  "reason": "coverage_90_to_97_budgeted",
   "safety": {
     "confirmation_rule_unchanged": true,
     "requires_two_independent_official_domains": true,

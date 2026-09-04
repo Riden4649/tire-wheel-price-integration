@@ -122,6 +122,30 @@
       ],
       "applied_at": "2026-09-04T09:04:58+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "field": "pcd",
+      "old": null,
+      "new": 114.3,
+      "reason": "auto_confirmed_two_independent_official_domains",
+      "confidence": "B",
+      "sources": [
+        {
+          "domain": "weds.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://search.weds.co.jp/brand/wedssport/sa99r/honda/odessei-rb1-2-d/",
+          "title": "ブランド検索 -> WedsSport(ウェッズスポーツ) 製品一覧 -> SA-99R -> オデッセイ RB1・2 *D｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
+        },
+        {
+          "domain": "work-wheels.co.jp",
+          "source_type": "wheel_manufacturer_official",
+          "url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
+          "title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE"
+        }
+      ],
+      "applied_at": "2026-09-04T21:14:34+09:00",
+      "actor": "github_actions_auto_pcd"
     }
   ]
 }
