@@ -1,28 +1,28 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-05T09:02:30+09:00",
+  "updated_at": "2026-09-05T22:49:00+09:00",
   "run": {
-    "id": "33931615267",
-    "number": "91",
-    "event": "schedule",
-    "sha": "02350efa722d955eecee625687cf11d72b21b71d",
+    "id": "33969967536",
+    "number": "92",
+    "event": "push",
+    "sha": "5c65a293cdb8bd5472646031a353fb245d230d00",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
   "overall_status": "error",
   "totals": {
-    "attempted": 10,
-    "success": 4,
-    "errors": 6,
-    "success_rate": 40.0
+    "attempted": 12,
+    "success": 5,
+    "errors": 7,
+    "success_rate": 41.7
   },
   "services": [
     {
       "name": "Tavily",
       "status": "error",
-      "attempted": 4,
+      "attempted": 5,
       "success": 0,
-      "errors": 4,
+      "errors": 5,
       "success_rate": 0.0,
       "candidates": 0,
       "confirmed": 6,
@@ -42,12 +42,12 @@
     {
       "name": "Gemini",
       "status": "ok",
-      "attempted": 4,
-      "success": 4,
+      "attempted": 5,
+      "success": 5,
       "errors": 0,
       "success_rate": 100.0,
-      "identity_confirmed": 4,
-      "pcd_candidates": 4,
+      "identity_confirmed": 5,
+      "pcd_candidates": 5,
       "confirmed": 6,
       "conflicts": 0,
       "retries": 0,
