@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0.0",
   "dataset": "pcd_growth_strategy",
-  "updated_at": "2026-09-05T23:21:41+09:00",
+  "updated_at": "2026-09-05T23:24:58+09:00",
   "coverage": {
     "total_records": 152,
     "pcd_filled": 152,
@@ -11,7 +11,7 @@
   "previous_run": {
     "applied_count": 0,
     "skipped_count": 6,
-    "run_id": "33971573704"
+    "run_id": "33971737399"
   },
   "cached_evidence": {
     "vehicles_with_exactly_one_official_pcd_source": 1
