@@ -21,6 +21,23 @@
     {"vehicle_id":"MAZ_MAZDA3_BP","pcd":114.3,"holes":5,"hub_bore":67,"oem_inch":"16/18","oem_tire":"205/60R16;215/45R18"},
     {"vehicle_id":"SUB_FORESTER_SK","pcd":114.3,"holes":5,"hub_bore":56,"oem_inch":"17/18","oem_tire":"225/60R17;225/55R18"},
     {"vehicle_id":"SUZ_SPACIA_MK53","pcd":100,"holes":4,"hub_bore":54,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15"},
-    {"vehicle_id":"DAI_TANTO_LA650","pcd":100,"holes":4,"hub_bore":54,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15"}
+    {"vehicle_id":"DAI_TANTO_LA650","pcd":100,"holes":4,"hub_bore":54,"oem_inch":"14/15","oem_tire":"155/65R14;165/55R15"},
+    {"vehicle_id":"TOY_PRIUS_NHW20","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_ALPHARD_10","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_FIT_GD","pcd":100,"holes":4,"hub_bore":56,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_STEPWGN_RG","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_ODYSSEY_RB12","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_STREAM_RN15","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_STREAM_RN69","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_ACCORD_CL","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_ELYSION_RR","pcd":114.3,"holes":5,"hub_bore":64,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_INSIGHT_ZE1","pcd":100,"holes":4,"hub_bore":56,"fastener":"M12×P1.5"},
+    {"vehicle_id":"HON_LEGEND_KB1","pcd":120,"holes":5,"hub_bore":64,"fastener":"M14×P1.5"},
+    {"vehicle_id":"LEX_LS_USF40","pcd":120,"holes":5,"hub_bore":60,"fastener":"M14×P1.5"},
+    {"vehicle_id":"TOY_ISIS_10_2007","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_BB_QNC_2008","pcd":100,"holes":4,"hub_bore":54,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_IQ_KGJ_NGJ_2009","pcd":100,"holes":4,"hub_bore":54,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_IST_NCP110_2010","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_RACTIS_120_2010","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"}
   ]
 }

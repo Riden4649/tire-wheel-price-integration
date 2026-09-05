@@ -32,11 +32,11 @@
       "pcd": 120,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical",
         "wheel_hole_diameter": 15.4
       },
@@ -59,13 +59,19 @@
           "oem_inch": "21"
         }
       ],
-      "notes": "前後異径。ねじ径・ピッチは公式公開資料で未確認。",
+      "notes": "前後異径。ねじ径・ピッチは公式公開資料で未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS LC FAQ",
           "source_url": "https://lexus.jp/models/lc/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LC Z100",
+          "source_url": "https://search.weds.co.jp/maker/lexus/lc-100kei-236--a-d/kranze-all/?size=18inch",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -79,11 +85,11 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical",
         "wheel_hole_diameter": 15.4
       },
@@ -123,13 +129,19 @@
           "oem_inch": "18"
         }
       ],
-      "notes": "グレードで前後同サイズ/異径あり。ねじ径・ピッチは公式公開資料で未確認。",
+      "notes": "グレードで前後同サイズ/異径あり。ねじ径・ピッチは公式公開資料で未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS RZ FAQ",
           "source_url": "https://lexus.jp/models/rz/faq/?faqid=80",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング RZ E10系",
+          "source_url": "https://search.weds.co.jp/maker/lexus/rz-m10kei-a-d/novaris-all/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -149,17 +161,17 @@
       "pcd": 120,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "19/20",
       "oem_tire": "245/50R19;245/45R20",
       "confidence": "C",
-      "notes": "F SPORT等の前後異径は個別確認。ねじ径・ピッチ未確認。",
+      "notes": "F SPORT等の前後異径は個別確認。ねじ径・ピッチ未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
@@ -172,6 +184,12 @@
           "source_name": "LEXUS LS 取扱説明書",
           "source_url": "https://manual.lexus.jp/ls/2310/cv/ja_JP/contents/vhch06se020406.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LS XF50",
+          "source_url": "https://search.weds.co.jp/brand/adventure/mudvancex-typem/lexus/ls-50kei-2310-fsportnozoku-a-d/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -193,17 +211,17 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "18/20",
       "oem_tire": "235/60R18;235/50R20",
       "confidence": "C",
-      "notes": "グレード・動力別確認、ねじ径・ピッチ未確認。",
+      "notes": "グレード・動力別確認、ねじ径・ピッチ未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
@@ -216,6 +234,12 @@
           "source_name": "LEXUS NX 取扱説明書",
           "source_url": "https://manual.lexus.jp/nx/3026/phev/ja_JP/contents/pbg1665129721464.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング NX AZ20",
+          "source_url": "https://search.weds.co.jp/brand/maverick/1613m/lexus/nx-20keinx350h-nx350-nx250-opushonorenjikyaripaafukumu-a-d/index.html",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -237,17 +261,17 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "21",
       "oem_tire": "235/50R21",
       "confidence": "C",
-      "notes": "19インチ仕様・グレード差、ねじ径・ピッチ未確認。",
+      "notes": "19インチ仕様・グレード差、ねじ径・ピッチ未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
@@ -260,6 +284,12 @@
           "source_name": "LEXUS RX 取扱説明書",
           "source_url": "https://manual.lexus.jp/rx/2211/phev/ja_JP/contents/vhch07se020405.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング RX AL30",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/rx-a10-h10keifsport-a-d/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -273,17 +303,17 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+      "fastener": "ボルト締結（M14×P1.5、球面座）",
       "fastener_details": {
         "method": "bolt",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "spherical"
       },
       "oem_inch": "17/18",
       "oem_tire": "225/60R17;225/55R18",
       "confidence": "C",
-      "notes": "ねじ径・ピッチ未確認。",
+      "notes": "ねじ径・ピッチ未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
@@ -296,6 +326,12 @@
           "source_name": "LEXUS LBX 取扱説明書",
           "source_url": "https://manual.lexus.jp/lbx/3034/cv/ja_JP/contents/vhch06se020405.php",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LBX MAYH10/MAYH15",
+          "source_url": "https://search.weds.co.jp/maker/lexus/lbx-h10keimorizorrnozoku-a-d/wedssport-tc105xforged/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -309,23 +345,29 @@
       "pcd": 139.7,
       "holes": 6,
       "hub_bore": 95,
-      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener": "ナット締結（M14×P1.5、座面要確認）",
       "fastener_details": {
         "method": "nut",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "unknown"
       },
       "oem_inch": "18/22",
       "oem_tire": "265/65R18;265/50R22",
       "confidence": "C",
-      "notes": "型式、ねじ径・ピッチ・座面未確認。",
+      "notes": "型式、ねじ径・ピッチ・座面未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS GX FAQ",
           "source_url": "https://lexus.jp/models/gx/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング GX GX550 国内仕様",
+          "source_url": "https://search.weds.co.jp/brand/adventure/mudvancex-typem/lexus/gx-250keigx550verl-a/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -339,23 +381,29 @@
       "pcd": 139.7,
       "holes": 6,
       "hub_bore": 95,
-      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener": "ナット締結（M14×P1.5、座面要確認）",
       "fastener_details": {
         "method": "nut",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
         "seat": "unknown"
       },
       "oem_inch": "22",
       "oem_tire": "265/50R22",
       "confidence": "C",
-      "notes": "18インチ仕様、型式、ねじ径・ピッチ・座面未確認。",
+      "notes": "18インチ仕様、型式、ねじ径・ピッチ・座面未確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS LX FAQ",
           "source_url": "https://lexus.jp/models/lx/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LX 300系",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/lx-300keilx700-7ninnorinozoku-a/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -373,23 +421,29 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+      "fastener": "ナット締結（M12×P1.5、座面要確認）",
       "fastener_details": {
         "method": "nut",
-        "thread_diameter": null,
-        "thread_pitch": null,
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5,
         "seat": "unknown"
       },
       "oem_inch": "18",
       "oem_tire": "225/50R18",
       "confidence": "C",
-      "notes": "ランフラット仕様・17インチ仕様、ねじ径・ピッチ・座面を個別確認。",
+      "notes": "ランフラット仕様・17インチ仕様、ねじ径・ピッチ・座面を個別確認。 ねじ径・ピッチを型式一致のWeds公式適合情報で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS UX FAQ",
           "source_url": "https://lexus.jp/models/ux/faq/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング UX AA10",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/ux-10keiux300e-a/",
+          "verified_at": "2026-09-05"
         }
       ]
     },
@@ -400,22 +454,33 @@
       "generation": "NHW20",
       "year_from": "2003-09",
       "year_to": "2009-05",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 100,
+      "holes": 5,
+      "hub_bore": 54,
+      "fastener": "M12×P1.5",
       "oem_inch": "15",
       "oem_tire": "185/65R15",
-      "confidence": "C",
-      "notes": "公式アーカイブで年式・型式・純正タイヤを確認。ホイール取付条件は未確認のためタイヤ検索専用。",
+      "confidence": "B",
+      "notes": "公式アーカイブで年式・型式・純正タイヤを確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-PRIUS/200309/10012143/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -428,21 +493,32 @@
       "year_from": "2002-05",
       "year_to": "2008-05",
       "pcd": 114.3,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M12×P1.5",
       "oem_inch": "16/17",
       "oem_tire": "205/65R16;225/55R17",
       "confidence": "B",
-      "notes": "グレード差あり。ホイール取付条件は未確認のためタイヤ検索専用。",
+      "notes": "グレード差あり。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-ALPHARD_G/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_FIT_GD",
@@ -452,21 +528,32 @@
       "year_from": "2001-06",
       "year_to": "2007-09",
       "pcd": 100,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5",
       "oem_inch": "14/15",
       "oem_tire": "175/65R14;185/55R15",
       "confidence": "B",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/fit/2007/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_STEPWGN_RG",
@@ -475,22 +562,33 @@
       "generation": "RG1-RG4",
       "year_from": "2005-05",
       "year_to": "2009-09",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "15/16",
       "oem_tire": "205/65R15;205/60R16",
-      "confidence": "C",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "confidence": "B",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/stepwgn/spada/2009/webcatalogue/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_ODYSSEY_RB12",
@@ -500,21 +598,32 @@
       "year_from": "2003-10",
       "year_to": "2008-10",
       "pcd": 114.3,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "16/17",
       "oem_tire": "215/60R16;215/55R17",
       "confidence": "B",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/odyssey/2006/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_STREAM_RN15",
@@ -523,22 +632,33 @@
       "generation": "RN1-RN5",
       "year_from": "2000-10",
       "year_to": "2006-06",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "14/15/16",
       "oem_tire": "185/70R14;195/65R15;205/50R16",
-      "confidence": "C",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "confidence": "B",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/stream/2006/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_STREAM_RN69",
@@ -547,22 +667,33 @@
       "generation": "RN6-RN9",
       "year_from": "2006-07",
       "year_to": "2011-12",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "15/17",
       "oem_tire": "205/65R15;205/55R17",
-      "confidence": "C",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "confidence": "B",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/factbook/auto/stream/200607/stream-200607.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -572,21 +703,32 @@
       "year_from": "2002-10",
       "year_to": "2008-12",
       "pcd": 114.3,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "15/16/17",
       "oem_tire": "195/65R15;205/55R16;215/45R17",
       "confidence": "B",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/accord/4door/2006/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_ELYSION_RR",
@@ -596,21 +738,32 @@
       "year_from": "2004-05",
       "year_to": "2011-12",
       "pcd": 114.3,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
       "oem_inch": "16/17",
       "oem_tire": "215/65R16;215/60R17",
       "confidence": "B",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/elysion/normal/2006/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_INSIGHT_ZE1",
@@ -619,22 +772,33 @@
       "generation": "ZE1",
       "year_from": "2000-01",
       "year_to": "2006-08",
-      "pcd": 114.3,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5",
       "oem_inch": "14",
       "oem_tire": "165/65R14",
       "confidence": "B",
-      "notes": "1999年発売。DB対象期間は2000年から。ホイール取付条件未確認。タイヤ検索専用。",
+      "notes": "1999年発売。DB対象期間は2000年から。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/insight/2006/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "HON_LEGEND_KB1",
@@ -643,22 +807,33 @@
       "generation": "KB1",
       "year_from": "2004-10",
       "year_to": "2008-08",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M14×P1.5",
       "oem_inch": "17",
       "oem_tire": "235/50R17",
-      "confidence": "C",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "confidence": "B",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "HONDA",
           "source_url": "https://www.honda.co.jp/auto-archive/legend/4door/2008/grade-data/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "LEX_LS_USF40",
@@ -670,22 +845,33 @@
       "generation": "USF40系",
       "year_from": "2006-09",
       "year_to": "2011-12",
-      "pcd": null,
-      "holes": null,
-      "hub_bore": null,
-      "fastener": "",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5",
       "oem_inch": "18/19",
       "oem_tire": "235/50R18;245/45R19",
-      "confidence": "C",
-      "notes": "ホイール取付条件未確認。タイヤ検索専用。",
+      "confidence": "B",
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "LEXUS/TOYOTA",
           "source_url": "https://toyota.jp/ucar/catalog/brand-LEXUS/car-LS/200609/10036145/",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      }
     },
     {
       "vehicle_id": "TOY_ISIS_10_2007",
@@ -697,18 +883,30 @@
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 60,
-      "fastener": "",
+      "fastener": "M12×P1.5",
       "oem_inch": "15/16",
       "oem_tire": "195/65R15;205/55R16",
-      "confidence": "C",
+      "confidence": "B",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_isis_105470.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。"
     },
     {
       "vehicle_id": "TOY_BB_QNC_2008",
@@ -720,18 +918,30 @@
       "pcd": 100,
       "holes": 4,
       "hub_bore": 54,
-      "fastener": "",
+      "fastener": "M12×P1.5",
       "oem_inch": "14/15",
       "oem_tire": "175/65R14;185/55R15",
-      "confidence": "C",
+      "confidence": "B",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_bb_122473.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。"
     },
     {
       "vehicle_id": "TOY_IQ_KGJ_NGJ_2009",
@@ -743,18 +953,30 @@
       "pcd": 100,
       "holes": 4,
       "hub_bore": 54,
-      "fastener": "",
+      "fastener": "M12×P1.5",
       "oem_inch": "15/16",
       "oem_tire": "175/65R15;175/60R16",
-      "confidence": "C",
+      "confidence": "B",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_iq_156890.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。"
     },
     {
       "vehicle_id": "TOY_IST_NCP110_2010",
@@ -766,18 +988,30 @@
       "pcd": 100,
       "holes": 5,
       "hub_bore": 54,
-      "fastener": "",
+      "fastener": "M12×P1.5",
       "oem_inch": "16",
       "oem_tire": "195/60R16",
-      "confidence": "C",
+      "confidence": "B",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_ist_145091.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。"
     },
     {
       "vehicle_id": "TOY_RACTIS_120_2010",
@@ -789,18 +1023,30 @@
       "pcd": 100,
       "holes": 5,
       "hub_bore": 54,
-      "fastener": "",
+      "fastener": "M12×P1.5",
       "oem_inch": "16",
       "oem_tire": "175/60R16;185/60R16",
-      "confidence": "C",
+      "confidence": "B",
       "sources": [
         {
           "source_type": "manufacturer_official",
           "source_name": "TOYOTA",
           "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/common_tire_ractis_150503.pdf",
           "verified_at": "2026-09-01"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
         }
-      ]
+      ],
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "notes": "PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。 PCD・穴数・ハブ径・ねじ規格を型式一致のホイールメーカー適合資料で確認。"
     },
     {
       "vehicle_id": "TOY_AQUA_NHP10",

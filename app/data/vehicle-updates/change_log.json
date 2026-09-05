@@ -146,6 +146,844 @@
       ],
       "applied_at": "2026-09-04T21:14:34+09:00",
       "actor": "github_actions_auto_pcd"
+    },
+    {
+      "vehicle_id": "TOY_PRIUS_NHW20",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 5,
+        "hub_bore": 54,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_ALPHARD_10",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 60,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_FIT_GD",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 100,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 56,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_STEPWGN_RG",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_ODYSSEY_RB12",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN15",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_ACCORD_CL",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_INSIGHT_ZE1",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 56,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "HON_LEGEND_KB1",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 120,
+        "holes": 5,
+        "hub_bore": 64,
+        "fastener": "M14×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M14",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_LS_USF40",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": null,
+        "holes": null,
+        "hub_bore": null,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 120,
+        "holes": 5,
+        "hub_bore": 60,
+        "fastener": "M14×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M14",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds WHEEL MATCHING BOOK 2025-2026（前回共有PDF）",
+          "source_url": "https://www.weds.co.jp/catalog/winter_2026/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_ISIS_10_2007",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 60,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 114.3,
+        "holes": 5,
+        "hub_bore": 60,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_BB_QNC_2008",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 54,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 54,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_IQ_KGJ_NGJ_2009",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 54,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 4,
+        "hub_bore": 54,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_IST_NCP110_2010",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 100,
+        "holes": 5,
+        "hub_bore": 54,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 5,
+        "hub_bore": 54,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "TOY_RACTIS_120_2010",
+      "field": "fitment_core_fields",
+      "old": {
+        "pcd": 100,
+        "holes": 5,
+        "hub_bore": 54,
+        "fastener": "",
+        "fastener_details": null
+      },
+      "new": {
+        "pcd": 100,
+        "holes": 5,
+        "hub_bore": 54,
+        "fastener": "M12×P1.5",
+        "fastener_details": {
+          "method": "nut",
+          "thread_diameter": "M12",
+          "thread_pitch": 1.5
+        }
+      },
+      "reason": "model_code_matched_in_previous_vendor_files_and_official_matching_data",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "TOPY 2025年国産車用マッチングデータ（前回共有Excel）",
+          "source_url": "https://www.topy-ep.co.jp/product/automotive/wheels/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:17:07+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_LC_Z100",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LC Z100",
+          "source_url": "https://search.weds.co.jp/maker/lexus/lc-100kei-236--a-d/kranze-all/?size=18inch",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_RZ_E10",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング RZ E10系",
+          "source_url": "https://search.weds.co.jp/maker/lexus/rz-m10kei-a-d/novaris-all/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_LS_XF50",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LS XF50",
+          "source_url": "https://search.weds.co.jp/brand/adventure/mudvancex-typem/lexus/ls-50kei-2310-fsportnozoku-a-d/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_NX_AZ20",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング NX AZ20",
+          "source_url": "https://search.weds.co.jp/brand/maverick/1613m/lexus/nx-20keinx350h-nx350-nx250-opushonorenjikyaripaafukumu-a-d/index.html",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_RX_AL30",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング RX AL30",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/rx-a10-h10keifsport-a-d/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_LBX_MAYH",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ボルト締結（ねじ径・ピッチ要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ボルト締結（M14×P1.5、球面座）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LBX MAYH10/MAYH15",
+          "source_url": "https://search.weds.co.jp/maker/lexus/lbx-h10keimorizorrnozoku-a-d/wedssport-tc105xforged/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_GX_550_JP",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ナット締結（M14×P1.5、座面要確認）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング GX GX550 国内仕様",
+          "source_url": "https://search.weds.co.jp/brand/adventure/mudvancex-typem/lexus/gx-250keigx550verl-a/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_LX_300_CURRENT",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ナット締結（M14×P1.5、座面要確認）",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング LX 300系",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/lx-300keilx700-7ninnorinozoku-a/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
+    },
+    {
+      "vehicle_id": "LEX_UX_AA10",
+      "field": "thread_spec",
+      "old": {
+        "fastener": "ナット締結（ねじ径・ピッチ・座面要確認）",
+        "thread_diameter": null,
+        "thread_pitch": null
+      },
+      "new": {
+        "fastener": "ナット締結（M12×P1.5、座面要確認）",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "reason": "model_code_matched_in_wheel_manufacturer_official_fitment",
+      "confidence": "B",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング UX AA10",
+          "source_url": "https://search.weds.co.jp/brand/kranze/versam030evo/lexus/ux-10keiux300e-a/",
+          "verified_at": "2026-09-05"
+        }
+      ],
+      "verified_at": "2026-09-05",
+      "applied_at": "2026-09-05T23:18:55+09:00",
+      "actor": "codex_manual_completion"
     }
   ]
 }
