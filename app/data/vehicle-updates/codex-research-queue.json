@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
   "dataset": "codex_pcd_research_queue",
-  "updated_at": "2026-09-04T21:14:34+09:00",
+  "updated_at": "2026-09-05T09:02:30+09:00",
   "mode": "codex_fallback_api_free",
   "session_budget_minutes": 120,
-  "task_count": 5,
+  "task_count": 4,
   "policy": {
     "do_not_use_tavily": true,
     "do_not_use_brave": true,
@@ -98,64 +98,6 @@
         "トヨタ プリウス NHW20 ホイール PCD 穴数",
         "トヨタ プリウス NHW20 型式 PCD",
         "トヨタ プリウス NHW20 ホイール 適合 マッチング"
-      ],
-      "completion": {
-        "preferred": "same PCD value from a second independent registered official domain",
-        "minimum": "one new registered official source with exact vehicle identity and exact PCD value",
-        "conflict": "record conflict and do not auto-apply"
-      }
-    },
-    {
-      "vehicle_id": "HON_ODYSSEY_RB12",
-      "search_id": "ホンダ:オデッセイ",
-      "maker": "ホンダ",
-      "model": "オデッセイ",
-      "generation": "RB1/RB2",
-      "year_from": "2003-10",
-      "year_to": "2008-10",
-      "priority_score": 77,
-      "priority_class": "needs_first_official_source",
-      "existing_official_evidence": [
-        {
-          "candidate_value": 114.3,
-          "domain": "weds.co.jp",
-          "url": "https://search.weds.co.jp/brand/joker/smash/honda/odessei-rb1-2-d/?size=22inch",
-          "title": "ブランド検索 -> JOKER(ジョーカー) 製品一覧 -> SMASH -> オデッセイ RB1・2 *D（22インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
-        },
-        {
-          "candidate_value": 114.3,
-          "domain": "weds.co.jp",
-          "url": "https://search.weds.co.jp/brand/wedssport/sa99r/honda/odessei-rb1-2-d/",
-          "title": "ブランド検索 -> WedsSport(ウェッズスポーツ) 製品一覧 -> SA-99R -> オデッセイ RB1・2 *D｜wedsホイール装着マッチングサイト｜株式会社ウェッズ"
-        },
-        {
-          "candidate_value": 114.3,
-          "domain": "work-wheels.co.jp",
-          "url": "https://www.work-wheels.co.jp/img_save/pdf/69604f00423ea.pdf",
-          "title": "▲ SPECIFICATIONS 21inch 2PIECE/REVERSE [ ]内はハブ高さクリアランス/mm ディスクカラー SIZE"
-        }
-      ],
-      "target_domains": [
-        "toyota.jp",
-        "manual.toyota.jp",
-        "lexus.jp",
-        "manual.lexus.jp",
-        "honda.co.jp",
-        "nissan.co.jp",
-        "mazda.co.jp",
-        "subaru.jp",
-        "suzuki.co.jp",
-        "daihatsu.co.jp",
-        "mitsubishi-motors.co.jp",
-        "mid-wheels.com",
-        "hotstuff-cp.co.jp",
-        "bridgestone.co.jp"
-      ],
-      "search_queries": [
-        "ホンダ オデッセイ RB1/RB2 PCD",
-        "ホンダ オデッセイ RB1/RB2 ホイール PCD 穴数",
-        "ホンダ オデッセイ RB1/RB2 型式 PCD",
-        "ホンダ オデッセイ RB1/RB2 ホイール 適合 マッチング"
       ],
       "completion": {
         "preferred": "same PCD value from a second independent registered official domain",

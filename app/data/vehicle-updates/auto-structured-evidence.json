@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-04T21:14:34+09:00",
+  "updated_at": "2026-09-05T09:02:30+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -11,7 +11,7 @@
     "temporary_api_errors_retry_then_free_tier_fallback": true,
     "vehicle_specific_pages_are_ranked_before_generic_pages": true
   },
-  "record_count": 95,
+  "record_count": 97,
   "records": [
     {
       "vehicle_id": "HON_ACCORD_CL",
@@ -227,7 +227,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 29,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists 'アコード' (Accord) and 'CL7-9' as the vehicle model.",
+      "identity_reason": "アコード CL7-9 is explicitly stated on the official page.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -247,12 +247,12 @@
         "hub_bore": "φ64",
         "thread": "M12x1.5 ナット",
         "torque": null,
-        "identity": "車種: アコード, 型式等: CL7-9"
+        "identity": "アコード CL7-9　*D"
       },
       "source_url": "https://search.weds.co.jp/maker/honda/akoodo-cl79-d/wedssport-all",
       "source_title": "車種検索 -> ホンダ -> アコード CL7-9　*D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
       "search_engine": "gemini_url_context",
-      "gemini_model": "gemini-3.1-flash-lite",
+      "gemini_model": "gemini-3.5-flash-lite",
       "url_context_metadata": {
         "urlMetadata": [
           {
@@ -263,25 +263,25 @@
       },
       "usage_metadata": {
         "promptTokenCount": 453,
-        "candidatesTokenCount": 313,
-        "totalTokenCount": 3308,
+        "candidatesTokenCount": 218,
+        "totalTokenCount": 3211,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
             "tokenCount": 453
           }
         ],
-        "toolUsePromptTokenCount": 2542,
+        "toolUsePromptTokenCount": 2540,
         "toolUsePromptTokensDetails": [
           {
             "modality": "TEXT",
-            "tokenCount": 2542
+            "tokenCount": 2540
           }
         ],
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T17:03:52+09:00",
-      "last_seen_at": "2026-09-04T21:14:34+09:00",
+      "last_seen_at": "2026-09-05T09:02:21+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -974,6 +974,76 @@
       },
       "first_seen_at": "2026-09-04T09:04:23+09:00",
       "last_seen_at": "2026-09-04T09:04:23+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_ELYSION_RR",
+      "search_id": "ホンダ:エリシオン",
+      "maker": "ホンダ",
+      "model": "エリシオン",
+      "generation": "RR1-RR6",
+      "url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all?size=19inch",
+      "title": "車種検索 -> ホンダ -> エリシオン RR1-6　*D -> 19インチ -> ELYSIA(エリシア): ELYSIA｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "candidate_pool",
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 29,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists Honda Elysion with model code RR1-6.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": null,
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RR1-6"
+      ],
+      "generation_text": "RR1-6",
+      "explicit_evidence": {
+        "pcd": "5/114.3",
+        "holes": "5/114.3",
+        "hub_bore": "φ64",
+        "thread": "M12x1.5 ナット",
+        "torque": null,
+        "identity": "車種 エリシオン / 型式等 RR1-6　*D"
+      },
+      "source_url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all?size=19inch",
+      "source_title": "車種検索 -> ホンダ -> エリシオン RR1-6　*D -> 19インチ -> ELYSIA(エリシア): ELYSIA｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all/?size=19inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 461,
+        "candidatesTokenCount": 234,
+        "totalTokenCount": 3226,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 461
+          }
+        ],
+        "toolUsePromptTokenCount": 2531,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2531
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-05T09:02:24+09:00",
+      "last_seen_at": "2026-09-05T09:02:24+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -2979,13 +3049,12 @@
       "generation": "RB1/RB2",
       "url": "https://search.weds.co.jp/brand/joker/smash/honda/odessei-rb1-2-d/?size=22inch",
       "title": "ブランド検索 -> JOKER(ジョーカー) 製品一覧 -> SMASH -> オデッセイ RB1・2 *D（22インチ）｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
-      "origin": "brave",
-      "search_relevance": 23,
+      "origin": "candidate_pool",
       "source_type": "wheel_manufacturer_official",
       "source_domain": "weds.co.jp",
-      "target_score": 41,
+      "target_score": 24,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists Honda Odyssey RB1/2 (*D).",
+      "identity_reason": "The page explicitly lists Honda Odyssey RB1/RB2 (オデッセイ RB1・2).",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -3022,8 +3091,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 464,
-        "candidatesTokenCount": 224,
-        "totalTokenCount": 3384,
+        "candidatesTokenCount": 232,
+        "totalTokenCount": 3392,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -3040,7 +3109,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T20:57:41+09:00",
-      "last_seen_at": "2026-09-03T20:57:41+09:00",
+      "last_seen_at": "2026-09-05T09:02:30+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -4078,6 +4147,76 @@
       },
       "first_seen_at": "2026-09-03T09:13:37+09:00",
       "last_seen_at": "2026-09-03T09:13:37+09:00",
+      "status": "candidate_only_needs_corroboration"
+    },
+    {
+      "vehicle_id": "HON_STREAM_RN69",
+      "search_id": "ホンダ:ストリーム",
+      "maker": "ホンダ",
+      "model": "ストリーム",
+      "generation": "RN6-RN9",
+      "url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
+      "title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "origin": "candidate_pool",
+      "source_type": "wheel_manufacturer_official",
+      "source_domain": "weds.co.jp",
+      "target_score": 29,
+      "vehicle_identity_confirmed": true,
+      "identity_reason": "The page explicitly lists maker as ホンダ, model as ストリーム, and model code/type as RN6-9 *D.",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "thread_diameter": "M12",
+      "thread_pitch": 1.5,
+      "fastener": "nut",
+      "wheel_torque_nm": null,
+      "wheel_torque_nm_min": null,
+      "wheel_torque_nm_max": null,
+      "model_codes": [
+        "RN6-9"
+      ],
+      "generation_text": "RN6-9　*D",
+      "explicit_evidence": {
+        "pcd": "5/114.3",
+        "holes": "5/114.3",
+        "hub_bore": "φ64",
+        "thread": "M12x1.5 ナット",
+        "torque": null,
+        "identity": "車種 ストリーム / 型式等 RN6-9　*D"
+      },
+      "source_url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
+      "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
+      "search_engine": "gemini_url_context",
+      "gemini_model": "gemini-3.5-flash-lite",
+      "url_context_metadata": {
+        "urlMetadata": [
+          {
+            "retrievedUrl": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r/?size=19inch",
+            "urlRetrievalStatus": "URL_RETRIEVAL_STATUS_SUCCESS"
+          }
+        ]
+      },
+      "usage_metadata": {
+        "promptTokenCount": 464,
+        "candidatesTokenCount": 254,
+        "totalTokenCount": 3337,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 464
+          }
+        ],
+        "toolUsePromptTokenCount": 2619,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 2619
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "first_seen_at": "2026-09-05T09:02:27+09:00",
+      "last_seen_at": "2026-09-05T09:02:27+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

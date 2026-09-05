@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-04T21:14:34+09:00",
+  "updated_at": "2026-09-05T09:02:30+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -48,7 +48,7 @@
       "identity_validated": true,
       "target_score": 29,
       "first_seen_at": "2026-09-02T16:50:00+09:00",
-      "last_seen_at": "2026-09-04T21:14:34+09:00",
+      "last_seen_at": "2026-09-05T09:02:30+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -96,10 +96,13 @@
       "source_type": "wheel_manufacturer_official",
       "source_url": "https://search.weds.co.jp/maker/honda/erishion-rr16-d/elysia-all?size=19inch",
       "source_title": "車種検索 -> ホンダ -> エリシオン RR1-6　*D -> 19インチ -> ELYSIA(エリシア): ELYSIA｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
-      "search_score": 0.73505294,
       "source_domain": "weds.co.jp",
+      "search_engine": "gemini_url_context",
+      "target_reason": "official_page_body_extraction",
+      "identity_validated": true,
+      "target_score": 29,
       "first_seen_at": "2026-09-03T20:49:23+09:00",
-      "last_seen_at": "2026-09-04T09:03:55+09:00",
+      "last_seen_at": "2026-09-05T09:02:30+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -210,9 +213,9 @@
       "search_engine": "gemini_url_context",
       "target_reason": "official_page_body_extraction",
       "identity_validated": true,
-      "target_score": 41,
+      "target_score": 24,
       "first_seen_at": "2026-09-03T20:58:45+09:00",
-      "last_seen_at": "2026-09-03T20:58:45+09:00",
+      "last_seen_at": "2026-09-05T09:02:30+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -266,10 +269,13 @@
       "source_type": "wheel_manufacturer_official",
       "source_url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
       "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
-      "search_score": 0.73138535,
       "source_domain": "weds.co.jp",
+      "search_engine": "gemini_url_context",
+      "target_reason": "official_page_body_extraction",
+      "identity_validated": true,
+      "target_score": 29,
       "first_seen_at": "2026-09-02T17:50:14+09:00",
-      "last_seen_at": "2026-09-03T09:13:03+09:00",
+      "last_seen_at": "2026-09-05T09:02:30+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
