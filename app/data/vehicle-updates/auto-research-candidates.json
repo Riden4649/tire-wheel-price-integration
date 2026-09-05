@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "dataset": "auto_vehicle_research_candidates",
-  "updated_at": "2026-09-05T22:49:00+09:00",
+  "updated_at": "2026-09-05T22:54:51+09:00",
   "policy": {
     "official_domains_only": true,
     "candidate_is_not_production_evidence": true,
@@ -48,7 +48,7 @@
       "identity_validated": true,
       "target_score": 29,
       "first_seen_at": "2026-09-02T16:50:00+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -102,7 +102,7 @@
       "identity_validated": true,
       "target_score": 29,
       "first_seen_at": "2026-09-03T20:49:23+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -215,7 +215,7 @@
       "identity_validated": true,
       "target_score": 24,
       "first_seen_at": "2026-09-03T20:58:45+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -235,7 +235,7 @@
       "identity_validated": true,
       "target_score": 24,
       "first_seen_at": "2026-09-03T20:58:45+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -275,7 +275,7 @@
       "identity_validated": true,
       "target_score": 29,
       "first_seen_at": "2026-09-02T17:50:14+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

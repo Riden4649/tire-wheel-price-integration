@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset": "auto_confirmed_pcd",
-  "updated_at": "2026-09-05T22:49:00+09:00",
+  "updated_at": "2026-09-05T22:54:51+09:00",
   "policy": {
     "minimum_independent_domains": 2,
     "official_registered_domains_only": true,
@@ -35,7 +35,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     },
     {
       "vehicle_id": "HON_ELYSION_RR",
@@ -61,7 +61,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     },
     {
       "vehicle_id": "HON_FIT_GD",
@@ -87,7 +87,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     },
     {
       "vehicle_id": "HON_INSIGHT_ZE1",
@@ -113,7 +113,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     },
     {
       "vehicle_id": "HON_ODYSSEY_RB12",
@@ -139,7 +139,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     },
     {
       "vehicle_id": "TOY_ALPHARD_10",
@@ -165,7 +165,7 @@
         }
       ],
       "status": "auto_confirmed_two_independent_official_domains",
-      "confirmed_at": "2026-09-05T22:49:00+09:00"
+      "confirmed_at": "2026-09-05T22:54:51+09:00"
     }
   ],
   "conflicts": []

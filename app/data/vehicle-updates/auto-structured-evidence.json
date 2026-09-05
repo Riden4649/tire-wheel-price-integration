@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2.0",
   "dataset": "auto_structured_vehicle_evidence",
-  "updated_at": "2026-09-05T22:49:00+09:00",
+  "updated_at": "2026-09-05T22:54:51+09:00",
   "policy": {
     "official_registered_domains_only": true,
     "gemini_output_is_candidate_not_truth": true,
@@ -227,7 +227,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 29,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists ホンダ アコード CL7-9",
+      "identity_reason": "The page explicitly lists ホンダ アコード CL7-9 *D with matching PCD, hub bore, and fastener info.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -240,14 +240,14 @@
       "model_codes": [
         "CL7-9"
       ],
-      "generation_text": "CL7-9",
+      "generation_text": "CL7-9　*D",
       "explicit_evidence": {
         "pcd": "5/114.3",
         "holes": "5/114.3",
         "hub_bore": "φ64",
         "thread": "M12x1.5 ナット",
         "torque": null,
-        "identity": "アコード CL7-9"
+        "identity": "アコード CL7-9　*D"
       },
       "source_url": "https://search.weds.co.jp/maker/honda/akoodo-cl79-d/wedssport-all",
       "source_title": "車種検索 -> ホンダ -> アコード CL7-9　*D -> WedsSport(ウェッズスポーツ) すべて｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
@@ -263,8 +263,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 453,
-        "candidatesTokenCount": 214,
-        "totalTokenCount": 3206,
+        "candidatesTokenCount": 237,
+        "totalTokenCount": 3229,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -281,7 +281,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-04T17:03:52+09:00",
-      "last_seen_at": "2026-09-05T22:48:49+09:00",
+      "last_seen_at": "2026-09-05T22:54:38+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -989,7 +989,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 29,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The official page explicitly lists ホンダ エリシオン with model code RR1-6.",
+      "identity_reason": "The page explicitly lists Honda Elysion RR1-6 (*D) under vehicle specifications.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -1000,9 +1000,14 @@
       "wheel_torque_nm_min": null,
       "wheel_torque_nm_max": null,
       "model_codes": [
-        "RR1-6"
+        "RR1",
+        "RR2",
+        "RR3",
+        "RR4",
+        "RR5",
+        "RR6"
       ],
-      "generation_text": null,
+      "generation_text": "RR1-6",
       "explicit_evidence": {
         "pcd": "5/114.3",
         "holes": "5/114.3",
@@ -1025,8 +1030,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 461,
-        "candidatesTokenCount": 235,
-        "totalTokenCount": 3226,
+        "candidatesTokenCount": 250,
+        "totalTokenCount": 3241,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -1043,7 +1048,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-05T09:02:24+09:00",
-      "last_seen_at": "2026-09-05T22:48:52+09:00",
+      "last_seen_at": "2026-09-05T22:54:41+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -3109,7 +3114,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T20:57:41+09:00",
-      "last_seen_at": "2026-09-05T22:48:57+09:00",
+      "last_seen_at": "2026-09-05T22:54:47+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -3125,7 +3130,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 24,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists model オデッセイ and model code RB1・2.",
+      "identity_reason": "The page explicitly lists the vehicle as オデッセイ with model code RB1・2.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -3162,8 +3167,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 462,
-        "candidatesTokenCount": 226,
-        "totalTokenCount": 3358,
+        "candidatesTokenCount": 228,
+        "totalTokenCount": 3360,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -3180,7 +3185,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-03T20:58:45+09:00",
-      "last_seen_at": "2026-09-05T22:49:00+09:00",
+      "last_seen_at": "2026-09-05T22:54:51+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {
@@ -4161,7 +4166,7 @@
       "source_domain": "weds.co.jp",
       "target_score": 29,
       "vehicle_identity_confirmed": true,
-      "identity_reason": "The page explicitly lists maker as ホンダ, model as ストリーム, and model code as RN6-9 *D.",
+      "identity_reason": "The page explicitly lists Honda Stream RN6-9.",
       "pcd": 114.3,
       "holes": 5,
       "hub_bore": 64.0,
@@ -4174,14 +4179,14 @@
       "model_codes": [
         "RN6-9"
       ],
-      "generation_text": "RN6-9",
+      "generation_text": "RN6-9　*D",
       "explicit_evidence": {
         "pcd": "5/114.3",
         "holes": "5/114.3",
         "hub_bore": "φ64",
         "thread": "M12x1.5 ナット",
         "torque": null,
-        "identity": "車種 ストリーム / 型式等 RN6-9　*D"
+        "identity": "車種 ストリーム 型式等 RN6-9　*D"
       },
       "source_url": "https://search.weds.co.jp/maker/honda/sutoriimu-rn69-d/wedssport-sa01r?size=19inch",
       "source_title": "車種検索 -> ホンダ -> ストリーム RN6-9　*D -> 19インチ -> WedsSport(ウェッズスポーツ): SA-01R｜wedsホイール装着マッチングサイト｜株式会社ウェッズ",
@@ -4197,8 +4202,8 @@
       },
       "usage_metadata": {
         "promptTokenCount": 464,
-        "candidatesTokenCount": 247,
-        "totalTokenCount": 3329,
+        "candidatesTokenCount": 237,
+        "totalTokenCount": 3319,
         "promptTokensDetails": [
           {
             "modality": "TEXT",
@@ -4215,7 +4220,7 @@
         "serviceTier": "standard"
       },
       "first_seen_at": "2026-09-05T09:02:27+09:00",
-      "last_seen_at": "2026-09-05T22:48:54+09:00",
+      "last_seen_at": "2026-09-05T22:54:44+09:00",
       "status": "candidate_only_needs_corroboration"
     },
     {

@@ -1,6 +1,62 @@
 {
   "schema_version": "1.0.0",
   "dataset": "app_submitted_missing_vehicles",
-  "record_count": 0,
-  "records": []
+  "record_count": 3,
+  "records": [
+    {
+      "key": "だいはつ|てりおすきっど|",
+      "maker": "ダイハツ",
+      "model": "テリオスキッド",
+      "year": "",
+      "model_code": "",
+      "grade": "",
+      "tire_size": "",
+      "memo": "検索補完マスターから記録",
+      "store_search_count": 1,
+      "first_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "last_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "submission_count": 1,
+      "github_issue_number": 23,
+      "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/23",
+      "submitted_by": "Riden4649",
+      "status": "queued_for_research"
+    },
+    {
+      "key": "とよた|chr|",
+      "maker": "トヨタ",
+      "model": "C-HR",
+      "year": "",
+      "model_code": "",
+      "grade": "",
+      "tire_size": "",
+      "memo": "検索補完マスターから記録",
+      "store_search_count": 1,
+      "first_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "last_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "submission_count": 1,
+      "github_issue_number": 23,
+      "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/23",
+      "submitted_by": "Riden4649",
+      "status": "queued_for_research"
+    },
+    {
+      "key": "ほんだ|nvan|",
+      "maker": "ホンダ",
+      "model": "N-VAN",
+      "year": "",
+      "model_code": "",
+      "grade": "",
+      "tire_size": "",
+      "memo": "検索補完マスターから記録",
+      "store_search_count": 1,
+      "first_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "last_submitted_at": "2026-09-05T13:54:31.640166+00:00",
+      "submission_count": 1,
+      "github_issue_number": 23,
+      "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/23",
+      "submitted_by": "Riden4649",
+      "status": "queued_for_research"
+    }
+  ],
+  "updated_at": "2026-09-05T13:54:31.640166+00:00"
 }
