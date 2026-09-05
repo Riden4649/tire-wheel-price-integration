@@ -1,1 +1,1592 @@
-[]
+[
+  {
+    "patternName": "SE-23",
+    "brandName": "ECO FORME",
+    "color": "GS",
+    "colorDescription": "",
+    "aliases": [
+      "ECO FORME SE-23",
+      "BRIDGESTONE_ECO-FORME_SE-23_GS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/ecoforme/se23/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/ecoforme/se23/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SE-20",
+    "brandName": "ECO FORME",
+    "color": "PMS",
+    "colorDescription": "",
+    "aliases": [
+      "ECO FORME SE-20",
+      "BRIDGESTONE_ECO-FORME_SE-20_PMS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/ecoforme/se20/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/ecoforme/se20/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LS10",
+    "brandName": "BALMINUM",
+    "color": "SG",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM LS10",
+      "BRIDGESTONE_BALMINUM_LS10_SG"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ls10/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ls10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LS10",
+    "brandName": "BALMINUM",
+    "color": "B",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM LS10",
+      "BRIDGESTONE_BALMINUM_LS10_B"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ls10/ClrVariImg_1_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ls10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LS10",
+    "brandName": "BALMINUM",
+    "color": "GM",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM LS10",
+      "BRIDGESTONE_BALMINUM_LS10_GM-B"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ls10/ClrVariImg_2_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ls10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BR10",
+    "brandName": "BALMINUM",
+    "color": "GM",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM BR10",
+      "BRIDGESTONE_BALMINUM_BR10_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://tire-onlinestore.bridgestone.co.jp/on/demandware.static/-/Sites-master-catalog/ja_JP/dw60593fae/images/product_detail/product_BLIZZAK_VRX3_BALMINUM_BR10_001.jpg",
+    "sourceUrl": "https://tire-onlinestore.bridgestone.co.jp/product/PXR02003_31117130.html",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BR10 球面座",
+    "brandName": "BALMINUM",
+    "color": "S",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM BR10 球面座",
+      "BRIDGESTONE_BALMINUM_BR10_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/br10/ClrVariImg_1_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/br10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "AR12",
+    "brandName": "BALMINUM",
+    "color": "GM2",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM AR12",
+      "BRIDGESTONE_BALMINUM_AR12_GM2"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ar12/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ar12/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "DS-M",
+    "brandName": "BALMINUM",
+    "color": "MA",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM DS-M",
+      "BRIDGESTONE_BALMINUM_DS-M_MA"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ds_m/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ds_m/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "A12",
+    "brandName": "BALMINUM",
+    "color": "B/N",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM A12",
+      "BRIDGESTONE_BALMINUM_A12_B-N"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/a12/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/a12/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "K10",
+    "brandName": "BALMINUM",
+    "color": "B/N",
+    "colorDescription": "",
+    "aliases": [
+      "BALMINUM K10",
+      "BRIDGESTONE_BALMINUM_K10_B-N"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/k10/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/k10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HannaTL9",
+    "brandName": "HannaTL9",
+    "color": "FGM",
+    "colorDescription": "フラットガンメタ",
+    "aliases": [
+      "HannaTL9",
+      "BRIDGESTONE_HANNATL9_HANNATL9_FGM"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/BRIDGESTONE_HANNATL9_HANNATL9_FGM.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TQ22W",
+    "brandName": "GRADUAL",
+    "color": "GM",
+    "colorDescription": "ガンメタリック",
+    "aliases": [
+      "GRADUAL TQ22W",
+      "BRIDGESTONE_GRADUAL_TQ22W_GM"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/BRIDGESTONE_GRADUAL_TQ22W_GM.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TQ22W",
+    "brandName": "GRADUAL",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "GRADUAL TQ22W",
+      "BRIDGESTONE_GRADUAL_TQ22W_S"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/BRIDGESTONE_GRADUAL_TQ22W_S.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "Elan",
+    "brandName": "GRANVERD",
+    "color": "SDG",
+    "colorDescription": "",
+    "aliases": [
+      "GRANVERD Elan",
+      "BRIDGESTONE_GRANVERD_ELAN_SDG"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/granverd/elan/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/granverd/elan/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HC1",
+    "brandName": "GRANVERD",
+    "color": "S",
+    "colorDescription": "",
+    "aliases": [
+      "GRANVERD HC1",
+      "BRIDGESTONE_GRANVERD_HC1_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/granverd/hc1/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/granverd/hc1/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "NEO",
+    "brandName": "GRANVERD",
+    "color": "S",
+    "colorDescription": "",
+    "aliases": [
+      "GRANVERD NEO",
+      "BRIDGESTONE_GRANVERD_NEO_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/granverd/neo/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/granverd/neo/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "NEO",
+    "brandName": "GRANVERD",
+    "color": "B/C",
+    "colorDescription": "",
+    "aliases": [
+      "GRANVERD NEO",
+      "BRIDGESTONE_GRANVERD_NEO_B-C"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/granverd/neo/ClrVariImg_1_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/granverd/neo/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "CVW-01",
+    "brandName": "CVW-01",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "CVW-01",
+      "BRIDGESTONE_CVW-01_CVW-01_S"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/BRIDGESTONE_CVW-01_CVW-01_S.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SE-26",
+    "brandName": "ECO FORME",
+    "color": "GM",
+    "colorDescription": "ガンメタリック",
+    "aliases": [
+      "ECO FORME SE-26",
+      "BRIDGESTONE_ECO-FORME_SE-26_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/ecoforme/se26/ClrVariImg_0_1_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/ecoforme/se26/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SE-26",
+    "brandName": "ECO FORME",
+    "color": "B",
+    "colorDescription": "ブラック",
+    "aliases": [
+      "ECO FORME SE-26",
+      "BRIDGESTONE_ECO-FORME_SE-26_B"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/ecoforme/se26/ClrVariImg_1_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/ecoforme/se26/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HR-10",
+    "brandName": "A-gain",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "A-gain HR-10",
+      "BRIDGESTONE_A-GAIN_HR-10_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/a-gain/hr-10/ClrVariImg_0_1_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/a-gain/hr-10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "01",
+    "brandName": "TXC",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "TXC 01",
+      "BRIDGESTONE_TXC_01_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/txc/01/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/txc/01/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "CHW",
+    "brandName": "GRADUAL",
+    "color": "GM",
+    "colorDescription": "ガンメタリック",
+    "aliases": [
+      "GRADUAL CHW",
+      "BRIDGESTONE_GRADUAL_CHW_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/gradual/chw/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/gradual/chw/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "CVW-02",
+    "brandName": "CVW",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "CVW CVW-02",
+      "BRIDGESTONE_CVW_02_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/cvw/02/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/cvw/02/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "WS6",
+    "brandName": "TOPRUN",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "TOPRUN WS6",
+      "BRIDGESTONE_TOPRUN_WS6_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://mymobox.bridgestone.co.jp/image/wheel/toprun_ws6.jpg",
+    "sourceUrl": "https://mymobox.bridgestone.co.jp/lineup/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "WS6",
+    "brandName": "TOPRUN",
+    "color": "DGM",
+    "colorDescription": "ダークガンメタ",
+    "aliases": [
+      "TOPRUN WS6",
+      "BRIDGESTONE_TOPRUN_WS6_DGM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.mr-tireman.jp/shop/uploads/Bee8eRbQCAA",
+    "sourceUrl": "https://www.mr-tireman.jp/shop/yonezawakita/tech/showcase/116219/",
+    "sourceType": "official_dealer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "L5",
+    "brandName": "PREO",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "PREO L5",
+      "BRIDGESTONE_PREO_L5_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.taiyakan.co.jp/shop/uploads/CZ7EkQCAA.jpg",
+    "sourceUrl": "https://www.taiyakan.co.jp/shop/omuta/recommend/906881/",
+    "sourceType": "official_dealer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "L5",
+    "brandName": "PREO",
+    "color": "B",
+    "colorDescription": "ブラック",
+    "aliases": [
+      "PREO L5",
+      "BRIDGESTONE_PREO_L5_B"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.taiyakan.co.jp/shop/uploads/BWPW2KpwCAA",
+    "sourceUrl": "https://www.taiyakan.co.jp/shop/higashifunabashi/recommend/2057599/",
+    "sourceType": "official_dealer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BR10",
+    "brandName": "BALMINUM",
+    "color": "S",
+    "colorDescription": "シルバー",
+    "aliases": [
+      "BALMINUM BR10",
+      "BRIDGESTONE_BALMINUM_BR10_S_IMPORT"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/br10/ClrVariImg_1_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/br10/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SE-20",
+    "brandName": "ECO FORME",
+    "color": "S",
+    "colorDescription": "シルバー（公式色PMS）",
+    "aliases": [
+      "ECO FORME SE-20",
+      "BRIDGESTONE_ECO-FORME_SE-20_S_IMPORT"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/ecoforme/se20/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/ecoforme/se20/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "A12",
+    "brandName": "BALMINUM",
+    "color": "S",
+    "colorDescription": "価格表カラー省略（公式画像B/N）",
+    "aliases": [
+      "BALMINUM A12",
+      "BRIDGESTONE_BALMINUM_A12_S_IMPORT"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/a12/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/a12/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "AR12",
+    "brandName": "BALMINUM",
+    "color": "S",
+    "colorDescription": "価格表カラー省略（公式画像GM2）",
+    "aliases": [
+      "BALMINUM AR12",
+      "BRIDGESTONE_BALMINUM_AR12_S_IMPORT"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/balminum/ar12/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/balminum/ar12/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "Elan",
+    "brandName": "GRANVERD",
+    "color": "SD",
+    "colorDescription": "SD（公式色SDG）",
+    "aliases": [
+      "GRANVERD Elan",
+      "BRIDGESTONE_GRANVERD_ELAN_SD_IMPORT"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.bs-awh.ne.jp/granverd/elan/ClrVariImg_0_0_2.jpg",
+    "sourceUrl": "https://www.bs-awh.ne.jp/granverd/elan/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HC3",
+    "brandName": "PRODITA",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "PRODITA HC3",
+      "PRODITA_HC3_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2025/08/PRODITA_1560_SIL.png",
+    "sourceUrl": "https://www.weds.co.jp/weds_adventure/prodita-hc3/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HC3",
+    "brandName": "PRODITA",
+    "color": "BK",
+    "colorDescription": "ﾌﾞﾗｯｸ",
+    "aliases": [
+      "PRODITA HC3",
+      "PRODITA_HC3_BK"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2025/08/PRODITA_1555_BLA.png",
+    "sourceUrl": "https://www.weds.co.jp/weds_adventure/prodita-hc3/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TACTICS",
+    "brandName": "KEELER",
+    "color": "SL",
+    "colorDescription": "ﾊｲﾊﾟｰｼﾙﾊﾞｰ",
+    "aliases": [
+      "KEELER TACTICS",
+      "KEELER_TACTICS_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-adventure-keeler-tactics-1.png",
+    "sourceUrl": "https://www.weds.co.jp/weds_adventure/keeler_tactics/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TACTICS",
+    "brandName": "KEELER",
+    "color": "BK",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "KEELER TACTICS",
+      "KEELER_TACTICS_BK"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-adventure-keeler-tactics-2.png",
+    "sourceUrl": "https://www.weds.co.jp/weds_adventure/keeler_tactics/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06TG",
+    "brandName": "VICENTE",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "VICENTE 06TG",
+      "VICENTE_06TG_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06TG",
+    "brandName": "VICENTE",
+    "color": "BP",
+    "colorDescription": "ﾌﾞﾗｯｸﾎﾟﾘｯｼｭﾗｲﾝ",
+    "aliases": [
+      "VICENTE 06TG",
+      "VICENTE_06TG_BP"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-2.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06TL",
+    "brandName": "VICENTE",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "VICENTE 06TL",
+      "VICENTE_06TL_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06TL",
+    "brandName": "VICENTE",
+    "color": "BP",
+    "colorDescription": "ﾌﾞﾗｯｸﾎﾟﾘｯｼｭﾗｲﾝ",
+    "aliases": [
+      "VICENTE 06TL",
+      "VICENTE_06TL_BP"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-2.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06PS",
+    "brandName": "VICENTE",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "VICENTE 06PS",
+      "VICENTE_06PS_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06PS",
+    "brandName": "VICENTE",
+    "color": "BP",
+    "colorDescription": "ﾌﾞﾗｯｸﾎﾟﾘｯｼｭﾗｲﾝ",
+    "aliases": [
+      "VICENTE 06PS",
+      "VICENTE_06PS_BP"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-2.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06NV",
+    "brandName": "VICENTE",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "VICENTE 06NV",
+      "VICENTE_06NV_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "06NV",
+    "brandName": "VICENTE",
+    "color": "BP",
+    "colorDescription": "ﾌﾞﾗｯｸﾎﾟﾘｯｼｭﾗｲﾝ",
+    "aliases": [
+      "VICENTE 06NV",
+      "VICENTE_06NV_BP"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vic-06tg-2.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/vicente-06/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TITO",
+    "brandName": "ZAMIK",
+    "color": "GM",
+    "colorDescription": "ﾃﾞｨｰﾌﾟﾒﾀﾙ",
+    "aliases": [
+      "ZAMIK TITO",
+      "ZAMIK_TITO_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-zam-tito-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/zamik-tito/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SPORT2",
+    "brandName": "VELVA",
+    "color": "GM",
+    "colorDescription": "ﾃﾞｨｰﾌﾟﾒﾀﾙ2",
+    "aliases": [
+      "VELVA SPORT2",
+      "VELVA_SPORT2_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vel-sport2-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/velva-sport2/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SPORT2",
+    "brandName": "VELVA",
+    "color": "DM",
+    "colorDescription": "ﾃﾞｨｰﾌﾟﾒﾀﾙ2",
+    "aliases": [
+      "VELVA SPORT2",
+      "VELVA_SPORT2_DM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/06/pic-sty-vel-sport2-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/velva-sport2/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "JP-205",
+    "brandName": "ZACK",
+    "color": "BS",
+    "colorDescription": "ﾌﾞﾗｯｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "ZACK JP-205",
+      "ZACK_JP-205_BS"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/2021/04/JP205.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SPIRITS",
+    "brandName": "JOKER",
+    "color": "SL",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "JOKER SPIRITS",
+      "JOKER_SPIRITS_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2021/08/pic-sty-jo-spirits-1.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/joker-spirits/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SPORT-FT",
+    "brandName": "ZACK",
+    "color": "GM",
+    "colorDescription": "ｼｬﾄﾞｰｶﾞﾝﾒﾀ",
+    "aliases": [
+      "ZACK SPORT-FT",
+      "ZACK_SPORT-FT_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/2024/07/ft-p.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SMASH",
+    "brandName": "JOKER",
+    "color": "SL",
+    "colorDescription": "ﾒﾀﾘｯｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "JOKER SMASH",
+      "JOKER_SMASH_SL"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2024/08/JOKER-SMASH_1770_DARK-SIL.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/joker-smash/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ELYSIA",
+    "brandName": "ELYSIA",
+    "color": "GM",
+    "colorDescription": "ｶﾞﾝﾒﾀﾘｯｸ",
+    "aliases": [
+      "ELYSIA",
+      "ELYSIA_116_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2025/08/elysia_1770.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/elysia/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "G10",
+    "brandName": "MID-W",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾘｯｸｸﾞﾚｰ",
+    "aliases": [
+      "MID-W G10",
+      "MID-W_G10_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_eurospeed_g10_5h_mg.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/157",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "STAG",
+    "brandName": "MID-W",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾘｯｸｸﾞﾚｰ",
+    "aliases": [
+      "MID-W STAG",
+      "MID-W_STAG_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_schneider_stag_1880_mg.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/178",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "WONDER",
+    "brandName": "VELVA",
+    "color": "GM",
+    "colorDescription": "ﾃﾞｨｰﾌﾟﾒﾀﾙ",
+    "aliases": [
+      "VELVA WONDER",
+      "VELVA_WONDER_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2025/08/VELVA-WONDER_1770.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/velva-wonder/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "WONDER",
+    "brandName": "VELVA",
+    "color": "DM",
+    "colorDescription": "ﾃﾞｨｰﾌﾟﾒﾀﾙ",
+    "aliases": [
+      "VELVA WONDER",
+      "VELVA_WONDER_DM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.weds.co.jp/wp-content/uploads/2025/08/VELVA-WONDER_1770.png",
+    "sourceUrl": "https://www.weds.co.jp/stylish-wheels/velva-wonder/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "JP-202",
+    "brandName": "ZACK",
+    "color": "BS",
+    "colorDescription": "ﾌﾞﾗｯｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "ZACK JP-202",
+      "ZACK_JP-202_BS"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/2020/06/JP202_17x7.0J5H_7-3_2.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "STAG",
+    "brandName": "MID-W",
+    "color": "SG",
+    "colorDescription": "ｽﾄﾛﾝｸﾞｶﾞﾝﾒﾀ",
+    "aliases": [
+      "MID-W STAG",
+      "MID-W_STAG_SG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_schneider_stag_1880_stronggm.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/178",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "JP-209",
+    "brandName": "ZACK",
+    "color": "GB",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "ZACK JP-209",
+      "ZACK_JP-209_GB"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/2021/04/JP209.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "E08",
+    "brandName": "ｴｸｼｰﾀﾞｰ",
+    "color": "DS",
+    "colorDescription": "ﾀﾞｰｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "ｴｸｼｰﾀﾞｰ E08",
+      "E08_DS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2025/05/5133c827e85388e4cfc538358429a5e3-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/exceeder-e08/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "JP-325",
+    "brandName": "ZACK",
+    "color": "BS",
+    "colorDescription": "ﾌﾞﾗｲﾄｼﾙﾊﾞｰ",
+    "aliases": [
+      "ZACK JP-325",
+      "ZACK_JP-325_BS"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/elementor/thumbs/Zack_JP325_18x7.5J5H_7-3-1-scaled-qfdkvjblgj7jrm9x002m6pfuz2dtwe5rs6no9hsyis.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "HS-12",
+    "brandName": "KAZERA",
+    "color": "PB",
+    "colorDescription": "ﾊﾟｰﾙﾌﾞﾗｯｸ",
+    "aliases": [
+      "KAZERA HS-12",
+      "KAZERA_HS-12_PB"
+    ],
+    "status": "registered",
+    "imageFile": "https://japansanyo.co.jp/wp-content/uploads/elementor/thumbs/Kazera_HS_12_18x8.0J6H_7-3-rpragr6yb12ucr3ys87j5o22qvu6tgogml8fg2nphg.jpg",
+    "sourceUrl": "https://japansanyo.co.jp/download/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "E08",
+    "brandName": "ｴｸｼｰﾀﾞｰ",
+    "color": "GM",
+    "colorDescription": "ｸﾞﾛｽｶﾞﾝﾒﾀ",
+    "aliases": [
+      "ｴｸｼｰﾀﾞｰ E08",
+      "E08_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2025/05/fb0c7e122e18efcc8ad4d338d7273a48-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/exceeder-e08/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "R45",
+    "brandName": "ｳﾞｧｰｹﾞﾙ",
+    "color": "S",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "ｳﾞｧｰｹﾞﾙ R45",
+      "R45_S"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/R45_S.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "W07",
+    "brandName": "ｳﾞｧｰﾚﾝ",
+    "color": "MB",
+    "colorDescription": "ﾒﾀﾘｯｸﾌﾞﾗｯｸ",
+    "aliases": [
+      "ｳﾞｧｰﾚﾝ W07",
+      "W07_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2026/07/b68bd3c142866e868cc10877edc211b6-scaled.webp",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/waren-w07/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "R45",
+    "brandName": "ｳﾞｧｰｹﾞﾙ",
+    "color": "GB",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "ｳﾞｧｰｹﾞﾙ R45",
+      "R45_GB"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/R45_GB.webp",
+    "sourceUrl": "",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ｳﾞｨﾊﾁﾊﾁ",
+    "brandName": "ｼﾋﾞﾗ",
+    "color": "S",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "ｼﾋﾞﾗ ｳﾞｨﾊﾁﾊﾁ",
+      "TOPY_SIBILLA_V88_S"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/TOPY_SIBILLA_V88_S.webp",
+    "sourceUrl": "https://www.topy-ep.co.jp/business/automobile_parts/passengercar_s.html",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ﾀｲﾌﾟﾂｰ",
+    "brandName": "ﾊﾞｻﾞﾙﾄX",
+    "color": "GM",
+    "colorDescription": "ｸﾞﾛｽﾏｸﾞ",
+    "aliases": [
+      "ﾊﾞｻﾞﾙﾄX ﾀｲﾌﾟﾂｰ",
+      "TOPY_BAZALT_X_TYPE2_GM"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/TOPY_BAZALT_X_TYPE2_GM.webp",
+    "sourceUrl": "https://www.topy-ep.co.jp/business/automobile_parts/passengercar_s.html",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "S120",
+    "brandName": "BWｽﾎﾟ-ﾂ",
+    "color": "DG",
+    "colorDescription": "ﾀﾞｰｸｶﾞﾝﾒﾀ",
+    "aliases": [
+      "BWｽﾎﾟ-ﾂ S120",
+      "BIGWAY_BW_S120_DG"
+    ],
+    "status": "registered",
+    "imageFile": "https://bigway.indac.jp/Photo/109/BS2/big/BWspo_gunmetal_17.jpg",
+    "sourceUrl": "https://bigway.indac.jp/product_details.asp?id=BS2",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "S120",
+    "brandName": "BWｽﾎﾟ-ﾂ",
+    "color": "MS",
+    "colorDescription": "ﾒﾀﾙｼﾙﾊﾞｰ",
+    "aliases": [
+      "BWｽﾎﾟ-ﾂ S120",
+      "BIGWAY_BW_S120_MS"
+    ],
+    "status": "registered",
+    "imageFile": "https://bigway.indac.jp/Photo/109/BS2/big/BWspo_silver_16.jpg",
+    "sourceUrl": "https://bigway.indac.jp/product_details.asp?id=BS2",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BAHN2",
+    "brandName": "TRG",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾙｸﾞﾚｲ",
+    "aliases": [
+      "TRG BAHN2",
+      "BIGWAY_TRG_BAHN2_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://bigway.indac.jp/Photo/107/TB2/big/BIGWAY_TRG_BAHN2_17S_%E9%80%8F%E9%81%8E.png",
+    "sourceUrl": "https://bigway.indac.jp/product_details.asp?id=TB2",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BAHN2",
+    "brandName": "TRG",
+    "color": "GB",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "TRG BAHN2",
+      "BIGWAY_TRG_BAHN2_GB"
+    ],
+    "status": "registered",
+    "imageFile": "https://bigway.indac.jp/Photo/107/TB2/big/BIGWAY_TRG_BAHN2_17B_%E9%80%8F%E9%81%8E.png",
+    "sourceUrl": "https://bigway.indac.jp/product_details.asp?id=TB2",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ZT-10",
+    "brandName": "BWｽﾎﾟ-ﾂ",
+    "color": "GM",
+    "colorDescription": "ｶﾞﾝﾒﾀ",
+    "aliases": [
+      "BWｽﾎﾟ-ﾂ ZT-10",
+      "BIGWAY_BW_ZT-10_GM"
+    ],
+    "status": "registered",
+    "imageFile": "https://bigway.indac.jp/Photo/109/ZT1/big/ZT-10%20BW_GM1445.png",
+    "sourceUrl": "https://bigway.indac.jp/product_details.asp?id=ZT1",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BN-01",
+    "brandName": "BISON",
+    "color": "DS",
+    "colorDescription": "ﾀﾞｰｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "BISON BN-01",
+      "BISON_BN-01_DS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2021/08/e608d220ed480fdc121dd3e351d81c5a.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/bison-bn-01/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BN-01",
+    "brandName": "BISON",
+    "color": "MB",
+    "colorDescription": "ﾒﾀﾘｯｸﾌﾞﾗｯｸ",
+    "aliases": [
+      "BISON BN-01",
+      "BISON_BN-01_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2021/08/5c711372dbe3084448f905a43cb72132.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/bison-bn-01/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOET",
+    "brandName": "LSTRADA",
+    "color": "HS",
+    "colorDescription": "ﾊｲﾗｲﾄｼﾙﾊﾞｰ",
+    "aliases": [
+      "LSTRADA TIRADOET",
+      "ABE_LSTRADA_TIRADOET_HS"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/abeshokai/img/product/wheel_tire/ls/14tirado_eta/main_02.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tirado_eta",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BN-02",
+    "brandName": "BISON",
+    "color": "SI",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "BISON BN-02",
+      "BISON_BN-02_SI"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2021/08/3ba1a2039fc0bab9f2546fe4b54666ae.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/bison-bn-02/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BN-04",
+    "brandName": "BISON",
+    "color": "SI",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "BISON BN-04",
+      "BISON_BN-04_SI"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2023/06/8e20baee89a00d44c27258005d5bdbf4-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/bison-bn-04/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BN-04",
+    "brandName": "BISON",
+    "color": "MB",
+    "colorDescription": "ﾒﾀﾘｯｸﾌﾞﾗｯｸ",
+    "aliases": [
+      "BISON BN-04",
+      "BISON_BN-04_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2023/06/dfe65975305763596b818502050950b9-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/bison-bn-04/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "MC-76",
+    "brandName": "ﾏｯﾄﾞｸﾛｽ",
+    "color": "GB",
+    "colorDescription": "ｶﾞﾝﾌﾞﾗｯｸ",
+    "aliases": [
+      "ﾏｯﾄﾞｸﾛｽ MC-76",
+      "MC-76_GB"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2021/08/f34cfdf7fe17c594d230e9140c5dce7f-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/mad-cross-mc76/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "MC-76",
+    "brandName": "ﾏｯﾄﾞｸﾛｽ",
+    "color": "DS",
+    "colorDescription": "ﾀﾞｰｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "ﾏｯﾄﾞｸﾛｽ MC-76",
+      "MC-76_DS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2021/08/71572fbd1f054e2ab9b77487fc2ae9b8.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/mad-cross-mc76/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOET",
+    "brandName": "LSTRADA",
+    "color": "GG",
+    "colorDescription": "ｸﾞﾗﾌｧｲﾄｸﾞﾚｰ",
+    "aliases": [
+      "LSTRADA TIRADOET",
+      "ABE_LSTRADA_TIRADOET_GG"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/abeshokai/img/product/wheel_tire/ls/14tirado_eta/main_07.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tirado_eta",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOIO",
+    "brandName": "LSTRADA",
+    "color": "HS",
+    "colorDescription": "ﾊｲﾗｲﾄｼﾙﾊﾞｰ",
+    "aliases": [
+      "LSTRADA TIRADOIO",
+      "ABE_LSTRADA_TIRADOIO_HS"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/abeshokai/img/product/wheel_tire/ls/19tirado_iota/main_02.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tirado-iota",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "E05Ⅱ",
+    "brandName": "ｴｸｼｰﾀﾞｰ",
+    "color": "DS",
+    "colorDescription": "ﾀﾞｰｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "ｴｸｼｰﾀﾞｰ E05Ⅱ",
+      "E05II_DS"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2023/07/7d812a8575090f013e9661b473829087-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/exceeder-e05-2/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOΣ",
+    "brandName": "LSTRADA",
+    "color": "S",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "LSTRADA TIRADOΣ",
+      "ABE_LSTRADA_TIRADO_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/new_abeshokai/img/product/wheel_tire/ls/22sigma/main_01.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tiradosigma",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ST",
+    "brandName": "ｴｸｽﾀ-",
+    "color": "SI",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "ｴｸｽﾀ- ST",
+      "ST_SI"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2024/06/e50d5ed2a6e93ba27f1f1d739d318a44-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/exsteer-st/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "BI-02",
+    "brandName": "ﾋﾞｱｯｿ",
+    "color": "HG",
+    "colorDescription": "ﾊｲﾊﾟｰｶﾞﾝﾒﾀ",
+    "aliases": [
+      "ﾋﾞｱｯｿ BI-02",
+      "HOTSTUFF_BIASSO_BI02_HG"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/HOTSTUFF_BIASSO_BI02_HG.webp",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/biasso-bi-02/",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "MSW85-2",
+    "brandName": "MSW",
+    "color": "MG",
+    "colorDescription": "ﾏｯﾄｶﾞﾝﾒﾀﾙ",
+    "aliases": [
+      "MSW MSW85-2",
+      "MSW_MSW85-2_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2022/06/386016f0f14ad264ebc7098d392d541c-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/msw-85-2/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "MSW85-2",
+    "brandName": "MSW",
+    "color": "MB",
+    "colorDescription": "ﾏｯﾄﾌﾞﾗｯｸ",
+    "aliases": [
+      "MSW MSW85-2",
+      "MSW_MSW85-2_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://www.hotstuff-cp.co.jp/wp-content/uploads/2022/08/109256b4d1b9ecf468fa16c4872434bf-scaled.jpg",
+    "sourceUrl": "https://www.hotstuff-cp.co.jp/product/msw-85-2/",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "KG-25",
+    "brandName": "MID-W",
+    "color": "BK",
+    "colorDescription": "ﾌﾞﾗｯｸ",
+    "aliases": [
+      "MID-W KG-25",
+      "MID-W_KG-25_BK"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_KG25_02.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/160",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "KG-25",
+    "brandName": "MID-W",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾘｯｸｸﾞﾚｰ",
+    "aliases": [
+      "MID-W KG-25",
+      "MID-W_KG-25_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_KG25_01.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/160",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SQ27",
+    "brandName": "MID-W",
+    "color": "MS",
+    "colorDescription": "ﾒﾀﾘｯｸｼﾙﾊﾞｰ",
+    "aliases": [
+      "MID-W SQ27",
+      "MID-W_SQ27_MS"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_schneider_sq27_1880_ms.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/175",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "SQ27",
+    "brandName": "MID-W",
+    "color": "MB",
+    "colorDescription": "ﾒﾀﾘｯｸﾌﾞﾗｯｸ",
+    "aliases": [
+      "MID-W SQ27",
+      "MID-W_SQ27_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_schneider_sq27_1880_mb.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/175",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "V25",
+    "brandName": "MID-W",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾘｯｸｸﾞﾚｰ",
+    "aliases": [
+      "MID-W V25",
+      "MID-W_V25_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_eurospeed_v25_1880_mg.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/164",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOΣ",
+    "brandName": "LSTRADA",
+    "color": "B",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "LSTRADA TIRADOΣ",
+      "ABE_LSTRADA_TIRADO_B"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/new_abeshokai/img/product/wheel_tire/ls/22sigma/main_02.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tiradosigma",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "ﾏｯﾄﾞﾗｲﾀﾞｰ",
+    "brandName": "MID-W",
+    "color": "MG",
+    "colorDescription": "ﾒﾀﾘｯｸｸﾞﾚｰ",
+    "aliases": [
+      "MID-W ﾏｯﾄﾞﾗｲﾀﾞｰ",
+      "MID-W_MG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/MIDWHEEL_0731roadmax_mudrider_6h_1775m.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/155",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "STAG-H",
+    "brandName": "MID-W",
+    "color": "SG",
+    "colorDescription": "ｽﾄﾛﾝｸﾞｶﾞﾝﾒﾀ",
+    "aliases": [
+      "MID-W STAG-H",
+      "MID-W_STAG-H_SG"
+    ],
+    "status": "registered",
+    "imageFile": "https://mid-wheels.com/lacne/news/upload/wheel/STAG-TypeH_5H_003.jpg",
+    "sourceUrl": "https://mid-wheels.com/products/brand/detail/206",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOIO",
+    "brandName": "LSTRADA",
+    "color": "BP",
+    "colorDescription": "ﾌﾞﾗｯｸﾎﾟﾘｯｼｭ",
+    "aliases": [
+      "LSTRADA TIRADOIO",
+      "ABE_LSTRADA_TIRADOIO_BP"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/abeshokai/img/product/wheel_tire/ls/19tirado_iota/main_01.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tirado-iota",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOCR",
+    "brandName": "LSTRADA",
+    "color": "MB",
+    "colorDescription": "ﾏｯﾄﾌﾞﾗｯｸﾘﾑﾎﾟﾘｯｼｭ",
+    "aliases": [
+      "LSTRADA TIRADOCR",
+      "ABE_LSTRADA_TIRADOCR_MB"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/abeshokai/img/product/wheel_tire/ls/05tirado_cross/main_03.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tiradocross",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOCR",
+    "brandName": "LSTRADA",
+    "color": "GB",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "LSTRADA TIRADOCR",
+      "ABE_LSTRADA_TIRADOCR_GB"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/ABE_LASTRADA_TIRADO_CROSS_GB.webp",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tiradocross",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "TIRADOCR",
+    "brandName": "LSTRADA",
+    "color": "S",
+    "colorDescription": "ｼﾙﾊﾞｰ",
+    "aliases": [
+      "LSTRADA TIRADOCR",
+      "ABE_LSTRADA_TIRADOCR_S"
+    ],
+    "status": "registered",
+    "imageFile": "assets/wheels/ABE_LASTRADA_TIRADO_CROSS_GB_S.webp",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_tiradocross",
+    "sourceType": "user_provided_official_asset",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LSPORTⅡSU",
+    "brandName": "LSTRADA",
+    "color": "GP",
+    "colorDescription": "ｶﾞﾝﾒﾀﾎﾟﾘｯｼｭ",
+    "aliases": [
+      "LSTRADA LSPORTⅡSU",
+      "ABE_LSTRADA_LSPORTIISU_GP"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/new_abeshokai/img/product/wheel_tire/ls/15lf-sport-2-suv/main_01.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_lfsportiisuv",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LSPORTⅡSU",
+    "brandName": "LSTRADA",
+    "color": "GB",
+    "colorDescription": "ｸﾞﾛｽﾌﾞﾗｯｸ",
+    "aliases": [
+      "LSTRADA LSPORTⅡSU",
+      "ABE_LSTRADA_LSPORTIISU_GB"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/new_abeshokai/img/product/wheel_tire/ls/15lf-sport-2-suv/main_02.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_lfsportiisuv",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  },
+  {
+    "patternName": "LFSPORTRE",
+    "brandName": "LSTRADA",
+    "color": "S",
+    "colorDescription": "ｴﾚｶﾞﾝﾄｼﾙﾊﾞｰ",
+    "aliases": [
+      "LSTRADA LFSPORTRE",
+      "ABE_LSTRADA_LFSPORTRE_S"
+    ],
+    "status": "registered",
+    "imageFile": "https://abeshokai.jp/wp/wp-content/themes/new_abeshokai/img/product/wheel_tire/ls/20lf-sport_rev/main.png",
+    "sourceUrl": "https://abeshokai.jp/ls_archives/ls_lfsportrev",
+    "sourceType": "official_manufacturer",
+    "updatedAt": "2026-09-05"
+  }
+]

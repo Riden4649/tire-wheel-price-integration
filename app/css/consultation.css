@@ -1,0 +1,141 @@
+:root { --bg:#f2f5f7; --text:#23343d; --muted:#52656c; --green:#00684f; --line:#d4dfe1; --selection:#f39732; --selection-border:#b85808; --selection-text:#35220d; --selection-soft:#fff0df; }
+body { background:var(--bg); font-size:16px; }
+.topbar { background:#092b43; color:white; min-height:64px; }
+.brand small { color:#d4e5eb; font-size:12px; }
+.tabs { top:64px; grid-template-columns:repeat(5,1fr); background:#fff; }
+.tab { font-size:14px; min-height:44px; }
+button, .choice-chip, input, select, summary { min-height:44px; }
+input, select { font-size:16px; }
+label, .card-meta, .choice-chip, .search-mode-button { font-size:14px; }
+button:focus-visible, summary:focus-visible { outline:3px solid #287bc0; outline-offset:2px; }
+button:disabled { opacity:.55; cursor:not-allowed; }
+.home-entries { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0; }
+.home-entries button { min-height:150px; align-content:center; gap:16px; }
+.home-entries strong { font-size:24px; }
+.home-entries span { font-weight:normal; font-size:16px; }
+#tab-home { max-width:960px; margin:24px auto; }
+#tab-home p { margin:16px 0; }
+#tab-home .section-head { flex-wrap:wrap; gap:12px; }
+#newConsultation { min-width:140px; min-height:48px; font-size:16px; }
+#newConsultationHint { color:var(--muted); font-size:14px; }
+#newConsultationStatus:empty { display:none; }
+#newConsultationStatus { color:var(--green); }
+.deal-progress { display:flex; align-items:center; gap:8px; padding:8px 0; }
+.deal-progress button { flex:1; border:1px solid var(--line); border-radius:6px; background:white; font-weight:700; font-size:14px; }
+.deal-progress button.done { color:var(--green); background:#e4f3ed; }
+.deal-progress button[aria-current] { border:2px solid var(--green); }
+.deal-context { display:flex; align-items:center; gap:10px; justify-content:space-between; margin:4px 0 10px; }
+.deal-context strong { font-size:14px; line-height:1.7; }
+.deal-context button { flex-shrink:0; font-size:14px; }
+#manualVehicleDetails { background:white; border:1px solid var(--line); border-radius:8px; padding:0 12px; margin-bottom:8px; }
+#manualVehicleDetails summary { cursor:pointer; padding:12px 0; font-size:14px; }
+.manual-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:12px; }
+.manual-grid label { display:grid; gap:6px; }
+.manual-grid input { min-width:0; width:100%; border:1px solid var(--line); border-radius:5px; padding:6px; }
+#manualVehicleDetails .action-row { margin-bottom:12px; }
+#dealStatus:not(:empty) { padding:8px 0; color:var(--green); font-size:14px; }
+#sharedVehicleSearch { margin-bottom:12px; }
+#sharedVehicleSearch summary { font-size:14px; }
+#dealWorkspace { display:grid; grid-template-columns:minmax(0,1fr) 345px; align-items:start; gap:14px; }
+#dealWorkspace > .panel { min-width:0; }
+#dealWorkspace > #tab-estimate { grid-column:2; grid-row:1; background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px; }
+#dealWorkspace.estimate-only { grid-template-columns:1fr; }
+#dealWorkspace.estimate-only > #tab-estimate { grid-column:1; }
+.section-head { padding:12px; margin-bottom:10px; }
+.section-head h1 { font-size:20px; }
+#tab-estimate > .section-head { border:0; padding:0; display:flex; flex-wrap:wrap; }
+#tab-estimate .kicker { display:none; }
+#tab-estimate h1 { font-size:16px; }
+#tab-estimate > #comparisonPanel { order:1; }
+#tab-estimate > .estimate-control-layout { order:2; }
+#tab-estimate > #quotePreview { order:3; }
+#tab-estimate > #inchWarning { display:none; }
+#tab-estimate .action-row button { padding:8px 12px; font-size:14px; }
+.source-status { display:none; }
+.search-box > summary { padding:10px 12px; }
+.choice-accordion > summary { font-size:14px; }
+.choice-row { gap:6px; }
+.choice-chip { font-size:14px; padding:6px 10px; }
+.source-filter, .choice-panel { padding:10px; }
+.source-filter input { width:1px!important; height:1px!important; min-height:0!important; }
+.source-filter label:focus-within { outline:3px solid #287bc0; }
+.tire-season-switch { margin:4px 0 12px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+.tire-season-switch label { min-height:48px; min-width:120px; justify-content:center; font-size:16px; }
+.assist-grid { grid-template-columns:1fr 1fr; }
+.assist-grid label { font-size:14px; }
+.tire-results { display:flex; flex-direction:column; gap:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+.tire-results .card { display:grid; grid-template-columns:minmax(0,1fr) 150px 92px; column-gap:12px; padding:12px; border:0; border-bottom:1px solid var(--line); border-radius:0; box-shadow:none; }
+.tire-results .source-badge { grid-column:1; font-size:12px; margin:0 0 4px; justify-self:start; }
+.tire-results h3 { grid-column:1; font-size:15px; margin:0; }
+.tire-results .card-meta { grid-column:1; font-size:13px; margin:4px 0 0; }
+.tire-results .price-row { grid-column:2; grid-row:1 / span 3; display:grid; align-content:center; gap:4px; margin:0; }
+.tire-results .price-row > div { display:flex; align-items:center; justify-content:space-between; background:none; padding:0; gap:6px; }
+.tire-results .price-row strong { font-size:16px; }
+.tire-results .price-row span { font-size:12px; }
+.tire-results .select-button { grid-column:3; grid-row:1 / span 3; align-self:center; font-size:14px; padding:8px; }
+.wheel-results { grid-template-columns:repeat(auto-fill,minmax(205px,1fr)); gap:10px; }
+.wheel-results .card { position:relative; padding:12px; box-shadow:none; }
+.wheel-results .wheel-image { height:74px; width:74px; min-height:0; margin:8px 0; border-radius:6px; font-size:12px; }
+.wheel-image button, .wheel-image img { width:100%; height:100%; min-height:0; object-fit:contain; }
+.wheel-results h3 { font-size:16px; margin:8px 0; }
+.wheel-results .card-meta { font-size:13px; }
+.wheel-results .price-row { display:flex; justify-content:space-between; gap:4px; }
+.wheel-results .price-row > div { padding:4px; }
+.wheel-results .price-row > div:nth-child(3) { display:none; }
+.wheel-results .price-row strong { font-size:16px; }
+.fitment-state { display:block; font-size:12px; color:#735000; margin-top:6px; }
+.fitment-state.excluded, .fitment-card-note { color:#a52316; font-size:13px; }
+.deal-summary { padding:8px 0 12px; }
+#dealType { display:block; font-size:14px; font-weight:700; }
+.total-label { display:block; font-size:14px; margin-top:12px; }
+#dealTotal { display:block; color:#c32828; font-size:40px; line-height:1.4; font-variant-numeric:tabular-nums; }
+#dealSelections { font-size:14px; margin:8px 0; line-height:1.6; }
+.product-switches { display:flex; gap:6px; flex-wrap:wrap; }
+.product-switches button { font-size:14px; padding:6px 10px; }
+#dealBreakdown { display:grid; grid-template-columns:1fr auto; gap:8px; font-size:14px; margin:16px 0; }
+#dealBreakdown dd { margin:0; font-weight:700; text-align:right; }
+#dealWarnings { color:#962b19; background:#fff4ee; font-size:13px; line-height:1.6; margin-bottom:12px; }
+#addComparison { width:100%; font-size:14px; }
+.estimate-control-layout { display:block; margin:0; }
+.estimate-cost-card { padding:12px 0; border:0; box-shadow:none; }
+.estimate-cost-card h2 { font-size:16px; }
+.estimate-cost-label label { font-size:14px; }
+.estimate-cost-label small { font-size:12px; }
+.estimate-cost-value input { width:105px; font-size:16px; }
+.estimate-cost-value strong { display:none; }
+#estimateCosts { gap:8px; }
+#quotePreview { margin:12px 0; overflow:auto; }
+#quotePreview:not([open]) > #printSheet { display:none!important; }
+#quotePreview > summary { padding:12px 0; font-size:14px; cursor:pointer; }
+.comparison-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.comparison-head h2 { font-size:16px; }
+.comparison-head button { font-size:14px; padding:8px; }
+#comparisonCards { display:grid; grid-template-columns:1fr; gap:8px; padding:12px 0; font-size:14px; }
+.estimate-only #comparisonCards { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.comparison-card { border:1px solid var(--line); border-radius:6px; padding:10px; }
+.comparison-card h3 { font-size:14px; margin:0 0 8px; }
+.comparison-card strong { color:#c32828; font-size:22px; }
+.comparison-card p, .comparison-card small { display:block; margin:6px 0; font-size:13px; }
+.comparison-card button, #quoteHistory button { border:1px solid var(--line); border-radius:5px; background:#fff; font-size:14px; }
+.tab.active, .choice-chip.active, .search-mode-button.active,
+.source-filter label:has(input:checked), .deal-progress button[aria-current],
+.select-button[aria-pressed="true"], .comparison-card button[aria-pressed="true"] {
+  background:var(--selection); border-color:var(--selection-border); color:var(--selection-text); box-shadow:none;
+}
+button:not(:disabled):active { background:var(--selection); border-color:var(--selection-border); color:var(--selection-text); }
+.comparison-card { cursor:pointer; background:#fff; }
+.comparison-card.selected { background:var(--selection-soft); border-color:var(--selection-border); box-shadow:inset 0 0 0 1px var(--selection-border); }
+#quoteHistory { display:grid; gap:8px; }
+.print-note p { white-space:pre-line; }
+.print-heading strong { font-size:26px; }
+.print-product-grid:has([hidden]) { grid-template-columns:1fr; }
+@media(max-width:900px) { #dealWorkspace { grid-template-columns:minmax(0,1fr) 305px; } .tire-results .card { grid-template-columns:1fr 90px; } .tire-results .price-row { grid-column:1; grid-row:4; } .tire-results .select-button { grid-column:2; } .manual-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) { .brand strong { font-size:15px; } .brand small { font-size:12px; } .tabs { gap:3px; padding:6px; } .tab { font-size:13px; padding:4px; } #dealWorkspace { display:block; } #dealWorkspace > #tab-estimate { margin-top:14px; } .home-entries { grid-template-columns:1fr; } .deal-context { flex-wrap:wrap; } .deal-progress { gap:4px; } .deal-progress button { font-size:13px; } .estimate-only #comparisonCards { grid-template-columns:1fr 1fr; } }
+@media print {
+  .print-heading strong { font-size:19pt!important; line-height:1.3!important; }
+  html, body, body.print-preview-active .print-preview-screen { height:auto!important; overflow:visible!important; }
+  #consultationHeader, #tab-home, .deal-summary, #comparisonPanel { display:none!important; }
+  .print-preview-paper { height:auto!important; overflow:visible!important; }
+  .print-preview-paper .print-sheet { break-after:page!important; page-break-after:always!important; }
+  .print-preview-paper .print-sheet:last-child { break-after:auto!important; page-break-after:auto!important; }
+}

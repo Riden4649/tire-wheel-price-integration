@@ -290,6 +290,7 @@
 
 (function () {
   "use strict";
+  if (typeof document === "undefined") return;
   let serviceSpecs = [];
 
   function normalizeMaker(value) {
@@ -320,15 +321,20 @@
     const summary = document.querySelector("#vehicleSummary");
     if (!summary || summary.hidden) return;
     const old = summary.querySelector(".vehicle-service-info");
-    if (old) old.remove();
     const selected = selectedVehicleFromSummary(summary);
     const spec = matchSpec(selected);
+    const signature = JSON.stringify({ selected, spec });
+    if (old?.dataset.signature === signature) return;
+    if (old) old.remove();
     const box = document.createElement("div");
     box.className = "vehicle-service-info";
+    box.dataset.signature = signature;
     box.style.cssText = "margin-top:6px;padding:6px 8px;border-radius:8px;background:rgba(47,107,87,.08);font-size:12px;line-height:1.45;text-align:right;align-self:flex-end";
     if (spec) {
       const torque = spec.torque_label || (spec.wheel_torque_nm != null ? `${spec.wheel_torque_nm} N・m` : "未確認");
-      box.innerHTML = `<strong style=\"font-size:12px\">🔧 ホイール締付 ${torque}</strong><br><span style=\"opacity:.72\">メーカー公式確認済み ${spec.verified_at || ""}</span>`;
+      const title = document.createElement("strong"); title.textContent = `ホイール締付 ${torque}`;
+      const source = document.createElement("span"); source.textContent = `メーカー公式確認済み ${spec.verified_at || ""}`;
+      box.append(title, document.createElement("br"), source);
       if (spec.source_url) {
         box.title = `${spec.source_name || "メーカー公式資料"}\n${spec.source_url}`;
       }
@@ -339,6 +345,7 @@
   }
 
   async function initializeServiceInfo() {
+    document.addEventListener("vehicle-service:loaded", event => { serviceSpecs = event.detail; renderServiceInfo(); });
     try {
       const response = await fetch("data/vehicle_service_specs.json", { cache: "no-store" });
       if (response.ok) {

@@ -942,6 +942,27 @@ dialog { border: 0; border-radius: 8px; padding: 16px; max-width: min(90vw, 900p
 dialog::backdrop { background: rgba(0,0,0,.48); }
 dialog img { max-width: 100%; max-height: 80vh; object-fit: contain; }
 .dialog-close { position: absolute; top: 8px; right: 8px; width: 42px; height: 42px; border: 0; border-radius: 999px; background: var(--green); color: #fff; font-size: 24px; }
+.price-update-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+.price-update-meta > div { padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+.price-update-meta span, .price-update-meta strong { display: block; }
+.price-update-meta span { margin-bottom: 4px; color: var(--muted); font-size: 12px; }
+.price-update-meta strong { overflow-wrap: anywhere; }
+.price-update-actions { align-items: stretch; }
+.price-update-actions > * { min-height: 44px; }
+.price-update-advanced { margin-top: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.price-update-advanced > summary { cursor: pointer; font-weight: 700; }
+.price-update-advanced label { display: block; margin-top: 12px; }
+.price-update-advanced input { width: 100%; margin-top: 5px; }
+.price-update-dialog { width: min(92vw, 560px); }
+.price-update-dialog h2 { margin-top: 0; }
+.price-update-dialog dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; }
+.price-update-dialog dt { color: var(--muted); }
+.price-update-dialog dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+.error-text { color: #a42a21; font-weight: 700; }
+@media (max-width: 680px) {
+  .price-update-meta { grid-template-columns: 1fr; }
+  .price-update-actions > * { width: 100%; justify-content: center; }
+}
 @media (min-width: 1180px) {
   .wheel-results { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }

@@ -10,9 +10,9 @@
   const BS_WHEEL_KEY = "integrated-bs-wheel-products-v120";
   const OTHER_WHEEL_KEY = "integrated-other-wheel-products-v120";
   const SOURCE_META_KEY = "integrated-source-meta-v1";
-  const APP_VERSION = "Ver1.9.2";
+  const APP_VERSION = "Ver2.0.0";
   const PRIMARY_WHEEL_INCHES = [12, 13, 14, 15, 16, 17, 18, 19, 20];
-  const ESTIMATE_COST_KEYS = ["mount", "balance", "disposal", "valve", "nuts", "other"];
+  const ESTIMATE_COST_KEYS = ["mount", "balance", "removal", "disposal", "valve", "nuts", "other"];
   const WHEEL_DISCOUNT_BRANDS = ["TOPRUN", "ECO FORME", "BALMINUM"];
   const SEARCH_ORDER_CONFIG = {
     tire: {
@@ -30,6 +30,8 @@
   const $$ = selector => [...document.querySelectorAll(selector)];
   const yen = value => `${Math.round(Number(value) || 0).toLocaleString("ja-JP")}円`;
   const text = value => String(value ?? "").trim();
+  const PRICE_FILE_MINIMUMS = { summer: 20, winter: 20, bs: 20, other: 20 };
+  let priceUpdateConfirmation = null;
 
   const state = {
     summerTireWorkbook: null,
@@ -45,11 +47,15 @@
     imagePreviewUrls: {},
     selectedTire: null,
     selectedWheel: null,
+    manualMode: false,
+    manualVehicle: {},
     vehicles: [],
+    serviceSpecs: [],
     vehicleSearchRecords: [],
     vehicleLoadError: "",
     currentReviewKey: "",
     reviewCandidates: [],
+    missingVehicles: [],
     wheelSearchMode: "vehicle",
     vehicleQuery: "",
     vehicleSelection: { maker: "", model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" },
@@ -139,7 +145,8 @@
     vehicleMasterStatus: $("#vehicleMasterStatus"),
     missingVehicleCount: $("#missingVehicleCount"),
     missingVehicleList: $("#missingVehicleList"),
-    exportMissingVehicles: $("#exportMissingVehicles"),
+    missingVehicleAdminStatus: $("#missingVehicleAdminStatus"),
+    uploadMissingVehicles: $("#uploadMissingVehicles"),
     clearMissingVehicles: $("#clearMissingVehicles"),
     checkVehicleUpdates: $("#checkVehicleUpdates"),
     exportVehicleDelta: $("#exportVehicleDelta"),
@@ -181,6 +188,21 @@
     missingImageCount: $("#missingImageCount"),
     patternCount: $("#patternCount"),
     imageList: $("#imageList"),
+    imageUploadStatus: $("#imageUploadStatus"),
+    priceTableVersion: $("#priceTableVersion"),
+    priceTableUpdatedAt: $("#priceTableUpdatedAt"),
+    priceTableUpdateMethod: $("#priceTableUpdateMethod"),
+    priceUpdateStatus: $("#priceUpdateStatus"),
+    fetchLatestPriceTables: $("#fetchLatestPriceTables"),
+    manualPriceTableFiles: $("#manualPriceTableFiles"),
+    restorePreviousPriceTables: $("#restorePreviousPriceTables"),
+    priceUpdateManifestUrl: $("#priceUpdateManifestUrl"),
+    exportMasterBundle: $("#exportMasterBundle"),
+    priceUpdateDialog: $("#priceUpdateDialog"),
+    priceUpdateDialogSummary: $("#priceUpdateDialogSummary"),
+    priceUpdateOlderWarning: $("#priceUpdateOlderWarning"),
+    cancelPriceUpdate: $("#cancelPriceUpdate"),
+    confirmPriceUpdate: $("#confirmPriceUpdate"),
     exportImageDb: $("#exportImageDb"),
     clearEstimate: $("#clearEstimate"),
     resetData: $("#resetData"),
@@ -220,6 +242,20 @@
 
   initialize();
 
+  // A narrow bridge: the integrated workflow reuses these existing calculations/renderers.
+  window.IntegratedApp = Object.freeze({
+    state, switchTab, currentEstimateParts, currentVehicle, tireSalePrice, wheelSalePrice,
+    renderEstimate, renderTires, renderWheels, renderVehicleChips, applySettingsToInputs,
+    saveSettings, printDocumentHtml, showPrintPreview, printEstimateSheet,
+    vehicleContext, assessWheel, quoteWarnings, resetConsultation, findImage, prepareManualPriceUpdate,
+    refresh() { renderVehicleChips(); renderTires(); renderWheels(); renderEstimate(); },
+    removeProduct(kind) {
+      if (kind === "tire") state.selectedTire = null;
+      if (kind === "wheel") state.selectedWheel = null;
+      renderTires(); renderWheels(); renderEstimate();
+    }
+  });
+
   function initialize() {
     bindEvents();
     applySettingsToInputs();
@@ -238,6 +274,8 @@
     renderImageManager();
     updateImageManagerVisibility();
     renderSourceStatus();
+    renderPriceUpdateInfo();
+    checkImageUploadServer();
     restoreBundledImageDb();
     restoreBundledVehicleDb();
     refreshMissingVehicleAdmin();
@@ -250,6 +288,13 @@
     els.winterTireFileSetting.addEventListener("change", event => event.target.files[0] && importTireFile(event.target.files[0], "winter"));
     els.bsWheelFileSetting.addEventListener("change", event => event.target.files[0] && importWheelFile(event.target.files[0], "bs"));
     els.otherWheelFileSetting.addEventListener("change", event => event.target.files[0] && importWheelFile(event.target.files[0], "other"));
+    els.manualPriceTableFiles?.addEventListener("change", event => event.target.files?.length && handleManualPriceUpdate([...event.target.files]));
+    els.fetchLatestPriceTables?.addEventListener("click", handleAutomaticPriceUpdate);
+    els.restorePreviousPriceTables?.addEventListener("click", handlePriceRollback);
+    els.exportMasterBundle?.addEventListener("click", handlePriceBundleExport);
+    els.cancelPriceUpdate?.addEventListener("click", () => settlePriceUpdateConfirmation(false));
+    els.confirmPriceUpdate?.addEventListener("click", () => settlePriceUpdateConfirmation(true));
+    els.priceUpdateDialog?.addEventListener("cancel", event => { event.preventDefault(); settlePriceUpdateConfirmation(false); });
     els.clearSummerTire.addEventListener("click", () => clearSourceData("summerTire"));
     els.clearWinterTire.addEventListener("click", () => clearSourceData("winterTire"));
     els.clearBsWheel.addEventListener("click", () => clearSourceData("bsWheel"));
@@ -368,7 +413,7 @@
     els.saveMissingVehicle.addEventListener("click", saveMissingVehicle);
     els.recordSearchOnlyVehicle.addEventListener("click", recordSelectedSearchOnlyVehicle);
     els.vehicleMasterFile.addEventListener("change", event => event.target.files[0] && importVehicleMaster(event.target.files[0]));
-    els.exportMissingVehicles.addEventListener("click", exportMissingVehicles);
+    els.uploadMissingVehicles.addEventListener("click", uploadMissingVehiclesToGitHub);
     els.clearMissingVehicles.addEventListener("click", clearMissingVehicles);
     els.missingVehicleList.addEventListener("click", event => event.target.closest("[data-missing-key]") && openMissingVehicleReview(event.target.closest("[data-missing-key]").dataset.missingKey));
     els.fetchVehicleInfo.addEventListener("click", fetchVehicleInformation);
@@ -393,6 +438,7 @@
     $$(".panel").forEach(panel => panel.classList.toggle("active", panel.id === `tab-${tab}`));
     els.sharedVehicleSearch.hidden = !["tire", "wheel"].includes(tab);
     window.scrollTo({ top: 0, behavior: "instant" });
+    document.dispatchEvent(new CustomEvent("consultation:tab", { detail: tab }));
   }
 
   function refreshActiveProducts() {
@@ -430,11 +476,11 @@
       if (tireType === "winter") {
         state.winterTireWorkbook = { fileName: file.name, loadedAt: new Date().toISOString(), sheetCount: catalog.sheets?.length || 0 };
         state.winterTireData = data;
-        localStorage.setItem(WINTER_TIRE_KEY, JSON.stringify(data));
+        saveLocalJson(WINTER_TIRE_KEY, data);
       } else {
         state.summerTireWorkbook = { fileName: file.name, loadedAt: new Date().toISOString(), sheetCount: catalog.sheets?.length || 0 };
         state.summerTireData = data;
-        localStorage.setItem(SUMMER_TIRE_KEY, JSON.stringify(data));
+        saveLocalJson(SUMMER_TIRE_KEY, data);
       }
       saveSourceMeta(sourceKey, { status: "loaded", fileName: file.name, count: data.length, summary: summarizeTireData(data, catalog) });
       refreshActiveProducts();
@@ -486,14 +532,14 @@
       if (wheelType === "other") {
         state.otherWheelWorkbook = workbookInfo;
         state.otherWheelData = data;
-        localStorage.setItem(OTHER_WHEEL_KEY, JSON.stringify(data));
+        saveLocalJson(OTHER_WHEEL_KEY, data);
       } else {
         state.bsWheelWorkbook = workbookInfo;
         state.bsWheelData = data;
         state.settings.bsRateLabels = [...new Set(rateLabels)].sort((a, b) => number(a) - number(b));
         state.settings.bsBrandRateLabels = mergeBrandRateLabels(brandRates);
         saveSettings();
-        localStorage.setItem(BS_WHEEL_KEY, JSON.stringify(data));
+        saveLocalJson(BS_WHEEL_KEY, data);
       }
       saveSourceMeta(sourceKey, { status: "loaded", fileName: file.name, count: data.length, summary: summarizeWheelData(data, workbook) });
       refreshActiveProducts();
@@ -510,6 +556,273 @@
       setMessage(els.wheelStatus, `${file.name} の読み込みに失敗しました。${message}`, true);
       saveSourceMeta(sourceKey, { status: "error", fileName: file.name, count: 0, message });
     }
+  }
+
+  async function prepareManualPriceUpdate(files, forcedKind = "") {
+    if (!Array.isArray(files) || !files.length) throw new Error("価格表Excelを選択してください。");
+    if (files.length > 4) throw new Error("一度に選択できる価格表は4ファイルまでです。");
+    if (files.some(file => file.size > 30 * 1024 * 1024) || files.reduce((sum, file) => sum + file.size, 0) > 60 * 1024 * 1024) {
+      throw new Error("ファイル容量が大きすぎます。1ファイル30MB、合計60MB以内にしてください。");
+    }
+    const prepared = [];
+    const kinds = new Set();
+    for (let index = 0; index < files.length; index++) {
+      const file = files[index];
+      if (!/\.(xls|xlsx|xlsm)$/i.test(file.name)) throw new Error(`${file.name}：対応形式は .xls / .xlsx / .xlsm です。`);
+      const kind = forcedKind || priceFileKind(file.name);
+      if (!kind) throw new Error(`${file.name}：夏タイヤ・冬タイヤ・BSアルミ・社外アルミの種類をファイル名から判定できません。`);
+      if (kinds.has(kind)) throw new Error(`${priceFileKindLabel(kind)}が複数選択されています。1種類につき1ファイルを選択してください。`);
+      kinds.add(kind);
+      setPriceUpdateMessage(`${file.name} を検証しています（${index + 1}/${files.length}）…`);
+      prepared.push(await preparePriceFile(file, kind));
+      await new Promise(resolve => setTimeout(resolve, 0));
+    }
+    const tires = { summer: state.summerTireData, winter: state.winterTireData };
+    const wheels = { bs: state.bsWheelData, other: state.otherWheelData };
+    prepared.forEach(item => {
+      if (item.kind === "summer" || item.kind === "winter") tires[item.kind] = item.data;
+      else wheels[item.kind] = item.data;
+    });
+    validatePriceCalculation(tires, wheels);
+    const detected = prepared.map(item => item.version).filter(Boolean).sort(comparePriceVersions).pop();
+    return {
+      tires,
+      wheels,
+      version: detected || currentMonthVersion(),
+      versionDetected: Boolean(detected),
+      sourceFiles: files.map(file => file.name),
+      prepared,
+      count: prepared.reduce((sum, item) => sum + item.data.length, 0),
+      bsRateLabels: prepared.find(item => item.kind === "bs")?.rateLabels || null,
+      bsBrandRateLabels: prepared.find(item => item.kind === "bs")?.brandRates || null
+    };
+  }
+
+  async function preparePriceFile(file, kind) {
+    const buffer = await file.arrayBuffer();
+    if (kind === "summer" || kind === "winter") {
+      if (!window.CatalogParser?.parse) throw new Error("タイヤ価格表の読込機能を確認できません。");
+      const catalog = await window.CatalogParser.parse(buffer);
+      const label = kind === "winter" ? "冬タイヤ" : "夏タイヤ";
+      const data = catalog.products
+        .filter(item => item.brand && item.size && Number(item.cost) > 0)
+        .map(item => ({ ...item, sourceType: kind, sourceLabel: label, id: stableId([kind, item.brand, item.subbrand, item.size, item.code, item.cost]) }));
+      validatePreparedPriceData(kind, data, catalog.sheets || []);
+      return { kind, data, sheets: catalog.sheets || [], version: priceVersionFromText(file.name), fileName: file.name };
+    }
+    if (!window.XLSX?.read) throw new Error("アルミ価格表の読込機能を確認できません。");
+    let workbook;
+    try { workbook = window.XLSX.read(buffer, { type: "array", cellDates: false, dense: false }); }
+    catch { throw new Error(`${file.name}：Excel形式が壊れているか、対応していません。`); }
+    const products = [], rateLabels = [], brandRates = [];
+    const sheetNames = wheelSheetNamesForImport(workbook, kind);
+    sheetNames.forEach(sheetName => {
+      const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: true });
+      rateLabels.push(...extractRateLabels(rows));
+      brandRates.push(...extractBrandRateLabels(rows));
+      products.push(...parseWheelRows(rows, { fileName: file.name, sheetName }));
+    });
+    const label = kind === "other" ? "社外アルミ" : "BSアルミ";
+    const data = dedupe(products).map(item => normalizeWheelProduct(item, kind, label));
+    validatePreparedPriceData(kind, data, sheetNames);
+    return {
+      kind,
+      data,
+      sheets: sheetNames,
+      version: priceVersionFromText(file.name) || priceVersionFromWorkbook(workbook),
+      fileName: file.name,
+      rateLabels: [...new Set(rateLabels)].sort((a, b) => number(a) - number(b)),
+      brandRates: mergeBrandRateLabels(brandRates)
+    };
+  }
+
+  function validatePreparedPriceData(kind, data, sheets) {
+    if (!Array.isArray(sheets) || !sheets.length) throw new Error(`${priceFileKindLabel(kind)}：必要なシートを確認できません。`);
+    if (data.length < PRICE_FILE_MINIMUMS[kind]) throw new Error(`${priceFileKindLabel(kind)}：抽出件数が${data.length}件です。最低${PRICE_FILE_MINIMUMS[kind]}件必要です。必須列や価格列を確認してください。`);
+    const ids = new Set();
+    for (const item of data) {
+      if (!item?.id || ids.has(item.id)) throw new Error(`${priceFileKindLabel(kind)}：商品IDが不正または重複しています。`);
+      ids.add(item.id);
+      if (kind === "summer" || kind === "winter") {
+        if (!text(item.brand) || !text(item.size) || !Number.isFinite(Number(item.cost)) || Number(item.cost) <= 0) throw new Error(`${priceFileKindLabel(kind)}：ブランド・サイズ・価格のデータ型が不正です。`);
+      } else if (!text(item.brandName) || !text(item.patternName) || !looksWheelSize(item.sizeText) || !firstPrice(item.wholesalePrice, item.dealerCost, item.basePrice, item.directSalePrice, item.salePrice)) {
+        throw new Error(`${priceFileKindLabel(kind)}：ブランド・商品名・サイズ・価格の必須列が不正です。`);
+      }
+    }
+  }
+
+  function validatePriceCalculation(tires, wheels) {
+    const tireSample = [...tires.summer, ...tires.winter].slice(0, 30);
+    const wheelSample = [...wheels.bs, ...wheels.other].slice(0, 30);
+    if (!tireSample.length || tireSample.some(item => !Number.isFinite(tireSalePrice(item)) || tireSalePrice(item) <= 0)) throw new Error("タイヤの価格計算テストに失敗しました。");
+    if (!wheelSample.length || wheelSample.some(item => !Number.isFinite(wheelSalePrice(item)) || wheelSalePrice(item) <= 0)) throw new Error("アルミホイールの価格計算テストに失敗しました。");
+  }
+
+  function priceFileKind(fileName) {
+    const value = text(fileName).normalize("NFKC").toUpperCase().replace(/\s+/g, "");
+    if (/冬卸|冬タイヤ|WINTER/.test(value)) return "winter";
+    if (/夏卸|夏タイヤ|SUMMER/.test(value)) return "summer";
+    if (/(?:BS|ブリヂストン).*アルミ|アルミ.*(?:BS|ブリヂストン)/.test(value)) return "bs";
+    if (/他社.*アルミ|アルミ.*他社/.test(value)) return "other";
+    return "";
+  }
+
+  function priceFileKindLabel(kind) {
+    return ({ summer: "夏タイヤ価格表", winter: "冬タイヤ価格表", bs: "BSアルミ価格表", other: "社外アルミ価格表" })[kind] || "価格表";
+  }
+
+  function priceVersionFromText(value) {
+    const normalized = text(value).normalize("NFKC");
+    const long = normalized.match(/\b(20\d{2})[._\/-](0?[1-9]|1[0-2])\b/) || normalized.match(/(20\d{2})年\s*(0?[1-9]|1[0-2])月/);
+    if (long) return `${long[1]}.${String(Number(long[2])).padStart(2, "0")}`;
+    const short = normalized.match(/(?:^|\D)(\d{2})[._-](0?[1-9]|1[0-2])(?:\D|$)/);
+    return short ? `20${short[1]}.${String(Number(short[2])).padStart(2, "0")}` : "";
+  }
+
+  function priceVersionFromWorkbook(workbook) {
+    for (const sheetName of (workbook?.SheetNames || []).slice(0, 8)) {
+      const rows = window.XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1, defval: "", blankrows: false, raw: false }).slice(0, 40);
+      for (const row of rows) {
+        for (let index = 0; index < row.length; index++) {
+          if (/price\s*version|価格表バージョン/i.test(text(row[index]))) {
+            const found = priceVersionFromText(row[index + 1]);
+            if (found) return found;
+          }
+        }
+      }
+    }
+    return "";
+  }
+
+  function currentMonthVersion() {
+    const now = new Date();
+    return `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, "0")}`;
+  }
+
+  function comparePriceVersions(a, b) {
+    return priceVersionNumber(a) - priceVersionNumber(b);
+  }
+
+  function priceVersionNumber(value) {
+    const match = text(value).match(/(20\d{2})\D+(\d{1,2})/);
+    return match ? Number(match[1]) * 100 + Number(match[2]) : 0;
+  }
+
+  async function handleManualPriceUpdate(files) {
+    const input = els.manualPriceTableFiles;
+    try {
+      const update = await prepareManualPriceUpdate(files);
+      const current = currentPriceUpdateInfo();
+      const older = Boolean(priceVersionNumber(current.version) && priceVersionNumber(update.version) < priceVersionNumber(current.version));
+      const confirmed = await requestPriceUpdateConfirmation({ current: current.version, next: update.version, count: update.count, files: update.sourceFiles, older });
+      if (!confirmed) { setPriceUpdateMessage("価格表更新をキャンセルしました。"); return; }
+      setPriceUpdateMessage("検証済みデータをバックアップして端末へ保存しています…");
+      const result = await window.MasterBundle.commitPriceUpdate({ ...update, method: "manual" });
+      if (update.bsRateLabels) {
+        state.settings.bsRateLabels = update.bsRateLabels;
+        state.settings.bsBrandRateLabels = update.bsBrandRateLabels || [];
+        saveSettings();
+      }
+      setPriceUpdateMessage(`価格表を更新しました。価格表：${result.version}／更新日時：${formatDateTime(result.updatedAt)}`);
+      location.reload();
+    } catch (error) {
+      console.error(error);
+      setPriceUpdateMessage(`更新失敗：${friendlyError(error, "価格表を更新できませんでした。")} 現在の価格表は変更していません。`, true);
+    } finally {
+      if (input) input.value = "";
+    }
+  }
+
+  async function handleAutomaticPriceUpdate() {
+    const button = els.fetchLatestPriceTables;
+    try {
+      const url = text(els.priceUpdateManifestUrl?.value);
+      if (!url) throw new Error("自動更新の接続先URLが設定されていません。");
+      localStorage.setItem("integrated-price-update-url", url);
+      button.disabled = true;
+      setPriceUpdateMessage("最新版を取得し、件数・SHA-256・データ形式を検証しています…");
+      const snapshot = await window.MasterBundle.prepareRemote(url);
+      const current = currentPriceUpdateInfo();
+      const counts = snapshot.data;
+      const total = (counts.tires?.summer?.length || 0) + (counts.tires?.winter?.length || 0) + (counts.wheels?.bs?.length || 0) + (counts.wheels?.other?.length || 0);
+      const older = Boolean(priceVersionNumber(current.version) && priceVersionNumber(snapshot.version) < priceVersionNumber(current.version));
+      if (!await requestPriceUpdateConfirmation({ current: current.version, next: snapshot.version, count: total, files: snapshot.sourceFiles, older })) {
+        setPriceUpdateMessage("自動更新をキャンセルしました。"); return;
+      }
+      const result = await window.MasterBundle.activatePrepared(snapshot);
+      setPriceUpdateMessage(`価格表を更新しました。価格表：${result.version}／更新日時：${formatDateTime(result.updatedAt)}`);
+      location.reload();
+    } catch (error) {
+      console.error(error);
+      setPriceUpdateMessage(`自動更新失敗：${friendlyError(error, "最新版を取得できませんでした。")} 現在の価格表は変更していません。`, true);
+    } finally { button.disabled = false; }
+  }
+
+  async function handlePriceRollback() {
+    const info = window.MasterBundle?.info();
+    if (!info?.previous) { setPriceUpdateMessage("復元できる前の価格表がありません。", true); return; }
+    const count = Object.values(info.previous.counts || {}).reduce((sum, value) => sum + Number(value || 0), 0);
+    if (!await requestPriceUpdateConfirmation({ current: info.active?.version || "現在の端末データ", next: info.previous.version, count, files: info.previous.sourceFiles, older: false, rollback: true })) return;
+    try {
+      const result = await window.MasterBundle.restorePrevious();
+      setPriceUpdateMessage(`前の価格表 ${result.version} に戻しました。`);
+      location.reload();
+    } catch (error) { setPriceUpdateMessage(`復元失敗：${error.message}。現在の価格表は維持しています。`, true); }
+  }
+
+  async function handlePriceBundleExport() {
+    try {
+      setPriceUpdateMessage("配信用データを検証して出力しています…");
+      await window.MasterBundle.exportBundle();
+      setPriceUpdateMessage("配信用一式を出力しました。会社価格を含むため、安全な非公開配信先へ配置してください。");
+    } catch (error) { setPriceUpdateMessage(`出力失敗：${error.message}`, true); }
+  }
+
+  function currentPriceUpdateInfo() {
+    const saved = window.MasterBundle?.info()?.active;
+    if (saved) return saved;
+    const metas = Object.values(state.sourceMeta || {}).filter(item => item?.status === "loaded");
+    const version = metas.map(item => priceVersionFromText(item.fileName)).filter(Boolean).sort(comparePriceVersions).pop() || "未設定";
+    const updatedAt = metas.map(item => item.loadedAt).filter(Boolean).sort().pop() || "";
+    return { version, updatedAt, method: "existing", counts: {} };
+  }
+
+  function renderPriceUpdateInfo() {
+    if (!els.priceTableVersion) return;
+    const info = currentPriceUpdateInfo();
+    els.priceTableVersion.textContent = info.version || "未設定";
+    els.priceTableUpdatedAt.textContent = formatDateTime(info.updatedAt) || "—";
+    els.priceTableUpdateMethod.textContent = info.method === "manual" ? "AirDrop / 手動取込" : info.method === "automatic" ? "自動更新" : "端末内の既存データ";
+    const bundleInfo = window.MasterBundle?.info();
+    els.restorePreviousPriceTables.disabled = !bundleInfo?.previous;
+    if (els.priceUpdateManifestUrl && !els.priceUpdateManifestUrl.value) {
+      els.priceUpdateManifestUrl.value = localStorage.getItem("integrated-price-update-url") || new URL("data/master-bundle/manifest.json", location.href).href;
+    }
+  }
+
+  function setPriceUpdateMessage(message, error = false) {
+    if (!els.priceUpdateStatus) return;
+    setMessage(els.priceUpdateStatus, message, error);
+  }
+
+  function requestPriceUpdateConfirmation({ current, next, count, files = [], older = false, rollback = false }) {
+    const title = rollback ? "前の価格表に戻します" : "価格表を更新します";
+    const fileText = files.length ? files.join("、") : "検証済み配信データ";
+    if (!els.priceUpdateDialog?.showModal) return Promise.resolve(window.confirm(`${title}\n\n現在：${current || "未設定"}\n更新予定：${next}\n件数：${Number(count).toLocaleString("ja-JP")}件\nファイル：${fileText}${older ? "\n\n現在より古い価格表です。" : ""}`));
+    els.priceUpdateDialog.querySelector("h2").textContent = title;
+    els.priceUpdateDialogSummary.innerHTML = `<dl><dt>現在</dt><dd>${escapeHtml(current || "未設定")}</dd><dt>${rollback ? "復元予定" : "更新予定"}</dt><dd>${escapeHtml(next)}</dd><dt>件数</dt><dd>${Number(count).toLocaleString("ja-JP")}件</dd><dt>ファイル</dt><dd>${escapeHtml(fileText)}</dd></dl>`;
+    els.priceUpdateOlderWarning.hidden = !older;
+    els.confirmPriceUpdate.textContent = rollback ? "前の価格表に戻す" : "更新する";
+    els.priceUpdateDialog.showModal();
+    return new Promise(resolve => { priceUpdateConfirmation = resolve; });
+  }
+
+  function settlePriceUpdateConfirmation(result) {
+    if (!priceUpdateConfirmation) return;
+    const resolve = priceUpdateConfirmation;
+    priceUpdateConfirmation = null;
+    els.priceUpdateDialog.close();
+    resolve(result);
   }
 
   function parseWheelRows(rows, source) {
@@ -543,6 +856,10 @@
     const brandCol = col("ブランド名");
     const patternCol = col("パターン等");
     const codeCol = col("商品コード");
+    const holesCol = header.findIndex(cell => ["穴", "孔数"].some(name => normalizeHeader(cell).includes(normalizeHeader(name))));
+    const pcdCol = header.findIndex(cell => normalizeHeader(cell) === "PCD");
+    const insetCol = header.findIndex(cell => ["IN", "インセット", "オフセット"].some(name => normalizeHeader(cell) === normalizeHeader(name)));
+    const colorCol = col("カラー");
     const priceCol = header.findIndex(cell => {
       const label = normalizeHeader(cell);
       return label.includes("チェーン店") || label.startsWith("仕切");
@@ -559,15 +876,16 @@
       if (rowBrandName) activeBrandName = rowBrandName;
       const brandName = rowBrandName || activeBrandName;
       if (!brandName || !looksWheelSize(sizeText) || !productCode || !price) continue;
+      const explicitFitment = parseFitment([row[holesCol], row[pcdCol]].filter(value => value !== "" && value != null).join(" "));
       out.push({
-        ...parseFitment(sizeText),
+        ...(explicitFitment.holes || explicitFitment.pcd ? explicitFitment : parseFitment(sizeText)),
         productCode,
         maker: "BS",
         brandName,
         patternName: brandName,
         sizeText,
-        color: colorFromBsSize(sizeText) || "—",
-        insetText: wheelInsetText(insetFromText(sizeText)),
+        color: cleanPattern(row[colorCol]) || colorFromBsSize(sizeText) || "S",
+        insetText: wheelInsetText(row[insetCol] || insetFromText(sizeText)),
         basePrice: price,
         wholesalePrice: price,
         salePrice: wheelSalePrice({ wholesalePrice: price }),
@@ -628,7 +946,7 @@
       brandName: get("brandName"),
       patternName: patternName || "—",
       sizeText: sizeText || "—",
-      color: color || "—",
+      color: color || "S",
       insetText,
       holes: fitment.holes,
       pcd: fitment.pcd,
@@ -654,10 +972,10 @@
       sizeText: ["インチ×リム幅", "インチxリム幅", "サイズ", "リム径", "インチ"],
       inch: ["インチ"],
       rimWidth: ["リム幅"],
-      inset: ["インセット", "オフセット", "INSET", "OFFSET", "ET", "IS"],
+      inset: ["インセット", "オフセット", "INSET", "OFFSET", "IN", "ET", "IS"],
       color: ["カラー", "色"],
       colorDescription: ["カラー解説", "カラー説明", "色解説"],
-      holesPcdText: ["孔数/PCD", "孔数 PCD", "穴数/PCD", "H/PCD", "HOLE/PCD"],
+      holesPcdText: ["孔数/PCD", "孔数 PCD", "穴数/PCD", "H/PCD", "HOLE/PCD", "PCD"],
       maker: ["メーカー名", "メーカー", "取扱会社名"],
       listPrice: ["25年定価", "定価", "希望小売価格"],
       dealerCost: ["販社仕切", "販社仕切価格", "仕切価格"],
@@ -694,7 +1012,7 @@
         brandName: patternName,
         patternName,
         sizeText: cleanBsDisplaySize(display, patternName),
-        color: colorFromBsSize(display) || "—",
+        color: colorFromBsSize(display) || "S",
         basePrice: price,
         wholesalePrice: price,
         salePrice: wheelSalePrice({ wholesalePrice: price }),
@@ -765,7 +1083,7 @@
     const selectedOemTire = state.vehicleSelection.tire;
     const filtered = state.tireProducts
       .filter(isPricedTire)
-      .filter(item => !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
+      .filter(item => state.manualMode || !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
       .filter(item => !brand || item.brand === brand)
       .filter(item => !tireCategory || (item.productCategory || "normal") === tireCategory)
       .filter(item => !product || norm(`${item.subbrand} ${item.code}`).includes(product))
@@ -775,10 +1093,6 @@
       .slice(0, limit);
     renderTireChips();
     els.tireSearchSummary.textContent = summaryText([(selectedVehicle || currentSearchOnlyVehicle()) && vehicleSearchSummary(selectedVehicle), sourceSummary([els.useSummerTire.checked && "夏", els.useWinterTire.checked && "冬"], "タイヤ"), tireCategoryLabel(tireCategory), tireBrandDisplayName(brand), els.tireProduct.value, tireInch && `${tireInch}インチ`, els.tireSize.value]);
-    if (currentSearchOnlyVehicle() && !selectedVehicle) {
-      els.tireResults.innerHTML = emptyCard("車種名は登録済みですが、純正タイヤサイズが未検証です。適合情報を確認・登録してからタイヤ検索へ進んでください。");
-      return;
-    }
     if (!state.tireProducts.length) {
       els.tireResults.innerHTML = emptyCard("管理タブでタイヤ価格表を読み込んでください。");
       return;
@@ -790,7 +1104,7 @@
       state.selectedTire = tire;
       renderTires();
       renderEstimate();
-      switchTab("estimate");
+      renderWheels();
     }));
   }
 
@@ -804,7 +1118,7 @@
     const selectedVehicle = currentVehicle();
     const selectedOemTire = state.vehicleSelection.tire;
     const categoryFiltered = state.tireProducts.filter(isPricedTire)
-      .filter(item => !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
+      .filter(item => state.manualMode || !selectedVehicle || !selectedOemTire || sameTireSize(tireDisplaySize(item), selectedOemTire))
       .filter(item => !tireCategory || (item.productCategory || "normal") === tireCategory);
     const brands = [...new Set(categoryFiltered.map(item => item.brand).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja"));
     const brandFiltered = categoryFiltered.filter(item => !brand || item.brand === brand);
@@ -861,7 +1175,7 @@
         <div><span>1本税込</span><strong>${yen(single)}</strong></div>
         <div><span>4本税込</span><strong>${yen(single * 4)}</strong></div>
       </div>
-      <button class="select-button" data-tire-id="${escapeHtml(item.id)}">${selected ? "選択中" : "セット見積に選択"}</button>
+      <button class="select-button" data-tire-id="${escapeHtml(item.id)}" aria-pressed="${selected}">${selected ? "選択中" : "見積に選択"}</button>
     </article>`;
   }
 
@@ -875,16 +1189,20 @@
       const response = await fetch("data/vehicles_2012_2026.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
+      state.serviceSpecs = await fetch("data/vehicle_service_specs.json").then(r => r.json()).then(data => data.records || []).catch(() => []);
+      document.dispatchEvent(new CustomEvent("vehicle-service:loaded", { detail: state.serviceSpecs }));
       const searchPayload = await fetch("data/jp_vehicle_search_master_2000_2026_v1.json", { cache: "no-store" }).then(result => result.ok ? result.json() : ({ vehicles: [] })).catch(() => ({ vehicles: [] }));
       const bundled = window.VehicleFitment.normalizeDataset(payload);
-      const overrides = window.VehicleStore ? await window.VehicleStore.getVehicleOverrides() : [];
+      const savedOverrides = window.VehicleStore ? await window.VehicleStore.getVehicleOverrides() : [];
+      const overrides = savedOverrides.filter(item => !window.MasterBundle?.hasSnapshot() || item._bundleGeneration === window.MasterBundle.generation());
       const merged = window.VehicleSearchMaster.merge(window.VehicleFitment.upsertVehicles(bundled, overrides), searchPayload);
       state.vehicles = merged.vehicles;
       state.vehicleSearchRecords = merged.searchRecords;
-      els.vehicleMasterBadge.textContent = `端末差分 ${overrides.length}件`;
+      els.vehicleMasterBadge.textContent = window.MasterBundle?.hasSnapshot() ? "一括データ 保存済み" : `端末差分 ${overrides.length}件`;
       renderVehicleChips();
       renderTires();
       renderWheels();
+      document.dispatchEvent(new Event("consultation:change"));
     } catch (error) {
       console.error(error);
       state.vehicleLoadError = "車両DBを読み込めませんでした。管理者に確認してください。";
@@ -916,14 +1234,31 @@
   async function recordSelectedSearchOnlyVehicle() {
     const record = currentSearchOnlyVehicle();
     if (!record) return;
-    const saved = await window.VehicleStore.recordMissing({ maker: record.maker, model: record.model, memo: "検索補完マスターから記録" });
-    els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(record.maker)} ${record.model} を未登録適合情報として端末へ記録しました（${saved.count}回）。`;
-    await refreshMissingVehicleAdmin();
+    await recordSearchOnlyVehicle(record, false);
+  }
+
+  async function recordSearchOnlyVehicle(record, automatic = true) {
+    if (!record || !window.VehicleStore) return null;
+    try {
+      const saved = await window.VehicleStore.recordMissing({
+        maker: record.maker,
+        model: record.model,
+        memo: automatic ? "車種選択時に自動記録" : "検索補完マスターから記録"
+      });
+      els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(record.maker)} ${record.model} は適合情報が未検証です。未登録候補へ${automatic ? "自動で" : ""}保存しました（選択 ${saved.count}回）。`;
+      await refreshMissingVehicleAdmin();
+      return saved;
+    } catch (error) {
+      console.error(error);
+      els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(record.maker)} ${record.model} は適合情報が未検証です。候補へ保存できませんでしたが、手動でサイズを指定して商談を続けられます。`;
+      return null;
+    }
   }
 
   async function refreshMissingVehicleAdmin() {
     if (!window.VehicleStore) return;
     const rows = await window.VehicleStore.listMissing();
+    state.missingVehicles = rows;
     els.missingVehicleCount.textContent = `${rows.length}件`;
     const labels = { unverified: "未確認", information_acquired: "情報取得済み", needs_review: "要確認", verified: "確認済み", registered: "DB登録済み" };
     els.missingVehicleList.innerHTML = rows.length ? rows.sort((a, b) => (b.count - a.count) || b.last_seen.localeCompare(a.last_seen)).map(item =>
@@ -1064,7 +1399,7 @@
     const proposed = missing.draft; const result = window.VehicleFitment.validateVehicleForApproval(proposed);
     if (!result.valid || vehicleConflictFor(proposed).type !== "new") { els.vehicleReviewMessage.textContent = "検証または競合確認に失敗しました。DBは変更していません。"; return; }
     const appliedAt = new Date().toISOString();
-    await window.VehicleStore.applyVehicle(proposed, { vehicle_id: proposed.vehicle_id, operation: "add", before: null, after: proposed, source_missing_key: missing.key, applied_at: appliedAt, app_version: APP_VERSION });
+    await window.VehicleStore.applyVehicle({ ...proposed, _bundleGeneration: window.MasterBundle?.generation() || "" }, { vehicle_id: proposed.vehicle_id, operation: "add", before: null, after: proposed, source_missing_key: missing.key, applied_at: appliedAt, app_version: APP_VERSION });
     await window.VehicleStore.updateMissing(missing.key, { status: "registered", registered_vehicle_id: proposed.vehicle_id, registered_at: appliedAt });
     if (missing.patch_id) {
       const applied = await window.VehicleStore.getMetadata("applied_patch_ids") || [];
@@ -1123,9 +1458,37 @@
     } finally { els.vehicleMasterFile.value = ""; }
   }
 
-  async function exportMissingVehicles() {
-    const rows = await window.VehicleStore.listMissing();
-    downloadBlob(new Blob([JSON.stringify({ exported_at: new Date().toISOString(), missing_vehicles: rows }, null, 2)], { type: "application/json" }), "missing_vehicles.json");
+  function uploadMissingVehiclesToGitHub() {
+    if (!navigator.onLine) { els.missingVehicleAdminStatus.textContent = "オフラインです。オンラインになってからGitHubへ送ってください。"; return; }
+    const candidates = state.missingVehicles
+      .filter(item => item.status !== "registered")
+      .sort((a, b) => text(b.last_seen).localeCompare(text(a.last_seen)))
+      .map(item => ({
+        key: text(item.key), maker: text(item.maker), model: text(item.model), year: text(item.year),
+        model_code: text(item.model_code), grade: text(item.grade), tire_size: text(item.tire_size), memo: text(item.memo),
+        count: Number(item.count || 1), first_seen: text(item.first_seen), last_seen: text(item.last_seen)
+      }));
+    if (!candidates.length) { els.missingVehicleAdminStatus.textContent = "アップロードする未登録候補がありません。"; return; }
+    const selected = [];
+    for (const candidate of candidates) {
+      const next = [...selected, candidate];
+      const trial = JSON.stringify({ schema_version: "1.0.0", source: "tire-wheel-price-navi", submitted_at: new Date().toISOString(), candidates: next });
+      if (encodeURIComponent(trial).length > 5200) break;
+      selected.push(candidate);
+    }
+    if (!selected.length) { els.missingVehicleAdminStatus.textContent = "候補データが大きすぎます。メモを短くして再実行してください。"; return; }
+    const payload = { schema_version: "1.0.0", source: "tire-wheel-price-navi", submitted_at: new Date().toISOString(), candidates: selected };
+    const body = [
+      "iPadアプリから送信された未登録車候補です。登録内容は調査候補として扱い、公式情報等で確認するまで本番DBへ反映しないでください。",
+      "", "<!-- VEHICLE_RESEARCH_JSON", JSON.stringify(payload), "-->", "", `送信件数: ${selected.length}件`
+    ].join("\n");
+    const url = new URL("https://github.com/Riden4649/tire-wheel-price-integration/issues/new");
+    url.searchParams.set("title", `[vehicle-research] 未登録車候補 ${selected.length}件`);
+    url.searchParams.set("body", body);
+    url.searchParams.set("labels", "vehicle-research");
+    window.open(url.href, "_blank", "noopener,noreferrer");
+    const remaining = candidates.length - selected.length;
+    els.missingVehicleAdminStatus.textContent = `GitHubの画面で「Submit new issue」を押してください。${selected.length}件を送信${remaining ? `、残り${remaining}件は次回送信` : ""}します。送信後に自動検索が始まります。`;
   }
 
   async function clearMissingVehicles() {
@@ -1231,12 +1594,34 @@
   }
 
   function clearVehicleSelection() {
+    state.manualMode = false;
+    state.manualVehicle = {};
     state.vehicleQuery = "";
     state.vehicleSelection = { maker: "", model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
     els.vehicleModelSearch.value = "";
     renderVehicleChips();
     renderTires();
     renderWheels();
+  }
+
+  function resetConsultation() {
+    // Reset only this negotiation; retain catalogs, shop/pricing settings and local history.
+    state.selectedTire = null;
+    state.selectedWheel = null;
+    state.tireCategory = "";
+    state.tireInch = "";
+    state.settings.estimateCosts = defaultEstimateCostSettings();
+    [els.tireBrand, els.tireProduct, els.tireSize, els.wheelMaker, els.wheelBrand,
+      els.wheelPattern, els.wheelInch, els.wheelPcd, els.wheelSize, els.wheelColor].forEach(input => { input.value = ""; });
+    [els.useSummerTire, els.useWinterTire, els.useBsWheel, els.useOtherWheel].forEach(input => { input.checked = true; });
+    refreshActiveProducts();
+    clearVehicleSelection();
+    setWheelSearchMode("vehicle");
+    $$('[data-vehicle-step]').forEach(details => { details.open = details.dataset.vehicleStep === "maker"; });
+    $$('[data-search-panel]').forEach(details => { details.open = details === details.parentElement.querySelector('[data-search-panel]'); });
+    closePrintPreview();
+    renderEstimate();
+    saveSettings();
   }
 
   function renderVehicleChips() {
@@ -1276,15 +1661,16 @@
     }
     els.sharedVehicleSummary.textContent = vehicleSearchSummary(vehicle);
     els.searchOnlyVehicleNotice.hidden = !searchOnly;
-    if (searchOnly) els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(searchOnly.maker)} ${searchOnly.model} は車種名マスターに登録されていますが、PCD・穴数・ハブ径・締結方式・純正タイヤサイズは未検証です。タイヤ・アルミ候補は表示しません。`;
+    if (searchOnly) els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(searchOnly.maker)} ${searchOnly.model} は適合情報が未検証です。手動でサイズを指定して商談を続けられます。候補表示は装着保証ではありません。`;
     els.clearVehicleSelection.hidden = !selection.maker && !state.vehicleQuery;
     els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || matchingSearchOnly.length > 0 || suggestions.length > 0;
     if (!els.missingVehiclePanel.hidden && !els.missingVehicleModel.value) els.missingVehicleModel.value = state.vehicleQuery;
   }
 
-  function handleVehicleChipClick(event) {
+  async function handleVehicleChipClick(event) {
     const button = event.target.closest("[data-vehicle-filter]");
     if (!button) return;
+    state.manualMode = false;
     const step = button.dataset.vehicleFilter;
     const value = button.dataset.value || "";
     if (step === "maker") state.vehicleSelection = { maker: value, model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
@@ -1295,9 +1681,20 @@
     if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, searchOnlyId: "", vehicleId: value, year: "", variantId: "", tire: "" };
     if (step === "year") state.vehicleSelection = { ...state.vehicleSelection, year: value, variantId: "", tire: "" };
     if (step === "variant") state.vehicleSelection = { ...state.vehicleSelection, variantId: value, tire: "" };
-    if (step === "tire") state.vehicleSelection = { ...state.vehicleSelection, tire: value };
+    if (step === "tire") {
+      state.vehicleSelection = { ...state.vehicleSelection, tire: value };
+      els.tireSize.value = ""; state.tireInch = "";
+      els.sharedVehicleSearch.open = false;
+      $("#tireSearchDetails").open = false;
+    }
     renderVehicleChips();
-    if (step === "model" && currentSearchOnlyVehicle()) { renderTires(); renderWheels(); return; }
+    if (step === "model" && currentSearchOnlyVehicle()) {
+      renderTires();
+      renderWheels();
+      renderEstimate();
+      await recordSearchOnlyVehicle(currentSearchOnlyVehicle());
+      return;
+    }
     const hasVariants = currentVehicle() && window.VehicleFitment.variants(currentVehicle(), state.vehicleSelection.year).length;
     const steps = hasVariants ? ["maker", "model", "generation", "year", "variant", "tire"] : ["maker", "model", "generation", "year", "tire"];
     const next = steps[steps.indexOf(step) + 1];
@@ -1306,6 +1703,36 @@
     }
     renderTires();
     renderWheels();
+    renderEstimate();
+  }
+
+  function vehicleContext() {
+    if (state.manualMode) return { vehicle_id: "manual", maker: "", model: "", confidence: "D", ...state.manualVehicle };
+    const vehicle = currentVehicle();
+    const service = vehicle && state.serviceSpecs.find(spec => spec.maker === vehicle.maker && spec.model === vehicle.model && Number(state.vehicleSelection.year) >= spec.year_from && Number(state.vehicleSelection.year) <= spec.year_to);
+    return vehicle ? { ...vehicle, ...(service || {}) } : { vehicle_id: "unknown", maker: state.vehicleSelection.maker, model: state.vehicleSelection.model, confidence: "D" };
+  }
+
+  function assessWheel(item) {
+    return window.VehicleFitment.evaluate(vehicleContext(), item,
+      state.selectedTire?.size || (state.manualMode ? state.manualVehicle.oem_tire : state.vehicleSelection.tire) || els.tireSize.value);
+  }
+
+  function quoteWarnings() {
+    const warnings = [];
+    const vehicle = vehicleContext();
+    if (state.selectedTire && ![...state.summerTireData, ...state.winterTireData].some(item => item.id === state.selectedTire.id)) warnings.push("選択タイヤは現行価格DBに未収録です。保存時の価格を表示しています。");
+    if (state.selectedWheel && ![...state.bsWheelData, ...state.otherWheelData].some(item => item.id === state.selectedWheel.id)) warnings.push("選択ホイールは現行価格DBに未収録です。保存時の価格を表示しています。");
+    if (state.manualMode || !currentVehicle()) warnings.push("車種・適合情報は未確認です。販売前に現車とメーカー情報で確認してください。");
+    if (state.selectedWheel) {
+      const fitment = assessWheel(state.selectedWheel);
+      if (fitment.status !== "candidate") warnings.push(...fitment.reasons);
+      warnings.push(...(fitment.cautions || []));
+    }
+    const expected = state.manualMode ? vehicle.oem_tire : state.vehicleSelection.tire;
+    if (state.selectedTire && expected && !sameTireSize(state.selectedTire.size, expected)) warnings.push(`タイヤサイズが車両の指定サイズ ${expected} と不一致です。`);
+    if (inchMismatch()) warnings.push("タイヤとホイールのインチが不一致です。装着不可の可能性があります。");
+    return [...new Set(warnings)];
   }
 
   function renderWheels() {
@@ -1327,22 +1754,16 @@
       .filter(item => !pcd || norm(wheelFitmentKey(item)).includes(pcd))
       .filter(item => !size || norm(wheelSizeGroup(item.sizeText)).includes(size))
       .filter(item => !color || norm(item.color).includes(color));
-    const assessed = baseFiltered.map(item => ({ item, fitment: state.wheelSearchMode === "vehicle" && selectedVehicle
-      ? window.VehicleFitment.evaluate(selectedVehicle, item, state.vehicleSelection.tire)
-      : null }));
+    const assessed = baseFiltered.map(item => ({ item, fitment: assessWheel(item) }));
     const visible = assessed
-      .filter(entry => !entry.fitment || (hasMinimumWheelFitment(entry.item) && entry.fitment.status !== "excluded"))
-      .sort((a, b) => compareWheelSalePrice(a.item, b.item))
+      .filter(entry => state.wheelSearchMode === "wheel" || entry.fitment.status !== "excluded")
+      .sort((a, b) => ({candidate:0,review:1,excluded:2}[a.fitment.status] - {candidate:0,review:1,excluded:2}[b.fitment.status]) || compareWheelSalePrice(a.item, b.item))
       .slice(0, limit);
     if (state.wheelSearchMode === "wheel") renderWheelChips();
     els.wheelSearchSummary.textContent = state.wheelSearchMode === "vehicle"
       ? vehicleSearchSummary(selectedVehicle)
       : summaryText([sourceSummary([els.useBsWheel.checked && "BS", els.useOtherWheel.checked && "社外"], "アルミ"), els.wheelMaker.value, els.wheelBrand.value, els.wheelPattern.value, els.wheelInch.value && `${els.wheelInch.value.replace(/インチ/g, "")}インチ`, els.wheelPcd.value && `PCD ${els.wheelPcd.value}`, els.wheelSize.value]);
     els.wheelFitmentWarning.hidden = true;
-    if (state.wheelSearchMode === "vehicle" && !selectedVehicle) {
-      els.wheelResults.innerHTML = emptyCard(state.vehicleLoadError || (currentSearchOnlyVehicle() ? "車種名は登録済みですが、アルミ適合情報が未検証です。適合情報を確認・登録してから候補検索へ進んでください。" : "メーカーから順に車両を選択してください。"));
-      return;
-    }
     if (!state.wheelProducts.length) {
       els.wheelResults.innerHTML = emptyCard("管理タブでアルミ価格表を読み込んでください。");
       return;
@@ -1426,16 +1847,17 @@
   }
 
   function wheelCard(item, fitment = null) {
-    const image = findImage(item.fullPatternName || [item.brandName, item.patternName].filter(Boolean).join(" ") || item.patternName);
+    const image = findImage(item);
     const selected = state.selectedWheel?.id === item.id;
     const salePrice = wheelSalePrice(item);
     const showImage = Boolean(state.settings.wheelImageDisplay);
     const imageHtml = image?.src
       ? `<button data-preview-src="${escapeHtml(image.src)}" data-preview-alt="${escapeHtml(item.fullPatternName || item.patternName)}"><img src="${escapeHtml(image.src)}" alt="${escapeHtml(item.fullPatternName || item.patternName)}" onerror="this.closest('.wheel-image').textContent='画像なし'"></button>`
       : "画像なし";
-    const specialNotes = specialWheelFitmentNotes(currentVehicle(), fitment);
+    const specialNotes = [...specialWheelFitmentNotes(vehicleContext(), fitment), ...(fitment?.status === "excluded" ? fitment.reasons : [])];
     return `<article class="card">
       <span class="source-badge">${escapeHtml(item.sourceLabel || "アルミ")}</span>
+      <small class="fitment-state ${fitment?.status || 'review'}">${fitment?.status === "candidate" ? "基本条件一致・最終確認必要" : fitment?.status === "excluded" ? "不一致・要確認" : "適合未確認"}</small>
       ${showImage ? `<div class="wheel-image">${imageHtml}</div>` : ""}
       <h3>${escapeHtml([item.brandName, item.patternName].filter(Boolean).join(" "))}</h3>
       <p class="card-meta">${escapeHtml(item.maker || "—")}<br>${escapeHtml(wheelDisplayDetails(item))}<br>商品コード：${escapeHtml(wheelProductCode(item))}</p>
@@ -1445,7 +1867,7 @@
         <div><span>4本合計</span><strong>${salePrice ? yen(salePrice * 4) : "—"}</strong></div>
         ${showImage ? `<div><span>画像</span><strong>${image?.entry?.imageFile ? "登録済み" : "画像なし"}</strong></div>` : ""}
       </div>
-      <button class="select-button" data-wheel-id="${escapeHtml(item.id)}">${selected ? "選択中" : fitment?.status === "review" ? "要確認・見積へ選択" : "セット見積に選択"}</button>
+      <button class="select-button" data-wheel-id="${escapeHtml(item.id)}" aria-pressed="${selected}">${selected ? "選択中" : "見積に選択"}</button>
     </article>`;
   }
 
@@ -1519,11 +1941,9 @@
       const wheel = state.wheelProducts.find(item => item.id === select.dataset.wheelId);
       if (!wheel) return;
       state.selectedWheel = wheel;
-      setEstimateCost("nuts", { manual: false, amount: autoNutTotal() });
       saveSettings();
       renderWheels();
       renderEstimate();
-      switchTab("estimate");
     }
   }
 
@@ -1552,17 +1972,17 @@
     if (mismatch) {
       els.inchWarning.hidden = false;
       els.inchWarning.innerHTML = `タイヤとホイールのインチが一致していません。<br>タイヤ：${mismatch.tire}インチ　ホイール：${mismatch.wheel}インチ<br>サイズを確認してください。`;
-      els.grandTotal.textContent = "サイズ確認";
-      els.totalBreakdown.textContent = "インチが一致する組み合わせを選択すると合計金額を表示します。";
-      els.printEstimate.disabled = true;
+      els.grandTotal.textContent = yen(Math.max(0, total));
+      els.totalBreakdown.textContent = "適合未確認の参考見積です。サイズの確認が必要です。";
     } else {
       els.inchWarning.hidden = true;
       els.inchWarning.textContent = "";
       els.grandTotal.textContent = yen(Math.max(0, total));
       els.totalBreakdown.textContent = `タイヤ ${yen(tireSingle * 4)} + アルミ ${yen(wheelSingle * 4)} + 工賃 ${yen(workTotal)} + その他 ${yen(optionTotal)}`;
-      els.printEstimate.disabled = false;
     }
+    els.printEstimate.disabled = !state.selectedTire && !state.selectedWheel;
     renderPrintSheet({ tireSingle, wheelSingle, workTotal, optionTotal, costLines, total, mismatch });
+    document.dispatchEvent(new Event("consultation:change"));
     if (focusCostKey) {
       const input = els.estimateCosts.querySelector(`[data-estimate-cost-amount="${focusCostKey}"]`);
       if (input) {
@@ -1599,6 +2019,11 @@
       ["4本合計", wheelSingle ? yen(wheelSingle * 4) : "—"]
     ];
     const detailRows = lines.filter(row => row.enabled && state.settings.printOptions[row.printKey]);
+    const quoteTitle = window.ConsultationModel.title(state.selectedTire, state.selectedWheel);
+    $("#printSheet .print-heading strong").textContent = quoteTitle;
+    $("#tab-estimate h1").textContent = quoteTitle;
+    $$("#printSheet .print-product-box")[0].hidden = !state.selectedTire;
+    $$("#printSheet .print-product-box")[1].hidden = !state.selectedWheel;
     if (els.printTireTitle) els.printTireTitle.textContent = tireTitle.trim();
     if (els.printWheelTitle) els.printWheelTitle.textContent = wheelTitle.trim();
     if (els.printTireItems) els.printTireItems.innerHTML = tireRows.map(([label, value]) => printDefinition(label, value)).join("");
@@ -1617,9 +2042,9 @@
     if (els.printShopName) els.printShopName.textContent = shop.name || "タイヤ館 箕輪";
     if (els.printShopAddress) els.printShopAddress.textContent = shop.address || "長野県上伊那郡箕輪町大字三日町964-1";
     if (els.printShopTel) els.printShopTel.textContent = shop.tel ? `TEL ${shop.tel}` : "TEL 0265-98-9111";
-    if (els.printNoteText) els.printNoteText.textContent = state.settings.quoteNote || "表示価格は税込です。有効期限・在庫状況は店頭にてご確認ください。";
+    if (els.printNoteText) els.printNoteText.textContent = [state.settings.quoteNote, ...quoteWarnings()].filter(Boolean).join("\n");
     els.printGrandTotal.parentElement.hidden = !state.settings.printOptions.total;
-    els.printGrandTotal.textContent = mismatch ? "サイズ確認" : `￥${Math.max(0, Math.round(total || 0)).toLocaleString("ja-JP")}`;
+    els.printGrandTotal.textContent = `￥${Math.max(0, Math.round(total || 0)).toLocaleString("ja-JP")}`;
   }
 
   function printDefinition(label, value) {
@@ -1628,6 +2053,7 @@
   }
 
   function printEstimateSheet() {
+    if (!state.selectedTire && !state.selectedWheel) return;
     renderPrintSheet(currentEstimateParts());
     const sheetHtml = $("#printSheet")?.outerHTML || "";
     if (!sheetHtml) return;
@@ -1653,11 +2079,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="css/app.css?v=20260817-v166-labor-ceil10">
+  <base href="${escapeHtml(new URL('.', location.href).href)}">
+  <link rel="stylesheet" href="css/app-v174.css">
   <style>
     @page { size: A4 portrait; margin: 0; }
     * { box-sizing: border-box; }
-    html, body { width: 210mm; height: 297mm; min-width: 0; margin: 0 !important; padding: 0 !important; overflow: hidden; background: #fff !important; }
+    html, body { width: 210mm; min-height: 297mm; min-width: 0; margin: 0 !important; padding: 0 !important; background: #fff !important; }
+    [hidden] { display: none !important; }
+    .print-sheet { break-after: page; }
+    .print-heading strong { white-space: normal; }
+    .print-product-grid:has([hidden]) { grid-template-columns: 1fr; }
+    .print-note p { white-space: pre-line; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .print-sheet { display: block !important; width: 210mm; height: 297mm; min-height: 0 !important; margin: 0 !important; padding: 8mm !important; overflow: hidden; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
     .print-header { gap: 8px !important; }
@@ -1687,8 +2119,9 @@
     .print-product-box, .print-detail-table, .print-total, .print-note { break-inside: avoid; page-break-inside: avoid; }
     @media print {
       @page { size: A4 portrait; margin: 0; }
-      html, body { width: 210mm; height: 297mm; margin: 0 !important; padding: 0 !important; overflow: hidden; }
-      .print-sheet { margin: 0 !important; page-break-after: avoid; page-break-before: avoid; }
+      html, body { width: 210mm; height: auto; margin: 0 !important; padding: 0 !important; overflow: visible; }
+      .print-sheet { margin: 0 !important; page-break-after: always; page-break-before: auto; }
+      .print-sheet:last-child { page-break-after: auto; }
     }
   </style>
 </head>
@@ -1737,8 +2170,9 @@
   function estimateCostLines(labor = currentLabor()) {
     const defaults = estimateCostDefaults(labor);
     return [
-      { key: "mount", printKey: "labor", group: "work", label: "セット（組換）", qty: 4, unit: labor.mount, defaultTotal: defaults.mount, note: labor.discountAmount ? `通常 ${yen(labor.mountNormalTotal)} / セット割引 ${state.settings.setDiscountRate}%` : "" },
+      { key: "mount", printKey: "labor", group: "work", label: "組込・組替", qty: 4, unit: labor.mount, defaultTotal: defaults.mount, note: labor.discountAmount ? `通常 ${yen(labor.mountNormalTotal)} / セット割引 ${state.settings.setDiscountRate}%` : "" },
       { key: "balance", printKey: "labor", group: "work", label: "バランス", qty: 4, unit: labor.balance, defaultTotal: defaults.balance },
+      { key: "removal", printKey: "labor", group: "work", label: "脱着", qty: 4, unit: 0, defaultTotal: defaults.removal },
       { key: "disposal", printKey: "disposal", group: "work", label: "廃タイヤ処理料", qty: 4, unit: labor.disposal, defaultTotal: defaults.disposal },
       { key: "valve", printKey: "valve", group: "work", label: "チューブレスバルブ", qty: 4, unit: labor.valve, defaultTotal: defaults.valve },
       { key: "nuts", printKey: "nuts", group: "option", label: "ナット代", qty: 1, unit: defaults.nuts, defaultTotal: defaults.nuts, note: nutAutoNote() },
@@ -1746,8 +2180,10 @@
     ].map(line => {
       const setting = estimateCostSetting(line.key);
       const total = setting.manual ? number(setting.amount) : line.defaultTotal;
-      const unit = line.qty ? Math.round(total / line.qty) : total;
-      return { ...line, enabled: setting.enabled, total, unit };
+      const qty = setting.manual && total % line.qty !== 0 ? 1 : line.qty;
+      const unit = qty ? total / qty : total;
+      const applicable = Boolean(state.selectedTire || state.selectedWheel) && (line.key !== "nuts" || Boolean(state.selectedWheel));
+      return { ...line, label: qty !== line.qty ? `${line.label}（4本分一式）` : line.label, qty, enabled: setting.enabled && applicable, total, unit };
     });
   }
 
@@ -1755,6 +2191,7 @@
     return {
       mount: labor.mountTotal,
       balance: labor.balanceTotal,
+      removal: number(state.settings.defaultCosts?.removal) * 4,
       disposal: labor.disposalTotal,
       valve: labor.valveTotal,
       nuts: autoNutTotal(),
@@ -1829,13 +2266,13 @@
 
   function renderImageManager() {
     ensureImageMasterFromWheelPatterns();
-    const patterns = wheelPatterns();
-    const registered = patterns.filter(pattern => findImageEntry(pattern)?.imageFile).length;
+    const variants = wheelImageVariants();
+    const registered = variants.filter(variant => findImageEntry(variant)?.imageFile).length;
     els.registeredImageCount.textContent = registered.toLocaleString("ja-JP");
-    els.missingImageCount.textContent = Math.max(0, patterns.length - registered).toLocaleString("ja-JP");
-    els.patternCount.textContent = patterns.length.toLocaleString("ja-JP");
-    els.imageList.innerHTML = patterns.map(pattern => imageItem(pattern)).join("") || emptyCard("アルミ価格表を読み込むと、画像未登録リストを表示します。");
-    localStorage.setItem(IMAGE_KEY, JSON.stringify(state.imageMaster));
+    els.missingImageCount.textContent = Math.max(0, variants.length - registered).toLocaleString("ja-JP");
+    els.patternCount.textContent = variants.length.toLocaleString("ja-JP");
+    els.imageList.innerHTML = variants.map(variant => imageItem(variant)).join("") || emptyCard("アルミ価格表を読み込むと、画像未登録リストを表示します。");
+    saveLocalJson(IMAGE_KEY, state.imageMaster);
   }
 
   function renderSourceStatus() {
@@ -1889,7 +2326,7 @@
       message: text(meta.message),
       summary: meta.summary || null
     };
-    localStorage.setItem(SOURCE_META_KEY, JSON.stringify(state.sourceMeta));
+    saveLocalJson(SOURCE_META_KEY, state.sourceMeta);
     renderSourceStatus();
   }
 
@@ -1957,29 +2394,29 @@
     if (key === "summerTire") {
       state.summerTireData = [];
       state.summerTireWorkbook = null;
-      localStorage.removeItem(SUMMER_TIRE_KEY);
+      saveLocalJson(SUMMER_TIRE_KEY, []);
       els.summerTireFileSetting.value = "";
     }
     if (key === "winterTire") {
       state.winterTireData = [];
       state.winterTireWorkbook = null;
-      localStorage.removeItem(WINTER_TIRE_KEY);
+      saveLocalJson(WINTER_TIRE_KEY, []);
       els.winterTireFileSetting.value = "";
     }
     if (key === "bsWheel") {
       state.bsWheelData = [];
       state.bsWheelWorkbook = null;
-      localStorage.removeItem(BS_WHEEL_KEY);
+      saveLocalJson(BS_WHEEL_KEY, []);
       els.bsWheelFileSetting.value = "";
     }
     if (key === "otherWheel") {
       state.otherWheelData = [];
       state.otherWheelWorkbook = null;
-      localStorage.removeItem(OTHER_WHEEL_KEY);
+      saveLocalJson(OTHER_WHEEL_KEY, []);
       els.otherWheelFileSetting.value = "";
     }
     delete state.sourceMeta[key];
-    localStorage.setItem(SOURCE_META_KEY, JSON.stringify(state.sourceMeta));
+    saveLocalJson(SOURCE_META_KEY, state.sourceMeta);
     if (!state.summerTireData.length && !state.winterTireData.length) state.selectedTire = null;
     if (!state.bsWheelData.length && !state.otherWheelData.length) state.selectedWheel = null;
     refreshActiveProducts();
@@ -2028,17 +2465,21 @@
     }
   }
 
-  function imageItem(pattern) {
-    const entry = findImageEntry(pattern) || { patternName: pattern, imageFile: "", aliases: [] };
-    const preview = state.imagePreviewUrls[pattern] || (entry.imageFile ? `wheel_images/${entry.imageFile}` : "");
+  function imageItem(variant) {
+    const pattern = variant.patternName;
+    const entry = findImageEntry(variant) || { patternName: pattern, brandName: variant.brandName, color: variant.color || "S", colorDescription: variant.colorDescription, imageFile: "", aliases: [] };
+    const previewKey = imageEntryKey(entry);
+    const preview = state.imagePreviewUrls[previewKey] || imageSource(entry.imageFile);
+    const colorLabel = [entry.color || variant.color || "S", entry.colorDescription || variant.colorDescription || "シルバー"].filter(Boolean).join("・");
     const stateText = entry.imageFile ? `登録済み　画像：${entry.imageFile}` : "画像未登録";
     return `<article class="image-item">
       <div class="thumb">${preview ? `<img src="${escapeHtml(preview)}" alt="${escapeHtml(pattern)}" onerror="this.parentElement.textContent='画像なし'">` : "画像なし"}</div>
       <div class="image-info">
-        <strong>${escapeHtml(pattern)}</strong>
+        <strong>${escapeHtml([variant.brandName, pattern].filter(Boolean).join(" "))}</strong>
+        <span>${escapeHtml(colorLabel)}</span>
         <span class="image-state">${escapeHtml(stateText)}</span>
-        <label class="secondary file-inline">${entry.imageFile ? "画像差し替え" : "画像を登録"}<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-image-pattern="${escapeHtml(pattern)}"></label>
-        ${entry.imageFile ? `<button class="secondary" data-download-image="${escapeHtml(pattern)}">画像を推奨名で再ダウンロード</button>` : ""}
+        <label class="secondary file-inline">${entry.imageFile ? "画像を差し替えて保存" : "画像を登録して保存"}<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-image-pattern="${escapeHtml(entry.patternName)}" data-image-brand="${escapeHtml(entry.brandName || variant.brandName || "")}" data-image-color="${escapeHtml(entry.color || variant.color || "S")}" data-image-color-description="${escapeHtml(entry.colorDescription || variant.colorDescription || "")}"></label>
+        ${entry.imageFile ? `<button class="secondary" data-download-image="${escapeHtml(entry.patternName)}" data-download-color="${escapeHtml(entry.color || "")}">画像を推奨名で再ダウンロード</button>` : ""}
       </div>
     </article>`;
   }
@@ -2047,25 +2488,75 @@
     const input = event.target.closest("[data-image-pattern]");
     if (!input || !input.files[0]) return;
     const file = input.files[0];
-    const pattern = input.dataset.imagePattern;
-    const ext = (file.name.match(/\.(jpe?g|png|webp)$/i)?.[1] || "jpg").toLowerCase().replace("jpeg", "jpg");
-    const fileName = `${safeFileBase(pattern)}.${ext}`;
-    upsertImageEntry(pattern, fileName);
-    state.imagePreviewUrls[pattern] = URL.createObjectURL(file);
-    state[`blob:${pattern}`] = file;
-    localStorage.setItem(IMAGE_KEY, JSON.stringify(state.imageMaster));
-    renderImageManager();
-    renderWheels();
-    downloadBlob(file, fileName);
-    setSaved(`画像登録：${fileName}`);
+    const target = { patternName: input.dataset.imagePattern, brandName: input.dataset.imageBrand, color: input.dataset.imageColor || "S", colorDescription: input.dataset.imageColorDescription };
+    input.disabled = true;
+    if (els.imageUploadStatus) els.imageUploadStatus.textContent = `${target.patternName} ${target.color} の画像を保存しています…`;
+    try {
+      const converted = await imageFileToWebp(file);
+      const response = await fetch("api/wheel-images", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...target, mimeType: "image/webp", dataBase64: await blobBase64(converted.blob), width: converted.width, height: converted.height })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error(result.error || `HTTP ${response.status}`);
+      const entry = upsertImageEntry(target, result.imageFile, result.entry);
+      state.imagePreviewUrls[imageEntryKey(entry)] = `${result.imageFile}?v=${Date.now()}`;
+      saveLocalJson(IMAGE_KEY, state.imageMaster);
+      renderImageManager();
+      renderWheels();
+      if (els.imageUploadStatus) els.imageUploadStatus.textContent = `保存完了：${target.patternName} ${target.color}。サーバーと画像DBへ反映しました。`;
+      setSaved("画像をサーバーへ保存しました");
+    } catch (error) {
+      if (els.imageUploadStatus) els.imageUploadStatus.textContent = `保存失敗：${error.message}。画像保存対応サーバーで起動してください。`;
+      alert(`画像をサーバーへ保存できませんでした。\n${error.message || ""}`);
+    } finally {
+      input.disabled = false;
+      input.value = "";
+    }
+  }
+
+  async function checkImageUploadServer() {
+    if (!els.imageUploadStatus) return;
+    try {
+      const response = await fetch("api/wheel-images/status", { cache: "no-store" });
+      const status = await response.json();
+      if (!response.ok || !status.enabled) throw new Error();
+      els.imageUploadStatus.textContent = "画像アップロード利用可能：選択した画像をこのPCのサーバーと画像DBへ保存します。";
+    } catch {
+      els.imageUploadStatus.textContent = "画像アップロード停止中：画像保存対応サーバーでアプリを起動してください。";
+    }
+  }
+
+  async function imageFileToWebp(file) {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+    const width = Math.max(1, Math.round(bitmap.width * scale));
+    const height = Math.max(1, Math.round(bitmap.height * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width; canvas.height = height;
+    canvas.getContext("2d").drawImage(bitmap, 0, 0, width, height);
+    bitmap.close?.();
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/webp", 0.86));
+    if (!blob) throw new Error("画像をWebPへ変換できませんでした。");
+    return { blob, width, height };
+  }
+
+  function blobBase64(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || "").split(",")[1] || "");
+      reader.onerror = () => reject(reader.error || new Error("画像を読み込めませんでした。"));
+      reader.readAsDataURL(blob);
+    });
   }
 
   function handleImageListClick(event) {
     const button = event.target.closest("[data-download-image]");
     if (!button) return;
-    const pattern = button.dataset.downloadImage;
-    const blob = state[`blob:${pattern}`];
-    const entry = findImageEntry(pattern);
+    const target = { patternName: button.dataset.downloadImage, color: button.dataset.downloadColor };
+    const blob = state[`blob:${imageEntryKey(target)}`];
+    const entry = findImageEntry(target);
     if (blob && entry?.imageFile) downloadBlob(blob, entry.imageFile);
   }
 
@@ -2076,10 +2567,13 @@
       state.imageMaster = data.map(item => ({
         patternName: text(item.patternName),
         imageFile: text(item.imageFile),
+        brandName: text(item.brandName),
+        color: text(item.color),
+        colorDescription: text(item.colorDescription),
         aliases: Array.isArray(item.aliases) ? item.aliases.map(text).filter(Boolean) : []
       })).filter(item => item.patternName);
       ensureImageMasterFromWheelPatterns();
-      localStorage.setItem(IMAGE_KEY, JSON.stringify(state.imageMaster));
+      saveLocalJson(IMAGE_KEY, state.imageMaster);
       renderImageManager();
       renderWheels();
       saveSourceMeta("imageDb", { status: "loaded", fileName: file.name, count: state.imageMaster.length });
@@ -2096,15 +2590,24 @@
   }
 
   async function restoreBundledImageDb() {
-    if (state.imageMaster.length) return;
     try {
       const res = await fetch("data/wheel_image_master.json", { cache: "no-store" });
       if (!res.ok) return;
       const data = await res.json();
       if (Array.isArray(data)) {
-        state.imageMaster = data;
+        const merged = new Map(state.imageMaster.map(item => [imageEntryKey(item), item]));
+        data.forEach(item => {
+          const key = imageEntryKey(item);
+          const local = merged.get(key);
+          // Keep user-selected images, but replace old empty placeholders with
+          // newly bundled registrations for the same model/color.
+          if (!local || !text(local.imageFile)) merged.set(key, item);
+        });
+        state.imageMaster = [...merged.values()];
+        saveLocalJson(IMAGE_KEY, state.imageMaster);
         if (!state.sourceMeta.imageDb) saveSourceMeta("imageDb", { status: "loaded", fileName: "同梱 wheel_image_master.json", count: state.imageMaster.length });
         renderImageManager();
+        renderWheels();
       }
     } catch {}
   }
@@ -2218,26 +2721,80 @@
     state.imageMaster.sort((a, b) => a.patternName.localeCompare(b.patternName, "ja"));
   }
 
-  function findImage(patternName) {
-    const entry = findImageEntry(patternName);
+  function findImage(target) {
+    const entry = findImageEntry(target);
     if (!entry?.imageFile) return null;
-    const src = state.imagePreviewUrls[entry.patternName] || `wheel_images/${entry.imageFile}`;
+    const src = state.imagePreviewUrls[entry.patternName] || imageSource(entry.imageFile);
     return { entry, src };
   }
 
-  function findImageEntry(patternName) {
-    const key = imageKey(patternName);
-    return state.imageMaster.find(entry => imageKey(entry.patternName) === key || (entry.aliases || []).some(alias => imageKey(alias) === key));
+  function findImageEntry(target) {
+    const item = target && typeof target === "object" ? target : null;
+    const names = item
+      ? [item.fullPatternName, [item.brandName, item.patternName].filter(Boolean).join(" "), item.patternName]
+      : [target];
+    const keys = new Set(names.map(imageKey).filter(Boolean));
+    const matches = state.imageMaster.filter(entry =>
+      [entry.patternName, entry.brandName && `${entry.brandName} ${entry.patternName}`, ...(entry.aliases || [])]
+        .some(name => keys.has(imageKey(name)))
+    );
+    if (!matches.length) return null;
+    const color = imageKey(item?.color);
+    if (color) {
+      const exact = matches.find(entry => imageKey(entry.color) === color);
+      if (exact) return exact;
+      if (color === imageKey("S")) {
+        const silver = matches.find(isSilverImageEntry);
+        if (silver) return silver;
+      }
+      return matches.find(entry => !imageKey(entry.color)) || null;
+    }
+    return matches.find(entry => !imageKey(entry.color)) || matches[0];
   }
 
-  function upsertImageEntry(patternName, imageFile) {
-    const entry = findImageEntry(patternName);
-    if (entry) entry.imageFile = imageFile;
-    else state.imageMaster.push({ patternName, imageFile, aliases: [] });
+  function imageEntryKey(entry = {}) {
+    return `${imageKey(entry.patternName)}|${imageKey(entry.color)}`;
+  }
+
+  function isSilverImageEntry(entry = {}) {
+    const code = imageKey(entry.color);
+    const description = imageKey(entry.colorDescription);
+    return ["S", "SL", "SI", "GS", "HS", "MS"].map(imageKey).includes(code)
+      || description.includes(imageKey("シルバー"));
+  }
+
+  function imageSource(imageFile) {
+    const value = text(imageFile);
+    if (!value) return "";
+    if (/^(?:https?:|data:|blob:)/i.test(value) || /^(?:assets|wheel_images)\//.test(value)) return value;
+    return `wheel_images/${value}`;
+  }
+
+  function upsertImageEntry(target, imageFile, patch = {}) {
+    const item = target && typeof target === "object" ? target : { patternName: target };
+    const entry = findImageEntry(item);
+    if (entry) Object.assign(entry, patch, { imageFile });
+    else state.imageMaster.push(Object.assign({ patternName: item.patternName, brandName: item.brandName || "", color: item.color || "S", colorDescription: item.colorDescription || "", imageFile, aliases: [] }, patch));
+    return entry || state.imageMaster[state.imageMaster.length - 1];
   }
 
   function wheelPatterns() {
     return [...new Set(state.wheelProducts.map(item => cleanPattern(item.patternName)).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ja"));
+  }
+
+  function wheelImageVariants() {
+    const source = state.wheelProducts.length
+      ? state.wheelProducts.map(item => ({ patternName: cleanPattern(item.patternName), brandName: cleanPattern(item.brandName), fullPatternName: cleanPattern(item.fullPatternName), color: cleanPattern(item.color) || "S", colorDescription: cleanPattern(item.colorDescription) }))
+      : state.imageMaster.map(item => ({ patternName: cleanPattern(item.patternName), brandName: cleanPattern(item.brandName), fullPatternName: cleanPattern(item.fullPatternName), color: cleanPattern(item.color) || "S", colorDescription: cleanPattern(item.colorDescription) }));
+    const variants = new Map();
+    source.forEach(item => {
+      if (!item.patternName) return;
+      const key = `${imageKey(item.fullPatternName || item.patternName)}|${imageKey(item.color)}`;
+      if (!variants.has(key)) variants.set(key, item);
+    });
+    return [...variants.values()].sort((a, b) =>
+      a.patternName.localeCompare(b.patternName, "ja") || a.color.localeCompare(b.color, "ja")
+    );
   }
 
   function tireDisplaySize(item = {}) {
@@ -2399,7 +2956,7 @@
   }
 
   function currentLabor() {
-    const inch = state.selectedTire ? tireInch(state.selectedTire.size) : 0;
+    const inch = state.selectedTire ? tireInch(state.selectedTire.size) : wheelInch(state.selectedWheel?.sizeText);
     const category = laborCategoryForInch(inch);
     const hasSet = Boolean(state.selectedTire && state.selectedWheel);
     const rate = hasSet ? Math.max(0, Math.min(100, number(state.settings.setDiscountRate))) / 100 : 0;
@@ -2441,7 +2998,7 @@
     const costLines = estimateCostLines(labor);
     const workTotal = estimateCostGroupTotal("work", costLines);
     const optionTotal = estimateCostGroupTotal("option", costLines);
-    const total = tireSingle * 4 + wheelSingle * 4 + workTotal + optionTotal;
+    const total = state.selectedTire || state.selectedWheel ? tireSingle * 4 + wheelSingle * 4 + workTotal + optionTotal : 0;
     return { tireSingle, wheelSingle, workTotal, optionTotal, costLines, total, mismatch: inchMismatch() };
   }
 
@@ -2454,7 +3011,7 @@
       defaultRate: window.APP_DATA?.defaultPriceSettings?.defaultRate || 0.9,
       wheelMarkup: 0.9,
       wheelPricingMode: "divide",
-      wheelImageDisplay: false,
+      wheelImageDisplay: true,
       imageManagerDisplay: false,
       wheelBrandDiscounts: defaultWheelBrandDiscounts(),
       searchOrder: defaultSearchOrder(),
@@ -2492,7 +3049,7 @@
       bsRateLabels: Array.isArray(settings.bsRateLabels) ? settings.bsRateLabels : defaults.bsRateLabels,
       bsBrandRateLabels: Array.isArray(settings.bsBrandRateLabels) ? settings.bsBrandRateLabels : defaults.bsBrandRateLabels,
       wheelPricingMode: ["divide", "multiply", "direct"].includes(settings.wheelPricingMode) ? settings.wheelPricingMode : defaults.wheelPricingMode,
-      wheelImageDisplay: Boolean(settings.wheelImageDisplay),
+      wheelImageDisplay: settings.wheelImageDisplay ?? defaults.wheelImageDisplay,
       imageManagerDisplay: Boolean(settings.imageManagerDisplay),
       setDiscountRate: settings.setDiscountRate ?? defaults.setDiscountRate
     };
@@ -2553,7 +3110,7 @@
   }
 
   function saveSettings() {
-    localStorage.setItem(STORE_KEY, JSON.stringify(state.settings));
+    saveLocalJson(STORE_KEY, state.settings);
     setSaved();
   }
 
@@ -2563,9 +3120,12 @@
     setSaved.timer = window.setTimeout(() => { els.saveStatus.textContent = "READY"; }, 1800);
   }
 
-  function resetAllData() {
+  async function resetAllData() {
     if (!confirm("読み込んだ価格表・画像DB・選択状態を初期化します。よろしいですか？")) return;
+    try { await window.MasterBundle?.clear(); } catch { setSaved("初期化に失敗しました"); return; }
     [STORE_KEY, IMAGE_KEY, TIRE_KEY, WHEEL_KEY, SUMMER_TIRE_KEY, WINTER_TIRE_KEY, BS_WHEEL_KEY, OTHER_WHEEL_KEY, SOURCE_META_KEY].forEach(key => localStorage.removeItem(key));
+    const consultation = loadJson("integrated-consultation-v2", {});
+    localStorage.setItem("integrated-consultation-v2", JSON.stringify({ ...consultation, draft: null }));
     location.reload();
   }
 
@@ -2579,7 +3139,9 @@
 
   function registerServiceWorker() {
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
-      window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(console.warn));
+      const register = () => navigator.serviceWorker.register("sw.js").catch(console.warn);
+      if (document.readyState === "complete") register();
+      else window.addEventListener("load", register, { once: true });
     }
   }
 
@@ -2720,10 +3282,10 @@
 
   function parseFitment(value) {
     const normalized = String(value || "").normalize("NFKC").toUpperCase().replace(/PCD/g, " ");
-    const slash = normalized.match(/(\d)\s*[/／]\s*(\d{3}(?:\.\d)?)/);
-    const spaced = normalized.match(/\b(\d)\s+(\d{3}(?:\.\d)?)\b/);
+    const slash = normalized.match(/(\d)\s*[/／]\s*(\d{2,3}(?:\.\d)?)/);
+    const spaced = normalized.match(/\b(\d)\s+(\d{2,3}(?:\.\d)?)\b/);
     const holesText = normalized.match(/(\d)\s*(?:H|穴)/);
-    const pcdText = normalized.match(/(?:PCD)?\s*(100|110|112|114\.3|114|120|139\.7|139)\b/);
+    const pcdText = normalized.match(/PCD\s*(\d{2,3}(?:\.\d)?)\b/) || normalized.match(/\b(98|100|110|112|114\.3|114|120|139\.7|139)\b/);
     const holes = slash?.[1] || spaced?.[1] || holesText?.[1] || "";
     const rawPcd = slash?.[2] || spaced?.[2] || pcdText?.[1] || "";
     const pcd = rawPcd === "114" ? "114.3" : rawPcd === "139" ? "139.7" : rawPcd;
@@ -2781,7 +3343,7 @@
   function colorFromBsSize(value) {
     const normalized = String(value || "").normalize("NFKC").trim();
     const tokens = normalized.split(/\s+/).filter(Boolean);
-    const colorTokens = ["GS", "DS", "B", "BP", "MB", "MS", "GM", "PB", "S", "BK", "HS", "H", "GM/N", "M/N"];
+    const colorTokens = ["GS", "DS", "B", "BP", "MB", "MS", "GM", "PB", "S", "BK", "HS", "H", "GM/N", "M/N", "PMS", "SG", "GM2", "MA", "B/N", "FGM", "SDG", "B/C"];
     return tokens.find(token => colorTokens.includes(token.toUpperCase())) || "";
   }
 
@@ -2852,10 +3414,16 @@
   function loadJson(key, fallback) {
     try {
       const value = localStorage.getItem(key);
-      return value ? JSON.parse(value) : fallback;
+      const local = value ? JSON.parse(value) : fallback;
+      return window.MasterBundle?.localValue(key, local) ?? local;
     } catch {
       return fallback;
     }
+  }
+
+  function saveLocalJson(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+    window.MasterBundle?.markLocal(key);
   }
 
   function escapeHtml(value) {

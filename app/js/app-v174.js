@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const stamp = "20260902-v197-full-master-replace";
+  const stamp = "20260905-v210-auto-missing-vehicle";
 
   function style(href, key) {
     if (document.querySelector(`link[data-ui-style="${key}"]`)) return;
@@ -11,9 +11,7 @@
     document.head.appendChild(css);
   }
 
-  style("css/ui-v193.css", "v193-base");
-  style("css/ui-v194.css", "v194");
-  style("css/ui-v194-qa.css", "v194-qa");
+  style("css/consultation.css", "v200");
 
   function load(src, done) {
     const script = document.createElement("script");
@@ -24,6 +22,8 @@
   }
 
   load("js/master-db-update-v197.js", () => {
-    load("js/app-v174-core.js", () => load("js/ui-v194.js"));
+    Promise.resolve(window.MasterBundle?.ready).then(() => {
+      load("js/consultation-model.js", () => load("js/app-v174-core.js", () => load("js/consultation.js")));
+    });
   });
 })();

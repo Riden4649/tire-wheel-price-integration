@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="商談価格ナビ">
   <meta name="format-detection" content="telephone=no">
-  <title>商談価格ナビ_タイヤ_アルミ統合版 Ver1.9.2</title>
+  <title>商談価格ナビ 統合版 Ver2.0.0</title>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon-v172-tire.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32-v172-tire.png">
@@ -16,17 +16,54 @@
 <body>
   <header class="topbar">
     <div class="brand"><span>B</span><strong>商談価格ナビ 統合版</strong><small>タイヤ + アルミホイール</small></div>
-    <div class="status-stack"><div class="status-pill" id="saveStatus">READY</div><small>Ver1.9.2</small></div>
+    <div class="status-stack"><div class="status-pill" id="saveStatus">READY</div><small>Ver2.0.0</small></div>
   </header>
 
   <nav class="tabs" aria-label="メイン画面">
-    <button class="tab active" data-tab="tire">タイヤ</button>
+    <button class="tab active" data-tab="home">ホーム</button>
+    <button class="tab" data-tab="tire">タイヤ</button>
     <button class="tab" data-tab="wheel">アルミホイール</button>
-    <button class="tab" data-tab="estimate">セット見積</button>
+    <button class="tab" data-tab="estimate">見積・比較</button>
     <button class="tab" data-tab="settings">管理</button>
   </nav>
 
   <main class="shell">
+    <section class="panel active" id="tab-home">
+      <div class="section-head"><div><p class="kicker">商談価格ナビ</p><h1>商談をはじめる</h1></div><button type="button" class="primary" id="newConsultation" aria-describedby="newConsultationHint">新規作成</button></div>
+      <p id="newConsultationHint">新規作成で現在の商談・比較案をクリアします。商品データ・基本設定・保存履歴は残ります。</p>
+      <p id="newConsultationStatus" role="status"></p>
+      <div class="home-entries">
+        <button class="primary" data-start="vehicle"><strong>車種から商談</strong><span>車名・年式から候補を確認</span></button>
+        <button class="secondary" data-start="size"><strong>サイズから商談</strong><span>タイヤ・ホイールを手動で選択</span></button>
+      </div>
+      <p>タイヤのみ・アルミホイールのみ・セット。商品は途中で追加・解除できます。</p>
+      <p id="homeDataStatus" role="status">端末の保存データを確認中…</p>
+    </section>
+    <div id="consultationHeader" hidden>
+      <nav class="deal-progress" aria-label="商談の進行状況">
+        <button data-step="vehicle">車種 / サイズ</button><span>→</span><button data-step="tire">タイヤ</button><span>→</span><button data-step="wheel">ホイール</button><span>→</span><button data-step="estimate">見積</button>
+      </nav>
+      <div class="source-filter tire-season-switch" id="tireSeasonSwitch" role="group" aria-label="夏・冬タイヤの切り替え" hidden>
+        <span>タイヤの種類</span>
+        <label><input type="checkbox" id="useSummerTire" checked>夏タイヤ</label>
+        <label><input type="checkbox" id="useWinterTire" checked>冬タイヤ</label>
+      </div>
+      <div class="deal-context"><strong id="dealVehicleLabel">車種未選択・手動商談</strong><button id="manualSelection" class="secondary">手動選択へ切り替え</button></div>
+      <details id="manualVehicleDetails"><summary>手動入力・適合条件（未確認のまま商談可能）</summary>
+        <div class="manual-grid">
+          <label>車種名<input id="manualModel" placeholder="未登録でも入力可"></label>
+          <label>年式<input id="manualYear" inputmode="numeric"></label>
+          <label>タイヤサイズ<input id="manualTireSize" placeholder="195/65R15"></label>
+          <label>PCD<input id="manualPcd" type="number" min="0" step="0.1"></label>
+          <label>穴数<input id="manualHoles" type="number" min="0" step="1"></label>
+          <label>ハブ径 mm<input id="manualHub" type="number" min="0" step="0.1"></label>
+          <label>締結方式・ねじ<input id="manualFastener" placeholder="ナット M12×P1.5"></label>
+          <label>締付トルク N・m<input id="manualTorque" type="number" min="0"></label>
+        </div>
+        <div class="action-row"><button id="applyManualVehicle" class="primary">この条件で商談</button><button id="recordManualVehicle" class="secondary">未登録情報を候補に保存</button></div>
+      </details>
+      <p id="dealStatus" role="status" aria-live="polite"></p>
+    </div>
     <details class="search-box shared-vehicle-search" id="sharedVehicleSearch" open>
       <summary><strong>🚗 車から選ぶ（タイヤ・アルミ共通）</strong><span id="sharedVehicleSummary">車両未選択</span></summary>
       <div class="choice-panel vehicle-choice-panel" id="vehicleChoicePanel">
@@ -63,18 +100,13 @@
       </div>
     </details>
 
-    <section class="panel active" id="tab-tire">
+    <section class="panel" id="tab-tire">
       <div class="section-head">
         <div><p class="kicker">TIRE</p><h1>タイヤ単体価格</h1></div>
       </div>
       <p class="message source-status" id="tireStatus">タイヤ価格表を読み込んでください。</p>
       <details class="search-box" id="tireSearchDetails">
         <summary><strong>検索条件</strong><span id="tireSearchSummary">未指定</span></summary>
-        <div class="source-filter">
-          <span>タイヤ価格表</span>
-          <label><input type="checkbox" id="useSummerTire" checked>夏タイヤ</label>
-          <label><input type="checkbox" id="useWinterTire" checked>冬タイヤ</label>
-        </div>
         <div class="choice-panel" id="tireChoicePanel">
           <details class="choice-accordion" data-search-panel="tire" data-search-item="category" open><summary><span>区分</span><b></b></summary><div class="choice-row" id="tireCategoryChips"></div></details>
           <details class="choice-accordion" data-search-panel="tire" data-search-item="brand"><summary><span>ブランド</span><b></b></summary><div class="choice-row" id="tireBrandChips"></div></details>
@@ -194,6 +226,29 @@
     <section class="panel" id="tab-settings">
       <div class="section-head"><div><p class="kicker">ADMIN</p><h1>管理・設定</h1></div></div>
       <div class="settings-grid">
+        <details class="settings-accordion admin-wide" id="priceUpdateSection" open>
+          <summary><span>価格表更新</span><b></b></summary>
+          <div class="settings-accordion-body">
+            <div class="price-update-meta" aria-label="現在の価格表情報">
+              <div><span>価格表バージョン</span><strong id="priceTableVersion">未設定</strong></div>
+              <div><span>最終更新</span><strong id="priceTableUpdatedAt">—</strong></div>
+              <div><span>更新方法</span><strong id="priceTableUpdateMethod">端末内の既存データ</strong></div>
+            </div>
+            <p class="message" id="priceUpdateStatus" role="status">AirDropしたExcelは「ファイルから価格表を読み込む」から選択できます。</p>
+            <div class="action-row price-update-actions">
+              <button class="secondary" type="button" id="fetchLatestPriceTables">最新価格表を取得</button>
+              <label class="file-button">ファイルから価格表を読み込む<input id="manualPriceTableFiles" type="file" accept=".xls,.xlsx,.xlsm,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" multiple></label>
+              <button class="secondary" type="button" id="restorePreviousPriceTables">前の価格表に戻す</button>
+            </div>
+            <p class="subtle">Excelは更新時だけ解析し、検証後のデータを端末へ保存します。通常利用と保存済み価格表はオフラインで使えます。</p>
+            <details class="price-update-advanced">
+              <summary>自動更新の接続設定</summary>
+              <label>安全な更新マニフェストURL<input id="priceUpdateManifestUrl" type="url" inputmode="url" autocomplete="off"></label>
+              <p class="subtle">Private GitHubのトークンはアプリへ入力・保存しません。認証が必要な場合は、トークンを保持する中継サーバーから同じ形式のマニフェストを配信してください。</p>
+              <button class="secondary" type="button" id="exportMasterBundle">管理用：配信用一式を出力</button>
+            </details>
+          </div>
+        </details>
         <details class="settings-accordion" open>
           <summary><span>基本設定</span><b></b></summary>
           <div class="settings-accordion-body">
@@ -257,8 +312,8 @@
             </div>
             <div class="import-card">
               <div class="import-card-head"><strong>未登録車種候補</strong><span class="source-badge-inline" id="missingVehicleCount">0件</span></div>
-              <p class="import-detail" id="missingVehicleAdminStatus">この端末内だけに保存されます。</p>
-              <div class="action-row"><button class="secondary" type="button" id="exportMissingVehicles">JSON書き出し</button><button class="secondary" type="button" id="clearMissingVehicles">候補をクリア</button></div>
+              <p class="import-detail" id="missingVehicleAdminStatus">候補は端末内に保存されます。GitHubへ送ると自動調査キューに追加されます。</p>
+              <div class="action-row"><button class="primary" type="button" id="uploadMissingVehicles">GitHubへアップロード</button><button class="secondary" type="button" id="clearMissingVehicles">候補をクリア</button></div>
               <div class="missing-vehicle-list" id="missingVehicleList"></div>
             </div>
             <div class="import-card vehicle-review-editor" id="vehicleReviewEditor" hidden>
@@ -285,6 +340,7 @@
           <div class="settings-accordion-body">
           <div class="cost-grid compact-grid">
             <label>セット品 工賃割引率（%）<input id="setDiscountRate" type="number" min="0" max="100" step="1"></label>
+            <label>脱着（1本・税込）<input data-default-cost="removal" type="number" min="0" step="1" value="0"></label>
           </div>
           <div class="labor-category-grid" id="laborCategoryGrid"></div>
           </div>
@@ -318,8 +374,8 @@
             <div><span>未登録画像数</span><strong id="missingImageCount">0</strong></div>
             <div><span>パターン数</span><strong id="patternCount">0</strong></div>
           </div>
-          <p class="message">画像は選択後に推奨ファイル名でダウンロードできます。ダウンロードした画像を <b>wheel_images</b> フォルダへ、JSONを <b>data</b> フォルダへ入れてください。</p>
-          <p class="subtle">画像フォルダ：アプリ内の <b>wheel_images</b> に画像ファイルを入れてください。</p>
+          <p class="message" id="imageUploadStatus" role="status">画像保存サーバーを確認しています。</p>
+          <p class="subtle">型式・カラーごとに画像を選ぶと、サーバーの画像フォルダと画像DBへ保存します。既存画像はバックアップ後に差し替えます。</p>
           <div class="image-list" id="imageList"></div>
           </div>
         </details>
@@ -336,6 +392,15 @@
   </div>
 
   <dialog id="imageDialog"><button id="closeImageDialog" class="dialog-close">×</button><img id="dialogImage" alt=""></dialog>
+  <dialog id="priceUpdateDialog" class="price-update-dialog" aria-labelledby="priceUpdateDialogTitle">
+    <h2 id="priceUpdateDialogTitle">価格表を更新します</h2>
+    <div id="priceUpdateDialogSummary"></div>
+    <p id="priceUpdateOlderWarning" class="error-text" hidden>現在使用中の価格表より古い可能性があります。内容を確認してください。</p>
+    <div class="action-row">
+      <button class="secondary" type="button" id="cancelPriceUpdate">キャンセル</button>
+      <button class="primary" type="button" id="confirmPriceUpdate">更新する</button>
+    </div>
+  </dialog>
 
   <script src="vendor/jszip.min.js?v=20260817-v166-labor-ceil10"></script>
   <script src="vendor/sheetjs-bridge.js?v=20260817-v166-labor-ceil10"></script>
@@ -345,6 +410,6 @@
   <script src="js/vehicle-fitment-v170.js?v=20260901-v190-fastener"></script>
   <script src="js/vehicle-search-master-v191.js?v=20260901-v191-search-master"></script>
   <script src="js/vehicle-store-v180.js?v=20260901-v190-review-history"></script>
-  <script src="js/app-v174.js?v=20260901-v192-special-fitment-notes"></script>
+  <script src="js/app-v174.js?v=20260905-v210-auto-missing-vehicle"></script>
 </body>
 </html>

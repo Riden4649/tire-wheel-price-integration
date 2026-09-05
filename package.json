@@ -1,5 +1,12 @@
 {
   "scripts": {
-    "build": "node scripts/build-dist.mjs"
+    "build": "node scripts/build-dist.mjs",
+    "serve": "node scripts/serve-app.mjs",
+    "test": "node app/tests/vehicle-data-audit.mjs && node app/tests/vehicle-search-master-audit.mjs",
+    "test:integration": "node app/tests/integration-v200.mjs",
+    "test:wheel-upload": "node app/tests/wheel-image-upload-v205.mjs",
+    "test:price-update": "node app/tests/price-update-v208.mjs",
+    "test:vehicle-upload": "node app/tests/vehicle-upload-v209.mjs",
+    "test:vehicle-auto-missing": "node app/tests/vehicle-auto-missing-v210.mjs"
   }
 }
