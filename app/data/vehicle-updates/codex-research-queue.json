@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset": "codex_pcd_research_queue",
-  "updated_at": "2026-09-05T23:24:58+09:00",
+  "updated_at": "2026-09-05T23:42:37+09:00",
   "mode": "codex_fallback_api_free",
   "session_budget_minutes": 120,
   "task_count": 0,
