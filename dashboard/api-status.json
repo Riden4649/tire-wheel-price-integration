@@ -1,59 +1,45 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-05T23:05:14+09:00",
+  "updated_at": "2026-09-05T23:21:41+09:00",
   "run": {
-    "id": "33970696195",
-    "number": "94",
+    "id": "33971573704",
+    "number": "95",
     "event": "push",
-    "sha": "d495d60f35e9d62d54d262003809f885986fb6ed",
+    "sha": "da415dc16b644897d7c80424cf26adb1b2e1cd6e",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
-  "overall_status": "error",
+  "overall_status": "idle",
   "totals": {
-    "attempted": 12,
-    "success": 5,
-    "errors": 7,
-    "success_rate": 41.7
+    "attempted": 0,
+    "success": 0,
+    "errors": 0,
+    "success_rate": null
   },
   "services": [
     {
       "name": "Tavily",
-      "status": "error",
-      "attempted": 5,
+      "status": "not_run",
+      "attempted": 0,
       "success": 0,
-      "errors": 5,
-      "success_rate": 0.0,
-      "candidates": 0,
-      "confirmed": 6,
-      "conflicts": 0
+      "errors": 0,
+      "success_rate": null
     },
     {
       "name": "Brave",
-      "status": "error",
-      "attempted": 2,
+      "status": "not_run",
+      "attempted": 0,
       "success": 0,
-      "errors": 2,
-      "success_rate": 0.0,
-      "candidates": 0,
-      "confirmed": 6,
-      "conflicts": 0
+      "errors": 0,
+      "success_rate": null
     },
     {
       "name": "Gemini",
-      "status": "ok",
-      "attempted": 5,
-      "success": 5,
+      "status": "not_run",
+      "attempted": 0,
+      "success": 0,
       "errors": 0,
-      "success_rate": 100.0,
-      "identity_confirmed": 4,
-      "pcd_candidates": 4,
-      "confirmed": 6,
-      "conflicts": 0,
-      "retries": 0,
-      "fallback_success": 0,
-      "model": "gemini-3.5-flash-lite",
-      "fallback_model": "gemini-3.1-flash-lite"
+      "success_rate": null
     }
   ],
   "production_apply": {
