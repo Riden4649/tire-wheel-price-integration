@@ -37,7 +37,9 @@
       "github_issue_number": 23,
       "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/23",
       "submitted_by": "Riden4649",
-      "status": "queued_for_research"
+      "status": "resolved",
+      "resolved_vehicle_id": "TOY_CHR_10_50",
+      "resolved_at": "2026-09-05T23:35:00+09:00"
     },
     {
       "key": "ほんだ|nvan|",

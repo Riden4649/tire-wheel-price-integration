@@ -118,11 +118,9 @@ try {
 
   await click('[data-tab=home]'); await click('[data-start=vehicle]');
   await page.locator('#vehicleModelSearch').fill('レクサスCT');
-  await click('[data-vehicle-filter=maker][data-value="レクサス"]');
-  await click('[data-vehicle-filter=model][data-value="CT"]');
-  check(await background('[data-vehicle-filter=model].active') === orange, '選択した車種ボタンはオレンジ');
-  check(await page.locator('#searchOnlyVehicleNotice').isVisible(), '適合未確認車を区別');
-  check(await page.locator('[data-tire-id]').count()>0, '適合未確認でもタイヤを選択可能');
+  check(await page.locator('[data-vehicle-filter=model][data-value="CT"]').count() === 0, '適合未登録車を商談候補から除外');
+  check(!await page.locator('#searchOnlyVehicleNotice').isVisible(), '未検証車を選択可能に見せない');
+  check(await page.locator('#missingVehiclePanel').isVisible(), '未登録検索は調査候補登録へ案内');
   await click('#manualSelection'); await page.locator('#manualModel').fill('QA未登録');
   await page.locator('#manualPcd').fill('999'); await page.locator('#manualTireSize').fill('195/65R15');
   await click('#recordManualVehicle'); await click('#applyManualVehicle');

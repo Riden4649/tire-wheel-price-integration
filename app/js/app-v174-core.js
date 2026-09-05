@@ -1628,21 +1628,22 @@
     const selection = state.vehicleSelection;
     const query = normalizeVehicleQuery(state.vehicleQuery);
     const directMatches = state.vehicles.filter(vehicle => vehicleMatchesQuery(vehicle, query));
-    const matchingSearchOnly = state.vehicleSearchRecords.filter(record => !record.has_verified_fitment && searchRecordMatchesQuery(record, query));
-    const suggestions = directMatches.length || matchingSearchOnly.length ? [] : suggestedVehicles(query);
+    const matchesUnverifiedName = state.vehicleSearchRecords.some(record => !record.has_verified_fitment && searchRecordMatchesQuery(record, query));
+    // Customer-facing selection is intentionally limited to verified fitment
+    // records. Search-master-only names remain available to the admin research
+    // queue, but must never look selectable during a consultation.
+    const suggestions = directMatches.length || matchesUnverifiedName ? [] : suggestedVehicles(query);
     const matchingVehicles = directMatches.length ? directMatches : suggestions;
     const byMaker = matchingVehicles.filter(vehicle => !selection.maker || vehicle.maker === selection.maker);
-    const searchByMaker = matchingSearchOnly.filter(record => !selection.maker || record.maker === selection.maker);
     const byModel = byMaker.filter(vehicle => !selection.model || vehicleModelAliases(vehicle).includes(selection.model));
     const vehicle = currentVehicle();
-    const searchOnly = currentSearchOnlyVehicle();
-    const makers = [...new Set([...matchingVehicles.map(item => item.maker), ...matchingSearchOnly.map(item => item.maker)])].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
-    const models = [...new Set([...byMaker.flatMap(item => vehicleModelAliases(item)), ...searchByMaker.map(item => item.model)])].sort((a, b) => a.localeCompare(b, "ja"));
+    const makers = [...new Set(matchingVehicles.map(item => item.maker))].sort((a, b) => displayVehicleMaker(a).localeCompare(displayVehicleMaker(b), "ja"));
+    const models = [...new Set(byMaker.flatMap(item => vehicleModelAliases(item)))].sort((a, b) => a.localeCompare(b, "ja"));
     els.vehicleMakerChips.innerHTML = makers.map(value => vehicleChip("maker", value, displayVehicleMaker(value), selection.maker === value)).join("");
     els.vehicleModelChips.innerHTML = models.map(value => vehicleChip("model", value, value, selection.model === value)).join("");
     els.vehicleModelSearchStatus.textContent = query
-      ? `${suggestions.length ? "近い候補：" : ""}${matchingVehicles.length}適合世代・${matchingSearchOnly.length}検索補完車種`
-      : "ひらがな・カタカナ・英数字で検索できます";
+      ? `${suggestions.length ? "近い候補：" : ""}${matchingVehicles.length}適合世代（適合確認済みのみ）`
+      : "ひらがな・カタカナ・英数字で検索できます（適合確認済みのみ表示）";
     els.vehicleGenerationChips.innerHTML = byModel.map(item => vehicleChip("generation", item.vehicle_id, item.generation, selection.vehicleId === item.vehicle_id)).join("");
     const years = vehicle ? window.VehicleFitment.years(vehicle) : [];
     els.vehicleYearChips.innerHTML = years.map(value => vehicleChip("year", String(value), `${value}年`, selection.year === String(value))).join("");
@@ -1660,10 +1661,10 @@
       els.vehicleSummary.innerHTML = "";
     }
     els.sharedVehicleSummary.textContent = vehicleSearchSummary(vehicle);
-    els.searchOnlyVehicleNotice.hidden = !searchOnly;
-    if (searchOnly) els.searchOnlyVehicleText.textContent = `${displayVehicleMaker(searchOnly.maker)} ${searchOnly.model} は適合情報が未検証です。手動でサイズを指定して商談を続けられます。候補表示は装着保証ではありません。`;
+    els.searchOnlyVehicleNotice.hidden = true;
+    els.searchOnlyVehicleText.textContent = "";
     els.clearVehicleSelection.hidden = !selection.maker && !state.vehicleQuery;
-    els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || matchingSearchOnly.length > 0 || suggestions.length > 0;
+    els.missingVehiclePanel.hidden = !query || directMatches.length > 0 || suggestions.length > 0;
     if (!els.missingVehiclePanel.hidden && !els.missingVehicleModel.value) els.missingVehicleModel.value = state.vehicleQuery;
   }
 
@@ -1675,8 +1676,7 @@
     const value = button.dataset.value || "";
     if (step === "maker") state.vehicleSelection = { maker: value, model: "", searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
     if (step === "model") {
-      const searchOnly = state.vehicleSearchRecords.find(item => !item.has_verified_fitment && item.maker === state.vehicleSelection.maker && item.model === value);
-      state.vehicleSelection = { ...state.vehicleSelection, model: value, searchOnlyId: searchOnly?.search_id || "", vehicleId: "", year: "", variantId: "", tire: "" };
+      state.vehicleSelection = { ...state.vehicleSelection, model: value, searchOnlyId: "", vehicleId: "", year: "", variantId: "", tire: "" };
     }
     if (step === "generation") state.vehicleSelection = { ...state.vehicleSelection, searchOnlyId: "", vehicleId: value, year: "", variantId: "", tire: "" };
     if (step === "year") state.vehicleSelection = { ...state.vehicleSelection, year: value, variantId: "", tire: "" };

@@ -16,7 +16,7 @@
       "A"
     ]
   },
-  "record_count": 152,
+  "record_count": 153,
   "vehicles": [
     {
       "vehicle_id": "LEX_LC_Z100",
@@ -1355,6 +1355,83 @@
       "oem_tire": "225/65R17;225/60R18;225/55R19",
       "confidence": "B",
       "weds_url": "https://search.weds.co.jp/maker/toyota/"
+    },
+    {
+      "vehicle_id": "TOY_CHR_10_50",
+      "maker": "トヨタ",
+      "model": "C-HR",
+      "aliases": [
+        "CHR",
+        "Ｃ－ＨＲ"
+      ],
+      "generation": "10・50系",
+      "model_codes": [
+        "ZYX10",
+        "ZYX11",
+        "NGX10",
+        "NGX50"
+      ],
+      "year_from": "2016-12",
+      "year_to": "2023-08",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "17/18/19",
+      "oem_tire": "215/60R17;225/50R18;225/45R19",
+      "confidence": "B",
+      "variants": [
+        {
+          "variant_id": "TOY_CHR_10_50_17",
+          "label": "S／S-T系 17インチ",
+          "year_from": "2016-12",
+          "year_to": "2023-08",
+          "oem_inch": "17",
+          "oem_tire": "215/60R17"
+        },
+        {
+          "variant_id": "TOY_CHR_10_50_18",
+          "label": "G／G-T系 18インチ",
+          "year_from": "2016-12",
+          "year_to": "2023-08",
+          "oem_inch": "18",
+          "oem_tire": "225/50R18"
+        },
+        {
+          "variant_id": "TOY_CHR_10_50_GR_19",
+          "label": "GR SPORT 19インチ",
+          "year_from": "2019-10",
+          "year_to": "2023-08",
+          "oem_inch": "19",
+          "oem_tire": "225/45R19"
+        }
+      ],
+      "notes": "10・50系。グレード・年式により17/18/19インチ。GR SPORTは225/45R19。",
+      "sources": [
+        {
+          "source_type": "manufacturer_official",
+          "source_name": "TOYOTA C-HR 工場装着タイヤ・ホイールサイズ",
+          "source_url": "https://toyota.jp/pages/contents/faq/car/all/about-tire/common_tire_c-hr_0189491_2.pdf",
+          "verified_at": "2026-09-05"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds ホイール装着マッチング C-HR 10・50系",
+          "source_url": "https://search.weds.co.jp/brand/wedssport/tc105xforged/toyota/chr-10-50kei/",
+          "verified_at": "2026-09-05"
+        },
+        {
+          "source_type": "tire_manufacturer_official",
+          "source_name": "Bridgestone C-HR 年式・型式別タイヤサイズ",
+          "source_url": "https://tire.bridgestone.co.jp/search/car/print/1/138/",
+          "verified_at": "2026-09-05"
+        }
+      ]
     },
     {
       "vehicle_id": "TOY_HARRIER_60",

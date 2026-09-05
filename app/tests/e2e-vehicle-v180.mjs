@@ -14,6 +14,7 @@ try {
 
   await page.goto(`${base}/`);
   await page.waitForFunction(() => document.querySelector("#vehicleModelSearchStatus")?.textContent.includes("検索できます"));
+  await page.locator('[data-start="vehicle"]').click();
   await page.locator("#vehicleModelSearch").fill("ベルファイア");
   await page.waitForTimeout(100);
   check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("適合世代") && (await page.locator("#sharedVehicleSummary").textContent()) === "車両未選択", "表記揺れを候補提示し自動確定しない");
@@ -29,13 +30,9 @@ try {
   await page.locator("#vehicleModelSearch").fill("ハチロク");
   check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("適合世代"), "補完aliasesを検証済み86へ統合");
   await page.locator("#vehicleModelSearch").fill("レクサスCT");
-  await page.locator('[data-vehicle-filter="maker"][data-value="レクサス"]').click(); await page.locator('[data-vehicle-filter="model"][data-value="CT"]').click();
-  check(await page.locator("#searchOnlyVehicleNotice").isVisible(), "適合情報なし車種を検索結果で明示");
-  check((await page.locator("#searchOnlyVehicleNotice").textContent()).includes("車種登録済み／適合情報は要確認"), "検索不能と適合未確認を分離");
-  await page.locator('[data-tab="wheel"]').click();
-  check((await page.locator("#wheelResults").textContent()).includes("アルミ適合情報が未検証"), "検索補完データをアルミ判定に使用しない");
-  await page.locator('[data-tab="tire"]').click();
-  check((await page.locator("#tireResults").textContent()).includes("純正タイヤサイズが未検証"), "検索補完データからタイヤサイズを推測しない");
+  check(await page.locator('[data-vehicle-filter="model"][data-value="CT"]').count() === 0, "適合情報なし車種を商談候補に表示しない");
+  check(!await page.locator("#searchOnlyVehicleNotice").isVisible(), "未検証車を選択可能に見せない");
+  check(await page.locator("#missingVehiclePanel").isVisible(), "適合なし検索は調査候補登録へ案内");
   await page.locator("#clearVehicleSelection").click();
 
   await page.locator("#vehicleModelSearch").fill("テスト未登録車");
@@ -92,7 +89,7 @@ try {
     await page.waitForFunction(selector => /成功|失敗/.test(document.querySelector(selector)?.textContent || ""), badge, { timeout: 30000 });
     check((await page.locator(badge).textContent()).includes("成功"), `${label}Excel読込`);
   }
-  await page.locator('[data-tab="tire"]').click(); await page.locator("#vehicleModelSearch").fill("NHW20");
+  await page.locator('[data-tab="tire"]').click(); await page.locator("#sharedVehicleSearch").evaluate(element => { element.open = true; }); await page.locator("#vehicleModelSearch").fill("NHW20");
   await page.locator('[data-vehicle-filter="maker"][data-value="トヨタ"]').click(); await page.locator('[data-vehicle-filter="model"][data-value="プリウス"]').click();
   await page.locator('[data-vehicle-filter="generation"]').click(); await page.locator('[data-vehicle-filter="year"]').last().click(); await page.locator('[data-vehicle-filter="tire"]').first().click();
   await page.locator('[data-tab="wheel"]').click();
@@ -105,6 +102,7 @@ try {
   await context.setOffline(true);
   await page.reload({ waitUntil: "domcontentloaded" });
   await page.waitForFunction(() => document.querySelector("#vehicleModelSearch"));
+  await page.locator('[data-start="vehicle"]').click();
   await page.locator("#vehicleModelSearch").fill("N-BOX");
   check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("世代"), "完全オフラインで車種検索");
   await page.locator('[data-tab="wheel"]').click();

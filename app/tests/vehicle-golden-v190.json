@@ -38,6 +38,7 @@
     {"vehicle_id":"TOY_BB_QNC_2008","pcd":100,"holes":4,"hub_bore":54,"fastener":"M12×P1.5"},
     {"vehicle_id":"TOY_IQ_KGJ_NGJ_2009","pcd":100,"holes":4,"hub_bore":54,"fastener":"M12×P1.5"},
     {"vehicle_id":"TOY_IST_NCP110_2010","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"},
-    {"vehicle_id":"TOY_RACTIS_120_2010","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"}
+    {"vehicle_id":"TOY_RACTIS_120_2010","pcd":100,"holes":5,"hub_bore":54,"fastener":"M12×P1.5"},
+    {"vehicle_id":"TOY_CHR_10_50","pcd":114.3,"holes":5,"hub_bore":60,"fastener":"M12×P1.5","oem_inch":"17/18/19","oem_tire":"215/60R17;225/50R18;225/45R19"}
   ]
 }
