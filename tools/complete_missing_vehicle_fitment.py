@@ -40,19 +40,23 @@ def spec(pcd, holes, hub_bore, diameter="M12", pitch=1.5, source=WEDS_CATALOG):
     }
 
 
+def weds_source(url):
+    return {**WEDS_CATALOG, "source_url": url}
+
+
 UPDATES = {
     "TOY_PRIUS_NHW20": spec(100, 5, 54, source=TOPY_MATCHING),
     "TOY_ALPHARD_10": spec(114.3, 5, 60, source=TOPY_MATCHING),
-    "HON_FIT_GD": spec(100, 4, 56),
-    "HON_STEPWGN_RG": spec(114.3, 5, 64),
-    "HON_ODYSSEY_RB12": spec(114.3, 5, 64),
+    "HON_FIT_GD": spec(100, 4, 56, source=weds_source("https://search.weds.co.jp/brand/leonis/vr/honda/fittofittoaria-gd19-d/")),
+    "HON_STEPWGN_RG": spec(114.3, 5, 64, source=weds_source("https://search.weds.co.jp/brand/wedssport/sa20r/honda/suteppuwagon-rg1-3-d/")),
+    "HON_ODYSSEY_RB12": spec(114.3, 5, 64, source=weds_source("https://search.weds.co.jp/brand/wedssport/sa20r/honda/odessei-rb1-2-d/")),
     "HON_STREAM_RN15": spec(114.3, 5, 64, source=TOPY_MATCHING),
-    "HON_STREAM_RN69": spec(114.3, 5, 64),
-    "HON_ACCORD_CL": spec(114.3, 5, 64),
-    "HON_ELYSION_RR": spec(114.3, 5, 64),
+    "HON_STREAM_RN69": spec(114.3, 5, 64, source=weds_source("https://search.weds.co.jp/brand/wedssport/sa20r/honda/sutoriimu-rn69-d/")),
+    "HON_ACCORD_CL": spec(114.3, 5, 64, source=weds_source("https://search.weds.co.jp/maker/honda/akoodo-cl79-d/18inch/")),
+    "HON_ELYSION_RR": spec(114.3, 5, 64, source=weds_source("https://search.weds.co.jp/brand/adventure/hasespec2/honda/erishion-rr16-d/")),
     "HON_INSIGHT_ZE1": spec(100, 4, 56, source=TOPY_MATCHING),
-    "HON_LEGEND_KB1": spec(120, 5, 64, diameter="M14"),
-    "LEX_LS_USF40": spec(120, 5, 60, diameter="M14"),
+    "HON_LEGEND_KB1": spec(120, 5, 64, diameter="M14", source=weds_source("https://search.weds.co.jp/brand/kranze/bertaler/honda/rejiendo-kb1/")),
+    "LEX_LS_USF40": spec(120, 5, 60, diameter="M14", source=weds_source("https://search.weds.co.jp/brand/leonis/navia07/lexus/ls-40keifrls460-ls460l-vers-versz-fsportnozoku-a/")),
     "TOY_ISIS_10_2007": spec(114.3, 5, 60, source=TOPY_MATCHING),
     "TOY_BB_QNC_2008": spec(100, 4, 54, source=TOPY_MATCHING),
     "TOY_IQ_KGJ_NGJ_2009": spec(100, 4, 54, source=TOPY_MATCHING),
@@ -102,7 +106,10 @@ def main():
         if "ホイール取付条件" in previous_note:
             previous_note = previous_note.replace("ホイール取付条件は未確認のためタイヤ検索専用。", "").replace("ホイール取付条件未確認。タイヤ検索専用。", "").strip()
         row["notes"] = f"{previous_note} {note}".strip()
-        if not any(source.get("source_name") == update["source"]["source_name"] for source in row.setdefault("sources", [])):
+        existing_source = next((source for source in row.setdefault("sources", []) if source.get("source_name") == update["source"]["source_name"]), None)
+        if existing_source:
+            existing_source.update(update["source"])
+        else:
             row["sources"].append(dict(update["source"]))
 
         new = {key: row.get(key) for key in ("pcd", "holes", "hub_bore", "fastener", "fastener_details")}
@@ -121,6 +128,9 @@ def main():
                 "applied_at": datetime.now(timezone(timedelta(hours=9))).isoformat(timespec="seconds"),
                 "actor": "codex_manual_completion",
             })
+        else:
+            existing_change = next(item for item in change_log["records"] if (item.get("vehicle_id"), item.get("field"), item.get("verified_at")) == change_key)
+            existing_change["sources"] = [dict(update["source"])]
         applied.append(vehicle_id)
 
     for vehicle_id, (diameter, pitch, url) in LEXUS_THREAD_UPDATES.items():
