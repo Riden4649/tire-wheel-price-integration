@@ -29,8 +29,8 @@ try {
   check(searchMs < 250, `主要10車種の連続検索 ${searchMs.toFixed(1)}ms`);
   await page.locator("#vehicleModelSearch").fill("ハチロク");
   check((await page.locator("#vehicleModelSearchStatus").textContent()).includes("適合世代"), "補完aliasesを検証済み86へ統合");
-  await page.locator("#vehicleModelSearch").fill("レクサスCT");
-  check(await page.locator('[data-vehicle-filter="model"][data-value="CT"]').count() === 0, "適合情報なし車種を商談候補に表示しない");
+  await page.locator("#vehicleModelSearch").fill("レクサスHS");
+  check(await page.locator('[data-vehicle-filter="model"][data-value="HS"]').count() === 0, "適合情報なし車種を商談候補に表示しない");
   check(!await page.locator("#searchOnlyVehicleNotice").isVisible(), "未検証車を選択可能に見せない");
   check(await page.locator("#missingVehiclePanel").isVisible(), "適合なし検索は調査候補登録へ案内");
   await page.locator("#clearVehicleSelection").click();

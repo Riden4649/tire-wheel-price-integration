@@ -117,8 +117,8 @@ try {
   if (await page.locator('#printPreviewClose').isVisible()) await click('#printPreviewClose');
 
   await click('[data-tab=home]'); await click('[data-start=vehicle]');
-  await page.locator('#vehicleModelSearch').fill('レクサスCT');
-  check(await page.locator('[data-vehicle-filter=model][data-value="CT"]').count() === 0, '適合未登録車を商談候補から除外');
+  await page.locator('#vehicleModelSearch').fill('レクサスHS');
+  check(await page.locator('[data-vehicle-filter=model][data-value="HS"]').count() === 0, '適合未登録車を商談候補から除外');
   check(!await page.locator('#searchOnlyVehicleNotice').isVisible(), '未検証車を選択可能に見せない');
   check(await page.locator('#missingVehiclePanel').isVisible(), '未登録検索は調査候補登録へ案内');
   await click('#manualSelection'); await page.locator('#manualModel').fill('QA未登録');

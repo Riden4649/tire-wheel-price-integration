@@ -1194,7 +1194,7 @@
       const searchPayload = await fetch("data/jp_vehicle_search_master_2000_2026_v1.json", { cache: "no-store" }).then(result => result.ok ? result.json() : ({ vehicles: [] })).catch(() => ({ vehicles: [] }));
       const bundled = window.VehicleFitment.normalizeDataset(payload);
       const savedOverrides = window.VehicleStore ? await window.VehicleStore.getVehicleOverrides() : [];
-      const overrides = savedOverrides.filter(item => !window.MasterBundle?.hasSnapshot() || item._bundleGeneration === window.MasterBundle.generation());
+      const overrides = savedOverrides.filter(item => item._publishedAddition === true || !window.MasterBundle?.hasSnapshot() || item._bundleGeneration === window.MasterBundle.generation());
       const merged = window.VehicleSearchMaster.merge(window.VehicleFitment.upsertVehicles(bundled, overrides), searchPayload);
       state.vehicles = merged.vehicles;
       state.vehicleSearchRecords = merged.searchRecords;
@@ -1421,24 +1421,52 @@
   }
 
   async function checkVehicleUpdates() {
+    if (els.checkVehicleUpdates.disabled) return;
     if (!navigator.onLine) { els.vehicleMasterStatus.textContent = "オフラインです。既存DBはそのまま利用できます。"; return; }
+    els.checkVehicleUpdates.disabled = true;
     try {
-      const response = await fetch("data/vehicle-updates/manifest.json", { cache: "no-store" }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const response = await fetch("data/vehicle-updates/manifest.json?__bundle_update=1", { cache: "no-store" }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const manifest = await response.json(); const applied = await window.VehicleStore.getMetadata("applied_patch_ids") || [];
       const pending = (manifest.patches || []).filter(item => !applied.includes(item.id));
-      let staged = 0;
+      let staged = 0, published = [];
+      const publishedIds = [];
       for (const patch of pending) {
-        const patchResponse = await fetch(new URL(patch.url, location.href), { cache: "no-store" }); if (!patchResponse.ok) throw new Error(`${patch.id}: HTTP ${patchResponse.status}`);
+        const patchUrl = new URL(patch.url, location.href);
+        if (patchUrl.origin !== location.origin) throw new Error("車種差分の取得元が不正です");
+        patchUrl.searchParams.set("__bundle_update", "1");
+        const patchResponse = await fetch(patchUrl.href, { cache: "no-store" }); if (!patchResponse.ok) throw new Error(`${patch.id}: HTTP ${patchResponse.status}`);
         const payload = await patchResponse.json(); const result = window.VehicleFitment.validateVehicles(payload); if (!result.valid || (patch.count != null && result.vehicles.length !== patch.count)) throw new Error(`${patch.id}: 差分検証失敗`);
+        if (patch.review_status === "reviewed_additions") {
+          const raw = payload.updates || payload.vehicles || [];
+          if (!raw.length || raw.some(record => !window.VehicleFitment.validateVehicleForApproval(record).valid)) throw new Error(`${patch.id}: 出典・取付規格の検証失敗`);
+          published.push(...raw); publishedIds.push(patch.id);
+          continue;
+        }
         for (const vehicle of result.vehicles) {
           const missing = await window.VehicleStore.recordMissing({ maker: vehicle.maker, model: vehicle.model, model_code: vehicle.generation, year: vehicle.year_from.slice(0, 4), tire_size: vehicle.oem_tires.join(";") });
           await window.VehicleStore.updateMissing(missing.key, { status: "information_acquired", candidates: [{ ...vehicle, candidate_id: `${patch.id}-${vehicle.vehicle_id}` }], selected_candidate_id: `${patch.id}-${vehicle.vehicle_id}`, patch_id: patch.id });
           staged += 1;
         }
       }
+      if (publishedIds.length) {
+        const overrides = await window.VehicleStore.getVehicleOverrides();
+        const existingIds = new Set(overrides.map(record => record.vehicle_id));
+        published = published.filter(record => !existingIds.has(record.vehicle_id));
+        if (!window.confirm(`確認済み車種データ ${published.length}件を端末に保存します。既存の車種・価格表・見積は上書きしません。更新しますか？`)) { els.vehicleMasterStatus.textContent = "車種更新をキャンセルしました。"; return; }
+        await window.VehicleStore.applyPublishedAdditions(published.map(record => ({ ...record, _publishedAddition: true, _bundleGeneration: window.MasterBundle?.generation() || "" })), publishedIds);
+        const saved = (await window.VehicleStore.getVehicleOverrides()).filter(item => item._publishedAddition === true || !window.MasterBundle?.hasSnapshot() || item._bundleGeneration === window.MasterBundle.generation());
+        const merged = window.VehicleSearchMaster.merge(window.VehicleFitment.upsertVehicles(state.vehicles, saved), state.vehicleSearchRecords);
+        state.vehicles = merged.vehicles; state.vehicleSearchRecords = merged.searchRecords;
+        renderVehicleChips(); renderTires(); renderWheels();
+        els.vehicleMasterBadge.textContent = `端末差分 ${saved.length}件`;
+        els.vehicleMasterStatus.textContent = `確認済み車種データ ${published.length}件を保存しました。オフラインでも利用できます。`;
+        await refreshMissingVehicleAdmin();
+        return;
+      }
       els.vehicleMasterStatus.textContent = staged ? `${staged}件を確認候補へ取り込みました。人間確認後に端末DBへ追加してください。` : `車種DBは最新です（${manifest.dataset_version || APP_VERSION}）。`;
       await refreshMissingVehicleAdmin();
     } catch (error) { els.vehicleMasterStatus.textContent = `更新確認に失敗しました（${error.message}）。既存DBは変更していません。`; }
+    finally { els.checkVehicleUpdates.disabled = false; }
   }
 
   async function importVehicleMaster(file) {

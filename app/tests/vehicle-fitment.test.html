@@ -29,7 +29,7 @@
         const payload = await response.json();
         const vehicles = VehicleFitment.normalizeVehicleDatabase(payload);
 
-        assert(vehicles.length === payload.record_count && vehicles.length === 153, "車両DBを153件読み込める");
+        assert(vehicles.length === payload.record_count && vehicles.length === 208, "車両DBを208件読み込める");
         assert(VehicleFitment.validateVehicles(payload).valid, "車両DBスキーマとタイヤサイズを検証できる");
         assert(new Set(vehicles.map(v => v.vehicle_id)).size === vehicles.length, "vehicle_idが一意");
         const qaModels = ["N-BOX", "スペーシア", "タント", "セレナ", "ノア", "シエンタ", "CX-5", "フォレスター"];

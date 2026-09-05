@@ -109,6 +109,28 @@
     return record;
   }
 
+  // Add-only publication updates: records and applied IDs commit together.
+  async function applyPublishedAdditions(records, patchIds) {
+    const db = await openDb();
+    if (!db) throw new Error("車種更新には端末DBが必要です。現在のデータは維持しています。");
+    try {
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(["vehicle_overrides", "update_metadata"], "readwrite");
+        const store = tx.objectStore("vehicle_overrides");
+        records.forEach(record => {
+          const request = store.get(record.vehicle_id);
+          request.onsuccess = () => { if (!request.result) store.add(record); };
+        });
+        const meta = tx.objectStore("update_metadata");
+        const request = meta.get("applied_patch_ids");
+        request.onsuccess = () => meta.put({ key: "applied_patch_ids", value: [...new Set([...(request.result?.value || []), ...patchIds])], updated_at: new Date().toISOString() });
+        tx.oncomplete = resolve;
+        tx.onabort = () => reject(tx.error || new Error("更新保存を中断しました。旧データは維持しています。"));
+        tx.onerror = () => {};
+      });
+    } finally { db.close(); }
+  }
+
   async function clearMissing() {
     const db = await openDb();
     if (!db) {
@@ -149,6 +171,7 @@
     recordMissing,
     updateMissing,
     applyVehicle,
+    applyPublishedAdditions,
     listHistory: () => getAll("vehicle_history", FALLBACK_HISTORY),
     getMetadata: async key => (await getAll("update_metadata", FALLBACK_META)).find(item => item.key === key)?.value,
     setMetadata,

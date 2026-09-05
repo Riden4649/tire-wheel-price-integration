@@ -1,6 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026-09-01-v190",
-  "generated_at": "2026-09-01T00:00:00+09:00",
-  "patches": []
+  "dataset_version": "2026-09-06-researched",
+  "generated_at": "2026-09-06T12:00:00+09:00",
+  "patches": [
+    {
+      "id": "2026-09-06-researched",
+      "url": "data/vehicle-updates/researched-2026-09-06.json",
+      "count": 55,
+      "review_status": "reviewed_additions"
+    }
+  ]
 }
