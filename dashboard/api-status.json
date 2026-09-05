@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
   "dataset": "vehicle_db_api_run_status",
-  "updated_at": "2026-09-05T23:42:37+09:00",
+  "updated_at": "2026-09-05T23:49:26+09:00",
   "run": {
-    "id": "33972608381",
-    "number": "97",
-    "event": "push",
-    "sha": "500455f50ff8195d10b68058832537c253fe4fd7",
+    "id": "33972943548",
+    "number": "98",
+    "event": "issues",
+    "sha": "a78a40a293791f0fe3cda47d59defb67b71805eb",
     "repository": "Riden4649/tire-wheel-price-integration"
   },
   "overall_status": "idle",

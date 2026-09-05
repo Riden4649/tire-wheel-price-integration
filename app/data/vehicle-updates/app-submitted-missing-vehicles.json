@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "dataset": "app_submitted_missing_vehicles",
-  "record_count": 3,
+  "record_count": 5,
   "records": [
     {
       "key": "だいはつ|てりおすきっど|",
@@ -42,6 +42,42 @@
       "resolved_at": "2026-09-05T23:35:00+09:00"
     },
     {
+      "key": "とよた|grかろら|",
+      "maker": "トヨタ",
+      "model": "GRカローラ",
+      "year": "",
+      "model_code": "",
+      "grade": "",
+      "tire_size": "",
+      "memo": "検索補完マスターから記録",
+      "store_search_count": 9,
+      "first_submitted_at": "2026-09-05T14:49:26.044493+00:00",
+      "last_submitted_at": "2026-09-05T14:49:26.044493+00:00",
+      "submission_count": 1,
+      "github_issue_number": 24,
+      "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/24",
+      "submitted_by": "Riden4649",
+      "status": "queued_for_research"
+    },
+    {
+      "key": "とよた|rav4phv|",
+      "maker": "トヨタ",
+      "model": "RAV4 PHV",
+      "year": "",
+      "model_code": "",
+      "grade": "",
+      "tire_size": "",
+      "memo": "車種選択時に自動記録",
+      "store_search_count": 1,
+      "first_submitted_at": "2026-09-05T14:49:26.044493+00:00",
+      "last_submitted_at": "2026-09-05T14:49:26.044493+00:00",
+      "submission_count": 1,
+      "github_issue_number": 24,
+      "github_issue_url": "https://github.com/Riden4649/tire-wheel-price-integration/issues/24",
+      "submitted_by": "Riden4649",
+      "status": "queued_for_research"
+    },
+    {
       "key": "ほんだ|nvan|",
       "maker": "ホンダ",
       "model": "N-VAN",
@@ -60,5 +96,5 @@
       "status": "queued_for_research"
     }
   ],
-  "updated_at": "2026-09-05T13:54:31.640166+00:00"
+  "updated_at": "2026-09-05T14:49:26.044493+00:00"
 }
