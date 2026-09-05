@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-04",
+  "updated_at": "2026-09-05",
   "policy": {
     "image_scope": "design reference image; size mismatch allowed",
     "matching_key": "maker + brand + model + color",
@@ -116,7 +116,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -176,7 +176,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -191,7 +191,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -206,7 +206,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -236,7 +236,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -281,7 +281,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -386,7 +386,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -401,7 +401,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -416,7 +416,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -431,7 +431,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -446,7 +446,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -461,7 +461,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -596,7 +596,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -611,7 +611,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -671,7 +671,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -761,7 +761,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -791,7 +791,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1121,7 +1121,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1136,7 +1136,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1151,7 +1151,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1166,7 +1166,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1181,7 +1181,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1196,7 +1196,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1211,7 +1211,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1241,7 +1241,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1256,7 +1256,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1331,7 +1331,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
@@ -1346,7 +1346,7 @@
       "image_url": "",
       "image_status": "missing",
       "active": true,
-      "notes": "official candidate not found; strategy=2",
+      "notes": "official candidate not found; strategy=3",
       "offline_cache_allowed": false,
       "local_path": ""
     },
