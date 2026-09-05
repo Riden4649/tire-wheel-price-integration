@@ -8,6 +8,7 @@ DATA = ROOT / "app" / "data"
 SEARCH = DATA / "jp_vehicle_search_master_2000_2026_v1.json"
 FITMENT = DATA / "vehicles_2012_2026.json"
 SERVICE = DATA / "vehicle_service_specs.json"
+APP_SUBMITTED = DATA / "vehicle-updates" / "app-submitted-missing-vehicles.json"
 REPORTS = ROOT / "reports"
 
 # A five-year span is a RESEARCH TRIGGER only. It never auto-splits a generation.
@@ -67,6 +68,44 @@ def fitment_missing_fields(rec):
         if details.get("thread_pitch") is None:
             missing.append("thread_pitch")
     return missing
+
+
+def merge_app_submissions(queue):
+    if not APP_SUBMITTED.exists():
+        return
+    payload = load_json(APP_SUBMITTED)
+    known = {(norm(item.get("maker")), norm(item.get("model")), norm(item.get("generation"))) for item in queue}
+    for item in payload.get("records") or []:
+        identity = (norm(item.get("maker")), norm(item.get("model")), norm(item.get("model_code")))
+        matching = next((row for row in queue if (norm(row.get("maker")), norm(row.get("model")), norm(row.get("generation"))) == identity), None)
+        search_count = max(int(item.get("store_search_count") or 1), 1)
+        if matching:
+            matching["priority_score"] = max(int(matching.get("priority_score") or 0), 90 + min(search_count, 20))
+            matching.setdefault("priority_components", {})["store_usage"] = search_count
+            matching["app_submission_key"] = item.get("key")
+            matching["github_issue_url"] = item.get("github_issue_url")
+            continue
+        if identity in known or not item.get("model"):
+            continue
+        queue.append({
+            "submission_key": item.get("key"),
+            "maker": item.get("maker"),
+            "model": item.get("model"),
+            "generation": item.get("model_code") or None,
+            "model_codes": [item.get("model_code")] if item.get("model_code") else [],
+            "year_from": f"{item.get('year')}-01" if str(item.get("year") or "").isdigit() else None,
+            "year_to": None,
+            "status": "app_submitted_missing",
+            "missing_fields": ["generation", "year_from", "year_to", "pcd", "holes", "hub_bore", "fastener", "thread_diameter", "thread_pitch", "oem_tire"],
+            "needs_year_discovery": True,
+            "priority_score": 90 + min(search_count, 20),
+            "priority_components": {"fitment_gap": 50, "store_usage": search_count, "app_submission": 40},
+            "next_action": "web_research",
+            "human_review_required": True,
+            "submitted_context": {"grade": item.get("grade"), "tire_size": item.get("tire_size"), "memo": item.get("memo")},
+            "github_issue_url": item.get("github_issue_url"),
+        })
+        known.add(identity)
 
 
 def main():
@@ -169,6 +208,7 @@ def main():
                     "human_review_required": True
                 })
 
+    merge_app_submissions(queue)
     queue.sort(key=lambda x: (-x["priority_score"], str(x.get("maker")), str(x.get("model"))))
     output = {
         "schema_version": "0.3.0",

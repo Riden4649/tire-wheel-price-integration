@@ -2,6 +2,8 @@ name: 車種DB育成 v2.2 API節約＋Codex枯渇モード
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   pull_request:
     paths:
       - 'app/data/**'
@@ -30,7 +32,7 @@ concurrency:
 
 jobs:
   grow-and-check:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.actor != 'github-actions[bot]' && (github.event_name != 'issues' || (github.actor == github.repository_owner && startsWith(github.event.issue.title, '[vehicle-research]'))) }}
     name: キャッシュ優先→省API探索→Codex引継ぎキュー→QA
     runs-on: ubuntu-latest
     steps:
@@ -43,6 +45,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: iPadアプリ候補を調査キューへ取込
+        if: ${{ github.event_name == 'issues' }}
+        run: python tools/import_vehicle_issue.py "$GITHUB_EVENT_PATH"
 
       - name: 事前QAチェック
         run: python tests/vehicle_db_qa.py
@@ -148,6 +154,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
+            app/data/vehicle-updates/app-submitted-missing-vehicles.json \
             app/data/vehicle-updates/auto-research-candidates.json \
             app/data/vehicle-updates/auto-confirmed-pcd.json \
             app/data/vehicle-updates/auto-structured-evidence.json \
