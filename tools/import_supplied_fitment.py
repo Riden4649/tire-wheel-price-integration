@@ -88,7 +88,7 @@ def main():
             vid='DOC_'+hashlib.sha256(key.encode()).hexdigest()[:12].upper()
             entry=dict(id=vid,source_file=path.name,sha256=sha,sheet=row['sheet'],row=row['row'],
                        raw_columns=original,interpreted_period=row['period'],interpreted_model_code=row['code'],
-                       source_kind='user_supplied_manufacturer_matching_workbook',checked_at='2026-09-06')
+                       source_kind='user_designated_official_matching_document',checked_at='2026-09-06')
             evidence.append(entry)
             out.append(dict(vehicle_id=vid,maker=model['maker'],model=model['model'],generation=code,model_codes=[code],
                 year_from=p['year_from'],year_to=p['year_to'],pcd=p['pcd'],holes=p['holes'],hub_bore=p['hub_bore'],

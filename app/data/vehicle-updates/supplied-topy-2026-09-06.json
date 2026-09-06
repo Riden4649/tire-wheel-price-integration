@@ -61,7 +61,7 @@
         ],
         "interpreted_period": "00/1～01/12",
         "interpreted_model_code": "NCP19",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -125,7 +125,7 @@
         ],
         "interpreted_period": "01/4～04/4",
         "interpreted_model_code": "NZE127",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -189,7 +189,7 @@
         ],
         "interpreted_period": "01/4～04/4",
         "interpreted_model_code": "ZZE129",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -253,7 +253,7 @@
         ],
         "interpreted_period": "02/10～05/7",
         "interpreted_model_code": "NCP70",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -317,7 +317,7 @@
         ],
         "interpreted_period": "02/10～05/7",
         "interpreted_model_code": "NCP75",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -390,7 +390,7 @@
         ],
         "interpreted_period": "11/9～12/3",
         "interpreted_model_code": "ZRT272W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -454,7 +454,7 @@
         ],
         "interpreted_period": "03/10～11/9",
         "interpreted_model_code": "AZT255W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -527,7 +527,7 @@
         ],
         "interpreted_period": "07/6～21/3",
         "interpreted_model_code": "NZT260",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -591,7 +591,7 @@
         ],
         "interpreted_period": "97/8～04/12",
         "interpreted_model_code": "JZS160",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -655,7 +655,7 @@
         ],
         "interpreted_period": "97/8～04/12",
         "interpreted_model_code": "JZS161",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -719,7 +719,7 @@
         ],
         "interpreted_period": "01/1～04/3",
         "interpreted_model_code": "NZE121",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -783,7 +783,7 @@
         ],
         "interpreted_period": "01/1～04/3",
         "interpreted_model_code": "ZZE122",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -847,7 +847,7 @@
         ],
         "interpreted_period": "01/1～04/3",
         "interpreted_model_code": "ZZE123",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -911,7 +911,7 @@
         ],
         "interpreted_period": "07/7～16/5",
         "interpreted_model_code": "NCP115",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -975,7 +975,7 @@
         ],
         "interpreted_period": "02/5～07/7",
         "interpreted_model_code": "NCP65",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1057,7 +1057,7 @@
         ],
         "interpreted_period": "01/5～09/12",
         "interpreted_model_code": "ACM21W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1139,7 +1139,7 @@
         ],
         "interpreted_period": "01/5～09/12",
         "interpreted_model_code": "ACM26W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1203,7 +1203,7 @@
         ],
         "interpreted_period": "96/5～01/5",
         "interpreted_model_code": "CXM10G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1267,7 +1267,7 @@
         ],
         "interpreted_period": "07/8～13/11",
         "interpreted_model_code": "ACA33W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1331,7 +1331,7 @@
         ],
         "interpreted_period": "07/8～13/11",
         "interpreted_model_code": "GSA33W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1395,7 +1395,7 @@
         ],
         "interpreted_period": "09/4～17/10",
         "interpreted_model_code": "ZGE20W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1459,7 +1459,7 @@
         ],
         "interpreted_period": "09/4～17/10",
         "interpreted_model_code": "ZGE22W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1523,7 +1523,7 @@
         ],
         "interpreted_period": "01/8～06/3",
         "interpreted_model_code": "MCV30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1587,7 +1587,7 @@
         ],
         "interpreted_period": "01/7～04/4",
         "interpreted_model_code": "GX115",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1651,7 +1651,7 @@
         ],
         "interpreted_period": "02/8～04/4",
         "interpreted_model_code": "ZZE136",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1715,7 +1715,7 @@
         ],
         "interpreted_period": "02/8～04/4",
         "interpreted_model_code": "ZZE137",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1779,7 +1779,7 @@
         ],
         "interpreted_period": "02/8～04/4",
         "interpreted_model_code": "ZZE138",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1843,7 +1843,7 @@
         ],
         "interpreted_period": "06/6～19/10",
         "interpreted_model_code": "AHR20W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1907,7 +1907,7 @@
         ],
         "interpreted_period": "01/6～06/6",
         "interpreted_model_code": "AHR10W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -1971,7 +1971,7 @@
         ],
         "interpreted_period": "16/4～20/7",
         "interpreted_model_code": "ZWE186H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2044,7 +2044,7 @@
         ],
         "interpreted_period": "12/8～16/4",
         "interpreted_model_code": "NZE181H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2108,7 +2108,7 @@
         ],
         "interpreted_period": "12/8～16/4",
         "interpreted_model_code": "ZRE186H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2181,7 +2181,7 @@
         ],
         "interpreted_period": "12/8～16/4",
         "interpreted_model_code": "NZE184H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2245,7 +2245,7 @@
         ],
         "interpreted_period": "06/1～11/9",
         "interpreted_model_code": "ACV40",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2309,7 +2309,7 @@
         ],
         "interpreted_period": "06/1～11/9",
         "interpreted_model_code": "ACV45",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2382,7 +2382,7 @@
         ],
         "interpreted_period": "01/9～06/1",
         "interpreted_model_code": "ACV30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2446,7 +2446,7 @@
         ],
         "interpreted_period": "01/9～06/1",
         "interpreted_model_code": "ACV35",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2510,7 +2510,7 @@
         ],
         "interpreted_period": "99/08～01/7",
         "interpreted_model_code": "SXV25",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2574,7 +2574,7 @@
         ],
         "interpreted_period": "99/8～01/9",
         "interpreted_model_code": "MCV21W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2647,7 +2647,7 @@
         ],
         "interpreted_period": "99/8～01/9",
         "interpreted_model_code": "SXV20W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2711,7 +2711,7 @@
         ],
         "interpreted_period": "96/8～01/12",
         "interpreted_model_code": "AT211",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2775,7 +2775,7 @@
         ],
         "interpreted_period": "96/8～01/12",
         "interpreted_model_code": "AT210",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2848,7 +2848,7 @@
         ],
         "interpreted_period": "02/9～07/5",
         "interpreted_model_code": "AZT246W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2912,7 +2912,7 @@
         ],
         "interpreted_period": "02/9～07/5",
         "interpreted_model_code": "ST246W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -2985,7 +2985,7 @@
         ],
         "interpreted_period": "97/9～02/9",
         "interpreted_model_code": "ST210G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3049,7 +3049,7 @@
         ],
         "interpreted_period": "97/9～02/9",
         "interpreted_model_code": " AT211G  ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3122,7 +3122,7 @@
         ],
         "interpreted_period": "97/9～02/9",
         "interpreted_model_code": "ST215G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3186,7 +3186,7 @@
         ],
         "interpreted_period": "97/9～02/9",
         "interpreted_model_code": "CT216G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3250,7 +3250,7 @@
         ],
         "interpreted_period": "97/9～02/9",
         "interpreted_model_code": "ST215W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3314,7 +3314,7 @@
         ],
         "interpreted_period": "01/5～07/6　　　　",
         "interpreted_model_code": "ZZE124N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3378,7 +3378,7 @@
         ],
         "interpreted_period": "97/1～01/5",
         "interpreted_model_code": "AE111N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3442,7 +3442,7 @@
         ],
         "interpreted_period": "97/1～01/5",
         "interpreted_model_code": "ＡＥ115Ｎ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3506,7 +3506,7 @@
         ],
         "interpreted_period": "01/1～06/9",
         "interpreted_model_code": "NZE121                   ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3570,7 +3570,7 @@
         ],
         "interpreted_period": "01/1～06/9",
         "interpreted_model_code": "NZE122",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3634,7 +3634,7 @@
         ],
         "interpreted_period": "01/1～06/9",
         "interpreted_model_code": "ZZE123",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3698,7 +3698,7 @@
         ],
         "interpreted_period": "07/10～16/1",
         "interpreted_model_code": "NZE151N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3771,7 +3771,7 @@
         ],
         "interpreted_period": "07/10～16/1",
         "interpreted_model_code": "ZRE152N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3835,7 +3835,7 @@
         ],
         "interpreted_period": "07/10～16/1",
         "interpreted_model_code": "ZRE154N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3899,7 +3899,7 @@
         ],
         "interpreted_period": "99/12～07/5",
         "interpreted_model_code": "JZS171W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -3972,7 +3972,7 @@
         ],
         "interpreted_period": "99/12～07/5",
         "interpreted_model_code": "JZS173W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4036,7 +4036,7 @@
         ],
         "interpreted_period": "99/12～07/5",
         "interpreted_model_code": "GS171W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4100,7 +4100,7 @@
         ],
         "interpreted_period": "09/3～09/3",
         "interpreted_model_code": "URS206",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4164,7 +4164,7 @@
         ],
         "interpreted_period": "09/3～09/3",
         "interpreted_model_code": "UZS207",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4228,7 +4228,7 @@
         ],
         "interpreted_period": "04/7～09/3",
         "interpreted_model_code": "UZS186",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4292,7 +4292,7 @@
         ],
         "interpreted_period": "04/7～09/3",
         "interpreted_model_code": "UZS187",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4365,7 +4365,7 @@
         ],
         "interpreted_period": "99/9～04/7",
         "interpreted_model_code": "JZS177 ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4429,7 +4429,7 @@
         ],
         "interpreted_period": "99/9～04/7",
         "interpreted_model_code": "UZS173",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4493,7 +4493,7 @@
         ],
         "interpreted_period": "05/3～07/5",
         "interpreted_model_code": "MHU28W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4557,7 +4557,7 @@
         ],
         "interpreted_period": "14/9～20/4",
         "interpreted_model_code": "NCP165V",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4630,7 +4630,7 @@
         ],
         "interpreted_period": "02/7～13/10",
         "interpreted_model_code": "NCP58G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4703,7 +4703,7 @@
         ],
         "interpreted_period": "02/7～13/10",
         "interpreted_model_code": "NCＰ59G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4767,7 +4767,7 @@
         ],
         "interpreted_period": "99/9～06/4",
         "interpreted_model_code": "ZZT230",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4840,7 +4840,7 @@
         ],
         "interpreted_period": "99/9～06/4",
         "interpreted_model_code": "ZZT231",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4922,7 +4922,7 @@
         ],
         "interpreted_period": "00/8～06/5",
         "interpreted_model_code": "UCF30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -4995,7 +4995,7 @@
         ],
         "interpreted_period": "00/8～06/5",
         "interpreted_model_code": "UCF31",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5059,7 +5059,7 @@
         ],
         "interpreted_period": "97/4～17/2",
         "interpreted_model_code": "GZG50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5123,7 +5123,7 @@
         ],
         "interpreted_period": "01/4～05/6",
         "interpreted_model_code": "UZZ40",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5187,7 +5187,7 @@
         ],
         "interpreted_period": "95/12～02/10",
         "interpreted_model_code": "RZN180W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5251,7 +5251,7 @@
         ],
         "interpreted_period": "10/2～16/4",
         "interpreted_model_code": "NGC30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5315,7 +5315,7 @@
         ],
         "interpreted_period": "10/2～16/4",
         "interpreted_model_code": "KGC30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5379,7 +5379,7 @@
         ],
         "interpreted_period": "10/2～16/4",
         "interpreted_model_code": "KGC35",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5443,7 +5443,7 @@
         ],
         "interpreted_period": "04/6～10/2",
         "interpreted_model_code": "KGC10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5516,7 +5516,7 @@
         ],
         "interpreted_period": "04/6～10/2",
         "interpreted_model_code": "QNC10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5580,7 +5580,7 @@
         ],
         "interpreted_period": "04/6～10/2",
         "interpreted_model_code": "KGC15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5644,7 +5644,7 @@
         ],
         "interpreted_period": "03/2～13/12",
         "interpreted_model_code": "GSU36W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5717,7 +5717,7 @@
         ],
         "interpreted_period": "98/7～03/10",
         "interpreted_model_code": "ZZV50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5781,7 +5781,7 @@
         ],
         "interpreted_period": "99/8～05/9",
         "interpreted_model_code": "NCP25",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5854,7 +5854,7 @@
         ],
         "interpreted_period": "99/8～05/11",
         "interpreted_model_code": "SCP11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -5927,7 +5927,7 @@
         ],
         "interpreted_period": "99/8～05/11",
         "interpreted_model_code": "NCP12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6000,7 +6000,7 @@
         ],
         "interpreted_period": "99/8～05/11",
         "interpreted_model_code": "NCP16",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6064,7 +6064,7 @@
         ],
         "interpreted_period": "17/2～23/1",
         "interpreted_model_code": "ZVW52",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6128,7 +6128,7 @@
         ],
         "interpreted_period": "12/1～17/2",
         "interpreted_model_code": "ZVW35",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6192,7 +6192,7 @@
         ],
         "interpreted_period": "06/12～12/4",
         "interpreted_model_code": "AZE156H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6256,7 +6256,7 @@
         ],
         "interpreted_period": "06/12～12/4",
         "interpreted_model_code": "GRE156H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6320,7 +6320,7 @@
         ],
         "interpreted_period": "06/12～12/4",
         "interpreted_model_code": "AZE154H",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6402,7 +6402,7 @@
         ],
         "interpreted_period": "01/6～07/5",
         "interpreted_model_code": "JCG10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6475,7 +6475,7 @@
         ],
         "interpreted_period": "01/6～07/5",
         "interpreted_model_code": "JCG11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6539,7 +6539,7 @@
         ],
         "interpreted_period": "01/6～07/5",
         "interpreted_model_code": "JCG15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6612,7 +6612,7 @@
         ],
         "interpreted_period": "07/6～21/3",
         "interpreted_model_code": "NZT260",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6685,7 +6685,7 @@
         ],
         "interpreted_period": "07/6～21/3",
         "interpreted_model_code": "ZRT260",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6749,7 +6749,7 @@
         ],
         "interpreted_period": "07/6～21/3",
         "interpreted_model_code": "ZRT265",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6813,7 +6813,7 @@
         ],
         "interpreted_period": "01/12～07/6",
         "interpreted_model_code": "ZZT240",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6877,7 +6877,7 @@
         ],
         "interpreted_period": "01/12～07/6",
         "interpreted_model_code": "ZZT245",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -6941,7 +6941,7 @@
         ],
         "interpreted_period": "98/5～07/5",
         "interpreted_model_code": "JCG15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7014,7 +7014,7 @@
         ],
         "interpreted_period": "00/4～03/11",
         "interpreted_model_code": "MCX20",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7078,7 +7078,7 @@
         ],
         "interpreted_period": "02/7～13/10",
         "interpreted_model_code": "NCP59G",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7151,7 +7151,7 @@
         ],
         "interpreted_period": "05/11～12/6",
         "interpreted_model_code": "KSP92",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7224,7 +7224,7 @@
         ],
         "interpreted_period": "05/11～12/6",
         "interpreted_model_code": "SCP92",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7297,7 +7297,7 @@
         ],
         "interpreted_period": "05/11～12/6",
         "interpreted_model_code": "NCP96",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7361,7 +7361,7 @@
         ],
         "interpreted_period": "12/7～20/12",
         "interpreted_model_code": "NSP140",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7425,7 +7425,7 @@
         ],
         "interpreted_period": "12/7～20/12",
         "interpreted_model_code": "NCP141",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7489,7 +7489,7 @@
         ],
         "interpreted_period": "12/7～20/12",
         "interpreted_model_code": "NCP145",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7553,7 +7553,7 @@
         ],
         "interpreted_period": "04/7～12/7",
         "interpreted_model_code": "NNP15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7626,7 +7626,7 @@
         ],
         "interpreted_period": "97/4～02/1",
         "interpreted_model_code": "MCV21W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7690,7 +7690,7 @@
         ],
         "interpreted_period": "07/9～13/12",
         "interpreted_model_code": "GGA10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7763,7 +7763,7 @@
         ],
         "interpreted_period": "07/9～13/12",
         "interpreted_model_code": "ANA10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7827,7 +7827,7 @@
         ],
         "interpreted_period": "07/9～13/12",
         "interpreted_model_code": "ANA15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7900,7 +7900,7 @@
         ],
         "interpreted_period": "03/5～11/10",
         "interpreted_model_code": "NCZ20",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -7964,7 +7964,7 @@
         ],
         "interpreted_period": "03/5～11/10",
         "interpreted_model_code": "NCZ25",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8028,7 +8028,7 @@
         ],
         "interpreted_period": "97/5～03/5",
         "interpreted_model_code": "EXZ10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8092,7 +8092,7 @@
         ],
         "interpreted_period": "97/5～03/5",
         "interpreted_model_code": "EXZ15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8156,7 +8156,7 @@
         ],
         "interpreted_period": "07/9～21/8",
         "interpreted_model_code": "URJ202W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8240,7 +8240,7 @@
         ],
         "interpreted_period": "13/12～15/02",
         "interpreted_model_code": "DR64W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8306,7 +8306,7 @@
         ],
         "interpreted_period": "98/8～05/10",
         "interpreted_model_code": "PW11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8372,7 +8372,7 @@
         ],
         "interpreted_period": "98/8～05/10",
         "interpreted_model_code": "PNW11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8447,7 +8447,7 @@
         ],
         "interpreted_period": "05/11～18/03",
         "interpreted_model_code": "JY12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8522,7 +8522,7 @@
         ],
         "interpreted_period": "99/05～05/11",
         "interpreted_model_code": "WRY11 ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8588,7 +8588,7 @@
         ],
         "interpreted_period": "99/05～05/11",
         "interpreted_model_code": "WPY11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8672,7 +8672,7 @@
         ],
         "interpreted_period": "99/05～05/11",
         "interpreted_model_code": "WHNY11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8747,7 +8747,7 @@
         ],
         "interpreted_period": "08/11～19/12",
         "interpreted_model_code": "NZ12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8831,7 +8831,7 @@
         ],
         "interpreted_period": "02/10～08/11",
         "interpreted_model_code": "BNZ11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8906,7 +8906,7 @@
         ],
         "interpreted_period": "98/2～02/10",
         "interpreted_model_code": "AZ10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -8972,7 +8972,7 @@
         ],
         "interpreted_period": "98/2～02/10",
         "interpreted_model_code": "ANZ10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9038,7 +9038,7 @@
         ],
         "interpreted_period": "03/9～08/11",
         "interpreted_model_code": "YGNZ11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9131,7 +9131,7 @@
         ],
         "interpreted_period": "99/6～04/10",
         "interpreted_model_code": "HY34",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9206,7 +9206,7 @@
         ],
         "interpreted_period": "99/6～04/10",
         "interpreted_model_code": "ENY34",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9281,7 +9281,7 @@
         ],
         "interpreted_period": "01/1～10/7",
         "interpreted_model_code": "GF50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9356,7 +9356,7 @@
         ],
         "interpreted_period": "01/1～10/7",
         "interpreted_model_code": "HF50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9422,7 +9422,7 @@
         ],
         "interpreted_period": "01/1～10/7",
         "interpreted_model_code": "GNF50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9497,7 +9497,7 @@
         ],
         "interpreted_period": "12/12～21/10",
         "interpreted_model_code": "TB17",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9563,7 +9563,7 @@
         ],
         "interpreted_period": "10/6～20/6",
         "interpreted_model_code": "YF15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9629,7 +9629,7 @@
         ],
         "interpreted_period": "10/6～20/6",
         "interpreted_model_code": "NF15",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9695,7 +9695,7 @@
         ],
         "interpreted_period": "01/6～\n06/11",
         "interpreted_model_code": "HV35",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9761,7 +9761,7 @@
         ],
         "interpreted_period": "01/6～\n06/11",
         "interpreted_model_code": "NV35",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9827,7 +9827,7 @@
         ],
         "interpreted_period": "09/7～16/06",
         "interpreted_model_code": "NJ50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9893,7 +9893,7 @@
         ],
         "interpreted_period": "04/9～12/08",
         "interpreted_model_code": "JC11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -9959,7 +9959,7 @@
         ],
         "interpreted_period": "04/9～12/08",
         "interpreted_model_code": "NC11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10025,7 +10025,7 @@
         ],
         "interpreted_period": "04/10～12/10",
         "interpreted_model_code": "SJC11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10091,7 +10091,7 @@
         ],
         "interpreted_period": "04/10～12/10",
         "interpreted_model_code": "SC11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10157,7 +10157,7 @@
         ],
         "interpreted_period": "04/10～12/10",
         "interpreted_model_code": "SNC11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10223,7 +10223,7 @@
         ],
         "interpreted_period": "08/6～14/2",
         "interpreted_model_code": "PJ32",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10289,7 +10289,7 @@
         ],
         "interpreted_period": "08/6～14/2",
         "interpreted_model_code": "TNJ32",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10355,7 +10355,7 @@
         ],
         "interpreted_period": "07/1～10/2",
         "interpreted_model_code": "HC24S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10430,7 +10430,7 @@
         ],
         "interpreted_period": "04/10～09/11",
         "interpreted_model_code": "PNY50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10505,7 +10505,7 @@
         ],
         "interpreted_period": "05/12～12/12",
         "interpreted_model_code": "KG11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10571,7 +10571,7 @@
         ],
         "interpreted_period": "05/12～12/12",
         "interpreted_model_code": "NG11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10637,7 +10637,7 @@
         ],
         "interpreted_period": "00/8～05/12",
         "interpreted_model_code": "FG10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10703,7 +10703,7 @@
         ],
         "interpreted_period": "00/8～05/12",
         "interpreted_model_code": "QNG10",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10778,7 +10778,7 @@
         ],
         "interpreted_period": "98/6～03/6",
         "interpreted_model_code": "TNU30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10844,7 +10844,7 @@
         ],
         "interpreted_period": "03/10～10/6",
         "interpreted_model_code": "PGF50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10910,7 +10910,7 @@
         ],
         "interpreted_period": "95/9～01/1",
         "interpreted_model_code": "HNP11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -10976,7 +10976,7 @@
         ],
         "interpreted_period": "95/9～01/1",
         "interpreted_model_code": "HNP11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11042,7 +11042,7 @@
         ],
         "interpreted_period": "10/7～22/10",
         "interpreted_model_code": "NK13",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11117,7 +11117,7 @@
         ],
         "interpreted_period": "02/2～10/7",
         "interpreted_model_code": "BK12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11192,7 +11192,7 @@
         ],
         "interpreted_period": "02/2～10/7",
         "interpreted_model_code": "BNK12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11267,7 +11267,7 @@
         ],
         "interpreted_period": "92/2～02/2",
         "interpreted_model_code": "AK11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11333,7 +11333,7 @@
         ],
         "interpreted_period": "92/2～02/2",
         "interpreted_model_code": "WAK11",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11399,7 +11399,7 @@
         ],
         "interpreted_period": "08/9～15/03",
         "interpreted_model_code": "PNZ51",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11465,7 +11465,7 @@
         ],
         "interpreted_period": "08/9～15/03",
         "interpreted_model_code": "TNZ51",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11531,7 +11531,7 @@
         ],
         "interpreted_period": "04/9～08/9",
         "interpreted_model_code": "PNZ50",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11615,7 +11615,7 @@
         ],
         "interpreted_period": "04/12～11/6",
         "interpreted_model_code": "NB30",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11690,7 +11690,7 @@
         ],
         "interpreted_period": "01/5～04/12",
         "interpreted_model_code": " RM12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11765,7 +11765,7 @@
         ],
         "interpreted_period": "01/5～04/12",
         "interpreted_model_code": "RNM12",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11830,7 +11830,7 @@
         ],
         "interpreted_period": "03/3～06/7",
         "interpreted_model_code": "YD1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11895,7 +11895,7 @@
         ],
         "interpreted_period": "12/7～17/8",
         "interpreted_model_code": "JF1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -11960,7 +11960,7 @@
         ],
         "interpreted_period": "12/7～17/8",
         "interpreted_model_code": "JF2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12025,7 +12025,7 @@
         ],
         "interpreted_period": "96/11～02/1",
         "interpreted_model_code": "RH2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12099,7 +12099,7 @@
         ],
         "interpreted_period": "99/9～03/7",
         "interpreted_model_code": "TA1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12164,7 +12164,7 @@
         ],
         "interpreted_period": "99/9～03/7",
         "interpreted_model_code": "TA3",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12229,7 +12229,7 @@
         ],
         "interpreted_period": "07/12～12/9",
         "interpreted_model_code": "CP3",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12294,7 +12294,7 @@
         ],
         "interpreted_period": "03/6～07/12",
         "interpreted_model_code": "UC1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12359,7 +12359,7 @@
         ],
         "interpreted_period": "01/7～06/9",
         "interpreted_model_code": "DC5",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12433,7 +12433,7 @@
         ],
         "interpreted_period": "95/8～01/7",
         "interpreted_model_code": "DC１",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12498,7 +12498,7 @@
         ],
         "interpreted_period": "95/8～01/7",
         "interpreted_model_code": "DC2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12572,7 +12572,7 @@
         ],
         "interpreted_period": "93/7～01/7",
         "interpreted_model_code": "DB6",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12637,7 +12637,7 @@
         ],
         "interpreted_period": "93/7～01/7",
         "interpreted_model_code": "DB8",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12702,7 +12702,7 @@
         ],
         "interpreted_period": "93/7～01/7",
         "interpreted_model_code": "DB9",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12776,7 +12776,7 @@
         ],
         "interpreted_period": "05/4～10/8",
         "interpreted_model_code": "GJ1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12841,7 +12841,7 @@
         ],
         "interpreted_period": "05/4～10/8",
         "interpreted_model_code": "GJ2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12906,7 +12906,7 @@
         ],
         "interpreted_period": "04/7～09/8",
         "interpreted_model_code": "BE8",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -12971,7 +12971,7 @@
         ],
         "interpreted_period": "03/4～05/12",
         "interpreted_model_code": "YH2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13045,7 +13045,7 @@
         ],
         "interpreted_period": "98/10～03/6",
         "interpreted_model_code": "UA4",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13110,7 +13110,7 @@
         ],
         "interpreted_period": "98/10～03/6",
         "interpreted_model_code": "UA5",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13184,7 +13184,7 @@
         ],
         "interpreted_period": "10/8～16/9",
         "interpreted_model_code": "GB3",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13249,7 +13249,7 @@
         ],
         "interpreted_period": "10/8～16/9",
         "interpreted_model_code": "GB4",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13314,7 +13314,7 @@
         ],
         "interpreted_period": "99/6～05/12",
         "interpreted_model_code": "RL1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13388,7 +13388,7 @@
         ],
         "interpreted_period": "08/9～12/12",
         "interpreted_model_code": "MJ23S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13462,7 +13462,7 @@
         ],
         "interpreted_period": "07/2～08/9",
         "interpreted_model_code": "MJ22S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13527,7 +13527,7 @@
         ],
         "interpreted_period": "06/12～12/1",
         "interpreted_model_code": "ER3P",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13610,7 +13610,7 @@
         ],
         "interpreted_period": "06/2～16/3",
         "interpreted_model_code": "LY3P",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13675,7 +13675,7 @@
         ],
         "interpreted_period": "13/11～19/5",
         "interpreted_model_code": "BM5FS",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13740,7 +13740,7 @@
         ],
         "interpreted_period": "13/11～19/5",
         "interpreted_model_code": "BM5AS",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13805,7 +13805,7 @@
         ],
         "interpreted_period": "13/11～19/5",
         "interpreted_model_code": "BM2FS",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13879,7 +13879,7 @@
         ],
         "interpreted_period": "09/6～13/11",
         "interpreted_model_code": "BL5FW",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -13944,7 +13944,7 @@
         ],
         "interpreted_period": "09/6～13/11",
         "interpreted_model_code": "BL3WF",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14018,7 +14018,7 @@
         ],
         "interpreted_period": "08/1～12/11",
         "interpreted_model_code": "GH5FS",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14092,7 +14092,7 @@
         ],
         "interpreted_period": "08/1～12/11",
         "interpreted_model_code": "GH5AS",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14157,7 +14157,7 @@
         ],
         "interpreted_period": "02/5～08/1",
         "interpreted_model_code": "GG3S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14231,7 +14231,7 @@
         ],
         "interpreted_period": "08/1～12/11",
         "interpreted_model_code": "GH5FW",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14305,7 +14305,7 @@
         ],
         "interpreted_period": "08/1～12/11",
         "interpreted_model_code": "GH5AW",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14397,7 +14397,7 @@
         ],
         "interpreted_period": "02/6～08/1",
         "interpreted_model_code": "GY3W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14471,7 +14471,7 @@
         ],
         "interpreted_period": "04/9～09/12",
         "interpreted_model_code": "HB24S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14563,7 +14563,7 @@
         ],
         "interpreted_period": "98/10～04/9",
         "interpreted_model_code": "HB23S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14628,7 +14628,7 @@
         ],
         "interpreted_period": "02/2～08/10",
         "interpreted_model_code": "HF21S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14693,7 +14693,7 @@
         ],
         "interpreted_period": "08/7～18/3",
         "interpreted_model_code": "CC3FW",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14758,7 +14758,7 @@
         ],
         "interpreted_period": "98/6～03/10",
         "interpreted_model_code": "BJ3P                          ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14841,7 +14841,7 @@
         ],
         "interpreted_period": "98/6～03/10",
         "interpreted_model_code": " ＢＪ5P",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14933,7 +14933,7 @@
         ],
         "interpreted_period": "98/6～04/4",
         "interpreted_model_code": "BJ5W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -14998,7 +14998,7 @@
         ],
         "interpreted_period": "05/2～10/7",
         "interpreted_model_code": "CR3W ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15099,7 +15099,7 @@
         ],
         "interpreted_period": "98/6～05/2",
         "interpreted_model_code": "CP8W                     ",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15164,7 +15164,7 @@
         ],
         "interpreted_period": "04/6～16/3",
         "interpreted_model_code": "DC5W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15229,7 +15229,7 @@
         ],
         "interpreted_period": "00/7～03/10",
         "interpreted_model_code": "TA5P",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15294,7 +15294,7 @@
         ],
         "interpreted_period": "05/1～10/3",
         "interpreted_model_code": "RJ1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15359,7 +15359,7 @@
         ],
         "interpreted_period": "05/1～10/3",
         "interpreted_model_code": "RJ2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15424,7 +15424,7 @@
         ],
         "interpreted_period": "16/10～23/4",
         "interpreted_model_code": "GK2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15498,7 +15498,7 @@
         ],
         "interpreted_period": "11/12～16/10",
         "interpreted_model_code": "GJ6",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15572,7 +15572,7 @@
         ],
         "interpreted_period": "11/12～16/10",
         "interpreted_model_code": "GJ7",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15637,7 +15637,7 @@
         ],
         "interpreted_period": "16/10～23/4",
         "interpreted_model_code": "GT2",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15711,7 +15711,7 @@
         ],
         "interpreted_period": "11/12～16/10",
         "interpreted_model_code": "GP6",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15785,7 +15785,7 @@
         ],
         "interpreted_period": "11/12～16/10",
         "interpreted_model_code": "GP7",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15850,7 +15850,7 @@
         ],
         "interpreted_period": "16/12～19/7",
         "interpreted_model_code": "LA600F",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15924,7 +15924,7 @@
         ],
         "interpreted_period": "16/12～19/7",
         "interpreted_model_code": "LA610F",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -15989,7 +15989,7 @@
         ],
         "interpreted_period": "99/10～09/9　　　　　　　　　　　　　　　",
         "interpreted_model_code": "TW1",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16054,7 +16054,7 @@
         ],
         "interpreted_period": "01/8～05/3",
         "interpreted_model_code": "XM182",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16128,7 +16128,7 @@
         ],
         "interpreted_period": "01/8～05/3",
         "interpreted_model_code": "XM220",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16193,7 +16193,7 @@
         ],
         "interpreted_period": "10/11～16/3",
         "interpreted_model_code": "NSP120X",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16258,7 +16258,7 @@
         ],
         "interpreted_period": "10/11～16/3",
         "interpreted_model_code": "NSP125X",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16322,7 +16322,7 @@
         ],
         "interpreted_period": "11/12～14/12",
         "interpreted_model_code": "HA35S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16395,7 +16395,7 @@
         ],
         "interpreted_period": "05/8～15/2",
         "interpreted_model_code": "DA64W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16459,7 +16459,7 @@
         ],
         "interpreted_period": "00/12～05/5",
         "interpreted_model_code": "TX92W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16523,7 +16523,7 @@
         ],
         "interpreted_period": "17/12～23/11",
         "interpreted_model_code": "MK53S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16587,7 +16587,7 @@
         ],
         "interpreted_period": "11/2～15/8",
         "interpreted_model_code": "MA15S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16660,7 +16660,7 @@
         ],
         "interpreted_period": "04/4～11/1",
         "interpreted_model_code": "MA34S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16742,7 +16742,7 @@
         ],
         "interpreted_period": "08/9～12/9",
         "interpreted_model_code": "MH23S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16815,7 +16815,7 @@
         ],
         "interpreted_period": "07/2～08/9",
         "interpreted_model_code": "MH22S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16888,7 +16888,7 @@
         ],
         "interpreted_period": "03/9～07/2",
         "interpreted_model_code": "MH21S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -16952,7 +16952,7 @@
         ],
         "interpreted_period": "06/1～10/2",
         "interpreted_model_code": "ACV40N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17016,7 +17016,7 @@
         ],
         "interpreted_period": "01/9～06/1",
         "interpreted_model_code": "ACV30N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17080,7 +17080,7 @@
         ],
         "interpreted_period": "00/3～01/9",
         "interpreted_model_code": "SXV20N",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17144,7 +17144,7 @@
         ],
         "interpreted_period": "16/9～22/7",
         "interpreted_model_code": "LA800S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17208,7 +17208,7 @@
         ],
         "interpreted_period": "16/9～22/7",
         "interpreted_model_code": "LA810S",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17282,7 +17282,7 @@
         ],
         "interpreted_period": "00/1～06/3",
         "interpreted_model_code": "CR6W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17347,7 +17347,7 @@
         ],
         "interpreted_period": "95/10～00/6",
         "interpreted_model_code": "CJ4A",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17412,7 +17412,7 @@
         ],
         "interpreted_period": "95/10～00/6",
         "interpreted_model_code": "CM5A",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17477,7 +17477,7 @@
         ],
         "interpreted_period": "95/10～03/2",
         "interpreted_model_code": "CK1A",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17542,7 +17542,7 @@
         ],
         "interpreted_period": "95/10～03/2",
         "interpreted_model_code": "CK4A",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17634,7 +17634,7 @@
         ],
         "interpreted_period": "00/11～03/2",
         "interpreted_model_code": "CS5W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     },
@@ -17708,7 +17708,7 @@
         ],
         "interpreted_period": "00/11～03/2",
         "interpreted_model_code": "CS5W",
-        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "source_kind": "user_designated_official_matching_document",
         "checked_at": "2026-09-06"
       }
     }
