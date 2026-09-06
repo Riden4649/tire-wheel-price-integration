@@ -16,7 +16,7 @@
       "A"
     ]
   },
-  "record_count": 1090,
+  "record_count": 1092,
   "vehicles": [
     {
       "vehicle_id": "LEX_LC_Z100",
@@ -67536,6 +67536,82 @@
           "source_type": "parts_manufacturer_official",
           "source_name": "KSP REAL 国産車適合表 スプリンタートレノ AE111",
           "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_NIS_PAO_PK10",
+      "maker": "日産",
+      "model": "パオ",
+      "generation": "PK10",
+      "model_codes": [
+        "PK10"
+      ],
+      "year_from": "1989-01",
+      "year_to": "1991-02",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 59,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "12",
+      "oem_tire": "155SR12",
+      "confidence": "A",
+      "notes": "車名・型式・純正タイヤは日産公式ヘリテージコレクション、取付基本規格はKSP公式適合表のPK10行で照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "NISSAN HERITAGE COLLECTION PAO PK10",
+          "source_url": "https://www.nissan.co.jp/HERITAGE/DETAIL/128.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP 080319適合表 パオ PK10",
+          "source_url": "https://www.ksp-eng.co.jp/web/080319.pdf",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_NIS_BLUEBIRD_HU14",
+      "maker": "日産",
+      "model": "ブルーバード",
+      "generation": "HU14",
+      "model_codes": [
+        "HU14"
+      ],
+      "year_from": "1996-01",
+      "year_to": "2001-08",
+      "pcd": 114.3,
+      "holes": 4,
+      "hub_bore": 66,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "15",
+      "oem_tire": "195/60R15",
+      "confidence": "A",
+      "notes": "車名・型式・純正タイヤは日産公式ヘリテージコレクション、取付基本規格はKSP公式適合表のU14行で照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "NISSAN HERITAGE COLLECTION ブルーバード HU14",
+          "source_url": "https://www.nissan.co.jp/HERITAGE/DETAIL/283.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP 080319適合表 ブルーバード U14",
+          "source_url": "https://www.ksp-eng.co.jp/web/080319.pdf",
           "verified_at": "2026-09-06"
         }
       ]
