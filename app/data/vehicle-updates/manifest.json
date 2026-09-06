@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "dataset_version": "2026-09-06-researched",
-  "generated_at": "2026-09-06T12:00:00+09:00",
+  "dataset_version": "2026-09-06-fitment-cumulative",
+  "generated_at": "2026-09-06T10:51:16.453Z",
   "patches": [
     {
-      "id": "2026-09-06-researched",
-      "url": "data/vehicle-updates/researched-2026-09-06.json",
-      "count": 55,
+      "id": "2026-09-06-fitment-cumulative",
+      "url": "data/vehicle-updates/fitment-cumulative-2026-09-06.json",
+      "count": 879,
       "review_status": "reviewed_additions"
     }
   ]

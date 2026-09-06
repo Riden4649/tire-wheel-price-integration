@@ -1,0 +1,195 @@
+{
+  "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+  "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+  "rows": [
+    {
+      "id": "WK_1B69061D5A1F",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 13,
+      "raw": {
+        "maker": "日産",
+        "model": "シルビア",
+        "generation_period": "S15\n1999/01～",
+        "code": "S15",
+        "remarks": "ターボ",
+        "tire": "205/55-16",
+        "wheel": "16ｘ6.5 45",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "66",
+        "page": 13,
+        "row": 29
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_E71DACC4453B",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 13,
+      "raw": {
+        "maker": "日産",
+        "model": "シルビア",
+        "generation_period": "S15\n1999/01～",
+        "code": "S15",
+        "remarks": "NA",
+        "tire": "195/65-15",
+        "wheel": "15ｘ6.0 40",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "66",
+        "page": 13,
+        "row": 32
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_2C3D867D3052",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "S 2000",
+        "generation_period": "AP\n1994/04～",
+        "code": "全車",
+        "remarks": "",
+        "tire": "(F) 215/45-17",
+        "wheel": "17ｘ7.0 55",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "F:70\nR:64",
+        "page": 16,
+        "row": 4
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_3D4937A819DF",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "S 2000",
+        "generation_period": "AP\n1994/04～",
+        "code": "全車",
+        "remarks": "",
+        "tire": "(R) 245/40-17",
+        "wheel": "17ｘ8.5 65",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "F:70\nR:64",
+        "page": 16,
+        "row": 5
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_BF2DA8ACD99B",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "S 2000",
+        "generation_period": "AP\n1994/04～",
+        "code": "全車",
+        "remarks": "",
+        "tire": "(F) 205/55-16",
+        "wheel": "16ｘ6.5 55",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "F:70\nR:64",
+        "page": 16,
+        "row": 6
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_914FB6F13854",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "S 2000",
+        "generation_period": "AP\n1994/04～",
+        "code": "全車",
+        "remarks": "",
+        "tire": "(R) 225/50-16",
+        "wheel": "16ｘ7.5 65",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "F:70\nR:64",
+        "page": 16,
+        "row": 7
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_42A496826EC8",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "シビック",
+        "generation_period": "FK/FC\n2017/09～",
+        "code": "FK7",
+        "remarks": "ハッチバック",
+        "tire": "235/40-18",
+        "wheel": "18ｘ8.0 50",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "64",
+        "page": 16,
+        "row": 75
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_D48AEDC87F9A",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "シビック",
+        "generation_period": "FK/FC\n2017/09～",
+        "code": "FC1",
+        "remarks": "セダン",
+        "tire": "215/50-17",
+        "wheel": "17ｘ7.0 45",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "64",
+        "page": 16,
+        "row": 76
+      },
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "WK_F0E1E81FF575",
+      "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+      "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+      "page": 16,
+      "raw": {
+        "maker": "ホンダ",
+        "model": "シビック",
+        "generation_period": "FK/FC\n2017/09～",
+        "code": "FC1",
+        "remarks": "セダン",
+        "tire": "215/55-16",
+        "wheel": "16ｘ7.0 45",
+        "holes": "5",
+        "pcd": "114.3",
+        "hub": "64",
+        "page": 16,
+        "row": 77
+      },
+      "checked_at": "2026-09-06"
+    }
+  ]
+}

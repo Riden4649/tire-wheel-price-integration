@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "LEG_TOY_ALTEZZA_GITA_10",
+      "maker": "トヨタ",
+      "model": "アルテッツァジータ",
+      "generation": "GXE10W/JCE10W",
+      "model_codes": [
+        "GXE10W",
+        "JCE10W"
+      ],
+      "year_from": "1998-10",
+      "year_to": "2005-07",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "15",
+      "oem_tire": "195/65R15",
+      "confidence": "B",
+      "notes": "タイヤ・基本規格はユーザー指定の公式TOPY資料、年式・基本規格はKSP公式適合表で照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "TOPY 2025-2026 TOYOTA 行51-57",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/topy-source-excerpts-official-2026-09-06.json",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "LEG_NIS_180SX_RPS13",
+      "maker": "日産",
+      "model": "180SX",
+      "generation": "RPS13",
+      "model_codes": [
+        "RPS13",
+        "RS13"
+      ],
+      "year_from": "1989-03",
+      "year_to": "1998-12",
+      "pcd": 114.3,
+      "holes": 4,
+      "hub_bore": 66,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "15",
+      "oem_tire": "195/60R15",
+      "confidence": "A",
+      "notes": "純正タイヤは日産ヘリテージ、取付基本規格はKSP公式適合表で型式一致確認。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "NISSAN HERITAGE 180SX TYPE II",
+          "source_url": "https://www2.nissan.co.jp/HERITAGE/DETAIL/323.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "LEG_HON_NSX_NC1",
+      "maker": "ホンダ",
+      "model": "NSX",
+      "generation": "NC1",
+      "model_codes": [
+        "NC1"
+      ],
+      "year_from": "2017-02",
+      "year_to": "2022-11",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 70,
+      "fastener": "M14×P1.5 ボルト",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "19/20",
+      "oem_tire": "245/35R19;305/30R20",
+      "front_rear_staggered": true,
+      "confidence": "B",
+      "notes": "純正サイズ・PCD・穴数はユーザー指定の公式Weds資料、型式・ハブ径・ねじ規格はKSP公式適合表で確認。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "Weds 2025 MATCHING BOOK NSX NC",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL NSX NC1",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "LEG_HON_CLARITY_PHEV_ZC5",
+      "maker": "ホンダ",
+      "model": "クラリティ PHEV",
+      "generation": "ZC5",
+      "model_codes": [
+        "ZC5"
+      ],
+      "year_from": "2018-07",
+      "year_to": "2021-09",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "18",
+      "oem_tire": "235/45R18",
+      "confidence": "C",
+      "notes": "純正サイズ・基本規格はユーザー指定の公式Weds資料。ねじ規格はKYO-EI適合品掲載値と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "Weds 2025 MATCHING BOOK クラリティ ZC",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_fitment_listing",
+          "source_name": "KYO-EI ZC5適合掲載",
+          "source_url": "https://item.rakuten.co.jp/dreamers-shop/kyoei-00706-00272/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "LEG_HON_CLARITY_FC_ZC4",
+      "maker": "ホンダ",
+      "model": "クラリティ FUEL CELL",
+      "generation": "ZC4",
+      "model_codes": [
+        "ZC4"
+      ],
+      "year_from": "2016-03",
+      "year_to": "2021-09",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "18",
+      "oem_tire": "235/45R18",
+      "confidence": "C",
+      "notes": "ユーザー指定の公式Weds資料のクラリティZC欄。PHEVとFUEL CELLの個別型式は装着前に現車確認。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "Weds 2025 MATCHING BOOK クラリティ ZC",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_fitment_listing",
+          "source_name": "KYO-EI クラリティ適合掲載",
+          "source_url": "https://item.rakuten.co.jp/dreamers-shop/kyoei-00706-00272/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    }
+  ]
+}

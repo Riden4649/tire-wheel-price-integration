@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "WEB_EK_CUSTOM_B11W",
+      "maker": "三菱",
+      "model": "eKカスタム",
+      "generation": "B11W",
+      "model_codes": [
+        "B11W"
+      ],
+      "year_from": "2013-06",
+      "year_to": "2019-02",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "14",
+      "oem_tire": "155/65R14",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式扱い資料にある同一車名・同一型式の行を照合。",
+      "sources": [
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds eKカスタム B11W 適合ページ",
+          "source_url": "https://search.weds.co.jp/maker/mitsubishi/ekkasutamu-b11w/leonis-sk/?size=16inch",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "三菱 eKカスタム B11W 適応車種一覧",
+          "source_url": "https://www.mitsubishi-motors.co.jp/purchase/accessory/assist/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_EK_SPACE_CUSTOM_B11A",
+      "maker": "三菱",
+      "model": "eKスペースカスタム",
+      "generation": "B11A",
+      "model_codes": [
+        "B11A"
+      ],
+      "year_from": "2014-02",
+      "year_to": "2020-01",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "14",
+      "oem_tire": "155/65R14",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式扱い資料にある同一車名・同一型式の行を照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【TOPY】2025年☆国産車用マッチングデータ.xlsx MITSUBISHI－ 行40",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/supplied-official-remaining-2026-09-06.json",
+          "verified_at": "2026-09-06",
+          "document_sha256": "7b65696b4727573f4d3bc3067fe1d2df6568ab1aaede0773eb1b28255aac1cc3",
+          "document_sheet": "MITSUBISHI－",
+          "document_row": 40
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "三菱 eKスペースカスタム B11A 主要諸元",
+          "source_url": "https://www.mitsubishi-motors.co.jp/lineup/ek_space_custom/spec/pdf/ek_space_custom_spec.pdf",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_HON_PRELUDE_BF1",
+      "maker": "ホンダ",
+      "model": "プレリュード",
+      "generation": "BF1",
+      "model_codes": [
+        "BF1"
+      ],
+      "year_from": "2025-09",
+      "year_to": "2026-12",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 64,
+      "fastener": "M14×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "19",
+      "oem_tire": "235/40R19",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式扱い資料にある同一車名・同一型式の行を照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "Honda PRELUDE タイヤ・ホイール仕様",
+          "source_url": "https://www.honda.co.jp/customer/auto/prelude/faq/qa015/",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds プレリュード BF1 適合ページ",
+          "source_url": "https://search.weds.co.jp/brand/leonis/vr/honda/pureryuudo-bf1-d/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    }
+  ]
+}

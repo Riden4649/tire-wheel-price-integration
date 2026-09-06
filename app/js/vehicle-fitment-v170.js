@@ -147,7 +147,7 @@
       if (!vehicle.maker || !vehicle.model || !vehicle.generation) errors.push(`${at}: メーカー・車種・世代は必須です`);
       if (!years(vehicle).length) errors.push(`${at}: 年式範囲が不正です`);
       if (!vehicle.oem_tires.length && !vehicle.variants.some(item => item.oem_tires.length || item.front_tires.length)) errors.push(`${at}: 純正タイヤサイズがありません`);
-      tireSizes(vehicle).forEach(size => { if (!/^\d{3}\/\d{2}R\d{2}(?:\.5)?$/i.test(size)) errors.push(`${at}: タイヤサイズ ${size} を確認してください`); });
+      tireSizes(vehicle).forEach(size => { if (!/^(?:\d{3}\/\d{2}R\d{2}(?:\.5)?|\d{3}R\d{2}(?:-\d+(?:PR?)?)?)$/i.test(size)) errors.push(`${at}: タイヤサイズ ${size} を確認してください`); });
     });
     return { valid: errors.length === 0 && vehicles.length > 0, vehicles, errors };
   }

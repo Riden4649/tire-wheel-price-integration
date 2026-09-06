@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "DOC_12849C1B20A7",
+      "maker": "ホンダ",
+      "model": "N-VAN e:",
+      "generation": "JJ3",
+      "model_codes": [
+        "JJ3"
+      ],
+      "year_from": "2024-10",
+      "year_to": "2025-12",
+      "pcd": 100.0,
+      "holes": 4,
+      "hub_bore": 56.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "13",
+      "oem_tire": "145/80R13",
+      "confidence": "C",
+      "notes": "ユーザー提供TOPY 2025–2026資料の純正データ欄を転記。Web同型式の二重照合は未実施。終了月なしの年式は資料収録期限2025-12までを検索範囲として登録。原文注意: ＊電気自動車 　★シビラV88設定あり / ★1340　39。記載サイズは当該型式の一例で、全グレードの交換互換性を保証しません。装着前に現車・荷重・キャリパーを確認。",
+      "sources": [
+        {
+          "source_type": "user_provided_matching_document",
+          "source_name": "【TOPY】2025年☆国産車用マッチングデータ.xlsx HONDA－ 行95",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/topy-source-excerpts-official-2026-09-06.json#DOC_12849C1B20A7",
+          "verified_at": "2026-09-06",
+          "document_sha256": "7b65696b4727573f4d3bc3067fe1d2df6568ab1aaede0773eb1b28255aac1cc3",
+          "document_sheet": "HONDA－",
+          "document_row": 95
+        }
+      ],
+      "source_document": {
+        "id": "DOC_12849C1B20A7",
+        "source_file": "【TOPY】2025年☆国産車用マッチングデータ.xlsx",
+        "sha256": "7b65696b4727573f4d3bc3067fe1d2df6568ab1aaede0773eb1b28255aac1cc3",
+        "sheet": "HONDA－",
+        "row": 95,
+        "raw_columns": [
+          "Ｎ－ＶＡＮ ｅ：",
+          "2024/10発売予定",
+          "ＪＪ３",
+          "ＦＦ",
+          "145/80R13",
+          "1340 39",
+          "4-100",
+          56,
+          "12ｘ1.5-19",
+          "M52",
+          "★1340　39",
+          "×",
+          "×",
+          "＊電気自動車 　★シビラV88設定あり",
+          null,
+          "？",
+          null
+        ],
+        "interpreted_period": "2024/10発売予定",
+        "interpreted_model_code": "ＪＪ３",
+        "source_kind": "user_supplied_manufacturer_matching_workbook",
+        "checked_at": "2026-09-06"
+      }
+    }
+  ]
+}

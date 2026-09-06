@@ -1,0 +1,195 @@
+{
+  "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+  "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+  "rows": [
+    {
+      "id": "BS_03813E48C5A4",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 5,
+      "raw_columns": [
+        "ＥＳ",
+        "18/10～",
+        "AXZH10",
+        "FF",
+        "215/55R17",
+        "1775 40",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_ED3F37EAA8C5",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 7,
+      "raw_columns": [
+        "GS３００ｈ",
+        "13/10～",
+        "AWL10",
+        "FR",
+        "225/50R17",
+        "1775 45",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_9F0336057BED",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 9,
+      "raw_columns": [
+        "ＩＳ２５０",
+        "13/5～",
+        "GSE30",
+        "FR",
+        "F:225/40R18",
+        "1880  45",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        "F SPORT（フロント）",
+        18
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_81B8CEF91553",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 11,
+      "raw_columns": [
+        "ＩＳ３００ｈ",
+        "13/5～20/10",
+        "AVE30",
+        "FR",
+        "205/55R16",
+        "1670 45",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        null,
+        16
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_E68F95497423",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 19,
+      "raw_columns": [
+        "ＲＣ３００ｈ",
+        "14/10～",
+        "AVC10",
+        "FR",
+        "225/50R17",
+        "1775 45",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_1D8D36E58B6D",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 21,
+      "raw_columns": [
+        "ＲＣ３５０",
+        "14/10～",
+        "GSC10",
+        "FR",
+        "225/50R17",
+        "1775 45",
+        "5-114.3",
+        60,
+        "M12ｘ1.5-21",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_5574EA9C25C8",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 307,
+      "raw_columns": [
+        "インプレッサ",
+        "23/4～",
+        "GU6",
+        "FF",
+        "205/50R17",
+        "1770 55",
+        "5-114.3",
+        56,
+        "M12ｘ1.25-19",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_BDC1EB31253E",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 322,
+      "raw_columns": [
+        "レガシー\nアウトバック",
+        "23/9～",
+        "BT5",
+        "4WD",
+        "225/60R18",
+        "1870 55",
+        "5-114.3",
+        56,
+        "M12ｘ1.25-19",
+        null,
+        18
+      ],
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "BS_07DD5515A927",
+      "source_file": "wheel_parts_catalog_Winter_2025-sankourei .xlsx",
+      "sha256": "2050b635700a429324f0790770a99244cb389003d89f3a94bebdf75c0afd9285",
+      "sheet": "装着参考例",
+      "row": 325,
+      "raw_columns": [
+        "レガシーＢ４",
+        "14/10～",
+        "BN9",
+        "4WD",
+        "225/55R17",
+        "1775 55",
+        "5-114.3",
+        56,
+        "M12ｘ1.25-19",
+        null,
+        17
+      ],
+      "checked_at": "2026-09-06"
+    }
+  ]
+}

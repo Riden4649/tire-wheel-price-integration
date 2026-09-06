@@ -1,0 +1,557 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "WK_1B69061D5A1F",
+      "maker": "日産",
+      "model": "シルビア",
+      "generation": "S15",
+      "model_codes": [
+        "S15"
+      ],
+      "year_from": "1999-01",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 66.0,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "16",
+      "oem_tire": "205/55R16",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.13",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_1B69061D5A1F",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 13
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_1B69061D5A1F",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 13,
+        "raw": {
+          "maker": "日産",
+          "model": "シルビア",
+          "generation_period": "S15\n1999/01～",
+          "code": "S15",
+          "remarks": "ターボ",
+          "tire": "205/55-16",
+          "wheel": "16ｘ6.5 45",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "66",
+          "page": 13,
+          "row": 29
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_E71DACC4453B",
+      "maker": "日産",
+      "model": "シルビア",
+      "generation": "S15",
+      "model_codes": [
+        "S15"
+      ],
+      "year_from": "1999-01",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 66.0,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "15",
+      "oem_tire": "195/65R15",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.13",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_E71DACC4453B",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 13
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_E71DACC4453B",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 13,
+        "raw": {
+          "maker": "日産",
+          "model": "シルビア",
+          "generation_period": "S15\n1999/01～",
+          "code": "S15",
+          "remarks": "NA",
+          "tire": "195/65-15",
+          "wheel": "15ｘ6.0 40",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "66",
+          "page": 13,
+          "row": 32
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_2C3D867D3052",
+      "maker": "ホンダ",
+      "model": "S2000",
+      "generation": "AP",
+      "model_codes": [
+        "AP"
+      ],
+      "year_from": "1994-04",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 70.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "17",
+      "oem_tire": "215/45R17",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_2C3D867D3052",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_2C3D867D3052",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "S 2000",
+          "generation_period": "AP\n1994/04～",
+          "code": "全車",
+          "remarks": "",
+          "tire": "(F) 215/45-17",
+          "wheel": "17ｘ7.0 55",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "F:70\nR:64",
+          "page": 16,
+          "row": 4
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_3D4937A819DF",
+      "maker": "ホンダ",
+      "model": "S2000",
+      "generation": "AP",
+      "model_codes": [
+        "AP"
+      ],
+      "year_from": "1994-04",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 70.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "17",
+      "oem_tire": "245/40R17",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_3D4937A819DF",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_3D4937A819DF",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "S 2000",
+          "generation_period": "AP\n1994/04～",
+          "code": "全車",
+          "remarks": "",
+          "tire": "(R) 245/40-17",
+          "wheel": "17ｘ8.5 65",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "F:70\nR:64",
+          "page": 16,
+          "row": 5
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_BF2DA8ACD99B",
+      "maker": "ホンダ",
+      "model": "S2000",
+      "generation": "AP",
+      "model_codes": [
+        "AP"
+      ],
+      "year_from": "1994-04",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 70.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "16",
+      "oem_tire": "205/55R16",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_BF2DA8ACD99B",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_BF2DA8ACD99B",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "S 2000",
+          "generation_period": "AP\n1994/04～",
+          "code": "全車",
+          "remarks": "",
+          "tire": "(F) 205/55-16",
+          "wheel": "16ｘ6.5 55",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "F:70\nR:64",
+          "page": 16,
+          "row": 6
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_914FB6F13854",
+      "maker": "ホンダ",
+      "model": "S2000",
+      "generation": "AP",
+      "model_codes": [
+        "AP"
+      ],
+      "year_from": "1994-04",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 70.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "16",
+      "oem_tire": "225/50R16",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_914FB6F13854",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_914FB6F13854",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "S 2000",
+          "generation_period": "AP\n1994/04～",
+          "code": "全車",
+          "remarks": "",
+          "tire": "(R) 225/50-16",
+          "wheel": "16ｘ7.5 65",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "F:70\nR:64",
+          "page": 16,
+          "row": 7
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_42A496826EC8",
+      "maker": "ホンダ",
+      "model": "シビックセダン",
+      "generation": "FK/FC",
+      "model_codes": [
+        "FK",
+        "FC"
+      ],
+      "year_from": "2017-09",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "18",
+      "oem_tire": "235/40R18",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_42A496826EC8",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_42A496826EC8",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "シビック",
+          "generation_period": "FK/FC\n2017/09～",
+          "code": "FK7",
+          "remarks": "ハッチバック",
+          "tire": "235/40-18",
+          "wheel": "18ｘ8.0 50",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "64",
+          "page": 16,
+          "row": 75
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_D48AEDC87F9A",
+      "maker": "ホンダ",
+      "model": "シビックセダン",
+      "generation": "FK/FC",
+      "model_codes": [
+        "FK",
+        "FC"
+      ],
+      "year_from": "2017-09",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "17",
+      "oem_tire": "215/50R17",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_D48AEDC87F9A",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_D48AEDC87F9A",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "シビック",
+          "generation_period": "FK/FC\n2017/09～",
+          "code": "FC1",
+          "remarks": "セダン",
+          "tire": "215/50-17",
+          "wheel": "17ｘ7.0 45",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "64",
+          "page": 16,
+          "row": 76
+        },
+        "checked_at": "2026-09-06"
+      }
+    },
+    {
+      "vehicle_id": "WK_F0E1E81FF575",
+      "maker": "ホンダ",
+      "model": "シビックセダン",
+      "generation": "FK/FC",
+      "model_codes": [
+        "FK",
+        "FC"
+      ],
+      "year_from": "2017-09",
+      "year_to": "2025-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 64.0,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "16",
+      "oem_tire": "215/55R16",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式Weds適合表の年式・型式・純正サイズ・基本規格を、同型式のKSP公式適合表のハブ径・ねじ規格と照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf p.16",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/weds-source-excerpts-2026-09-06.json#WK_F0E1E81FF575",
+          "verified_at": "2026-09-06",
+          "document_sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+          "document_page": 16
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ],
+      "source_document": {
+        "id": "WK_F0E1E81FF575",
+        "source_file": "【ウェッズ】2025_MATCHING_BOOK_0826.pdf",
+        "sha256": "8ed1199dc99679c4621452a22f069ae275d41e4a0d75540deb21ab0e0197de69",
+        "page": 16,
+        "raw": {
+          "maker": "ホンダ",
+          "model": "シビック",
+          "generation_period": "FK/FC\n2017/09～",
+          "code": "FC1",
+          "remarks": "セダン",
+          "tire": "215/55-16",
+          "wheel": "16ｘ7.0 45",
+          "holes": "5",
+          "pcd": "114.3",
+          "hub": "64",
+          "page": 16,
+          "row": 77
+        },
+        "checked_at": "2026-09-06"
+      }
+    }
+  ]
+}

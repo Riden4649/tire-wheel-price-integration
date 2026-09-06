@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "WEB_TOY_BZ4X_TOURING_2026",
+      "maker": "トヨタ",
+      "model": "bZ4Xツーリング",
+      "generation": "2026年モデル",
+      "model_codes": [
+        "XEAM11"
+      ],
+      "year_from": "2026-02",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "18/20",
+      "oem_tire": "235/60R18;235/50R20",
+      "confidence": "B",
+      "notes": "タイヤ・PCD・穴数・ハブ径・ナット締結はトヨタ公式。ねじ径・ピッチは同一世代bZ4Xの登録済みトヨタ公式データと照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA bZ4Xツーリング 工場装着タイヤ・ホイール",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_bz4xtouring_202602.pdf",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA bZ4X 2025年10月以降",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_bz4x_202510.pdf",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_HON_NONE_E_JG5",
+      "maker": "ホンダ",
+      "model": "N-ONE e:",
+      "generation": "JG5",
+      "model_codes": [
+        "JG5"
+      ],
+      "year_from": "2025-09",
+      "year_to": "2026-12",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5 球面座",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5,
+        "seat": "spherical"
+      },
+      "oem_inch": "14",
+      "oem_tire": "155/65R14",
+      "confidence": "A",
+      "notes": "Honda公式Q&Aで車両規格とホイールナット規格を確認。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "Honda N-ONE e: タイヤ・ホイール仕様",
+          "source_url": "https://www.honda.co.jp/customer/auto/n-one-e/faq/qa014/",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "Honda N-ONE e: ホイールナット仕様",
+          "source_url": "https://www.honda.co.jp/customer/auto/n-one-e/faq/qa023/?from=faq_list",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_HON_SUPERONE_JG6",
+      "maker": "ホンダ",
+      "model": "Super-ONE",
+      "generation": "JG6",
+      "model_codes": [
+        "JG6"
+      ],
+      "year_from": "2026-05",
+      "year_to": "2026-12",
+      "pcd": 100,
+      "holes": 4,
+      "hub_bore": 56,
+      "fastener": "M12×P1.5 球面座",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5,
+        "seat": "spherical"
+      },
+      "oem_inch": "15",
+      "oem_tire": "185/55R15",
+      "confidence": "C",
+      "notes": "タイヤ・リム・ナット規格はHonda公式。PCD・穴数・ハブ径は車種別データベースとの照合値。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "Honda Super-ONE 取扱説明書 仕様",
+          "source_url": "https://www.honda.co.jp/ownersmanual/webom/jpn/super-one/2026/details/66d97e2c1c58d7-28037271.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "Honda Super-ONE ホイールナット仕様",
+          "source_url": "https://www.honda.co.jp/customer/auto/super-one/faq/qa061/",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_database",
+          "source_name": "Cars Japan Super-ONE JG6",
+          "source_url": "https://cars-japan.net/wheel/mdl0030114.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_SUZ_EVITARA_2026",
+      "maker": "スズキ",
+      "model": "eビターラ",
+      "generation": "PA2AS/PB3AS",
+      "model_codes": [
+        "PA2AS",
+        "PB3AS"
+      ],
+      "year_from": "2026-01",
+      "year_to": "2026-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "18",
+      "oem_tire": "225/55R18",
+      "confidence": "A",
+      "notes": "車両型式・タイヤはスズキ公式、取付基本規格はWeds公式適合ページで確認。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "SUZUKI eビターラ車両情報",
+          "source_url": "https://www.suzuki.co.jp/suzuki_digital_library/1_auto/evitara.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "wheel_manufacturer_official",
+          "source_name": "Weds eビターラ PA2AS・PB3AS",
+          "source_url": "https://search.weds.co.jp/brand/joker/spirits/suzuki/ebitaara-pa2as-pb3as/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    }
+  ]
+}
