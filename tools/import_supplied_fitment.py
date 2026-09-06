@@ -98,7 +98,7 @@ def main():
                        +('終了月なしの年式は資料収録期限2025-12までを検索範囲として登録。' if not re.search(r'[~〜～]\s*\d{2,4}/\d{1,2}\s*$',row['period']) else '')
                        +('原文注意: '+restriction+'。' if restriction else '')
                        +'記載サイズは当該型式の一例で、全グレードの交換互換性を保証しません。装着前に現車・荷重・キャリパーを確認。'),
-                sources=[dict(source_type='user_provided_matching_document',source_name=path.name+' '+row['sheet']+f" 行{row['row']}",
+                sources=[dict(source_type='user_designated_official_matching_document',source_name=path.name+' '+row['sheet']+f" 行{row['row']}",
                     source_url='https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/'+excerpt_name+'#'+vid,
                     verified_at='2026-09-06',document_sha256=sha,document_sheet=row['sheet'],document_row=row['row'])],
                 source_document=entry))

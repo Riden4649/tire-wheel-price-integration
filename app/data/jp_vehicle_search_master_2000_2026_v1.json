@@ -25,7 +25,7 @@
     "SUBARU": "https://www.subaru.jp/carlineup/",
     "三菱": "https://www.mitsubishi-motors.com/jp/company/history/car/"
   },
-  "record_count": 545,
+  "record_count": 535,
   "maker_counts": {
     "トヨタ": 165,
     "レクサス": 22,
@@ -692,18 +692,6 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "トヨタ:オリジン",
-      "maker": "トヨタ",
-      "model": "オリジン",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "トヨタ:ガイア",
       "maker": "トヨタ",
       "model": "ガイア",
@@ -1162,45 +1150,9 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "トヨタ:スプリンター",
-      "maker": "トヨタ",
-      "model": "スプリンター",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
-      "search_id": "トヨタ:スプリンターカリブ",
-      "maker": "トヨタ",
-      "model": "スプリンターカリブ",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "トヨタ:スプリンタートレノ",
       "maker": "トヨタ",
       "model": "スプリンタートレノ",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
-      "search_id": "トヨタ:スプリンターワゴン",
-      "maker": "トヨタ",
-      "model": "スプリンターワゴン",
       "aliases": [],
       "market": "JP",
       "period_scope": "2000-01_to_2026-09",
@@ -2132,21 +2084,6 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "レクサス:HS",
-      "maker": "レクサス",
-      "model": "HS",
-      "aliases": [
-        "LEXUS HS",
-        "レクサスHS"
-      ],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "レクサス:IS",
       "maker": "レクサス",
       "model": "IS",
@@ -2577,18 +2514,6 @@
       "search_id": "日産:アリア",
       "maker": "日産",
       "model": "アリア",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
-      "search_id": "日産:インフィニティQ45",
-      "maker": "日産",
-      "model": "インフィニティQ45",
       "aliases": [],
       "market": "JP",
       "period_scope": "2000-01_to_2026-09",
@@ -3346,18 +3271,6 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "ホンダ:FCXクラリティ",
-      "maker": "ホンダ",
-      "model": "FCXクラリティ",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "ホンダ:Honda e",
       "maker": "ホンダ",
       "model": "Honda e",
@@ -4026,18 +3939,6 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "ホンダ:トルネオ",
-      "maker": "ホンダ",
-      "model": "トルネオ",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "ホンダ:パートナー",
       "maker": "ホンダ",
       "model": "パートナー",
@@ -4552,18 +4453,6 @@
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     },
     {
-      "search_id": "マツダ:トリビュート",
-      "maker": "マツダ",
-      "model": "トリビュート",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
       "search_id": "マツダ:ビアンテ",
       "maker": "マツダ",
       "model": "ビアンテ",
@@ -4779,18 +4668,6 @@
       "search_id": "マツダ:タイタン",
       "maker": "マツダ",
       "model": "タイタン",
-      "aliases": [],
-      "market": "JP",
-      "period_scope": "2000-01_to_2026-09",
-      "search_enabled": true,
-      "fitment_ready": false,
-      "fitment_status": "search_only_unverified",
-      "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
-    },
-    {
-      "search_id": "マツダ:タイタンダッシュ",
-      "maker": "マツダ",
-      "model": "タイタンダッシュ",
       "aliases": [],
       "market": "JP",
       "period_scope": "2000-01_to_2026-09",
@@ -6848,5 +6725,6 @@
       "fitment_status": "search_only_unverified",
       "fitment_note": "車種検索には使用可。PCD/穴数/ハブ径/締結方式/リム幅/インセット/タイヤサイズが検証済み車両DBと紐付くまで適合判定には使用しない。"
     }
-  ]
+  ],
+  "scope_note": "旧型・生産終了車10件はユーザー承認により2026-09-06に除外（レクサスHSは適合データも除外）。監査記録はvehicle-updates/search-master-retirements-2026-09-06.json。"
 }

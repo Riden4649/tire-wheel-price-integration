@@ -12,27 +12,17 @@ const check = (value, label) => { assert.ok(value, label); console.log(`PASS ${l
 try {
   await page.goto(base);
   await page.waitForFunction(() => window.IntegratedApp?.state?.vehicleSearchRecords?.length && window.VehicleStore);
-  await page.evaluate(() => VehicleStore.clearMissing());
-
   const target = await page.evaluate(() => {
     const record = IntegratedApp.state.vehicleSearchRecords.find(item => !item.has_verified_fitment);
     return { maker: record.maker, model: record.model };
   });
-  await page.evaluate(({ maker, model }) => {
-    const makerButton = [...document.querySelectorAll('[data-vehicle-filter="maker"]')].find(button => button.dataset.value === maker);
-    makerButton.click();
-    const modelButton = [...document.querySelectorAll('[data-vehicle-filter="model"]')].find(button => button.dataset.value === model);
-    modelButton.click();
-  }, target);
-
-  await page.waitForFunction(({ maker, model }) => IntegratedApp.state.missingVehicles.some(item => item.maker === maker && item.model === model), target);
-  const saved = await page.evaluate(({ maker, model }) => IntegratedApp.state.missingVehicles.find(item => item.maker === maker && item.model === model), target);
-  check(saved.count === 1, "適合未確認車を選ぶと候補へ自動保存");
-  check(saved.memo === "車種選択時に自動記録", "自動記録の由来を保存");
-  check((await page.locator("#searchOnlyVehicleText").textContent()).includes("自動で保存しました"), "画面に自動保存結果を表示");
-  check((await page.locator("#missingVehicleCount").textContent()) === "1件", "管理画面の候補件数へ即時反映");
+  await page.locator('[data-start="vehicle"]').click();
+  await page.locator("#vehicleModelSearch").fill(target.model);
+  check(await page.locator(`[data-vehicle-filter="model"][data-value="${target.model}"]`).count() === 0, "適合未確認車を商談候補に表示しない");
+  check(await page.locator("#missingVehiclePanel").isVisible(), "未確認車の検索を調査候補登録へ案内");
+  check(!await page.locator("#searchOnlyVehicleNotice").isVisible(), "未確認車を選択済みに見せない");
   check(errors.length === 0, `ブラウザ例外0件 ${errors.join(" / ")}`);
-  console.log("COMPLETE 5 checks");
+  console.log("COMPLETE 4 checks");
 } finally {
   await browser.close();
 }

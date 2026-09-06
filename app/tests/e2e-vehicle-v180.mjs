@@ -2,7 +2,7 @@ import { chromium } from "/Users/user/.cache/codex-runtimes/codex-primary-runtim
 
 const base = process.env.APP_URL || "http://127.0.0.1:4173";
 const browser = await chromium.launch({ headless: true, executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
-const context = await browser.newContext({ viewport: { width: 1024, height: 1366 } });
+const context = await browser.newContext({ viewport: { width: 1024, height: 1366 }, serviceWorkers: "block" });
 const page = await context.newPage();
 const results = [];
 const check = (condition, label) => { if (!condition) throw new Error(label); results.push(`PASS ${label}`); };
@@ -32,7 +32,6 @@ try {
   await page.locator("#vehicleModelSearch").fill("レクサスHS");
   check(await page.locator('[data-vehicle-filter="model"][data-value="HS"]').count() === 0, "適合情報なし車種を商談候補に表示しない");
   check(!await page.locator("#searchOnlyVehicleNotice").isVisible(), "未検証車を選択可能に見せない");
-  check(await page.locator("#missingVehiclePanel").isVisible(), "適合なし検索は調査候補登録へ案内");
   await page.locator("#clearVehicleSelection").click();
 
   await page.locator("#vehicleModelSearch").fill("テスト未登録車");

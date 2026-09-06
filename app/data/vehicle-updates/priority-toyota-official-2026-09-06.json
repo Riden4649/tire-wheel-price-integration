@@ -1,0 +1,215 @@
+{
+  "schema_version": "1.0.0",
+  "updates": [
+    {
+      "vehicle_id": "WEB_TOY_GRMN_YARIS_GXPA16",
+      "maker": "トヨタ",
+      "model": "GRMNヤリス",
+      "aliases": [
+        "GRMN YARIS",
+        "GRヤリス GRMN"
+      ],
+      "generation": "GXPA16 GRMN",
+      "model_codes": [
+        "GXPA16"
+      ],
+      "year_from": "2022-01",
+      "year_to": "2022-02",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M12×P1.5",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "17/18",
+      "oem_tire": "205/45R17;235/40R18",
+      "confidence": "A",
+      "variants": [
+        {
+          "variant_id": "WEB_TOY_GRMN_YARIS_GXPA16_BASE_17",
+          "label": "ベース／Rally package 17インチ",
+          "year_from": "2022-01",
+          "year_to": "2022-02",
+          "oem_inch": "17",
+          "oem_tire": "205/45R17"
+        },
+        {
+          "variant_id": "WEB_TOY_GRMN_YARIS_GXPA16_CIRCUIT_18",
+          "label": "Circuit package 18インチ",
+          "year_from": "2022-01",
+          "year_to": "2022-02",
+          "oem_inch": "18",
+          "oem_tire": "235/40R18"
+        }
+      ],
+      "notes": "トヨタ公式でGRMNヤリスの届出名称が『GRヤリス GRMN』、車両型式がGXPA16であることを確認。純正タイヤはGRMN公式装備表、PCD・穴数・ハブ径・ねじ規格はユーザー指定の公式TOPY資料のGXPA16行で型式一致照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA GAZOO Racing GRMN YARIS 価格・仕様・装備",
+          "source_url": "https://toyotagazooracing.com/jp/grmn/yaris/",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA GAZOO Racing GRMNヤリス発表",
+          "source_url": "https://global.toyota/jp/newsroom/toyota/36614826.html",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "TOPY 2025年 国産車用マッチングデータ TOYOTA－ 行469・470（GXPA16）",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/topy-source-excerpts-official-2026-09-06.json#DOC_E6A50E23D86B",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_TOY_ALPHARD_PHEV_AAHP45W",
+      "maker": "トヨタ",
+      "model": "アルファードPHEV",
+      "aliases": [
+        "アルファード PHEV",
+        "アルファードPHV"
+      ],
+      "generation": "AAHP45W",
+      "model_codes": [
+        "AAHP45W"
+      ],
+      "year_from": "2024-12",
+      "year_to": "2026-12",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5 ナット締結",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
+        "seat": "flat"
+      },
+      "oem_inch": "17/19",
+      "oem_tire": "225/65R17;225/55R19",
+      "rim_width_min": 6.5,
+      "rim_width_max": 7,
+      "offset_min": 40,
+      "offset_max": 40,
+      "wheel_torque_nm": 140,
+      "confidence": "B",
+      "variants": [
+        {
+          "variant_id": "WEB_TOY_ALPHARD_PHEV_AAHP45W_19",
+          "label": "PHEV 19インチ標準",
+          "year_from": "2024-12",
+          "year_to": "2026-12",
+          "oem_inch": "19",
+          "oem_tire": "225/55R19"
+        },
+        {
+          "variant_id": "WEB_TOY_ALPHARD_PHEV_AAHP45W_17",
+          "label": "PHEV 17インチ設定",
+          "year_from": "2024-12",
+          "year_to": "2026-12",
+          "oem_inch": "17",
+          "oem_tire": "225/65R17"
+        }
+      ],
+      "notes": "トヨタ公式でAAHP45Wのタイヤ、PCD120、5穴、ハブ径60、ナット締結、締付トルク140N・mを確認。ねじ径・ピッチと純正平面座はAAHP45Wを明記したKYO-EI製品適合掲載で照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA アルファード 2026年6月 工場装着タイヤ・ホイールサイズ",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_alphard_202606.pdf",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA ALPHARD PHEV メンテナンスデータ",
+          "source_url": "https://manual.toyota.jp/alphard/3117/phev/ja_JP/contents/vhch09se010401.php",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_fitment_listing",
+          "source_name": "KYO-EI M14×P1.5 ナット AAHP45W適合掲載（アルファードPHEV）",
+          "source_url": "https://store.shopping.yahoo.co.jp/tiremonstar/f100sb-20p-01.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_TOY_VELLFIRE_PHEV_AAHP45W",
+      "maker": "トヨタ",
+      "model": "ヴェルファイアPHEV",
+      "aliases": [
+        "ヴェルファイア PHEV",
+        "ヴェルファイアPHV"
+      ],
+      "generation": "AAHP45W",
+      "model_codes": [
+        "AAHP45W"
+      ],
+      "year_from": "2024-12",
+      "year_to": "2026-12",
+      "pcd": 120,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5 ナット締結",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5,
+        "seat": "flat"
+      },
+      "oem_inch": "17/19",
+      "oem_tire": "225/65R17;225/55R19",
+      "rim_width_min": 6.5,
+      "rim_width_max": 7,
+      "offset_min": 40,
+      "offset_max": 40,
+      "wheel_torque_nm": 140,
+      "confidence": "B",
+      "variants": [
+        {
+          "variant_id": "WEB_TOY_VELLFIRE_PHEV_AAHP45W_19",
+          "label": "PHEV 19インチ標準",
+          "year_from": "2024-12",
+          "year_to": "2026-12",
+          "oem_inch": "19",
+          "oem_tire": "225/55R19"
+        },
+        {
+          "variant_id": "WEB_TOY_VELLFIRE_PHEV_AAHP45W_17",
+          "label": "PHEV 17インチ設定",
+          "year_from": "2024-12",
+          "year_to": "2026-12",
+          "oem_inch": "17",
+          "oem_tire": "225/65R17"
+        }
+      ],
+      "notes": "トヨタ公式でAAHP45Wのタイヤ、PCD120、5穴、ハブ径60、ナット締結、締付トルク140N・mを確認。ねじ径・ピッチと純正平面座はAAHP45Wを明記したKYO-EI製品適合掲載で照合。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA ヴェルファイア 2024年12月 工場装着タイヤ・ホイールサイズ",
+          "source_url": "https://toyota.jp/pages/contents/faq/2.0/pdf/228/tire_vellfire_202412.pdf",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "TOYOTA VELLFIRE PHEV メンテナンスデータ",
+          "source_url": "https://manual.toyota.jp/vellfire/3087/phev/ja_JP/contents/vhch09se010401.php",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_fitment_listing",
+          "source_name": "KYO-EI M14×P1.5 ナット AAHP45W適合掲載（ヴェルファイアPHEV）",
+          "source_url": "https://store.shopping.yahoo.co.jp/tiremonstar/f100s-20p-02.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    }
+  ]
+}
