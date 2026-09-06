@@ -16,7 +16,7 @@
       "A"
     ]
   },
-  "record_count": 1087,
+  "record_count": 1089,
   "vehicles": [
     {
       "vehicle_id": "LEX_LC_Z100",
@@ -67421,6 +67421,83 @@
           "source_type": "wheel_manufacturer_official",
           "source_name": "Weds RAV4 50系/PHV 適合ページ",
           "source_url": "https://www.search.weds.co.jp/maker/toyota/rav4-50keiphv/wedssport-all/",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "WEB_LEX_LFA_LFA10",
+      "maker": "レクサス",
+      "model": "LFA",
+      "generation": "LFA10",
+      "model_codes": [
+        "LFA10"
+      ],
+      "year_from": "2010-12",
+      "year_to": "2012-12",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 60,
+      "fastener": "M14×P1.5 ボルト",
+      "fastener_details": {
+        "method": "bolt",
+        "thread_diameter": "M14",
+        "thread_pitch": 1.5
+      },
+      "oem_inch": "20",
+      "oem_tire": "265/35R20;305/30R20",
+      "front_rear_staggered": true,
+      "confidence": "A",
+      "notes": "純正タイヤはLEXUS公式取扱説明書、型式・取付基本規格はKSP公式適合表で照合。専用ホイールボルト車。",
+      "sources": [
+        {
+          "source_type": "vehicle_manufacturer_official",
+          "source_name": "LEXUS LFA 取扱説明書",
+          "source_url": "https://manual.lexus.jp/pdf/lfa/LFA_OM_JP_M77001J_1_1012.pdf",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
+          "verified_at": "2026-09-06"
+        }
+      ]
+    },
+    {
+      "vehicle_id": "DOC_NIS_CEDRIC_Y34",
+      "maker": "日産",
+      "model": "セドリック",
+      "generation": "Y34系",
+      "model_codes": [
+        "Y34"
+      ],
+      "year_from": "1999-06",
+      "year_to": "2004-10",
+      "pcd": 114.3,
+      "holes": 5,
+      "hub_bore": 66,
+      "fastener": "M12×P1.25",
+      "fastener_details": {
+        "method": "nut",
+        "thread_diameter": "M12",
+        "thread_pitch": 1.25
+      },
+      "oem_inch": "17",
+      "oem_tire": "215/50R17",
+      "confidence": "B",
+      "notes": "ユーザー指定の公式扱いMID資料の車名・年式・純正サイズを、同じY34系のKSP公式適合表で照合。",
+      "sources": [
+        {
+          "source_type": "user_designated_official_matching_document",
+          "source_name": "MID 24-25 ニッサン 行116",
+          "source_url": "https://tire-wheel-price-navi.hide718283.chatgpt.site/data/vehicle-updates/ksp-official-remaining-2026-09-06.json",
+          "verified_at": "2026-09-06"
+        },
+        {
+          "source_type": "parts_manufacturer_official",
+          "source_name": "KSP REAL 国産車適合表",
+          "source_url": "https://ksp-eng.co.jp/ksp/real/domestic.html",
           "verified_at": "2026-09-06"
         }
       ]
