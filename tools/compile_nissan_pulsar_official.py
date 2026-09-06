@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+updates = [{
+    "vehicle_id": "WEB_NIS_PULSAR_N13",
+    "maker": "日産",
+    "model": "パルサー",
+    "generation": "N13",
+    "model_codes": ["N13"],
+    "year_from": "1986-05",
+    "year_to": "1990-08",
+    "pcd": 114.3,
+    "holes": 4,
+    "hub_bore": 66,
+    "fastener": "M12×P1.25",
+    "fastener_details": {"method": "nut", "thread_diameter": "M12", "thread_pitch": 1.25},
+    "oem_inch": "13",
+    "oem_tire": "175/70R13",
+    "confidence": "A",
+    "notes": "車名・N13型・純正タイヤは日産公式ヘリテージコレクション、取付基本規格はKSP公式適合表のN13行で照合。",
+    "sources": [{
+        "source_type": "vehicle_manufacturer_official",
+        "source_name": "NISSAN HERITAGE COLLECTION パルサー N13",
+        "source_url": "https://www.nissan.co.jp/HERITAGE/DETAIL/205.html",
+        "verified_at": "2026-09-06"
+    }, {
+        "source_type": "parts_manufacturer_official",
+        "source_name": "KSP 080319適合表 パルサー N13",
+        "source_url": "https://www.ksp-eng.co.jp/web/080319.pdf",
+        "verified_at": "2026-09-06"
+    }]
+}]
+output = ROOT / "app/data/vehicle-updates/nissan-pulsar-official-2026-09-06.json"
+output.write_text(json.dumps({"schema_version": "1.0.0", "updates": updates}, ensure_ascii=False, indent=2) + "\n")
+print(output)
