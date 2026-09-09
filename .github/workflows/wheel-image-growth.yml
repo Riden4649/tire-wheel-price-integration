@@ -2,19 +2,9 @@ name: ホイール画像DB育成 v1.5 回収率×QA正解率の二軸制御
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '45 22 * * *'
-  push:
-    branches: [main]
-    paths:
-      - 'app/data/wheels/image_master.json'
-      - 'app/data/wheels/search_strategy.json'
-      - 'app/assets/wheels/**'
-      - 'tools/wheel_image_research.py'
-      - 'tools/wheel_image_quality_gate.py'
-      - 'tools/wheel_thumbnail_cache.py'
-      - 'tests/wheel_image_qa.py'
-      - '.github/workflows/wheel-image-growth.yml'
+
+# 一時停止中（2026-09-09）
+# ホイール画像の自動収集を再開するまで実行しない。
 
 permissions:
   contents: write
@@ -25,7 +15,7 @@ concurrency:
 
 jobs:
   collect:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ false }} # 一時停止中
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
