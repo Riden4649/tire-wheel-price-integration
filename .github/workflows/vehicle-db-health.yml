@@ -2,26 +2,9 @@ name: 車種DB育成 v2.2 API節約＋Codex枯渇モード
 
 on:
   workflow_dispatch:
-  issues:
-    types: [opened]
-  pull_request:
-    paths:
-      - 'app/data/**'
-      - 'dashboard/**'
-      - 'tools/**'
-      - 'tests/vehicle_db_qa.py'
-      - '.github/workflows/vehicle-db-health.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'app/data/**'
-      - 'dashboard/**'
-      - 'tools/**'
-      - 'tests/vehicle_db_qa.py'
-      - '.github/workflows/vehicle-db-health.yml'
-  schedule:
-    # UTC Mon/Wed/Fri 22:15 = JST Tue/Thu/Sat 07:15
-    - cron: '15 22 * * 1,3,5'
+
+# 一時停止中（2026-09-09）
+# 車種データ収集・Tavily・Brave・Gemini・自動反映を再開するまで実行しない。
 
 permissions:
   contents: write
@@ -32,7 +15,7 @@ concurrency:
 
 jobs:
   grow-and-check:
-    if: ${{ github.actor != 'github-actions[bot]' && (github.event_name != 'issues' || (github.actor == github.repository_owner && startsWith(github.event.issue.title, '[vehicle-research]'))) }}
+    if: ${{ false }} # 一時停止中
     name: キャッシュ優先→省API探索→Codex引継ぎキュー→QA
     runs-on: ubuntu-latest
     steps:
